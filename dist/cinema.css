@@ -1,0 +1,157 @@
+/* The camera, board, binding and leaves share one physical coordinate system. */
+.has-book-film{padding-bottom:20px}
+.book-film{position:relative;--leaf-w:350px;--leaf-h:602px;--header-h:60px}
+.book-viewport{position:relative;width:100%;height:var(--stage-h,calc(100svh - var(--header-h)));overflow:clip;perspective:1900px;perspective-origin:50% 45%}
+.camera-rig{position:absolute;left:50%;top:calc((100% - var(--bottom-reserve,84px))/2);width:calc(var(--leaf-w)*2);height:var(--leaf-h);transform-style:preserve-3d;transform:translate(-50%,-50%);will-change:transform}
+.album-object{position:relative;width:100%;height:100%;transform-style:preserve-3d}
+.book-ground{position:absolute;left:50%;top:calc(50% - 26px);width:min(880px,95%);height:min(540px,70%);border-radius:50%;background:radial-gradient(ellipse,#66425333,transparent 69%);transform:translate(-50%,-50%);pointer-events:none}
+.book-board{position:absolute;top:-9px;width:calc(var(--leaf-w) + 12px);height:calc(var(--leaf-h) + 20px);background:var(--binding);border:2px solid var(--binding);border-radius:5px;transform:translateZ(-12px);box-shadow:0 14px 23px #62435030}
+.book-board:before{content:'';position:absolute;inset:0;background:url('assets/materials/linen.webp') 0 0/350px 350px;opacity:.12}
+.left-board{left:-12px;opacity:0}.right-board{left:50%}
+.paper-edges{position:absolute;left:50%;top:3px;width:calc(var(--leaf-w) + 6px * var(--remaining,1));height:calc(var(--leaf-h) + 7px * var(--remaining,1));border-radius:1px 5px 4px 1px;background:repeating-linear-gradient(0deg,var(--paper) 0 2px,var(--paper-edge) 2px 3px);box-shadow:2px 3px 0 var(--paper-edge),4px 5px 0 var(--paper),6px 7px 0 var(--paper-edge);transform:translateZ(-5px)}
+.left-leaf,.right-deck,.front-board,.curl-leaf{position:absolute;top:0;width:var(--leaf-w);height:var(--leaf-h);transform-style:preserve-3d}
+.left-leaf{left:0;transform:translateZ(3px);opacity:0;background:var(--paper);z-index:1}
+.right-deck,.front-board,.curl-leaf{left:50%}
+.right-deck{transform:translateZ(4px);background:var(--paper);border-radius:0 3px 3px 0;z-index:2}
+.front-board{transform-origin:left center;transform:translateZ(8px);z-index:4}
+.book-binding{position:absolute;left:calc(50% - 13px);top:0;width:24px;height:100%;transform:translateZ(10px);z-index:3;background:linear-gradient(90deg,transparent,#5b394228 38%,#fff9f460 53%,#58343c2b 60%,transparent);pointer-events:none}
+.book-binding:after{content:'';position:absolute;left:11px;top:0;width:1px;height:100%;background:#ac8f95}
+.has-book-film .cover-chapter{position:absolute;inset:0;padding:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translateZ(1px);isolation:auto}
+.has-book-film .cover-seat{width:100%;height:100%;min-height:0;display:block;padding:0;perspective:none;overflow:visible}
+.has-book-film .cover-model{width:100%;height:100%;min-width:0;aspect-ratio:auto;transform:none;box-shadow:5px 7px 0 var(--binding),7px 11px 16px #62435030;transform-style:preserve-3d}
+.has-book-film .book-front{padding:35px 30px 31px 35px;border-left-width:12px;transform:none;justify-content:space-around}
+.has-book-film .book-front h1{font-size:clamp(36px,10vw,52px);padding:18px 0 8px}
+.has-book-film .cover-paper{display:none}
+.has-book-film .cover-stitch{inset:16px}
+.has-book-film .cover-cat{width:64px}
+.has-book-film .cover-date{font-size:12px}
+.has-book-film .cover-credit{font-size:12px}
+.has-book-film .cover-nameplate strong{font-size:21px}
+.has-book-film .cover-ribbon{right:25px;width:18px;top:-7px;height:calc(100% + 26px)}
+.has-book-film .open-book{position:absolute;bottom:22px;left:50%;transform:translateX(-50%) translateZ(3px);width:max-content;max-width:90%;z-index:5;background:var(--paper);border-color:var(--control-line);font-size:13px;min-height:52px;padding:11px 15px}
+.has-book-film .cover-credit{margin-bottom:62px}
+.cover-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg) translateZ(1px);background:var(--lining);border:12px solid var(--binding);border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:23px;text-align:center;padding:35px}
+.inside-lining{position:absolute;inset:0;background:url('assets/materials/linen.webp') 0 0/350px 350px;opacity:.1;z-index:-1}
+.cover-back p{font:40px/1.13 var(--serif)}.cover-back span{font-size:12px}.cover-back img{width:190px;height:auto}
+.film-chapter.album-chapter{position:absolute;inset:0;padding:0;visibility:hidden;transform-style:preserve-3d}
+.film-chapter .page-seat{position:absolute;inset:0;width:100%;margin:0;perspective:none;transform-style:preserve-3d}
+.book-print.sheet{position:absolute;inset:0;min-height:0;width:var(--leaf-w);height:var(--leaf-h);max-width:none;margin:0;padding:31px 25px 60px 33px;border-left:0;border-radius:0 3px 3px 0;box-shadow:inset 9px 0 16px #63425313;transform:none;isolation:isolate}
+.book-print.sheet:after{display:none}
+.book-print:focus-visible{outline:3px solid var(--rose);outline-offset:4px}
+.book-print .page-content{height:100%;transform-style:flat;overflow:visible}
+.book-print .page-foot{position:absolute;bottom:19px;left:33px;right:25px;margin:0;padding-top:9px;font-size:10px;min-height:25px}
+.book-print .page-foot>span:first-child{max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.running-title{position:absolute;left:33px;top:12px;font-size:9px;letter-spacing:.03em;color:var(--muted)}
+.book-print h2{font-size:39px;line-height:1.06;max-width:100%;overflow-wrap:anywhere;margin-bottom:21px}
+.book-print .page-intro{font-size:18px;line-height:1.5;margin:15px 0}
+.book-print .prose{font-size:19px;line-height:1.6;margin:14px 0}
+.book-print .prose p+p{margin-top:0}
+.book-print .small-signature{font-size:13px;margin:19px 0}
+.book-print .dedication-insert{min-width:0;width:76%;padding:31px 22px;margin:25px auto;transform:rotate(4deg)}
+.book-print .dedication-insert p{font-size:33px}.book-print .dedication-insert img{width:58px}
+.book-print .print-group{margin:20px 0;gap:20px 15px;grid-template-columns:1fr 1fr;display:grid}
+.book-print .print-group.prose{display:block;margin:14px 0}
+.book-print .print-group.music-notes,.book-print .print-group.wish-folds{display:block;margin:24px 0}
+.book-print .preparation-note{font-size:12px;line-height:1.5;margin:13px 0}
+.book-print .detail-note{padding:18px 14px;min-height:144px;max-width:100%;transform:rotate(-1.5deg)}
+.book-print .detail-note:nth-child(2){transform:rotate(1.5deg)}
+.book-print .detail-note h3{font-size:13px;margin-bottom:12px}.book-print .detail-note p{font-size:17px;line-height:1.45}
+.book-print .long-note{grid-column:1/-1;transform:none!important}
+.book-print .favourites-collage{grid-template-columns:1.1fr .9fr;grid-template-rows:auto;max-width:none;gap:19px}
+.book-print .cat-print{grid-row:auto;padding:8px 8px 14px;transform:rotate(-4deg)}
+.book-print .cat-print figcaption{font-size:17px;margin-top:12px}.book-print .cat-print>img{height:auto}
+.book-print .race-paper{padding:19px 13px;transform:rotate(2deg)}.book-print .race-paper>span:first-child{font-size:13px;padding-right:0}.book-print .race-paper strong{font-size:66px;margin:18px 0 12px}.book-print .race-paper p{font-size:10px}.book-print .racing-stripes{width:14px;height:38px;right:10px;top:55px}
+.book-print .pink-paper{padding:20px 15px}.book-print .pink-paper p{font-size:38px}.book-print .pink-paper span{font-size:10px}
+.book-print .favourites-caption{grid-column:auto;font-size:18px;text-align:left;align-self:center;margin:0}
+.book-print .record-wrap{width:70%;height:auto;aspect-ratio:.95;margin:27px auto 33px;max-width:240px}
+.book-print .record-jacket{padding:17px}.book-print .record-jacket>span,.book-print .record-jacket p{font-size:11px}.book-print .record-jacket strong{font-size:66px}.book-print .record>span{width:72px;font-size:38px}.book-print .record small{font-size:7px}
+.book-print .music-slip{padding:21px 18px;transform:rotate(1deg)}.book-print .artist-note{font-size:17px;min-height:44px}.book-print .song-title{font-size:22px;margin:10px 0}.book-print .artist-preview{font-size:18px;line-height:1.5;-webkit-line-clamp:4}.book-print .song-link{font-size:13px}
+.book-print .song-title{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.book-print .vellum-insert{display:none}
+.book-print .polaroid{padding:7px 7px 13px;width:100%;margin:0;grid-column:auto;transform:rotate(-2deg)}
+.book-print .polaroid:nth-child(2){transform:rotate(3deg)}
+.book-print .photo-open{aspect-ratio:.83}
+.book-print .polaroid figcaption{font-size:16px;line-height:1.4;margin-top:11px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.book-print .photo-tape{height:19px;top:-9px}
+.book-print .margin-note{font-size:12px;margin:20px 0}
+.book-print .postcard{padding:23px 19px;width:100%;margin:20px 0;transform:rotate(-1deg)}
+.book-print .postcard-top{font-size:11px;line-height:1.5;margin-bottom:20px}
+.book-print .postcard .prose{font-size:18px;line-height:1.6}.book-print .postcard-signature{font-size:19px;margin-top:19px}
+.book-print .postcard-stamp{padding:6px;top:21px;right:10px}.book-print .postcard-stamp img{width:29px}
+.book-print .distance-envelope{width:83%;padding:25px 22px;min-height:200px;margin:30px auto;transform:rotate(4deg);border-top-width:38px}
+.book-print .distance-envelope:before{top:-38px}.book-print .distance-envelope p{font-size:30px}.book-print .distance-envelope>span{font-size:13px;margin-top:22px}
+.book-print .october-context{font-size:18px;line-height:1.5;margin:13px 0}
+.book-print .accordion-book{gap:0}
+.book-print .accordion-panel{padding:21px 10px 17px}.book-print .accordion-panel h3{font-size:41px;margin-bottom:22px}.book-print .accordion-panel h3 span{font-size:11px}
+.book-print .day-photo{padding:6px 6px 11px}.book-print .day-photo figcaption{font-size:14px}.book-print .day-story{font-size:12px;line-height:1.5;margin-top:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.book-print .letter-topline{font-size:11px;gap:14px;margin:14px 0 20px;padding-bottom:16px}
+.book-print .letter-topline>span:last-child{max-width:42%;flex:initial}
+.book-print .letter-text{font-size:20px;line-height:1.65;margin:16px 0}.book-print .letter-signoff{font-size:22px;margin:26px 0}.book-print .letter-signoff strong{font-size:16px}
+.book-print .wish-paper{padding:25px 23px 28px;min-height:0;width:96%;max-width:none;margin:auto;transform:rotate(-2deg)}
+.book-print .wish-paper h3{font-size:15px}.book-print .wish-paper p{font-size:20px;line-height:1.5;margin-top:18px}
+.book-print .next-note{font-size:40px;margin:30px 0 0;padding-right:5px}
+.book-print .birthday-message{font-size:20px;line-height:1.55;margin:19px 0}
+.book-print .gift-composition{margin:88px auto 0}
+.book-print .gift-envelope{width:min(250px,96%);height:166px}
+.book-print .envelope-flap{top:-98px;height:102px}.book-print .gift-card{height:197px;bottom:36px;padding:20px 15px}.book-print .gift-card strong{font-size:57px}.book-print .gift-card span{font-size:12px}.book-print .envelope-front>span{font-size:29px}
+.book-print .gift-composition>.primary-button{font-size:13px;padding:12px 16px;margin-top:28px}
+.book-print .gift-status{font-size:12px;margin-top:13px;text-align:center}
+.book-print .replay-link{font-size:13px;margin-top:25px}
+.is-turning{pointer-events:none}
+.curl-leaf{z-index:5;visibility:hidden;transform:translateZ(6px);pointer-events:none}
+.page-strip{position:absolute;left:0;top:0;height:100%;transform-origin:left center;transform-style:preserve-3d;will-change:transform}
+.strip-face{position:absolute;inset:0;overflow:hidden;background:var(--paper);backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translateZ(.3px)}
+.strip-back{transform:rotateY(180deg) translateZ(.3px)}
+.strip-face>.book-print,.strip-face>.memento-page{position:absolute;left:0;top:0;width:var(--leaf-w);height:var(--leaf-h);transform-origin:top left;pointer-events:none}
+.strip-face button:disabled,.memento-page button:disabled{opacity:1}
+.strip-shade{position:absolute;inset:0;background:#492f3e;transform:translateZ(.7px);backface-visibility:hidden;pointer-events:none;opacity:0}
+.turn-shadow{position:absolute;left:50%;top:0;width:var(--leaf-w);height:var(--leaf-h);transform:translateZ(5px);transform-origin:left center;background:linear-gradient(90deg,#52374360,transparent 80%);opacity:0;pointer-events:none;z-index:4}
+.memento-page{position:relative;width:100%;height:100%;padding:42px 33px 36px;background:var(--paper);box-shadow:inset -14px 0 18px #63425318;overflow:hidden;text-align:center}
+.memento-page:before{content:'';position:absolute;inset:0;background:url('assets/materials/paper.webp') 0 0/440px 440px;opacity:.1;pointer-events:none}
+.memento-page>*{position:relative}.memento-title{font:italic 28px/1.1 var(--serif)}
+.memento-piece{height:calc(100% - 95px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:25px}
+.memento-piece>p{font:34px/1.15 var(--serif)}.memento-cat{width:90px;height:auto}
+.memento-piece>.polaroid,.memento-piece>.cat-print{width:85%;margin:0;transform:rotate(-5deg);grid-column:auto;grid-row:auto;max-height:90%;overflow:hidden}
+.memento-piece .photo-open{aspect-ratio:.95}.memento-piece figcaption{font:20px/1.4 var(--serif);margin-top:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.memento-piece>.detail-note,.memento-piece>.wish-paper,.memento-piece>.race-paper{width:90%;padding:28px 23px;max-height:85%;overflow:hidden;transform:rotate(-4deg)!important}
+.memento-piece>.detail-note p,.memento-piece>.wish-paper p{font-size:21px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.memento-piece>.record-wrap{width:90%;height:auto;aspect-ratio:.95}.memento-piece .record-jacket strong{font-size:90px}
+.memento-piece>.dedication-insert{width:90%;min-width:0;padding:38px 20px}.memento-piece>.distance-envelope{width:90%;min-height:220px;padding:30px 25px}
+.memento-piece>.gift-envelope{width:85%;height:180px;margin-top:70px}
+.memento-date{position:absolute;bottom:29px;left:0;right:0;font-size:11px;color:var(--muted)}
+.book-scroll-cue{position:absolute;left:18px;right:18px;bottom:calc(var(--bottom-reserve,84px) + 2px);text-align:center;font-size:12px;line-height:1.4;color:var(--ink);pointer-events:none}
+.has-book-film .book-navigation{box-shadow:0 6px 20px #67465623;background:var(--paper)}
+.book-navigation{bottom:calc(var(--visual-bottom-inset,0px) + max(10px,env(safe-area-inset-bottom,0px)))}
+@media(min-width:960px){.book-print.sheet{padding:41px 35px 65px 40px}.book-print .running-title{left:40px;top:17px}.book-print .page-foot{left:40px;right:35px;font-size:11px}.book-print h2{font-size:46px}.book-print .page-intro{font-size:20px}.book-print .prose{font-size:21px}.book-print .letter-text{font-size:22px}.book-print .record-wrap{max-width:240px;width:68%}.book-print .music-slip{padding:23px}.book-print .detail-note p{font-size:19px}.book-print .detail-note h3{font-size:15px}.book-print .polaroid figcaption{font-size:18px}.book-print .memento-title{font-size:33px}.book-scroll-cue{bottom:92px}}
+@media(max-height:740px){.has-book-film .book-front{padding:26px 26px 21px 29px}.has-book-film .book-front h1{font-size:36px;padding:9px 0}.has-book-film .cover-cat{width:45px}.has-book-film .cover-credit{font-size:10px;margin-bottom:49px}.has-book-film .cover-date{font-size:10px}.has-book-film .cover-nameplate strong{font-size:18px}.has-book-film .open-book{bottom:14px}.book-print.sheet{padding-top:29px}.book-print h2{font-size:35px}.book-print .record-wrap{max-width:190px}.book-print .prose{font-size:18px}.book-print .letter-text{font-size:19px}.book-print .detail-note{padding:15px 12px;min-height:134px}.book-print .detail-note p{font-size:16px}}
+.book-print .gift-composition{break-inside:avoid}
+@media(max-height:740px){.book-print .gift-composition{margin-top:74px}.book-print .gift-envelope{height:140px;width:min(225px,95%)}.book-print .envelope-flap{top:-85px;height:89px}.book-print .gift-composition>.primary-button{margin-top:24px}.book-print .gift-status{font-size:11px}.book-print .gift-card{height:177px;bottom:30px}.book-print .gift-card strong{font-size:51px}}
+@media(max-height:740px){.book-print .accordion-book{margin:12px 0}.book-print .accordion-panel{padding:12px 8px 10px}.book-print .accordion-panel h3{font-size:35px;margin-bottom:13px}.book-print .day-photo .photo-open{aspect-ratio:1.1}.book-print .day-photo figcaption{font-size:13px;line-height:1.3;-webkit-line-clamp:2}.book-print .day-story{margin-top:12px;-webkit-line-clamp:2}}
+
+/* Small portrait Safari viewports keep the book above the fixed controls. */
+:root{--site-header-h:64px}
+.site-header{height:calc(var(--site-header-h) + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px)}
+.album-story{padding-top:calc(var(--site-header-h) + env(safe-area-inset-top,0px))}
+@media(max-width:599px){:root{--site-header-h:60px}}
+.compact-book .book-front{padding:20px 25px 16px 29px}
+.compact-book .book-front h1{font-size:34px;padding:4px 0}
+.compact-book .cover-cat{width:38px}
+.compact-book .cover-credit{margin-bottom:52px;font-size:10px}
+.compact-book .book-print .dedication-insert{padding:22px 18px;margin:18px auto}
+.compact-book .book-print .dedication-insert img{width:50px}
+.compact-book .book-print .record-wrap{max-width:170px;margin:22px auto 24px}
+.compact-book .book-print .photo-open{aspect-ratio:1}
+.compact-book .book-print .day-photo .photo-open{aspect-ratio:1.1}
+.compact-book .book-print .accordion-panel{padding:12px 8px 10px}
+.compact-book .book-print .day-story{display:none}
+.compact-book .book-print .artist-preview{-webkit-line-clamp:2}
+.compact-book .book-print .song-title{font-size:20px;-webkit-line-clamp:2}
+.compact-book .book-print .gift-composition{margin-top:44px}
+.compact-book .book-print .gift-envelope{width:min(205px,94%);height:92px}
+.compact-book .book-print .envelope-flap{top:-67px;height:71px}
+.compact-book .book-print .gift-card{height:143px;bottom:24px;padding:16px 13px}
+.compact-book .book-print .gift-card strong{font-size:47px}
+.compact-book .book-print .envelope-front>span{font-size:24px;margin-top:28px}
+.compact-book .book-print .gift-composition>.primary-button{min-height:44px;padding:10px 12px;margin-top:12px}
+.compact-book .book-print .gift-status{margin-top:6px}
+.compact-book .book-print .replay-link{margin-top:10px}

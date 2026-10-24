@@ -1,0 +1,23 @@
+# Scrapbook asset sources
+
+Seven illustrated fan stickers represent the recipient's supplied favorites: Ferrari, Lewis Hamilton, George Russell, Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro. Original artwork was generated for this scrapbook and uses racing/music keepsake motifs with accessible names and no visible captions. The original RGBA sheet and its per-sticker frames retain complete silhouettes. Generation and file provenance: [cutouts/PROVENANCE.md](cutouts/PROVENANCE.md).
+
+The map of central Trier uses actual OpenStreetMap river-bank, street and landmark geometry downloaded through the Overpass API on 17 October 2026. It is geographic context, with no invented route or claim of places visited. The live book uses the1000x650 WebP; the editable SVG is also included.
+
+Map data copyright OpenStreetMap contributors, available under the Open Database License. Attribution and license: https://www.openstreetmap.org/copyright
+
+Primary landmark and water geometry:
+
+- Mosel river-bank relation: https://www.openstreetmap.org/relation/4237348
+- Porta Nigra: https://www.openstreetmap.org/node/10106558273
+- Hauptmarkt: https://www.openstreetmap.org/node/5761430684
+
+The map contains its attribution and Source Sans3 labels. A linked attribution is also available in the map dialog.
+
+Fraunces is by Phaedra Charles and Flavia Zimbardi, Undercase Type. Source: https://github.com/google/fonts/tree/main/ofl/fraunces
+
+Source Sans3 is by Paul D. Hunt, Adobe. Source: https://github.com/google/fonts/tree/main/ofl/sourcesans3
+
+Both fonts use the SIL Open Font License. Their license files are included in assets/fonts. The Fraunces print subset fixes optical size36, softness35 and wonk0; weight remains variable400-600. Source Sans3 print subsets retain weights400-600. Latin and Latin-ext are served separately.
+
+The existing five-cat artwork illustrates the supplied descriptions. Minnie is based on the supplied reference photograph. It does not represent real trip photography. The same source image is displayed through five individual cropped sticker mounts; no coat descriptions have been changed.

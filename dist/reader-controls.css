@@ -1,0 +1,21 @@
+/* Utility controls sit on the cloth ground so the book owns the screen. */
+:root{--site-header-h:44px}
+.site-header{height:calc(var(--site-header-h) + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 10px 0;background:var(--stage);border:0;gap:0}
+.site-header:before{content:'';position:absolute;inset:0;background:url('assets/materials/linen.webp') 0 0/350px 350px;opacity:.08;pointer-events:none}
+.site-header .brand{display:flex;align-items:center;justify-content:center;width:44px;min-height:44px;padding:0;flex:none}
+.site-header .brand>span,.site-header .date-caption{display:none}
+.site-header .brand img{width:22px;height:22px}
+.site-header .header-actions{gap:4px}
+.site-header .icon-button,.book-navigation>.icon-button{width:44px;height:44px;min-height:44px;padding:10px;background:transparent;border:0;border-radius:3px;color:var(--ink);box-shadow:none}
+.site-header .ui-icon,.book-navigation>.icon-button .ui-icon{width:22px;height:22px}
+.site-header .icon-button[aria-pressed="true"]{background:transparent;color:var(--rose)}
+.site-header .brand:focus-visible,.site-header .icon-button:focus-visible,.book-navigation button:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+.site-header .brand:focus-visible,.site-header .icon-button:focus-visible{outline-offset:-2px}
+.site-header .icon-button:active,.book-navigation>.icon-button:active,#book-contents:active{background:var(--lining)}
+.book-navigation,.has-book-film .book-navigation{height:44px;max-width:335px;padding:0;gap:8px;background:transparent;border:0;box-shadow:none}
+#book-contents{min-height:44px;padding:0 8px;font-size:13px;gap:7px;border-radius:3px}
+#page-position{font-size:12px}
+body[data-book-chapter="cover"] .book-navigation,body[data-book-chapter="cover"] .site-header .brand{visibility:hidden;pointer-events:none}
+.has-book-film .book-viewport>.cover-open-action{bottom:calc(max(20px,env(safe-area-inset-bottom,0px)) + var(--visual-bottom-inset,0px))}
+@media(hover:hover){.site-header .brand:hover,.site-header .icon-button:hover,.book-navigation>.icon-button:not(:disabled):hover,#book-contents:hover{background:var(--lining)}}
+@media(min-width:960px){.site-header{padding-left:20px;padding-right:20px}.book-navigation,.has-book-film .book-navigation{max-width:350px}}

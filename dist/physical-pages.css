@@ -1,0 +1,136 @@
+/* A printed keepsake: five compositions, one palette and two purposeful typefaces. */
+:root{--site-header-h:52px;--display:'Source Sans 3',Arial,sans-serif;--serif:'Fraunces',Georgia,serif;--contact:#3f3238;--photo:#efd9df}
+html{font-synthesis:none}
+[hidden]{display:none!important}
+body,button,input,textarea,select{font-family:var(--display)}
+h1,h2,h3,.story-copy{font-optical-sizing:none}
+em{font-style:normal}
+.site-header{border-bottom-color:var(--line);gap:12px}
+.header-actions{margin-left:auto}
+.brand{font-size:16px;letter-spacing:-.025em;font-weight:600}
+.brand img{width:22px;height:22px}
+.book-navigation,.has-book-film .book-navigation{height:48px;padding:0;max-width:335px;background:transparent;border:0;box-shadow:none;gap:14px}
+.book-navigation>.icon-button{background:var(--paper);border:1px solid var(--line);border-radius:3px}
+#book-contents{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;font-size:14px}
+#page-position{display:inline;font-size:12px;margin:0;white-space:nowrap}
+#current-chapter{display:inline;max-width:160px}
+.owner-preview{display:inline-flex;align-items:center;min-height:44px;color:var(--rose);font-size:15px;text-underline-offset:4px}
+.book-scroll-cue{font-size:13px}
+.edited-story .story-copy{font:400 18px/1.5 var(--display);color:var(--ink);overflow-wrap:anywhere}
+.edited-story .sheet h2{font-family:var(--serif);font-weight:500;font-style:normal;letter-spacing:-.035em;line-height:1.1}
+.book-print{container-type:size}
+.book-print.sheet{padding:29px 28px 36px 31px}
+.book-print .running-title{left:31px;top:9px;font:500 12px/1.3 var(--display)}
+.book-print .page-foot{left:31px;right:28px;bottom:14px;border-top:0;font:400 12px/1.3 var(--display)}
+.edited-story .book-print h2{font-size:32px;line-height:1.12;margin:0 0 8px;padding:0}
+.edited-story .book-print .story-copy{font-size:17px;line-height:1.4}
+.edited-story .book-print .placeholder-copy,.edited-story .book-print .story-copy.placeholder-copy{padding:0;border:0;background:transparent;color:var(--ink);font:400 16px/1.4 var(--display)}
+.book-print.sheet:before{background:url('assets/materials/paper.webp') 0 0/440px 440px;opacity:.08}
+.edited-story .recap-location,.contact-caption{margin:0;font:400 14px/1.4 var(--display);color:var(--muted)}
+.edited-story .book-print .story-actions{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;margin-top:8px}
+.edited-story .book-print .story-actions>button{display:inline-flex;align-items:center;justify-content:flex-start;gap:14px;flex:0 0 auto;width:auto;max-width:100%;min-height:60px;padding:8px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;color:var(--ink);font:400 15px/1.4 var(--display)}
+.edited-story .book-print .story-actions>button .ui-icon{width:18px;height:18px}
+
+/* A geographic map and a clearly empty pocket for an eventual real keepsake. */
+.edited-story .trier-map{width:100%;height:auto;margin:23px auto 17px;padding:7px 7px 6px;background:var(--paper);border:1px solid var(--paper-edge);box-shadow:1px 2px 3px #301e2a20;transform:rotate(-1.3deg)}
+.trier-map>button{display:block;min-height:60px;width:100%;padding:0;border:0;background:transparent}
+.trier-map img{display:block;width:100%;height:auto;aspect-ratio:1000/650;object-fit:contain}
+.trier-map figcaption{padding:5px 2px 0;font:400 11.5px/1.3 var(--display);color:var(--muted)}
+.edited-story .book-print .trier-map{height:auto;margin:13px auto 11px}
+.edited-story .book-print .recap-intro{margin:0 0 16px;font:400 17px/1.4 var(--display)}
+.keepsake-slip{position:relative;padding:10px 13px 12px;background:var(--lining);border-top:1px dashed var(--control-line);color:var(--ink);font:400 14px/1.4 var(--display)}
+.keepsake-label{display:block;font-weight:600;margin-bottom:3px}
+.dialog-map{margin:23px 0}
+.dialog-map img{width:100%;height:auto}
+.dialog-map figcaption{font:400 13px/1.5 var(--display);color:var(--muted);margin-top:10px}
+.trip-days{list-style:none;padding:0;margin:24px 0;color:var(--ink)}
+.trip-days li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font:400 15px/1.4 var(--display)}
+.trip-days strong{font-weight:600;flex-shrink:0}
+.trip-days span{text-align:right}
+
+/* One contact sheet replaces four identical paper cards. */
+.edited-story .photo-fragments,.book-print .print-group.photo-fragments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px;margin:17px 0 0;padding:12px;background:var(--contact);border:1px solid var(--contact);box-shadow:1px 2px 3px #301e2a20;transform:rotate(-.6deg)}
+.edited-story .photo-fragment,.book-print .photo-fragment{display:block;min-height:60px;width:100%;padding:0;border:0;background:transparent;color:var(--paper);text-align:left;box-shadow:none;transform:none}
+.fragment-image{display:flex;align-items:center;justify-content:center;width:100%;height:76px;background:var(--photo);border:4px solid var(--paper);overflow:hidden}
+.fragment-image img{width:100%;height:100%;object-fit:cover}
+.fragment-image .image-error{display:flex;align-items:center;justify-content:center;height:100%;padding:6px;color:var(--ink);font:400 12px/1.3 var(--display);text-align:center}
+.fragment-placeholder{font:400 14px/1.3 var(--display);color:var(--muted);text-align:center;padding:6px}
+.fragment-caption{display:block;padding-top:6px}
+.fragment-caption>strong{display:block;font:500 15px/1.2 var(--display);margin:0 0 4px;color:var(--paper)}
+.edited-story .fragment-caption .recap-day-copy{display:block;font:400 13.5px/1.3 var(--display);color:var(--paper);overflow-wrap:anywhere}
+.edited-story .book-print .photo-fragments{margin-top:14px;gap:13px 12px}
+.recap-days-chapter .story-actions{margin-top:3px}
+
+/* A proper photo mount lets the photograph carry a whole page. */
+.edited-story .together-chapter h2,.edited-story .together-chapter .book-print h2{font:500 15px/1.4 var(--display);letter-spacing:0;margin:0 0 17px}
+.edited-story .real-memory,.edited-story .book-print .real-memory{height:270px;width:96%;margin:0 auto 24px;padding:8px 8px 12px;background:var(--paper);border:1px solid var(--paper-edge);box-shadow:1px 2px 4px #301e2a24;transform:rotate(-1.8deg)}
+.real-memory>button{display:block;width:100%;height:calc(100% - 26px);min-height:60px;padding:0;border:0;background:transparent}
+.real-memory figcaption{height:26px;padding-top:8px;font:400 13px/1.3 var(--display);color:var(--ink)}
+.real-memory .photo-tape{background:var(--sage);opacity:.68}
+.photo-blank{display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:var(--photo);border:1px solid var(--control-line);color:var(--muted);font:400 16px/1.5 var(--display);text-align:center;padding:18px}
+.edited-story .book-print .distance-excerpt{margin:0;font:400 17px/1.45 var(--display)}
+
+/* Fine letter paper, five separate illustrated stickers and one music slip. */
+.edited-story .short-letter-chapter h2,.edited-story .short-letter-chapter .book-print h2{font:500 15px/1.4 var(--display);letter-spacing:0;margin:0 0 15px}
+.edited-story .folded-letter{display:block;position:relative;width:100%;padding:17px 17px 15px;background:var(--paper);border:1px solid var(--paper-edge);box-shadow:1px 2px 3px #301e2a20;transform:rotate(-.8deg);font:400 20px/1.4 var(--serif);text-align:left}
+.folded-letter .letter-salutation{display:block;font:400 15px/1.4 var(--display);margin:0 0 11px;overflow-wrap:anywhere}
+.edited-story .folded-letter .story-copy,.edited-story .book-print .folded-letter .story-copy{display:block;font:400 18px/1.4 var(--serif);padding:0;border:0;background:transparent;color:var(--ink);margin:0}
+.edited-story .folded-letter .letter-signoff-short{display:block;font:400 15px/1.4 var(--display);margin:12px 0 0;overflow-wrap:anywhere}
+.letter-crease{position:absolute;left:0;right:0;top:51%;height:1px;background:var(--line);opacity:.32;pointer-events:none}
+.recap-pets,.book-print .recap-pets,.compact-book .book-print .recap-pets{width:100%;height:auto;margin:20px 0 16px}
+.cat-family-open{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;width:100%;height:116px;min-height:60px;padding:0;border:0;background:transparent;overflow:visible;color:var(--ink)}
+.pet-sticker{display:block;align-self:start;min-width:0;padding:3px 2px 5px;background:var(--paper);border:1px solid var(--paper-edge);box-shadow:1px 1px 2px #301e2a18;transform:rotate(-3deg)}
+.pet-sticker:nth-child(2){margin-top:10px;transform:rotate(2deg)}
+.pet-sticker:nth-child(3){margin-top:2px;transform:rotate(-1deg)}
+.pet-sticker:nth-child(4){margin-top:12px;transform:rotate(3deg)}
+.pet-sticker:nth-child(5){margin-top:5px;transform:rotate(-2deg)}
+.pet-portrait{display:block;position:relative;height:75px;width:100%;overflow:hidden;container-type:size}
+.pet-frame{display:block;position:absolute;left:50%;top:50%;width:min(100cqw,calc(100cqh * var(--cat-ratio)));aspect-ratio:var(--cat-ratio);transform:translate(-50%,-50%);overflow:hidden}
+.pet-frame img{position:absolute;left:var(--cat-left);top:var(--cat-top);width:var(--cat-width);height:var(--cat-height);max-width:none;object-fit:fill}
+.pet-name{display:block;margin-top:4px;font:400 13px/1.3 var(--display);text-align:center}
+.soundtrack-slip{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;width:100%;padding:9px 0;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:transparent;color:var(--ink);text-align:left}
+.soundtrack-label{display:block;font:500 14px/1.3 var(--display)}
+.soundtrack-song{display:block;margin-top:3px;font:400 15px/1.3 var(--display);overflow-wrap:anywhere}
+.soundtrack-slip .ui-icon{width:21px;height:21px;flex:none}
+
+/* The birthday note comes first. The envelope is a small extra at its foot. */
+.edited-story .ending-chapter h2,.edited-story .ending-chapter .book-print h2{font-size:29px;line-height:1.12;padding:0;margin:0 0 18px}
+.birthday-letter{margin:0;overflow-wrap:anywhere}
+.birthday-addressee{font:500 17px/1.4 var(--display);margin:0 0 12px}
+.edited-story .birthday-letter .birthday-wish,.edited-story .book-print .birthday-letter .birthday-wish{font:400 18px/1.45 var(--display);color:var(--ink);background:transparent;border:0;padding:0;margin:0}
+.birthday-signoff{font:400 15px/1.4 var(--display);margin-top:14px}
+.text-action{min-height:60px;padding:8px 0;background:transparent;border:0;color:var(--rose);font:400 15px/1.4 var(--display);text-decoration:underline;text-underline-offset:4px}
+.edited-story .pocket-gift,.edited-story .book-print .pocket-gift{display:block;position:relative;isolation:isolate;width:90%;height:135px;margin:24px auto 0;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--ink);text-align:left;transform:none;overflow:visible}
+.pocket-gift:before,.pocket-gift:after{display:none}
+.has-book-film .pocket-gift .coupon-card{transform:translateY(var(--gift-shift,0px))}
+.pocket-gift .coupon-card{display:block;position:absolute;top:0;left:8%;width:84%;height:91px;padding:11px 13px;background:var(--paper);border:1px solid var(--control-line);box-shadow:1px 2px 3px #301e2a18}
+.pocket-gift .coupon-heading{display:block;font:400 14px/1.3 var(--display)}
+.pocket-gift .coupon-amount{display:block;font:500 26px/1.1 var(--serif);margin:4px 0 0;letter-spacing:-.025em}
+.gift-pocket-front{display:flex;flex-direction:column;justify-content:center;position:absolute;bottom:0;left:0;width:100%;height:71px;padding:14px 14px 9px;background:var(--lining);clip-path:polygon(0 0,50% 14%,100% 0,100% 100%,0 100%);box-shadow:1px 2px 4px #301e2a20}
+.pocket-label,.pocket-open{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pocket-label{font:500 16px/1.2 var(--serif);margin-bottom:8px}
+.pocket-open{font:400 14px/1.3 var(--display)}
+.pocket-open .ui-icon{width:17px;height:17px}
+.edited-story .ending-chapter .book-print .replay-link{min-height:60px;margin-top:10px;font:400 15px/1.4 var(--display)}
+
+/* Raster parts are printed flat; their physical meshes provide the small angles. */
+.scene-raster .photo-fragments,.scene-raster .photo-fragment,.scene-raster .folded-letter,.scene-raster .real-memory,.scene-raster .trier-map,.scene-raster .pet-sticker,.scene-raster .coupon-card{transform:none!important}
+.edited-story .compact-book .book-print h2{font-size:28px}
+.edited-story .compact-book .together-chapter .book-print h2,.edited-story .compact-book .short-letter-chapter .book-print h2{font-size:14px}
+.compact-book .book-print.sheet{padding:29px 24px 35px 28px}
+.edited-story .compact-book .photo-fragments{padding:10px;gap:10px}
+.compact-book .fragment-image{height:64px}
+.edited-story .compact-book .fragment-caption .recap-day-copy{font-size:12.5px}
+.edited-story .compact-book .book-print .real-memory{height:220px;margin-bottom:18px}
+.edited-story .compact-book .folded-letter{padding:13px}
+.edited-story .compact-book .folded-letter .story-copy{font-size:17px}
+.compact-book .cat-family-open{height:101px}
+.compact-book .pet-portrait{height:62px}
+.compact-book .pet-name{font-size:12px}
+.edited-story .compact-book .book-print .pocket-gift{height:121px;margin-top:21px}
+.compact-book .gift-pocket-front{height:65px;padding:12px 12px 8px}
+.compact-book .pocket-label{font-size:14px}
+.compact-book .pocket-open{font-size:13px}
+.compact-book .recap-pets{margin:20px 0 16px}
+@media(min-width:960px){:root{--site-header-h:56px}.book-navigation{max-width:350px}}
+@media(prefers-reduced-motion:reduce){.photo-fragments,.photo-fragment,.folded-letter,.real-memory,.trier-map,.pet-sticker{transform:none!important}}

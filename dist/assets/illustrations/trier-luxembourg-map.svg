@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650" role="img" aria-labelledby="title description">
+  <title id="title">Luxembourg and Trier</title>
+  <desc id="description">A geographic reference showing Luxembourg's country outline and central Trier to its east. North is up. This map shows no travel route or city destination within Luxembourg.</desc>
+  <rect width="1000" height="650" fill="#fff4e6"/>
+  <path d="M 482.3,100.5 L 478.7,118.8 L 479.3,159.8 L 491.8,201.0 L 521.1,241.4 L 543.7,270.8 L 573.8,294.2 L 625.0,316.4 L 645.4,321.0 L 648.3,351.1 L 644.3,382.8 L 626.6,400.3 L 610.0,425.5 L 597.5,456.3 L 584.3,515.3 L 582.5,555.9 L 553.0,539.1 L 537.6,527.7 L 510.7,524.6 L 483.8,533.9 L 463.6,554.6 L 436.0,560.8 L 413.2,554.6 L 399.7,539.1 L 387.6,530.8 L 353.3,520.4 L 338.5,497.9 L 349.8,487.4 L 359.5,470.8 L 367.9,447.3 L 378.4,425.6 L 344.6,366.2 L 337.7,348.0 L 310.0,314.3 L 310.3,297.3 L 317.0,281.0 L 314.5,268.4 L 318.4,238.3 L 337.8,209.9 L 350.6,174.7 L 372.4,126.6 L 420.6,68.7 L 455.1,77.6 L 470.2,77.4 L 479.4,98.5 L 482.3,100.5 Z" fill="#f6dfe5" stroke="#8e3a55" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="713.1" cy="349.5" r="10" fill="#8e3a55"/>
+  <g fill="#342c2e" font-family="'Source Sans 3',Arial,sans-serif">
+    <text x="465" y="358" font-size="50" font-weight="600" text-anchor="middle">Luxembourg</text>
+    <text x="743" y="363" font-size="50" font-weight="600">Trier</text>
+    <text x="743" y="407" font-size="36">Germany</text>
+    <text x="90" y="110" font-size="36" text-anchor="middle">N</text>
+  </g>
+  <path d="M90 170 V126 M79 140 L90 126 L101 140" fill="none" stroke="#342c2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

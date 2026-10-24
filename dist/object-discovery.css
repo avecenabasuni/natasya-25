@@ -1,0 +1,12 @@
+/* The clipped copy preserves the same ink while its small paper corner peels. */
+.object-discovery{position:relative}
+.discovery-corner,.discovery-corner-blank{position:absolute;inset:-1px;pointer-events:none;clip-path:polygon(calc(100% - 32px) 0,100% 0,100% 32px);z-index:4}
+.discovery-corner-blank{background:var(--paper)}
+.discovery-corner{transform-origin:calc(100% - 32px) 32px;transform:perspective(420px) rotate3d(1,1,0,calc(var(--discovery-lift,0)*-23deg));backface-visibility:hidden;will-change:transform}
+.discovery-corner>*{pointer-events:none!important}
+.discovery-corner :disabled{opacity:1}
+.discovery-scene-corner{position:fixed;pointer-events:none;z-index:20}
+.discovery-scene-blank,.discovery-scene-flap{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.discovery-scene-blank{background:var(--paper)}
+.discovery-scene-flap{backface-visibility:hidden;will-change:transform}
+@media(prefers-reduced-motion:reduce){.discovery-corner,.discovery-corner-blank,.discovery-scene-corner{display:none}}

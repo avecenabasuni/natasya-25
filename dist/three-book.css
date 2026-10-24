@@ -1,0 +1,44 @@
+.three-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.book-viewport{background:var(--stage)}
+.book-viewport:before{content:'';position:absolute;inset:0;background:url('assets/materials/linen.webp') 0 0/350px 350px;opacity:.08;pointer-events:none}
+.three-canvas[hidden],img[hidden]{display:none!important}
+/* A resized scene prepares behind its previous frame, below header/navigation. */
+.book-reflow-frame{position:fixed;pointer-events:none;z-index:4}
+.three-book .book-viewport{perspective-origin:50% 50%}
+.three-book .camera-rig{z-index:1}
+.three-book .book-ground,.three-book .book-board,.three-book .paper-edges,.three-book .book-binding,.three-book .left-leaf,.three-book .curl-leaf,.three-book .turn-shadow,.three-book .cover-back{display:none}
+.three-book .right-deck{background:transparent;box-shadow:none}
+.three-book .book-print.sheet{background:transparent;box-shadow:none;border:0}
+.three-book .book-print.sheet:before{display:none}
+/* The scene prints the physical book continuously. HTML supplies the same
+   touch targets, reading semantics and focus outlines without duplicate ink.
+   Raster hosts are outside this viewport and retain their source styles. */
+.three-book .book-viewport .book-print,.three-book .book-viewport .book-print *,
+.three-book .book-viewport .cover-chapter,.three-book .book-viewport .cover-chapter *{color:transparent!important;text-decoration-color:transparent!important;text-shadow:none!important;background:transparent!important;border-color:transparent!important;box-shadow:none!important}
+.three-book .book-viewport .book-print img,.three-book .book-viewport .cover-chapter img{visibility:inherit!important;opacity:0!important}
+.three-book .book-viewport .book-print *:before,.three-book .book-viewport .book-print *:after,
+.three-book .book-viewport .cover-chapter *:before,.three-book .book-viewport .cover-chapter *:after{visibility:hidden!important}
+.three-book .book-print :focus-visible,.three-book .cover-chapter :focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.three-book .cover-model{box-shadow:none}
+.three-book .book-front{background:transparent;border-left-color:transparent;box-shadow:none}
+.three-book .book-front:before{display:none}
+.three-book[data-assets-ready="true"][data-phase="opening"] .book-front{opacity:0}
+.three-book .front-board:focus-within{outline:3px solid var(--rose);outline-offset:5px}
+.three-available .open-book{min-height:56px}
+.three-book .cover-ribbon{opacity:0!important}
+.three-book .cover-chapter{transform:translateZ(19px)}
+.three-book .book-print .favourites-art>img,.three-book .book-print .postcard-art>img{visibility:hidden}
+.three-book .cat-family-open>img{visibility:hidden}
+.three-book .recap-pets .cat-family-open>img{visibility:inherit}
+.three-book .trier-art>.trier-image{visibility:hidden}
+.three-book .book-print .birthday-keepsake{visibility:hidden}
+.three-book .book-print .voucher-coupon{visibility:inherit;background:transparent;box-shadow:none;border-color:transparent;transform:none}
+.three-book .voucher-coupon:before{display:none}
+.three-book .right-deck.is-turning,.three-book .front-board.is-hidden-front{visibility:hidden;pointer-events:none}
+.three-book .right-deck.is-turning .book-print{visibility:hidden!important}
+.scene-raster{position:absolute;left:-10000px;top:0;width:var(--leaf-w);height:var(--leaf-h);visibility:hidden;pointer-events:none;perspective:none;transform:none}
+.scene-raster .book-print{visibility:hidden!important;transform:none!important}
+.scene-raster .book-print .story-art>img{visibility:hidden}
+.three-book .postcard-date{top:42%;left:26%;width:48%;transform:none;opacity:0;background:var(--paper)}
+.three-book .book-scroll-cue{z-index:2}
+@media(prefers-reduced-motion:reduce){.three-canvas{display:none}}

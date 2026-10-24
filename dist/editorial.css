@@ -1,0 +1,208 @@
+/* One small story per leaf. The pictures are illustrations, the type stays live. */
+.edited-story .story-copy{font:19px/1.5 var(--serif);overflow-wrap:anywhere}
+.edited-story .opening-inscription{max-width:520px;margin:25px auto 0;text-align:center}
+.opening-inscription>img{width:60px;height:auto;margin:0 auto 20px}
+.opening-signature{font-size:13px;margin-top:23px;overflow-wrap:anywhere}
+.edited-story .story-art{position:relative;width:100%;height:260px;margin:22px auto;isolation:isolate}
+.story-art>img{width:100%;height:100%;object-fit:contain}
+.edited-story .favourites-copy{margin-top:16px}
+.hamilton-caption{display:flex;align-items:center;justify-content:center;gap:12px;margin:5px 0 15px}
+.hamilton-caption strong{font:500 42px/1 var(--display);letter-spacing:-.06em}
+.hamilton-caption span{font-size:12px}
+.story-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.story-button{display:flex;flex:1;align-items:center;justify-content:space-between;gap:9px;min-width:0;min-height:44px;padding:10px 12px;border:1px solid var(--control-line);border-radius:2px;background:var(--paper);color:var(--ink);font-size:13px;line-height:1.4}
+.story-button:hover{background:var(--blush)}
+.edited-story .postcard-art{height:260px}
+.postcard-date{position:absolute;top:18%;left:38%;width:39%;padding:3px 4px;background:var(--paper-veil);text-align:center;transform:rotate(2deg);color:var(--ink)}
+.postcard-date strong{display:block;font:500 30px/1 var(--serif)}
+.postcard-date span{display:block;font-size:10px;line-height:1.3;margin-top:4px}
+.story-date{font-size:12px;margin-top:18px;color:var(--muted)}
+.edited-story .distance-excerpt{margin:14px 0 0}
+.edited-story .real-memory{height:250px;width:80%;padding:7px 7px 13px;background:var(--paper);box-shadow:2px 4px 8px #62435024;transform:rotate(-2deg)}
+.real-memory>button{display:block;width:100%;height:100%;min-height:44px;padding:0;border:0;background:transparent}
+.real-memory img{width:100%;height:100%;object-fit:cover}
+.real-memory .image-error{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:15px;background:var(--blush);color:var(--ink);font-size:13px}
+.real-memory .photo-tape{width:65px;left:50%;transform:translateX(-50%)}
+.letter-addressee{font-size:13px;color:var(--muted);margin:24px 0 15px;overflow-wrap:anywhere}
+.letter-excerpt{font:22px/1.55 var(--serif);max-width:640px;overflow-wrap:anywhere}
+.letter-signoff-short{font:19px/1.4 var(--serif);margin-top:26px;overflow-wrap:anywhere}
+.letter-signoff-short strong{font:500 13px/1.4 var(--display)}
+.birthday-wish{margin-top:23px}
+.birthday-keepsake{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;width:84%;height:190px;margin:26px auto 0;padding:15px 18px;background:var(--blush);box-shadow:2px 4px 7px #62435021;transform:rotate(2deg);overflow:hidden}
+.birthday-keepsake:before{content:'';position:absolute;inset:0;z-index:-1;background:url('assets/materials/paper.webp') 0 0/440px 440px;opacity:.1}
+.birthday-keepsake:after{content:'';position:absolute;top:0;right:0;width:18px;height:18px;background:linear-gradient(45deg,var(--line) 49%,var(--paper) 51%);box-shadow:-1px 1px 2px #62435018}
+.birthday-keepsake>img{height:54px;width:auto}
+.birthday-keepsake>p{font:italic 25px/1.15 var(--serif);max-width:100%;overflow-wrap:anywhere;text-align:center;margin-top:7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.birthday-keepsake>span:last-child{font-size:10px;margin-top:8px}
+.keepsake-thread{position:absolute;inset:10px;pointer-events:none;border:1px dashed var(--control-line)}
+.edited-story .replay-link{margin-top:18px;min-height:44px;align-items:center}
+.edited-story .book-print h2{font-size:38px;margin-bottom:16px}
+.edited-story .book-print .story-copy{font-size:18px;line-height:1.45}
+.book-print .opening-inscription{margin-top:20px}
+.book-print .opening-inscription>img{width:55px;margin-bottom:15px}
+.book-print .opening-signature{margin-top:17px}
+.edited-story .book-print .favourites-copy{margin-top:0}
+.edited-story .book-print .story-art{height:150px;margin:5px auto}
+.book-print .hamilton-caption{margin:2px 0 6px}
+.book-print .hamilton-caption strong{font-size:34px}
+.book-print .story-actions{margin-top:14px}
+.edited-story .book-print .postcard-art{height:166px;margin:7px auto}
+.book-print .postcard-date strong{font-size:25px}
+.book-print .postcard-date span{font-size:9px}
+.book-print .story-date{margin:0 0 8px;font-size:11px}
+.edited-story .book-print .distance-excerpt{margin-top:8px}
+.edited-story .book-print .real-memory{height:154px;width:88%;margin:12px auto}
+.book-print .letter-addressee{margin:0 0 12px}
+.book-print .letter-excerpt{font-size:19px;line-height:1.5}
+.book-print .letter-signoff-short{font-size:18px;margin-top:18px}
+.book-print .birthday-wish{margin-top:0}
+.book-print .birthday-keepsake{height:126px;width:87%;margin-top:18px;padding:12px 18px}
+.book-print .birthday-keepsake>img{height:40px}
+.book-print .birthday-keepsake>p{font-size:23px;margin-top:3px}
+.book-print .birthday-keepsake>span:last-child{margin-top:4px}
+.edited-story .book-print .replay-link{margin-top:16px}
+.memento-piece>.story-art{width:100%;height:80%;margin:0;transform:rotate(-2deg)}
+.memento-piece>.story-art img{width:100%;height:100%;object-fit:contain}
+.memento-piece>.real-memory{padding:10px 10px 18px;background:var(--paper);height:80%;width:88%}
+.memento-piece>.real-memory img{object-fit:cover}
+.memento-piece>.birthday-keepsake{width:94%;height:190px;margin:0}
+.dialog-gallery{display:grid;gap:28px;margin-top:24px}
+.dialog-gallery figure{border-bottom:1px solid var(--line);padding-bottom:20px}
+.dialog-gallery img{width:100%;max-height:55dvh;object-fit:contain}
+.dialog-gallery figcaption{font:19px/1.5 var(--serif);margin-top:14px;overflow-wrap:anywhere}
+.playlist-dialog{margin-top:22px}
+.playlist-entry,.playlist-name{padding:14px 0;border-bottom:1px solid var(--line)}
+.playlist-name,.playlist-entry summary{display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:44px;font-size:16px;line-height:1.4}
+.playlist-entry summary{cursor:pointer;list-style:none}
+.playlist-entry summary::-webkit-details-marker{display:none}
+.playlist-entry summary:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.playlist-entry[open] summary{margin-bottom:14px}
+.playlist-entry[open] .ui-icon{transform:rotate(-15deg)}
+.playlist-entry .prose{font:19px/1.6 var(--serif);margin:12px 0}
+.playlist-entry .dialog-song{font-size:22px}
+.playlist-entry .song-link{margin-top:13px;min-height:44px}
+.personal-note-list article{margin-top:25px;padding-top:20px;border-top:1px solid var(--line)}
+.personal-note-list h3{font-size:15px;margin-bottom:10px}
+.personal-note-list .prose{font:20px/1.6 var(--serif);overflow-wrap:anywhere}
+.personal-note-list p+p{margin-top:15px}
+.photo-form>img[src$="postcard.webp"]{object-fit:contain;background:var(--blush)}
+@media(max-width:599px){.edited-story .sheet:not(.book-print) h2{font-size:38px}.edited-story .sheet:not(.book-print) .story-art{height:185px}.edited-story .sheet:not(.book-print) .birthday-keepsake{height:165px}}
+@media(max-height:740px){.edited-story .book-print h2{font-size:34px}.edited-story .book-print .favourites-art{height:160px}}
+.edited-story .compact-book .book-print h2{font-size:29px;margin-bottom:12px}
+.edited-story .compact-book .book-print .story-copy{font-size:17px;line-height:1.4}
+.compact-book .book-print .opening-inscription{margin-top:10px}
+.compact-book .book-print .opening-inscription>img{width:38px;margin-bottom:10px}
+.compact-book .book-print .opening-signature{font-size:12px;margin-top:10px}
+.edited-story .compact-book .book-print .favourites-art{height:88px;margin:2px auto}
+.compact-book .book-print .hamilton-caption{margin:0}
+.compact-book .book-print .hamilton-caption strong{font-size:25px;line-height:1.1}
+.compact-book .book-print .story-actions{margin-top:8px}
+.compact-book .book-print .story-button{padding:9px;font-size:12px}
+.edited-story .compact-book .book-print .postcard-art{height:109px;margin:4px auto}
+.compact-book .book-print .postcard-date strong{font-size:18px}
+.compact-book .book-print .postcard-date span{font-size:8px;margin-top:1px}
+.edited-story .compact-book .book-print .real-memory{height:105px;margin:8px auto}
+.compact-book .book-print .letter-addressee{margin-bottom:8px;font-size:12px}
+.compact-book .book-print .letter-excerpt{font-size:18px;line-height:1.45}
+.compact-book .book-print .letter-signoff-short{font-size:17px;margin-top:12px}
+.compact-book .book-print .birthday-keepsake{height:82px;margin-top:12px;padding:8px 15px}
+.compact-book .book-print .birthday-keepsake>img{height:23px}
+.compact-book .book-print .birthday-keepsake>p{font-size:20px;margin-top:0}
+.compact-book .book-print .birthday-keepsake>span:last-child{font-size:9px;margin-top:2px}
+.edited-story .compact-book .book-print .replay-link{margin-top:12px}
+.placeholder-copy,.edited-story .story-copy.placeholder-copy{padding:11px 12px;border:1px dashed var(--control-line);background:var(--paper);color:var(--muted);font:14px/1.5 var(--display);overflow-wrap:anywhere}
+.edited-story .book-print .story-copy.placeholder-copy{font:14px/1.5 var(--display)}
+.edited-story .story-context{font:14px/1.5 var(--display);margin-top:15px;color:var(--muted)}
+.edited-story .letter-excerpt>.story-copy:not(.placeholder-copy){font:inherit}
+.edited-story .book-print .placeholder-copy{padding:10px 11px}
+.edited-story .book-print.sheet{border:0}
+.edited-story .book-print .favourites-art{height:120px}
+.draft-indication{font-size:11px}
+.postcard-date .photo-slot-flag{font-size:9px;margin-top:5px;padding-top:4px;border-top:1px dashed var(--control-line)}
+.compact-book .postcard-date .photo-slot-flag{font-size:8px;margin-top:3px;padding-top:2px}
+textarea::placeholder,input::placeholder{color:var(--muted);opacity:1}
+.edited-story .voucher-coupon{width:89%;height:172px;padding:14px 17px;border:1px solid var(--control-line);border-radius:2px;color:var(--ink);background:var(--blush);text-align:left;cursor:pointer;overflow:visible}
+.voucher-coupon:after{display:none}
+.voucher-coupon:before{inset:0;opacity:.15}
+.coupon-ink{display:flex;flex-direction:column;align-items:stretch;justify-content:center;width:100%;height:100%}
+.coupon-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;font:12px/1.3 var(--display)}
+.coupon-heading>span{font-weight:600}
+.coupon-amount{font:500 48px/1 var(--serif);letter-spacing:-.04em;margin:7px 0 6px}
+.coupon-code-label{display:block;padding:6px 0;border-top:1px dashed var(--control-line);font:11px/1.3 var(--display);color:var(--muted)}
+.coupon-open{display:flex;justify-content:space-between;align-items:center;font:12px/1.3 var(--display);margin-top:3px}
+.coupon-open .ui-icon{width:17px;height:17px}
+.voucher-coupon:hover{background:var(--blush)}
+.edited-story .book-print .voucher-coupon{height:142px;margin-top:16px;padding:12px 14px}
+.book-print .coupon-amount{font-size:44px;margin:5px 0}
+.edited-story .compact-book .book-print .voucher-coupon{height:126px;margin-top:10px;padding:9px 12px}
+.compact-book .book-print .coupon-amount{font-size:38px;margin:3px 0}
+.compact-book .book-print .coupon-heading,.compact-book .book-print .coupon-open{font-size:11px}
+.compact-book .book-print .coupon-code-label{font-size:10px;padding:5px 0}
+.has-book-film .cover-cat.cover-cats,.cover-cat.cover-cats{width:145px;height:62px;object-fit:contain}
+.edited-story .cat-family-art{height:240px;margin:18px auto}
+.cat-family-open{display:block;width:100%;height:calc(100% - 20px);min-height:44px;padding:0;border:0;background:transparent}
+.cat-family-open>img{width:100%;height:100%;object-fit:contain}
+.cat-family-open:hover{filter:brightness(.97)}
+.cat-name-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;font:12px/20px var(--display);text-align:center}
+.edited-story .book-print .cat-family-art{height:120px;margin:5px auto}
+.book-print .cat-name-row{font-size:11px}
+.edited-story .compact-book .book-print .cat-family-art{height:100px;margin:3px auto}
+.compact-book .cat-name-row{font-size:10px}
+.cat-family-detail{margin-top:20px}
+.cat-family-detail>img{display:block;width:100%;height:auto}
+.cat-family-detail figcaption{font:12px/1.5 var(--display);color:var(--muted);margin-top:12px}
+.cat-coats{margin-top:24px}
+.cat-coats>div{display:grid;grid-template-columns:80px 1fr;gap:16px;border-top:1px solid var(--line);padding:12px 0}
+.cat-coats dt{font-weight:600}.cat-coats dd{margin:0;font-size:14px;line-height:1.5}
+.cover-trier{width:190px;height:95px;object-fit:contain;min-height:48px;flex-shrink:1}
+.has-book-film .cover-cat.cover-cats{width:110px;height:42px}
+.compact-book .cover-trier{width:155px;height:70px;min-height:42px}
+.compact-book .cover-cat.cover-cats{height:32px;width:90px}
+.has-book-film .cover-date{max-width:100%;font-size:10px;line-height:1.4;text-align:center}
+.edited-story .recap-location{font:12px/1.5 var(--display);color:var(--muted);margin:0 0 12px}
+.edited-story .trier-art{height:250px;margin:18px auto}
+.trier-art>.trier-image{display:block;object-fit:contain;width:100%;height:calc(100% - 23px)}
+.city-art-label{text-align:center;font:11px/1.5 var(--display);color:var(--muted);padding-top:5px}
+.edited-story .book-print .trier-art{height:154px;margin:6px auto 12px}
+.edited-story .compact-book .book-print .trier-art{height:119px;margin:5px auto 9px}
+.book-print .recap-location{font-size:11px;margin-bottom:9px}
+.edited-story .recap-intro{margin:12px 0}
+.recap-days{margin:15px 0}
+.recap-day{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center;width:100%;min-height:76px;text-align:left;padding:12px 0;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink)}
+.recap-day:has(.recap-day-thumb){grid-template-columns:44px 1fr 54px}
+.recap-day:hover{background:#f5dce555}
+.recap-day-date strong{display:block;font:500 30px/1 var(--serif)}
+.recap-day-date>span{font:10px/1.4 var(--display);color:var(--muted)}
+.recap-day-copy{font:15px/1.5 var(--display);overflow-wrap:anywhere}
+.recap-day-copy[data-placeholder]{font-size:13px;color:var(--muted)}
+.recap-day-thumb{width:54px;height:54px;object-fit:cover;border:3px solid var(--paper);box-shadow:1px 2px 3px #63425318}
+.book-print .recap-days{margin:4px 0 0}
+.book-print .recap-day{min-height:64px;padding:10px 0;gap:13px}
+.compact-book .recap-day{min-height:48px;padding:5px 0;gap:12px}
+.compact-book .recap-day-copy{font-size:12px;line-height:1.4}
+.compact-book .recap-day-thumb{width:44px;height:40px}
+.recap-pets{height:105px;margin:18px auto 8px}
+.book-print .recap-pets{height:90px;margin:12px auto 5px}
+.compact-book .recap-pets{height:70px;margin:8px auto 3px}
+.book-print .recap-pets .cat-name-row{font-size:10px}
+.edited-story .short-letter-chapter .letter-signoff-short{font:13px/1.5 var(--display);margin-top:12px}
+.dialog-city-art,.dialog-day-photo{margin:22px 0}
+.dialog-city-art img,.dialog-day-photo img{display:block;width:100%;height:auto;max-height:48dvh;object-fit:contain}
+.dialog-city-art figcaption{font:12px/1.5 var(--display);color:var(--muted);margin-top:12px}
+.has-book-film .book-front{padding-bottom:138px}
+.has-book-film .cover-credit{position:absolute;left:28px;right:28px;bottom:92px;margin:0;text-align:center;font-size:10px}
+.compact-book .book-front{padding-bottom:130px}
+.compact-book .book-front h1{font-size:31px}
+.has-book-film .cover-date{color:var(--ink)}
+.has-book-film .cover-ribbon{right:8px}
+.book-print .print-group.recap-days{display:block;margin:0}
+.recap-pets{width:210px}
+.book-print .recap-pets{width:176px;height:95px}
+.compact-book .book-print .recap-pets{width:160px;height:88px}
+.compact-book .book-print.sheet{padding-top:24px;padding-bottom:48px}
+.edited-story .compact-book .book-print .trier-art{height:100px}
+.compact-book .recap-intro{margin:8px 0}
+.edited-story .compact-book .book-print .real-memory{height:118px}
+.edited-story .compact-book .short-letter-chapter .letter-signoff-short{display:none}
+.compact-book #open-gallery{display:none}
+.edited-story .compact-book .book-print .replay-link{margin-top:8px}

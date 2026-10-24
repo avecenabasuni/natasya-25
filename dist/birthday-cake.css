@@ -1,0 +1,39 @@
+/* A celebration leaf followed by a separate gift pocket, with room between objects. */
+.edited-story .birthday-cake-chapter h2,.edited-story .birthday-cake-chapter .book-print h2{font-size:32px;line-height:1.12;margin:0 0 10px}
+.birthday-cake-chapter .birthday-addressee{font:400 16px/1.3 var(--display);margin:0;overflow-wrap:anywhere}
+.birthday-celebration{height:170px;margin:14px 0 22px;break-inside:avoid}
+.birthday-cake{display:block;position:relative;width:100%;height:170px;min-height:44px;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--muted);text-align:center;overflow:visible;perspective:500px;touch-action:manipulation}
+.cake-popup{position:absolute;left:50%;bottom:34px;width:200px;height:115px;transform:translateX(-50%) rotateX(calc(-28deg * var(--cake-open,1)));transform-origin:50% 100%;transform-style:preserve-3d;pointer-events:none}
+.cake-art{display:block;position:absolute;left:0;bottom:-16px;width:200px;height:133.333px;max-width:none;object-fit:contain;transform:translateZ(1px);filter:drop-shadow(0 2px 1px #342c2e1c)}
+.cake-support{position:absolute;bottom:0;width:18px;height:70px;background:var(--lining);border:1px solid var(--paper-edge);transform-origin:50% 100%;transform:rotateX(calc(38deg * var(--cake-open,1))) translateZ(-1px)}
+.cake-support-left{left:12px}.cake-support-right{right:12px}
+.cake-support:after{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--control-line);opacity:.45}
+.cake-candle{position:absolute;left:calc(50% - 3px);bottom:80px;width:6px;height:22px;border:1px solid var(--rose);background:repeating-linear-gradient(145deg,var(--paper) 0 4px,var(--linen) 4px 7px);transform:translateZ(2px)}
+.cake-wick{position:absolute;width:1px;height:4px;background:var(--ink);left:2px;top:-5px}
+.cake-flame{position:absolute;left:-2px;top:-16px;width:9px;height:13px;border-radius:70% 30% 60% 40%;background:#e7a34e;transform:rotate(-7deg);transform-origin:50% 100%;transition:transform .18s ease-out,opacity .15s ease-out}
+.cake-flame:after{content:'';position:absolute;width:4px;height:7px;bottom:1px;left:3px;background:#fff4c9;border-radius:70% 30% 60% 40%}
+.birthday-cake[data-candle-lit=false] .cake-flame{transform:scale(.05);opacity:0}
+.cake-smoke{position:absolute;left:1px;top:-21px;width:8px;height:16px;border-left:1px solid var(--muted);border-radius:60% 0 0 50%;opacity:0;transform-origin:50% 100%}
+.candle-smoking .cake-smoke{animation:birthday-smoke 1.1s ease-out both}
+.cake-caption{position:absolute;left:0;right:0;bottom:0;height:18px;color:var(--muted);font:400 13px/18px var(--display);text-align:center}
+.birthday-wish-note{display:block;min-height:84px;width:100%;padding:14px 15px;margin:0;border:0;border-radius:0;background:transparent;color:var(--ink);text-align:left}
+.birthday-wish-note .birthday-wish,.edited-story .book-print .birthday-wish-note .birthday-wish{display:block;padding:0;border:0;background:transparent;color:var(--ink);font:400 17px/1.4 var(--display);margin:0;white-space:normal;overflow-wrap:anywhere}
+.birthday-wish-note .birthday-signoff{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:10px 0 0;font:400 13px/1.3 var(--display);color:var(--muted)}
+.birthday-read-note{color:var(--rose);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.gift-chapter .gift-ending{margin-top:55px}
+.edited-story .gift-chapter .pocket-gift,.edited-story .gift-chapter .book-print .pocket-gift,.edited-story .compact-book .gift-chapter .book-print .pocket-gift{width:94%;height:156px;margin:0 auto}
+.gift-chapter .pocket-gift .coupon-card{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:16px;height:104px;padding:16px 13px}
+.gift-chapter .pocket-gift .coupon-heading{font-size:15px;line-height:26px}
+.gift-chapter .pocket-gift .coupon-amount{font-size:28px;line-height:1;margin:0}
+.gift-chapter .gift-pocket-front{height:84px;padding:18px 16px 12px}
+.gift-chapter .pocket-label{font-size:19px;line-height:1.2;margin-bottom:10px}
+.gift-chapter .pocket-open{font-size:15px;line-height:1.3}
+.edited-story .gift-chapter .book-print .replay-link,.gift-chapter .replay-link{display:inline-flex;align-items:center;min-height:44px;margin:26px 0 0;font:400 14px/1.4 var(--display)}
+.scene-raster .cake-popup{transform:translateX(-50%)!important}
+.scene-raster .cake-art{filter:none!important;transform:none!important}
+.scene-raster .cake-candle{transform:none!important}
+.cake-art-error{position:absolute;left:15px;right:15px;bottom:8px;padding:14px 8px;border:1px dashed var(--control-line);background:var(--paper);color:var(--muted);font:400 13px/1.4 var(--display);text-align:center}
+.birthday-cake.object-hovered .cake-art,.birthday-cake.object-pressed .cake-art,.birthday-cake.object-focused .cake-art{filter:drop-shadow(1px 0 var(--object-edge)) drop-shadow(-1px 0 var(--object-edge)) drop-shadow(0 1px var(--object-edge)) drop-shadow(0 -1px var(--object-edge)) drop-shadow(0 0 3px var(--object-halo))}
+:where(.album-story:not(.has-book-film),.book-film:not(.three-book)) .birthday-wish-note:is(.object-hovered,.object-pressed,.object-focused){outline:2px solid var(--object-edge);outline-offset:2px;box-shadow:0 0 0 4px var(--object-halo-soft)}
+@keyframes birthday-smoke{0%{opacity:0;transform:translate(0,4px) scale(.6)}20%{opacity:.5}100%{opacity:0;transform:translate(7px,-14px) scale(1.2)}}
+@media(prefers-reduced-motion:reduce){.cake-popup{transform:translateX(-50%)}.cake-support{transform:none}.cake-smoke{animation:none!important;display:none}.cake-flame{transition:none}}

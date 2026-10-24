@@ -1,0 +1,40 @@
+/* The sewn label makes the recipient the focal point of a cloth-bound gift. */
+.birthday-cover .book-front{display:block;padding:0;border:0;overflow:hidden;text-align:left;container-type:size}
+.birthday-cover .book-front:before{background:url('assets/materials/linen.webp') 0 0/350px 350px;opacity:.16}
+.birthday-cover .cover-spine{position:absolute;inset:0 auto 0 0;width:12%;background:var(--rose);box-shadow:inset -2px 0 3px #301e2a28,inset 2px 0 2px #fffdf830}
+.cover-spine-caption{position:absolute;left:35%;top:83%;width:max-content;transform:rotate(-90deg);transform-origin:0 0;color:var(--paper);font:500 10px/1.2 var(--display);white-space:nowrap}
+.birthday-cover .book-front h1{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;font-weight:500}
+.cover-kicker{position:absolute;left:20%;right:9%;top:13%;font:400 14px/1.4 var(--display);color:var(--ink)}
+.birthday-cover .cover-nameplate{position:absolute;left:20%;top:27%;width:70%;height:36%;padding:16px 23px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:7px;margin:0;background:var(--paper);border:1px solid var(--paper-edge);border-radius:1px;box-shadow:1px 2px 3px #301e2a24;text-align:left;transform:none}
+.cover-dedication:before{content:'';position:absolute;inset:0;background:url('assets/materials/linen.webp') 0 0/220px 220px;opacity:.08;pointer-events:none}
+.cover-dedication-stitch{position:absolute;inset:6px;border:1px dashed var(--control-line);pointer-events:none}
+.birthday-cover .cover-nameplate .cover-for{position:relative;display:block;flex:none;font:400 15px/1.25 var(--display);letter-spacing:0;color:var(--ink)}
+.birthday-cover .cover-nameplate strong{position:relative;display:block;flex:none;width:100%;max-height:none;overflow:visible;-webkit-line-clamp:unset;font:500 min(11.2cqw,7.8cqh)/1.08 var(--serif);letter-spacing:-.035em;overflow-wrap:anywhere;color:var(--ink)}
+.cover-label-caption{position:relative;display:block;font:400 14px/1.4 var(--display);letter-spacing:0;color:var(--ink);margin-top:4px}
+.birthday-cover .cover-nameplate[data-name-size="medium"]{top:24%;height:43%}
+.birthday-cover .cover-nameplate[data-name-size="medium"] strong{font-size:min(8.8cqw,6.2cqh)}
+.birthday-cover .cover-nameplate[data-name-size="long"]{top:24%;height:43%;padding:15px 21px}
+.birthday-cover .cover-nameplate[data-name-size="long"] strong{font-size:min(6.5cqw,4.6cqh);line-height:1.13;letter-spacing:-.015em}
+.birthday-cover .cover-nameplate[data-name-size="extended"]{top:24%;height:43%;padding:12px 19px}
+.birthday-cover .cover-nameplate[data-name-size="extended"] strong{font-size:min(4.8cqw,3.4cqh);line-height:1.12;letter-spacing:0}
+.cover-month{position:absolute;left:20%;right:9%;top:75%;margin:0;font:500 min(6.7cqw,4.6cqh)/1.2 var(--serif);color:var(--ink);letter-spacing:-.02em;text-shadow:-.5px -.5px .2px #301e2a35,.6px .6px .3px #fffdf866}
+.cover-edition{position:absolute;left:20%;right:9%;bottom:10%;color:var(--ink);font:400 12px/1.4 var(--display);text-align:left}
+.birthday-cover .cover-ribbon{left:8%;right:auto;top:calc(100% - 4px);width:12px;height:52px;background:var(--sage);border-radius:0 0 2px 2px;transform:translateZ(2px) rotate(-18deg);transform-origin:top center;box-shadow:1px 2px 3px #301e2a24}
+.birthday-cover .cover-ribbon:before{display:none}
+.birthday-cover .open-book,.has-book-film .book-viewport>.cover-open-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 25px;max-width:calc(100% - 48px);width:max-content;background:var(--rose);color:var(--paper);border:0;border-radius:4px;box-shadow:none;font:500 16px/1.4 var(--display);text-decoration:none;white-space:nowrap}
+.birthday-cover .open-book:hover,.cover-open-action:hover{background:var(--rose-hover)}
+.birthday-cover .open-book:active,.cover-open-action:active{background:var(--rose-hover)}
+.has-book-film .book-viewport>.cover-open-action{position:absolute;left:50%;bottom:calc(var(--bottom-reserve,84px) - 8px);transform:translateX(-50%);z-index:3}
+.has-book-film .birthday-cover .book-front{padding:0;border:0;display:block}
+.has-book-film .birthday-cover .cover-ribbon{left:8%;right:auto;top:calc(100% - 4px);width:12px;height:52px}
+.has-book-film .birthday-cover .cover-nameplate strong{font-size:min(11.2cqw,7.8cqh)}
+.has-book-film .birthday-cover .cover-nameplate[data-name-size="medium"] strong{font-size:min(8.8cqw,6.2cqh)}
+.has-book-film .birthday-cover .cover-nameplate[data-name-size="long"] strong{font-size:min(6.5cqw,4.6cqh)}
+.has-book-film .birthday-cover .cover-nameplate[data-name-size="extended"] strong{font-size:min(4.8cqw,3.4cqh)}
+.compact-book .birthday-cover .cover-nameplate{padding:15px 20px;gap:5px}
+.compact-book .birthday-cover .cover-nameplate[data-name-size="long"]{padding:11px 18px}
+.compact-book .birthday-cover .cover-for{font-size:13px}
+.compact-book .birthday-cover .cover-label-caption{font-size:11px}
+.compact-book .birthday-cover .cover-kicker,.compact-book .birthday-cover .cover-edition{font-size:11px}
+@media(max-width:599px){.birthday-cover .cover-seat{gap:24px}.birthday-cover .cover-model{transform:rotate(3deg) rotateY(-4deg) rotateX(5deg)}}
+@media(prefers-reduced-motion:reduce){.birthday-cover .cover-model{transform:none}.birthday-cover .cover-ribbon{transform:rotate(-12deg)}}
