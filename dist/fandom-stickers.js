@@ -67,15 +67,26 @@
     ornament('gift-tape','pinkTape','gift',68,21,9,{left:'6px',top:'47%'},true),
     ornament('gift-botanical','leaves','gift',9,17,32,{right:'5px',top:'57%'},true)
   ];
-  const collection=[...favorites,...ornaments];
+  const driverPhotos={
+    albon:{name:'Alex Albon',source:'assets/cutouts/alex-albon-portrait.webp',width:720,height:2069,frame:[212,8,328,352]},
+    hamilton:{name:'Lewis Hamilton',source:'assets/cutouts/lewis-hamilton-portrait.webp',width:720,height:2069,frame:[204,4,360,356]}
+  };
+  const portrait=(key,driver,page,angle,w,h,position)=>({key,driver,page,angle,w,h,position,name:driverPhotos[driver].name,frame:driverPhotos[driver].frame,atlas:driverPhotos[driver],ornament:true,portrait:true});
+  const portraits=[
+    portrait('cover-albon-portrait','albon','cover',-4,44,44,{left:'var(--cover-driver-left,49%)',top:'var(--cover-driver-top,0.5%)'}),
+    portrait('trip-hamilton-portrait','hamilton','dedication',4,44,46,{left:'var(--trip-driver-left,255px)',top:'50px'}),
+    portrait('photo-hamilton-portrait','hamilton','october',-4,42,45,{left:'134px',bottom:'31px'}),
+    portrait('gift-albon-portrait','albon','gift',6,46,50,{right:'33px',top:'var(--gift-driver-top,279px)'})
+  ];
+  const collection=[...favorites,...ornaments,...portraits];
   function layer(page){
     const items=collection.filter(item=>item.page===page);if(!items.length)return '';
     return `<div class="fandom-layer" data-sticker-page="${page}">${items.map(item=>{
       const [x,y,w,h]=item.frame,atlas=item.atlas||{source,width,height};
       const placement=item.ornament?`;--fan-w:${item.w}px;--fan-h:${item.h}px;${Object.entries(item.position).map(([key,value])=>`${key}:${value}`).join(';')}`:'';
-      const semantics=item.ornament?'aria-hidden="true"':`role="img" aria-label="${item.name} illustrated fan sticker"`;
+      const semantics=item.portrait?`role="img" aria-label="${item.name} portrait sticker"`:item.ornament?'aria-hidden="true"':`role="img" aria-label="${item.name} illustrated fan sticker"`;
       const polygon=polygons[item.motif],mask=polygon?`;clip-path:polygon(${polygon.split(' ').map(point=>point.split(',').join('% ')+'%').join(',')})`:'';
-      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.rail?' data-sticker-rail="true"':''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
+      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.portrait?' driver-portrait':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.rail?' data-sticker-rail="true"':''}${item.portrait?` data-driver-portrait="${item.driver}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
     }).join('')}</div>`;
   }
   function fit(root){
@@ -99,5 +110,5 @@
       }
     });
   }
-  window.ScrapbookStickers={layer,fit,collection,source,width,height,ephemera,frames,polygons};
+  window.ScrapbookStickers={layer,fit,collection,source,width,height,ephemera,frames,polygons,driverPhotos,portraits};
 })();

@@ -1,5 +1,13 @@
 # A little world, physical scrapbook
 
+## V40: recognizable driver portraits
+
+Design Read: add the actual faces of Alex Albon and Lewis Hamilton to several pages of this personal birthday scrapbook, as explicitly requested. Keep the existing Pink + Sage paper collection, English placeholders, typography, seven default chapters and caption-free stickers. Antislop during remains 3/3/3 and Taste remains 8/9/5.
+
+Use real official 2026 Formula 1 portraits, with Alex in Williams white/blue and Lewis in Ferrari red. Retain the downloaded source bytes and third-party provenance. Individually measured head-and-neck frames retain all hair, ears, face and chin; these are intentional portrait crops of full-body media, not fabricated likenesses or new trip photos. Fully transparent RGB outside a portrait does not become visible decoration. Do not add a caption, new dialog or endorsement claim.
+
+Place Alex on the cover and gift leaf, and Lewis on the Luxembourg and photograph leaves. Four portrait instances join the existing 43 decorations. Keep each face large enough to recognise at phone size, with its own slight paper rotation. Native reading uses separate cover/header offsets for its larger heading spacing. The existing measured-frame pipeline carries each portrait on its actual 3D page and through reader source masking; the writing-clearance guard protects longer personalised content. The full Notes/cat leaf remains intact.
+
 ## V39: a collected, decorated scrapbook
 
 Design Read: enrich this personal birthday scrapbook with the fuller, layered paper decoration the user requested. Retain the Pink + Sage materials, printed type, honest English placeholders, seven default chapters, five whole cats and existing interactions. Antislop during remains ENERGY 3 / RHYTHM 3 / MOTION 3. Taste remains DESIGN_VARIANCE 8 / MOTION_INTENSITY 9, with VISUAL_DENSITY raised from 3 to 5 specifically for attached ornaments; the reading column keeps its established spacing.

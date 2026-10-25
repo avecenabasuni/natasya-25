@@ -1,4 +1,66 @@
-# Validation: layered scrapbook decoration, V39
+# Validation: real driver portrait stickers, V40
+
+25 October 2026. Add the requested faces of Alex Albon and Lewis Hamilton in four places: Alex on the cover and gift page, Lewis on the Luxembourg and photograph pages. The default scrapbook now has 47 decorations, including the existing 43. No captions, reader actions, chapters, fonts, personal memories or gift data are added.
+
+Status: PASS, 290/290 focused checks. WebKit scene 375×667 and 375×520, WebKit reduced-motion/native and aborted-3D fallback at 375×667, plus Chromium scene 375×667 all pass. All four faces remain visible in every default context, with complete measured head crops, named image semantics and no visible captions or text overlap. Both Hamilton leaves have actual intermediate bending poses; nearby readers, candle/gift gating and animated cover return pass. Final source hashes and per-scope evidence are in `qa/v40/final-scope-summary.json`. This is a bounded portrait-placement change; the full V39 suite is retained historical evidence and is not claimed as rerun.
+
+## Scope and asset evidence
+
+Both assets are actual official 2026 Formula 1 driver photographs, hosted locally with their original bytes. Alex: 720×2069 RGBA, 114,090 bytes, SHA256 `e515f4a7852dc6caf10e626f02d6fd05ec5bbcab09bf0908ada5c56a9f9dc3a5`; Lewis: 720×2069 RGBA, 166,030 bytes, SHA256 `b88173b4ef603e9ecacb9c436268cb58b663a72374f772d963d3510cd5452491`. Third-party copyright and exact sources are retained in the asset credits/provenance; these are not generated art or Creative Commons photographs.
+
+The individually measured head-and-neck windows are `[212,8,328,352]` and `[204,4,360,356]`. Independent analysis verifies all 58,325 Albon and 61,921 Hamilton pixels with alpha >= 13 in the upper 360-pixel region remain inside their respective windows, with zero pixels lost. The lower window boundary intentionally ends at the neck. No extra separating polygon is required: exterior RGB on the source's transparent pixels remains transparent.
+
+The four portraits use the existing uniform-frame, physical-plane and reader-source composition. Their accessible image names identify each driver; visible caption text, controls and pointer interception are absent. Native layouts have separate header offsets. The existing clearance guard protects longer writing; existing continuation decorations and the five whole cats are unchanged. Current evidence is excluded under `qa/v40/`; original download/measurement evidence is retained under `/workspace/scratch/v40-portraits/`.
+
+## Current Antislop delivery gate
+
+PASS. Antislop during remains the explicit session mode; ENERGY/RHYTHM/MOTION 3/3/3 and Taste 8/9/5 retain the established visual direction. Current captures of all four portrait pages, the native cover, Luxembourg and gift pages were visually reviewed for recognisable whole faces, clear writing and unchanged interaction hierarchy.
+
+- R-01: the approved Pink + Sage interface remains; real driver clothing colors belong to the portrait content.
+- R-02: no visible prose or sticker caption is added; the new accessible driver names are plain English.
+- R-03: focused checks cover 375×667 and 375×520, with native and graphics-fallback layouts.
+- R-04: existing action icons keep their jobs; the faces directly represent the two explicitly requested drivers.
+- R-05: four photo cutouts join existing chapter-specific compositions; no filler layout or section is added.
+- R-06: Fraunces and Source Sans 3 retain their roles and source bytes.
+- R-07: existing paper/cloth materials remain; transparent portrait backgrounds add no generic pattern.
+- R-08: navigation arrows keep their actual actions.
+- R-09: no captions, badges, label strips or headline pills are added.
+- R-10: no glass or decorative blur is introduced.
+- R-11: the existing paper/control/die-cut shape hierarchy remains.
+- R-12: physical page depth and restrained contact shadows describe the attached portraits.
+- R-13: no new glow, idle pulse or sparkle is added.
+- R-14: face placement follows measured spare space in four different compositions.
+- R-15: portrait figures remain decorations, without a false button or generic CTA.
+- R-16: no marketing language is added.
+- R-17: dates, itinerary and gift amount remain unchanged user-supplied values.
+- R-18: the official portraits are credited, without invented personal identities, shared photos or testimonials.
+- R-19: portraits travel with their actual page fold; native/reduced reading remains static.
+- R-20: the named drivers support the recipient's specific racing interests.
+- R-21: the approved single light theme remains.
+- R-22: actual requested driver faces replace no personal-photo placeholder and are not generic character art.
+- R-23: the user explicitly requests Alex and Lewis faces; source URLs, rights statements and measured presentation windows are documented.
+- R-24: no portrait pretends to open a link; the existing content-bearing readers keep their destinations.
+- R-25: no visible text, interface token or font changes; prior contrast evidence remains scoped to that unchanged print.
+- R-26: focused click-through checks include nearby readers, candle/gift gating and replay; portraits add no action.
+- R-27: current scopes cover scene, reduced motion and aborted-3D fallback; original image bytes and complete face regions are checked independently.
+- R-28: no FAQ is added.
+- R-29: Pink + Sage remains the core palette; racewear colors are limited to the real photographs.
+- R-30: the portraits join the existing physical scrapbook rather than a copied product shell.
+- R-31: DESIGN.md records likeness, crop, placement, native offsets, semantics and physical attachment.
+- R-32: named image semantics remain available; the figures have no controls, focus stops or pointer interception.
+- R-33: application, CSS and documentation edits use apply_patch; source image bytes are copied unchanged.
+- R-34: focused phone/native/fallback captures cover the single shipped theme.
+- R-35: current per-scope checks and screenshots are recorded in qa/v40; the historical V39 counts are not claimed as rerun.
+- R-36: software-browser input/render observations do not imply physical iPhone FPS or VoiceOver testing.
+- R-37: the V40 design read and retained dials precede implementation.
+- R-38: portraits are real credited driver media, with no generated likeness or implied endorsement; personal photos, memories and the gift code remain placeholders.
+- Liveliness: explicit dials, varied compositions, preserved focal objects, purposeful whitespace, rose action accent and the existing physical paper motif remain consistent. Each requested face appears twice.
+- Craftsmanship C-1 through C-5: positions and source choices have written reasons; no false interaction, filler section or fabricated claim is introduced; the complete faces and responsive fitting are checked.
+- UI/Taste pre-flight: retain the paper book, typography, control hierarchy and restrained motion; add only the requested caption-free faces. Accessible identities, clean crops and correct whole-page attachment are part of the current focused evidence.
+
+The Site remains owner-private; recipient access remains deferred. GitHub contains the same app assets/code without the private Sites binding, credentials, local QA or deployment archives.
+
+# Historical validation: layered scrapbook decoration, V39
 
 25 October 2026. The user's request is a fuller physical scrapbook with more themed stickers and paper ornaments, without visible sticker captions. The default seven chapters now have 43 placed decorations: seven existing favorites and 36 new ornaments from 16 original motifs. The five named cats are retained separately. No story, personal photo, actual ticket or gift code is fabricated.
 

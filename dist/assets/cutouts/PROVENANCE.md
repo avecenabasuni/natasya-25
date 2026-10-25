@@ -1,5 +1,14 @@
 # Independent original paper cutouts
 
+## Real driver portraits, 25 October 2026
+
+The user explicitly requested the faces of Alex Albon and Lewis Hamilton on several pages. These are actual official Formula 1 photographs, not generated faces or personal travel photographs. The source files remain byte-for-byte unchanged; HTML and Three use the same measured head-and-neck windows, with all upper-head/face pixels at alpha >= 13 retained inside each frame. The lower boundary intentionally ends at the neck. Empty transparent RGB outside the subject is not painted as a background. Neither photograph requires a separating polygon.
+
+- `alex-albon-portrait.webp`: 720×2069 RGBA, 114,090 bytes, SHA256 `e515f4a7852dc6caf10e626f02d6fd05ec5bbcab09bf0908ada5c56a9f9dc3a5`. Presentation frame `[212,8,328,352]`. Driver page: https://www.formula1.com/en/drivers/alexander-albon . Exact media: https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp
+- `lewis-hamilton-portrait.webp`: 720×2069 RGBA, 166,030 bytes, SHA256 `b88173b4ef603e9ecacb9c436268cb58b663a72374f772d963d3510cd5452491`. Presentation frame `[204,4,360,356]`. Driver page: https://www.formula1.com/en/drivers/lewis-hamilton . Exact media: https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp
+
+Copyright Formula One World Championship Limited and respective rights holders. These are third-party photographs, not Creative Commons assets or official endorsement of this scrapbook. Four caption-free portrait instances use accessible names: Alex on the cover and gift leaf, Lewis on the Luxembourg and photograph leaves. Read-only source/frame analysis is retained outside publication at `/workspace/scratch/v40-portraits/`.
+
 ## Favorite fan stickers, 21 October 2026
 
 `favorites-stickers.png`: original transparent illustrated sheet, 1774x887, 1,818,371 bytes. SHA-256 `5328e5630edf6ee11a885e90318abed4830fec0ce8a6311c35421e0fa9b117b2`. Original `/workspace/generated_images/exec-c9255dbd-0d14-478c-a589-dc8fda0f854b.png`. Created with image_gen following the owner's explicit request to make and attach Ferrari, Lewis Hamilton, George Russell, Taylor Swift and the recipient's other named favorites.
