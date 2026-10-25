@@ -1,5 +1,15 @@
 # A little world, physical scrapbook
 
+## V43: composed collage, photographic finish and paper detail
+
+Design Read: carry out the four selected aesthetic changes for a personal scrapbook read on a phone: coherent small collages, consistent photo finishing, deliberate busy/quiet areas and subtle physical paper/cover details. Retain Pink + Sage, local Fraunces/Source Sans 3, English placeholders, seven chapters, uncaptioned actual faces and every existing interaction. Antislop during remains ENERGY/RHYTHM/MOTION 3/3/3; Taste remains 8/9/5.
+
+Bring Messi, Yamal and the Barcelona crest into one football cluster; pair Taylor/Rodrigo and Dean/Spiro into two music collages. The primary letter, photographs, cake and gift pocket keep clear surrounding space. Group nearby paper ornaments into the same corner areas, keeping all named faces visible and the default page count unchanged. Mount edges may meet or overlap while the actual source windows stay readable and complete. The user selected recommendations 1, 2, 4 and 5; no new tape, pocket or attachment interaction is added from recommendation 3.
+
+Use warm cream photographic mounts and one restrained display finish: saturation0.90, sepia0.09, contrast0.98. Keep original image bytes, measured head windows and source/rights records unchanged. Native CSS and a cached, one-time scene print transform apply the same color operations, including shared photographs and their reader. Limit whole-photo scene print resolution; never process imagery on every animation frame. Preserve alpha and uniform image proportions. The actual club crest and illustrated ornaments retain their original colors.
+
+Small photo-edge fibres, a slight corner relief and light fold/stitched-cover marks explain physical paper rather than adding animation or text. Details stay in paper margins and cover edges, outside all image subjects and writing. Render the same details into scene snapshots and native styles so opening, page turns, reader masking and fallback reading keep a consistent object. Existing motion clocks, candle/audio gate, private access, user data and placeholder policy remain.
+
 ## V42: actual music portraits and Barcelona keepsakes
 
 Design Read: replace symbolic music props with recognizable photographs of Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro, and add Lionel Messi, Lamine Yamal and the actual FC Barcelona crest to this personal birthday scrapbook. Preserve the established Pink + Sage paper aesthetic, local printed type, seven chapters and caption-free sticker collection. Antislop during remains ENERGY/RHYTHM/MOTION 3/3/3; Taste remains 8/9/5.

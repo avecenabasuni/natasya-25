@@ -2,6 +2,8 @@
 
 Added on 25 October 2026 at the owner's request. These are real sourced photographs and the actual club crest, not generated likenesses, personal trip photos or endorsements. Downloaded image bytes remain unchanged. Individually measured CSS windows present the heads or crest; lower hair, shoulders and clothing may intentionally meet a portrait boundary. Photographs have no added visible captions. The four former music-prop illustrations are absent from the rendered collection.
 
+V43 adds a restrained display-only photographic grade (saturation0.90, sepia0.09, contrast0.98), cream paper finishing and grouped placement. This changes displayed color and framing, including the two CC BY photographs, while retaining every downloaded source file unchanged. The same color operations run in native CSS and cached scene prints. The club crest retains its original colors. No new likeness or source photograph is generated.
+
 ## Taylor Swift
 
 `cutouts/taylor-swift-photo.png`: 1000×1200 RGBA, 998,231 bytes. SHA256 `10ce5eca21654f381d88d41564bcc526f4fa3df7db1e26f037960f3e2e0228a4`. Presentation window `[0,0,1000,1200]`.

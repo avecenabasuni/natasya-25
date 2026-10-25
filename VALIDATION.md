@@ -1,4 +1,69 @@
-# Validation: real music photographs and Barcelona keepsakes, V42
+# Validation: composed collages and tactile photo finish, V43
+
+25 October 2026. Implement the four selected aesthetic changes: grouped collages, consistent photographic finishing, deliberate busy/quiet composition and subtle paper/cover material details. All 53 decorations and all 14 named portrait/crest instances remain. Seven chapters, original sources, personal content, fonts, closed notes, candle/audio, gift and replay behavior are retained.
+
+Status: PASS in the current focused scopes. WebKit passes 703/703 assertions across scene375×667/520, reduced-motion/native375×667 and aborted-3D375×667. Chromium scene375×667 passes190/190. Additional independent color/material probes check the actual cached print against native CSS, original alpha, cache reuse, idle transform counts, cover stitching and actual photograph mount marks. Exact scopes, current hash ledger and probe results are recorded in `qa/v43/final-scope-summary.json`. Earlier V39/V41/V42 broad suites are not claimed as rerun.
+
+## Selected changes and evidence
+
+- Composition: Messi, Yamal and Barcelona form one Notes cluster. Taylor/Rodrigo pair on Photographs; Dean/Spiro pair below the gift. George joins the Four days keepsakes. Supporting bow, key, hearts and moon positions follow those clusters. The birthday cake gains clear surrounding space after Rodrigo moves; note and full coupon geometry stay unobscured. Actual fitted source windows remain separate even where paper-edge grouping is close. All named pieces remain visible in every default context.
+- Finishing: saturation0.90, sepia0.09 and contrast0.98 apply a mild warm photograph treatment. Native CSS and a cached scene print use the same operations, including real shared photographs and their reader. Original files and measured source windows remain unchanged; the club crest and illustrated ornaments retain their original colors. Scene prints preserve alpha, crop before processing and cap whole-photo dimensions at1600px. The processing loop does not allocate a new array per pixel and does not run during page animation.
+- Independent color comparison: the same raw source crop, rendered through native CSS, is compared with the actual cached toned print through the same canvas display/resampling path. Chromium mean and p95 RGB delta are0; WebKit mean delta0.295 and p95 delta1. The earlier image-versus-canvas probe had a downsampling confound and is retained separately rather than described as an application defect. Actual print alpha is unchanged; repeated image/frame requests return the same cache entry, and idle transform counts stay13→13.
+- Material: static paper-edge fibres and a small corner-relief highlight stay within mount margins. Faint cover-edge wear, spine stitching and an offset light thread beside the nameplate seam extend the existing cloth/paper construction. Native styles and explicit scene painting describe corresponding physical details. No face, photograph window, writing or control is clipped, stretched or covered; no new animation loop, asset, caption or interaction is added.
+- Current click-through covers cover opening, all chapters, real music/football page-bending attachments, both concealed note readers and refolding, dismissal/focus/cleanup, candle lock/audio state, full coupon reader and animated replay to cover. Native/reduced-motion and aborted-3D paths retain the same content and usable controls. No horizontal overflow or runtime exception remains in the covered contexts.
+- Root independently verifies43 protected content, interaction, image and font files against the V42 commit. Five changed/new JavaScript modules pass syntax checks, and `git diff --check` passes. QA original-source hashes and the final runtime ledger bind the current implementation to packaging. New scripts, styles and print caches introduce no dependency installation or network image request.
+
+Root visually reviewed the three new collage pages and quieter birthday composition; the final material/tone probes and source evidence supplement those captures. Verification is software WebKit/Chromium, not physical iPhone Safari, hardware frame rate or VoiceOver. QA files and fixtures remain excluded from deployment and GitHub.
+
+## Current Antislop delivery gate
+
+PASS. The V43 design read precedes implementation in DESIGN.md. Explicit Antislop during ENERGY/RHYTHM/MOTION3/3/3 and Taste8/9/5 preserve the established paper aesthetic and responsive reading priorities.
+
+- R-01 PASS: the established Pink + Sage interface remains; the mild photograph grade serves material consistency.
+- R-02 PASS: no new visible prose, captions, emoji or decorative punctuation is added.
+- R-03 PASS: scene375×667/520 and native/fallback scopes retain complete subjects, clear controls and no overflow.
+- R-04 PASS: real named photographs and the genuine crest keep their intended identities; no new generic icons are added.
+- R-05 PASS: three content-specific clusters and a quieter birthday page replace scattered composition without adding a section.
+- R-06 PASS: local Fraunces/Source Sans 3 and their source bytes remain unchanged.
+- R-07 PASS: fibre, linen and stitch marks express the book's actual paper/cloth materials.
+- R-08 PASS: existing navigation and gift arrows retain their real actions.
+- R-09 PASS: no badge, caption strip or pill is added.
+- R-10 PASS: no glass or decorative blur is introduced.
+- R-11 PASS: photo mounts, die cuts, emblem and controls keep distinct physical shapes.
+- R-12 PASS: light contact/edge shading explains paper thickness and corner relief.
+- R-13 PASS: no glow, sparkle or new idle pulse is added.
+- R-14 PASS: paired music photographs and a football trio occupy different measured compositions.
+- R-15 PASS: new decoration creates no false controls or generic action labels.
+- R-16 PASS: no marketing language is added.
+- R-17 PASS: dates, birthday and gift amount remain supplied values.
+- R-18 PASS: all named sources and personal-memory placeholders remain accurate and separate.
+- R-19 PASS: existing page bending carries the grouped print; finite existing motion and reduced-motion reading are preserved.
+- R-20 PASS: the named interests, cats, trip and birthday retain their specific scrapbook identity.
+- R-21 PASS: the approved single light theme remains.
+- R-22 PASS: real sourced photographs and existing generated paper motifs retain their documented product roles.
+- R-23 PASS: the user selected these four refinements; no new imagery is generated or downloaded, and display changes are credited.
+- R-24 PASS: no new link or destination is introduced; existing readers remain functional.
+- R-25 PASS: text colors/fonts remain unchanged with prior AA evidence; the new grade affects photographs only.
+- R-26 PASS: current chapter, note, candle, gift and replay click-through passes; decorative layers intercept no input.
+- R-27 PASS: empty placeholders and loading/error behavior remain, with current native and graphics-fallback checks.
+- R-28 PASS: no FAQ is introduced.
+- R-29 PASS: no interface color role changes; photo finishing and paper highlights are material treatments.
+- R-30 PASS: changes extend the authored physical scrapbook rather than a borrowed product shell.
+- R-31 PASS: DESIGN.md records grouping, whitespace, color operations, caching and margin-only physical detail purposes.
+- R-32 PASS: no new focus stops; visible focus, keyboard dismissal and trigger restoration remain usable.
+- R-33 PASS: feature/style/documentation edits use apply_patch; every original image file remains unchanged.
+- R-34 PASS: the single shipped theme is exercised in scene/native/fallback.
+- R-35 PASS: current click-through, independent tone comparison and captured layouts are recorded without claiming prior broad suites as rerun.
+- R-36 PASS: no hardware, speed, security or performance guarantees are invented from software-browser evidence.
+- R-37 PASS: the retained brand, new design read and explicit dials precede edits.
+- R-38 PASS: actual fan media stays credited; no personal story, travel photograph or gift code is fabricated.
+- Liveliness PASS: clear focal objects, clustered detail, intentional quiet areas, rose actions and tactile paper identity match the declared dials.
+- Craftsmanship C-1 through C-5 PASS: each selected change has a reason, works with the existing controls, adds no filler content and has source/render evidence.
+- UI/Taste pre-flight PASS: preserve the original paper aesthetic, font/color hierarchy and one theme; original photographs, consistent finishing and measured responsive compositions support the four selected changes.
+
+The Site remains owner-private; arranging recipient access remains deferred. GitHub receives the matching app and documents without the private Site binding, credentials, QA or deployment archive.
+
+# Historical validation: real music photographs and Barcelona keepsakes, V42
 
 25 October 2026. Replace the four symbolic music stickers with actual Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro photographs; add Lionel Messi, Lamine Yamal and the actual FC Barcelona crest. The three racing illustrations, seven F1 portrait instances and 36 paper ornaments remain. There are 53 default decorations. All new pieces have accessible identities and no visible captions, controls or touch interception. Seven chapters, closed letters, five whole cats, content, fonts, Pink + Sage and gift behavior remain.
 

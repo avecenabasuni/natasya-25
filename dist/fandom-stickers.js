@@ -40,7 +40,7 @@
 
     ornament('photo-daisies','daisies','october',-11,40,46,{left:'185px',bottom:'33px'}),
     ornament('photo-butterfly','butterfly','october',13,41,30,{left:'236px',bottom:'44px'}),
-    ornament('photo-bow','bow','october',-8,37,27,{left:'190px',top:'6px'}),
+    ornament('photo-bow','bow','october',-8,30,22,{left:'178px',top:'9px'}),
     ornament('photo-tape','pinkTape','october',69,21,9,{left:'7px',top:'30%'},true),
     ornament('photo-botanical','leaves','october',7,17,32,{right:'5px',top:'55%'},true),
 
@@ -51,14 +51,14 @@
     ornament('notes-hearts','hearts','letter',9,18,16,{right:'4px',top:'74%'},true),
 
     ornament('birthday-bow','bow','birthday',8,28,19,{left:'215px',top:'4px'}),
-    ornament('birthday-moon','moon','birthday',-11,40,34,{left:'175px',bottom:'39px'}),
+    ornament('birthday-moon','moon','birthday',-11,40,34,{left:'104px',bottom:'36px'}),
     ornament('birthday-hearts','hearts','birthday',7,38,27,{left:'45px',bottom:'39px'}),
     ornament('birthday-butterfly','butterfly','birthday',-9,18,18,{left:'6px',top:'45%'},true),
     ornament('birthday-daisies','daisies','birthday',9,17,32,{right:'5px',top:'63%'},true),
 
     ornament('gift-bow','bow','gift',-8,43,32,{right:'26px',top:'67px'}),
-    ornament('gift-key','key','gift',-14,45,40,{left:'146px',bottom:'62px'}),
-    ornament('gift-hearts','hearts','gift',9,38,28,{left:'187px',bottom:'43px'}),
+    ornament('gift-key','key','gift',-14,45,40,{left:'205px',bottom:'60px'}),
+    ornament('gift-hearts','hearts','gift',9,30,23,{left:'242px',bottom:'73px'}),
     ornament('gift-cherries','cherries','gift',-9,31,31,{right:'35px',bottom:'38px'}),
     ornament('gift-tape','pinkTape','gift',68,21,9,{left:'6px',top:'47%'},true),
     ornament('gift-botanical','leaves','gift',9,17,32,{right:'5px',top:'57%'},true)
@@ -76,7 +76,7 @@
     portrait('trip-hamilton-portrait','hamilton','dedication',4,44,46,{left:'var(--trip-driver-left,255px)',top:'50px'}),
     portrait('photo-hamilton-portrait','hamilton','october',-4,42,45,{left:'134px',bottom:'31px'}),
     portrait('gift-albon-portrait','albon','gift',6,46,50,{right:'33px',top:'var(--gift-driver-top,279px)'}),
-    portrait('days-russell-portrait','russell','your-world',5,43,48,{right:'50px',bottom:'32px'}),
+    portrait('days-russell-portrait','russell','your-world',5,43,48,{left:'150px',bottom:'32px'}),
     portrait('gift-norris-portrait','norris','gift',-5,43,44,{left:'35px',top:'var(--gift-norris-top,67px)'}),
     portrait('trip-piastri-portrait','piastri','dedication',-5,41,46,{left:'148px',bottom:'24px'})
   ];
@@ -91,14 +91,15 @@
   };
   const keepsake=(subject,page,angle,w,h,position)=>({key:subject+'-photo',subject,page,angle,w,h,position,name:subjectPhotos[subject].name,frame:subjectPhotos[subject].frame,atlas:subjectPhotos[subject],ornament:true,portrait:!subjectPhotos[subject].emblem,emblem:!!subjectPhotos[subject].emblem,photo:!!subjectPhotos[subject].photo});
   const subjects=[
-    keepsake('taylor','october',6,52,58,{right:'18px',top:'2px'}),
-    keepsake('rodrigo','birthday',-6,48,58,{right:'13px',top:'132px'}),
-    keepsake('dean','gift',-6,52,56,{left:'62px',bottom:'78px'}),
-    keepsake('spiro','gift',7,52,62,{right:'62px',bottom:'66px'}),
-    keepsake('messi','your-world',-5,44,48,{left:'172px',bottom:'32px'}),
-    keepsake('yamal','letter',-6,44,46,{left:'105px',bottom:'24px'}),
-    keepsake('barcelona','letter',6,43,43,{left:'233px',bottom:'26px'})
+    keepsake('taylor','october',-6,44,54,{left:'218px',top:'3px'}),
+    keepsake('rodrigo','october',5,44,54,{left:'270px',top:'9px'}),
+    keepsake('dean','gift',-6,52,60,{left:'57px',bottom:'72px'}),
+    keepsake('spiro','gift',5,52,64,{left:'115px',bottom:'64px'}),
+    keepsake('messi','letter',-7,40,44,{left:'98px',bottom:'24px'}),
+    keepsake('yamal','letter',4,40,46,{left:'146px',bottom:'20px'}),
+    keepsake('barcelona','letter',9,38,38,{left:'197px',bottom:'29px'})
   ];
+  const collageGroups={taylor:'music-pop',rodrigo:'music-pop',dean:'music-soul',spiro:'music-soul',messi:'football',yamal:'football',barcelona:'football'};
   const collection=[...favorites,...ornaments,...portraits,...subjects];
   function layer(page){
     const items=collection.filter(item=>item.page===page);if(!items.length)return '';
@@ -107,7 +108,7 @@
       const placement=item.ornament?`;--fan-w:${item.w}px;--fan-h:${item.h}px;${Object.entries(item.position).map(([key,value])=>`${key}:${value}`).join(';')}`:'';
       const semantics=item.portrait||item.emblem?`role="img" aria-label="${item.name} ${item.emblem?'crest':'portrait'} sticker"`:item.ornament?'aria-hidden="true"':`role="img" aria-label="${item.name} illustrated fan sticker"`;
       const polygon=polygons[item.motif],mask=polygon?`;clip-path:polygon(${polygon.split(' ').map(point=>point.split(',').join('% ')+'%').join(',')})`:'';
-      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.driver?' driver-portrait':''}${item.photo?' photo-portrait':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.rail?' data-sticker-rail="true"':''}${item.driver?` data-driver-portrait="${item.driver}"`:''}${item.subject?` data-fandom-subject="${item.subject}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
+      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.portrait?' portrait-sticker':''}${item.driver?' driver-portrait':''}${item.photo?' photo-portrait':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.rail?' data-sticker-rail="true"':''}${item.driver?` data-driver-portrait="${item.driver}"`:''}${item.subject?` data-fandom-subject="${item.subject}" data-collage-group="${collageGroups[item.subject]}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
     }).join('')}</div>`;
   }
   function fit(root){

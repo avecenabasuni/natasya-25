@@ -11,6 +11,7 @@
 .fandom-frame img{position:absolute;left:var(--fan-image-x);top:var(--fan-image-y);width:var(--fan-image-w);height:var(--fan-image-h);max-width:none;object-fit:fill}
 .photo-portrait .fandom-portrait{background:var(--paper)}
 .photo-portrait .fandom-frame{width:min(calc(100cqw - 4px),calc((100cqh - 4px) * var(--fan-ratio)))}
+.portrait-sticker img,.real-memory img,.fragment-image img,.reader-photo img{filter:saturate(.9) sepia(.09) contrast(.98)}
 .birthday-cover .book-front>.fandom-layer{position:absolute;inset:0}
 .birthday-cover .cover-kicker{right:30%}
 [data-fandom-sticker=ferrari]{--fan-w:60px;--fan-h:44px;right:9%;top:8%}

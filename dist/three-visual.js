@@ -131,7 +131,13 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
         const style=getComputedStyle(ancestor);if(!['hidden','clip'].includes(style.overflowX)&&!['hidden','clip'].includes(style.overflowY))continue;
         const clip=ancestor.getBoundingClientRect();ctx.beginPath();ctx.rect(clip.left-origin.left,clip.top-origin.top,clip.width,clip.height);ctx.clip();
       }
-      ctx.beginPath();ctx.rect(r.left-origin.left,r.top-origin.top,r.width,r.height);ctx.clip();ctx.drawImage(img,r.left-origin.left+(r.width-iw)/2,r.top-origin.top+(r.height-ih)/2,iw,ih);ctx.restore();
+      ctx.beginPath();ctx.rect(r.left-origin.left,r.top-origin.top,r.width,r.height);ctx.clip();
+      const dx=r.left-origin.left+(r.width-iw)/2,dy=r.top-origin.top+(r.height-ih)/2;
+      const finish=window.ScrapbookPhotoFinish,frame=e.closest('.fandom-frame')?.dataset.stickerFrame?.split(',').map(Number);
+      const print=finish&&e.matches(finish.selector)?finish.getPrint(img,frame):null;
+      if(print){const [x,y,w,h]=print.frame;ctx.drawImage(print.image,dx+x/img.width*iw,dy+y/img.height*ih,w/img.width*iw,h/img.height*ih);}
+      else ctx.drawImage(img,dx,dy,iw,ih);
+      ctx.restore();
     }));
     const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);let n;
     while(n=walker.nextNode()){
@@ -151,6 +157,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       }
       drawLine();ctx.restore();
     }
+    window.ScrapbookPaperFinish?.paint(ctx,node,origin,{skipFandom,phase:'after'});
   }
   async function raster(original,isCover=false){
     const host=document.createElement('div');host.className='scene-raster three-book';host.inert=true;host.setAttribute('aria-hidden','true');film.append(host);
