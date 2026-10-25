@@ -136,7 +136,7 @@
       });
       candleSmokeTimer=setTimeout(()=>app.querySelectorAll('.candle-smoking').forEach(button=>button.classList.remove('candle-smoking')),1200);
       film?.setBirthdayCandle?.(candleLit);
-      syncGiftGate();setActive(active,activePosition);
+      syncGiftGate();fitNativeOrnaments();setActive(active,activePosition);
     }
     function render(){
       discovery?.reset();feedback?.reset();clearTimeout(candleSmokeTimer);refreshToken++;observer?.disconnect();motion?.revert();motion=null;observer=null;
@@ -175,7 +175,7 @@
         document.querySelectorAll('.contents-list a').forEach(a=>a.onclick=e=>{e.preventDefault();document.getElementById('map-dialog').close();go(a.hash.slice(1),true);});
       });
       observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting);if(visible.length)setActive(chapters.findIndex(c=>c[0]===visible.at(-1).target.id));},{rootMargin:'-35% 0px -45% 0px',threshold:0});
-      chapters.forEach(([id])=>observer.observe(document.getElementById(id)));setActive(0);animate();syncGiftGate();
+      chapters.forEach(([id])=>observer.observe(document.getElementById(id)));setActive(0);animate();syncGiftGate();fitNativeOrnaments();
     }
     function setActive(index,position){
       if(index<0)return;active=index;activePosition=position||null;
@@ -199,7 +199,7 @@
         const returnTo=mediaChapter||chapters[active]?.[0]||'cover',token=refreshToken;mediaChapter=null;observer?.disconnect();const gift=document.getElementById('gift');gift.hidden=false;gift.inert=false;
         film=BookExperience.create({app,chapters,setActive,isGiftUnlocked:()=>candleBlown});
         if(!film)chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));else if(returnTo!=='cover')film.go(returnTo,true);
-        return()=>{const returnTo=mediaChapter||chapters[active]?.[0]||'cover';mediaChapter=null;film?.destroy();film=null;syncGiftGate();chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));requestAnimationFrame(()=>{if(token===refreshToken&&!film)go(returnTo,true);});};
+        return()=>{const returnTo=mediaChapter||chapters[active]?.[0]||'cover';mediaChapter=null;film?.destroy();film=null;syncGiftGate();chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));requestAnimationFrame(()=>{if(token===refreshToken&&!film){fitNativeOrnaments();go(returnTo,true);}});};
       });
     }
     function go(id,focus=false){
@@ -224,6 +224,15 @@
       inputs.forEach(type=>window.addEventListener(type,release,{passive:true,once:true}));
       clearReflowWait=()=>{clearTimeout(timer);host.removeEventListener('book-graphics-ready',release);host.removeEventListener('book-graphics-fallback',release);inputs.forEach(type=>window.removeEventListener(type,release));clearReflowWait=()=>{};};
     }
+    function fitNativeOrnaments(){
+      if(film)return;
+      app.querySelectorAll('.album-chapter .sheet').forEach(page=>window.ScrapbookStickers?.fit(page));
+    }
+    let ornamentResizeFrame=0;
+    window.addEventListener('resize',()=>{
+      cancelAnimationFrame(ornamentResizeFrame);
+      ornamentResizeFrame=requestAnimationFrame(fitNativeOrnaments);
+    },{passive:true});
     let restoreTimer;
     function restoreVisibleBook(){
       clearTimeout(restoreTimer);

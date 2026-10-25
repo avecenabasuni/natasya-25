@@ -1,5 +1,7 @@
 # Scrapbook asset sources
 
+Sixteen original paper ornaments were generated for this scrapbook and placed as 36 decorative keepsakes: bows, pressed flowers and leaves, cherries, souvenir stamps, a blank rail ticket, washi tape, a wax seal, key, moon-and-stars cutout, racing flag, butterfly, record and hearts. They use the existing pink/sage palette. The Luxembourg bridge and Trier Porta Nigra stamps are illustrative souvenirs, not personal photographs or claims that these landmarks were visited. No decorative ticket contains invented travel details. The transparent source atlas is retained without repainting; measured individual frames preserve each whole motif. See [cutouts/PROVENANCE.md](cutouts/PROVENANCE.md).
+
 Seven illustrated fan stickers represent the recipient's supplied favorites: Ferrari, Lewis Hamilton, George Russell, Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro. Original artwork was generated for this scrapbook and uses racing/music keepsake motifs with accessible names and no visible captions. The original RGBA sheet and its per-sticker frames retain complete silhouettes. Generation and file provenance: [cutouts/PROVENANCE.md](cutouts/PROVENANCE.md).
 
 The map of central Trier uses actual OpenStreetMap river-bank, street and landmark geometry downloaded through the Overpass API on 17 October 2026. It is geographic context, with no invented route or claim of places visited. The live book uses the1000x650 WebP; the editable SVG is also included.

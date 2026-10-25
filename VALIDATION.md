@@ -1,4 +1,72 @@
-# Validation: uncaptioned fan stickers, V38
+# Validation: layered scrapbook decoration, V39
+
+25 October 2026. The user's request is a fuller physical scrapbook with more themed stickers and paper ornaments, without visible sticker captions. The default seven chapters now have 43 placed decorations: seven existing favorites and 36 new ornaments from 16 original motifs. The five named cats are retained separately. No story, personal photo, actual ticket or gift code is fabricated.
+
+Status: PASS. No unresolved V39 failure remains. The historical V38/V37 results below are retained separately and are not claimed as rerun.
+
+Current evidence: WebKit passes 1,654/1,654 checks across scene375×667/520, reduced-motion/native667, aborted-3D667, continuation leaves and a labelled longer-personalisation fixture. A fresh native gift-reveal probe passes48/48 and proves clearance fitting runs after the candle unlocks and reveals the gift. Chromium's full1,268-check run passes every scope except two recorded cover-bow clearance checks that used the earlier2%position. Moving only that bow to1% is verified by a fresh364/364-check cover scope across both engines at both phone heights, including whole artwork/masks, actual planes, trusted opening and animated return. The original two obsolete failures remain visible in the historical report; no combined count hides them. All eight default engine/mode/height contexts retain43/43 visible decorations with zero omissions. Exact source hashes, scoped results and corrected captures are recorded in `qa/v39/final-scope-summary.json`.
+
+## Scope and evidence
+
+- Original generated ephemera atlas: 1536×1024 RGBA PNG, 2,938,679 bytes, SHA256 `49e222b58051cab1e2aa6489c49e77a439fefe677c76da8c89aba9b255db70a1`. The distributed bytes match the generated original. Metadata and alpha measurement are in excluded local `/workspace/scratch/v39-art/`.
+- Individual measured frames preserve the original silhouettes. The key and record have separating polygons through transparent gaps to exclude neighboring ink. Independent browser analysis retains all 55,012 record and 21,220 key own-component pixels at alpha>50, while removing 125 and 320 foreign alpha>=64 pixels respectively. No own-component pixel is removed, and visible frame-border ink is zero.
+- The original five-cat and fan-sticker source hashes remain unchanged: `85d8665a3b6dd4d025b92bf436a20abcfd2dcafeb5ab7e635825e6798be62816` and `5328e5630edf6ee11a885e90318abed4830fec0ce8a6311c35421e0fa9b117b2`.
+- Every visible decoration uses the same atlas/frame/mask in native HTML and Three, with its own physical attachment, reader-print metadata and ordered depth. Sparse outer-margin variants decorate continuation leaves.
+- Native reading has its own bow/tape offsets. After actual pagination, a bounded clearance check omits a new ornament only when it overlaps writing, a photo interior, cat portrait or the candle. Existing named favorites are preserved. Native resize and motion-mode restoration repeat the check; omitted decorations do not create empty layout blocks.
+- Syntax checks cover the five changed JavaScript files; `git diff --check` passes. Config, fonts, original art and external dependencies are unchanged. All QA images, scripts, labelled long-content fixtures and browser reports are excluded from deployment and GitHub.
+
+## Current Antislop delivery gate
+
+PASS. This is a targeted redesign under the user's explicit Antislop during session choice, with ENERGY/RHYTHM/MOTION 3/3/3 and Taste 8/9/5. Each rule's scope and evidence are recorded here; there is no additional approval step. Final WebKit captures of all seven pages, reduced-motion Notes and the short-screen birthday leaf were visually reviewed. An independent review also accepts the hierarchy, whole artwork and fuller decoration.
+
+- R-01: Pink + Sage remains the interface system; artwork colors belong to paper keepsakes, with no new interface gradient.
+- R-02: no visible prose or generated caption is added; English content and honest placeholders remain.
+- R-03: actual mobile layouts are checked at 375×667 and 375×520, including native reading and longer writing.
+- R-04: existing action icons keep their jobs; a physical racing flag, record and birthday moon cutout have explicit scrapbook purposes.
+- R-05: seven content-specific chapter compositions remain; no template section or repeated feature-card row is introduced.
+- R-06: local Fraunces and Source Sans 3 keep their existing roles and unchanged font bytes.
+- R-07: cloth and paper remain the book's actual material backgrounds; washi patterns occur on attached tape only.
+- R-08: navigation arrows retain previous, next, replay and real gift actions.
+- R-09: no caption strips, badges or pills are added to the stickers.
+- R-10: no glass, frosted overlay or decorative blur is introduced.
+- R-11: physical sheet, control and die-cut edge shapes retain their different purposes.
+- R-12: subtle contact shadows and physical depth describe attached paper; no floating UI-card shadow system is added.
+- R-13: no ambient glow or looping sparkle is added.
+- R-14: ornamental clusters follow each page's actual available space and content, without equal card layouts.
+- R-15: no decorative figure becomes a false button or generic CTA.
+- R-16: no marketing buzzword is added.
+- R-17: dates, itinerary and gift amount remain user-supplied; the blank ticket adds no invented transport data.
+- R-18: no personal identity, shared memory or testimonial is invented.
+- R-19: the new paper moves with its actual cover or page fold; native reduced-motion reading remains available.
+- R-20: the birthday, favorite music/racing motifs, whole cats and Luxembourg/Trier details form a specific personal scrapbook.
+- R-21: the approved light Pink + Sage theme remains.
+- R-22: original paper ornaments support the requested collected scrapbook; the souvenir stamps are illustrations, not personal photography.
+- R-23: image creation is explicitly authorised in the current request; generation and file provenance are retained.
+- R-24: ornaments do not pretend to be destinations; the existing real readers and external links keep their behavior.
+- R-25: no new visible text or control color is introduced; unchanged text and material contrast retains its prior evidence.
+- R-26: current click-through evidence exercises the map, daily photo, main photo, note, Minnie, music, candle, gift and replay.
+- R-27: current checks include scene, reduced-motion/native, aborted-3D fallback and personal-writing variants.
+- R-28: no FAQ is introduced.
+- R-29: Pink + Sage remains the core palette; gold/red/lilac details are limited to the physical artwork.
+- R-30: composition follows the existing bound scrapbook, without copying another product shell.
+- R-31: DESIGN.md records cluster hierarchy, margin protection, tactile layering, masks and adaptive clearance.
+- R-32: new pure ornaments are aria-hidden, have no controls and never intercept pointer input; named favorites retain accessible identities.
+- R-33: application, CSS and documentation changes use apply_patch. Generation, measurements and excluded QA artifacts do not patch application files.
+- R-34: the one shipped theme is checked in the current phone, native and fallback compositions.
+- R-35: current software-browser results, captured pages, exact artwork checks and actual reader/navigation actions are recorded under qa/v39.
+- R-36: software-browser observations are not represented as physical iPhone, hardware-FPS or VoiceOver testing.
+- R-37: DESIGN.md records the design read and dials before implementation, with density raised only for the requested decoration.
+- R-38: names, photographs, memories, songs and purchased voucher code remain honest placeholders; illustrated souvenirs are identified as artwork.
+- Liveliness: dials are explicit; the cover label, map/contact sheet, photograph, letter/cats, cake and gift keep their focal roles. Whitespace separates writing and objects. Rose remains the action accent, while repeated ribbon and paper-cut motifs provide identity. Every chapter has its own cluster rather than a uniform template.
+- Craftsmanship C-1 through C-5: decorative choices have written reasons, existing actions work, no filler chapter is added, native/fallback/personalised layouts are checked, and source/asset/verification claims are explicit.
+- UI supplement: one coherent material palette, purposeful icons and motion, no emoji/badge/glass/glow pattern, retained practical labels and fallbacks, real content slots and preserved touch targets. The ordinary type remains readable beside ornament clusters.
+- Taste pre-flight: preserve the existing book, typography, story and controls; increase the requested visual density without changing hierarchy or adding ambient motion. Decorative paper remains physically attached in the animated book and static native reader.
+
+## Verification limits
+
+Playwright Chromium and WebKit provide software-browser rendering and real input evidence. They do not establish physical-device Safari frame rate, VoiceOver behavior, or hardware iPhone performance. The project remains an owner-private Site; arranging access for the recipient remains deferred. The already-authorised GitHub repository is kept in sync without its private Sites binding, QA captures, credentials or deployment archives.
+
+# Historical validation: uncaptioned fan stickers, V38
 
 21 October 2026. Remove visible captions from the seven V37 fan stickers. Their supplied names remain in accessible image labels. Original artwork, measured frames, portrait sizes, rotations and page assignments remain. The gift pair's bottom offset compensates for the removed caption height, preserving the illustration positions.
 

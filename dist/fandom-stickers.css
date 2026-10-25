@@ -2,6 +2,9 @@
 .fandom-layer{position:absolute;inset:0;pointer-events:none;z-index:3}
 .fandom-sticker{position:absolute;display:block;width:var(--fan-w,52px);margin:0;transform:rotate(var(--fan-angle));pointer-events:none;user-select:none}
 .fandom-sticker *{pointer-events:none}
+.paper-ornament .fandom-portrait{filter:drop-shadow(.4px .8px .5px #63425322)}
+.fandom-layer[data-sticker-variant=continuation]{z-index:2}
+.album-story:not(.has-book-film){--cover-bow-top:0%;--notes-bow-top:0px;--notes-tape-top:94px}
 .fandom-portrait{display:block;position:relative;width:100%;height:var(--fan-h,48px);overflow:hidden;container-type:size}
 .fandom-frame{display:block;position:absolute;left:50%;top:50%;width:min(100cqw,calc(100cqh * var(--fan-ratio)));aspect-ratio:var(--fan-ratio);transform:translate(-50%,-50%);overflow:hidden}
 .fandom-frame img{position:absolute;left:var(--fan-image-x);top:var(--fan-image-y);width:var(--fan-image-w);height:var(--fan-image-h);max-width:none;object-fit:fill}

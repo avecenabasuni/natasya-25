@@ -1,6 +1,6 @@
 # natasya-25
 
-A personal birthday scrapbook made for a phone: pink cloth, paper pages, a hinged 3D cover, photographs, folded notes, five cats, and illustrated racing/music stickers.
+A personal birthday scrapbook made for a phone: pink cloth, paper pages, a hinged 3D cover, photographs, folded notes, five cats, illustrated racing/music stickers, and layered paper ornaments.
 
 The current book has seven chapters: cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration, and a gift. The trip is 22–25 October 2026; the birthday is 2 November 2026. Personal names, photographs, memories, songs, and the Amazon.de €25 gift code remain placeholders until supplied.
 
@@ -27,6 +27,7 @@ Edit the shared defaults in [dist/config.js](dist/config.js), or use the editor 
 - Open keepsakes from the page and drag downward to dismiss them.
 - The birthday page plays its candle-controlled melody; extinguishing the candle unlocks the gift.
 - Seven uncaptioned fan stickers represent Ferrari, Lewis Hamilton, George Russell, Taylor Swift, Olivia Rodrigo, Olivia Dean, and Sienna Spiro. Winnie, Bonnie, Connie, Wonnie, and Minnie keep their complete artwork.
+- Sixteen original paper motifs supply 36 additional ornaments: bows, pressed flowers, souvenir stamps, rail tickets, washi tape, wax seals, music and racing details. Decorations follow the page turns and leave the reading column and touch targets clear; continuation leaves use a sparse margin treatment.
 
 Publish the contents of `dist/` with a static hosting provider. This repository contains the current application source and supporting documentation; local QA captures, deployment archives, credentials, and the original Sites hosting binding are excluded.
 

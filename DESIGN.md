@@ -1,5 +1,17 @@
 # A little world, physical scrapbook
 
+## V39: a collected, decorated scrapbook
+
+Design Read: enrich this personal birthday scrapbook with the fuller, layered paper decoration the user requested. Retain the Pink + Sage materials, printed type, honest English placeholders, seven default chapters, five whole cats and existing interactions. Antislop during remains ENERGY 3 / RHYTHM 3 / MOTION 3. Taste remains DESIGN_VARIANCE 8 / MOTION_INTENSITY 9, with VISUAL_DENSITY raised from 3 to 5 specifically for attached ornaments; the reading column keeps its established spacing.
+
+The user explicitly authorised sourced or generated images. A new original 16-piece watercolor and pencil paper atlas supplies bows, pressed daisies, sage leaves, cherries, Luxembourg and Trier souvenir stamps, a blank rail ticket, torn pink and sage washi tape, a heart wax seal, a brass key, a crescent with stars, a racing flag, a butterfly, a heart-shaped record and paper hearts. The stamps are decorative place motifs, not evidence of visiting a specific landmark; the ticket has no invented journey data. Keep all stickers free of added captions, as previously requested.
+
+Arrange 36 new pieces alongside the seven existing fan stickers, with a different composition on each chapter: a bow and souvenir cluster on the cover, stamps and a ticket around the travel keepsakes, little music and botanical details near the photographs and notes, a birthday cluster below the wish, and a gift cluster around the envelope. Outer-margin pieces repeat more sparsely on continuation leaves. Paper edges, tiny contact shadows, varied rotations and modest overlap between ornaments supply the physical layering; do not add floating sparkles, new buttons or ambient motion. Protect actual writing, cat silhouettes, photo interiors, flame and gift controls at phone sizes.
+
+Each motif uses its measured alpha bounds from the original image, without equal-grid slicing. The key and record have separating outlines through the actual transparent gaps so neighboring ink cannot enter their windows. The shared DOM and Three renderer consume the same atlas windows and masks. Every ornament travels on its own physical page and participates in the existing reader source-mask composition. Small ordered depth differences prevent overlapping paper planes from fighting. Pure ornaments are hidden from assistive technology and never intercept touch; existing named favorites retain their accessible identities.
+
+Native reading places the cover bow and letter tape relative to its larger heading spacing. After pagination, measure actual writing ranges, photo interiors, cat portraits and the candle against new ornament slots. Omit only an ornament that conflicts with the owner's longer writing; do not shrink the writing or let a decoration cover it. Native reading repeats this check when its viewport changes. Default compositions keep their new collection; long chapters retain the sparse margin pieces on continuation leaves.
+
 ## V38: uncaptioned fan stickers
 
 Design Read: remove the visible captions from the seven new fan stickers, as requested, so they read as physical scrapbook cutouts. Preserve their artwork, measured frames, placement, page motion and accessible names. Antislop during remains 3/3/3 and Taste remains 8/9/3. The bottom-anchored gift pair retains its illustration position after the caption boxes are removed. Existing photographs, cat names, story and controls keep their established roles.

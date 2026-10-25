@@ -123,9 +123,10 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       const fit=getComputedStyle(e).objectFit,scale=fit==='cover'?Math.max(r.width/img.width,r.height/img.height):Math.min(r.width/img.width,r.height/img.height);
       const iw=fit==='fill'?r.width:img.width*scale,ih=fit==='fill'?r.height:img.height*scale;ctx.save();
       for(let ancestor=e;ancestor&&ancestor!==node.parentElement;ancestor=ancestor.parentElement){
-        if(ancestor.dataset.catPolygon){
+        const polygon=ancestor.dataset.catPolygon||ancestor.dataset.stickerPolygon;
+        if(polygon){
           const frame=ancestor.getBoundingClientRect();ctx.beginPath();
-          ancestor.dataset.catPolygon.split(' ').forEach((point,i)=>{const [px,py]=point.split(',').map(Number),x=frame.left-origin.left+px/100*frame.width,y=frame.top-origin.top+py/100*frame.height;if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);});ctx.closePath();ctx.clip();
+          polygon.split(' ').forEach((point,i)=>{const [px,py]=point.split(',').map(Number),x=frame.left-origin.left+px/100*frame.width,y=frame.top-origin.top+py/100*frame.height;if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);});ctx.closePath();ctx.clip();
         }
         const style=getComputedStyle(ancestor);if(!['hidden','clip'].includes(style.overflowX)&&!['hidden','clip'].includes(style.overflowY))continue;
         const clip=ancestor.getBoundingClientRect();ctx.beginPath();ctx.rect(clip.left-origin.left,clip.top-origin.top,clip.width,clip.height);ctx.clip();
@@ -170,7 +171,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     parts.catMasks=await Promise.all([...node.querySelectorAll('.pet-portrait')].map(async e=>{const r=e.getBoundingClientRect(),part=canvas2d(r.width,r.height);await drawDOM(e,part.ctx,r);return texture(part.c);}));
     anchors.photoImages=[...node.querySelectorAll('.fragment-image')].map(bounds);
     anchors.actions=[...node.querySelectorAll('.story-button[data-book-object]')].map(e=>({key:e.dataset.bookObject,...bounds(e)}));
-    const fandom=[...node.querySelectorAll('.fandom-sticker')];
+    const fandom=[...node.querySelectorAll('.fandom-sticker')].filter(node=>!node.hidden);
     anchors.fandom=fandom.map(e=>({key:e.dataset.fandomSticker,angle:parseFloat(e.dataset.stickerAngle)||0,...bounds(e)}));
     parts.fandom=await Promise.all(fandom.map(async e=>{const r=e.getBoundingClientRect(),part=canvas2d(r.width,r.height);await drawDOM(e,part.ctx,r);return texture(part.c);}));
     if(isCover){
@@ -321,7 +322,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   }
   function setProps(index,a,parts={}){
     const type=pages[index].section.id,g=props[index];
-    a.fandom.forEach((b,i)=>fandomSticker(b,parts.fandom[i],g,index,'page',.95));
+    a.fandom.forEach((b,i)=>fandomSticker(b,parts.fandom[i],g,index,'page',.95+i*.015));
     if(a['.birthday-cake']&&cakeImage){
       const cake=createBirthdayCakeVisual({THREE,parent:g,anchors:a,pageHeight:H,material,mesh,plane,track,texture,canvas2d,palette,image:cakeImage,lit:candleLit,captionText:pages[index].print.querySelector('.cake-caption').textContent});
       birthdayCakes.set(index,cake);sets.set(index,{type:'cake'});registerFeedback('cake',index,cake.face,cake.imageWidth,cake.imageHeight,{y:cake.imageY,z:1.1,shape:3,mask:cake.mask});clearUnderlay(index,a['.birthday-cake']);
@@ -534,7 +535,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     gutter=plane(18,H,material('#ffffff',{map:texture(shade.c),transparent:true,depthWrite:false}),root);gutter.position.set(9,0,4.08);gutter.castShadow=false;gutter.receiveShadow=false;
     const coverRaster=await raster(originals[0],true);if(disposed)return;
     coverMap=coverRaster.map;
-    coverRaster.anchors.fandom.forEach((b,i)=>fandomSticker(b,coverRaster.parts.fandom[i],cover,-1,'cover',4.8));
+    coverRaster.anchors.fandom.forEach((b,i)=>fandomSticker(b,coverRaster.parts.fandom[i],cover,-1,'cover',4.8+i*.015));
     // The print sits above the board geometrically. A slope-dependent depth
     // bias would pull it over the raised label as the cover turns edge-on.
     coverMaterials[4]=material('#ffffff',{map:coverMap,roughness:.93});coverFace.material=coverMaterials[4];

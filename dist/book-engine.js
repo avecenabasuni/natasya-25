@@ -111,7 +111,17 @@
           const running = el('span','running-title');running.textContent = chapters[chapter+1][1];running.setAttribute('aria-hidden','true');
           const foot = master.querySelector('.page-foot').cloneNode(true);
           print.append(running,body,foot);
-          if(firstPrint){const stickers=master.querySelector(':scope > .fandom-layer');if(stickers)print.append(copy(stickers));firstPrint=false;}
+          const stickers=master.querySelector(':scope > .fandom-layer');
+          if(stickers){
+            const layer=copy(stickers);
+            if(!firstPrint){
+              layer.dataset.stickerVariant='continuation';
+              layer.querySelectorAll('.fandom-sticker:not([data-sticker-rail])').forEach(node=>node.remove());
+              layer.querySelectorAll('[data-fandom-sticker]').forEach(node=>{node.dataset.fandomSticker+='-continued-'+pages.length;});
+            }
+            if(layer.childElementCount)print.append(layer);
+          }
+          firstPrint=false;
           seat.append(print);
           pages.push({print,body,section,chapter:chapter+1});return print;
         };
@@ -164,6 +174,7 @@
       pages.forEach((page,i)=>{
         const siblings=pages.filter(p=>p.chapter===page.chapter);page.part=siblings.indexOf(page)+1;page.parts=siblings.length;
         page.print.querySelector('.page-foot>span:last-child').textContent = `${i+2} / ${total}`;
+        window.ScrapbookStickers?.fit(page.print);
         page.print.inert=true;page.print.style.visibility='hidden';page.print.style.display='none';page.print.setAttribute('aria-hidden','true');
         page.section.inert=true;page.section.setAttribute('aria-hidden','true');
       });
