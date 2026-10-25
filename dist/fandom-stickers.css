@@ -9,15 +9,13 @@
 .fandom-portrait{display:block;position:relative;width:100%;height:var(--fan-h,48px);overflow:hidden;container-type:size}
 .fandom-frame{display:block;position:absolute;left:50%;top:50%;width:min(100cqw,calc(100cqh * var(--fan-ratio)));aspect-ratio:var(--fan-ratio);transform:translate(-50%,-50%);overflow:hidden}
 .fandom-frame img{position:absolute;left:var(--fan-image-x);top:var(--fan-image-y);width:var(--fan-image-w);height:var(--fan-image-h);max-width:none;object-fit:fill}
+.photo-portrait .fandom-portrait{background:var(--paper)}
+.photo-portrait .fandom-frame{width:min(calc(100cqw - 4px),calc((100cqh - 4px) * var(--fan-ratio)))}
 .birthday-cover .book-front>.fandom-layer{position:absolute;inset:0}
 .birthday-cover .cover-kicker{right:30%}
 [data-fandom-sticker=ferrari]{--fan-w:60px;--fan-h:44px;right:9%;top:8%}
 [data-fandom-sticker=hamilton]{--fan-w:43px;--fan-h:37px;right:20px;top:6px}
 [data-fandom-sticker=russell]{--fan-w:45px;--fan-h:39px;right:22px;top:3px}
-[data-fandom-sticker=taylor]{--fan-w:60px;--fan-h:42px;right:18px;top:2px}
-[data-fandom-sticker=rodrigo]{--fan-w:48px;--fan-h:57px;right:13px;top:132px}
-[data-fandom-sticker=dean]{--fan-w:64px;--fan-h:52px;left:62px;bottom:78px}
-[data-fandom-sticker=spiro]{--fan-w:64px;--fan-h:52px;right:62px;bottom:78px}
 .gift-chapter .gift-ending{margin-top:32px}
 .edited-story .gift-chapter .book-print .replay-link,.gift-chapter .replay-link{margin-top:16px}
 .album-story:not(.has-book-film) .gift-chapter .sheet{padding-bottom:160px}

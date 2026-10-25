@@ -1,4 +1,69 @@
-# Validation: unopened notes and three more driver faces, V41
+# Validation: real music photographs and Barcelona keepsakes, V42
+
+25 October 2026. Replace the four symbolic music stickers with actual Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro photographs; add Lionel Messi, Lamine Yamal and the actual FC Barcelona crest. The three racing illustrations, seven F1 portrait instances and 36 paper ornaments remain. There are 53 default decorations. All new pieces have accessible identities and no visible captions, controls or touch interception. Seven chapters, closed letters, five whole cats, content, fonts, Pink + Sage and gift behavior remain.
+
+Status: PASS, no unresolved finding. Current evidence is `qa/v42/final-scope-summary.json`. WebKit's focused run is retained as 486/489 across scene 375×667/520, reduced/native 375×667 and aborted-3D 375×667: its three failures were the old Sienna/Alex overlap at bottom78. Moving only Sienna to bottom66 is verified by a fresh 293/293 gift matrix across those four contexts plus Chromium scene375×667. Full focused Chromium scene375×667 passes 130/130. Historical failures are not relabelled as passes, and the earlier full V39/V41 suites are not claimed as rerun.
+
+## Scope and source evidence
+
+- All seven new assets match their independently downloaded served bytes, dimensions, SHA256s and measured frames. Music and football source/rights details are in `dist/assets/FANDOM-PHOTOS.md`. Taylor and Rodrigo are iHeartRadioCA photographs under CC BY 3.0, with author, source and license links; other media has credited third-party copyright. No generated likeness, endorsement, current-team or personal-trip claim is added.
+- Contact-sheet and actual page review confirm complete upper heads, hair crowns, ears, faces and chins. Long hair, shoulders and clothing may intentionally meet the photo boundary. Opaque photos and Yamal's genuine source shadow are assessed visually, without invalid whole-image alpha claims. Independent pixel analysis retains all 44,545 alpha>=13 Messi pixels above y310 and all 9,602 crest pixels inside their respective measured windows; the separate club wordmark is excluded.
+- The four old guitar/microphone entries are removed from the rendered collection. The original atlas remains unchanged for its three racing motifs. Each new photograph uses its own local image, source window and uniform scale; narrow paper backing is rasterized consistently in Three. New photo/crest pieces join actual page attachments, including intermediate page-bending evidence for singer and football leaves.
+- Current layouts keep every new subject visible, with writing, cat/photo/candle, other-face and complete coupon/pocket clearance. Native and short-screen layouts retain the same subjects. Root visually reviewed all five affected chapter compositions plus the final scene/native gift captures.
+- Click-through evidence covers book opening, chapter navigation, both still-concealed notes and their full inner readers, X/Escape/refolding/focus cleanup, birthday candle/audio, gift coupon and full animated cover replay. Native/reduced-motion and aborted-3D paths remain usable. No horizontal overflow or runtime exception remains in the covered contexts.
+- `config.js`, `trip.js`, `story.js`, reader engine, folded-note styles, original cats, racing/music atlas and ephemera match the prior commit. Three changed JavaScript modules pass syntax checks; `git diff --check` passes. Current QA hashes bind the final runtime/art source to the packaged version.
+
+Verification is limited to software WebKit/Chromium, source inspection and captured input/render behavior. It does not establish physical iPhone Safari, hardware frame rate or VoiceOver. QA scripts, captures and source-download scratch files remain excluded from deployment and GitHub.
+
+## Current Antislop delivery gate
+
+PASS. Root reviewed the current source diff, original/source-frame contact sheets, seven new on-page identities and final scene/native gift layout. Explicit Antislop during 3/3/3 and Taste 8/9/5 retain the authored direction in DESIGN.md.
+
+- R-01 PASS: Pink + Sage interface roles remain; real photo colors belong to content.
+- R-02 PASS: no new visible prose, caption, emoji or decorative punctuation is added.
+- R-03 PASS: current 375×667/520 scene/native/fallback scopes have no horizontal overflow or unresolved layout conflict.
+- R-04 PASS: actual requested people and the genuine club crest replace the unwanted symbolic music props.
+- R-05 PASS: the existing chapter-specific compositions remain; no filler section is added.
+- R-06 PASS: local typography and font bytes remain unchanged, with their documented brand roles.
+- R-07 PASS: existing paper/linen materials remain; photo paper backing belongs to its printed keepsake.
+- R-08 PASS: navigation arrows and real actions remain unchanged.
+- R-09 PASS: new stickers have no added captions, badges or pills; FCB letters are part of the actual crest.
+- R-10 PASS: no glass or decorative blur is added.
+- R-11 PASS: rectangular photo paper, cutout faces, crest and native controls retain distinct physical roles.
+- R-12 PASS: restrained contact shadows describe attached paper thickness.
+- R-13 PASS: no new glow or looping animation is added.
+- R-14 PASS: photographs use measured spare areas in varied chapter compositions.
+- R-15 PASS: decorations introduce no false button or generic action label.
+- R-16 PASS: no marketing language is added.
+- R-17 PASS: dates, birthday and gift amount remain supplied values.
+- R-18 PASS: each requested identity is verified from its real source, without invented personal photography.
+- R-19 PASS: actual stickers follow intermediate page bends; native reduced-motion reading remains available.
+- R-20 PASS: the recipient's named music, racing, football and cat interests retain a specific scrapbook identity.
+- R-21 PASS: the approved single light theme remains.
+- R-22 PASS: sourced actual photographs replace four symbolic guitar/microphone illustrations.
+- R-23 PASS: the user explicitly requested these subjects; each file has accurate source, rights and byte provenance.
+- R-24 PASS: decorations add no links; existing controls retain real readers and destinations.
+- R-25 PASS: no interface text/color changes; prior measured AA contrast and focus treatment remain scoped to unchanged text.
+- R-26 PASS: current note/candle/gift/replay and chapter click-through passes; new decorations intercept no input.
+- R-27 PASS: honest placeholders, loading/error paths and native/graphics fallbacks remain; affected fallback layouts are checked.
+- R-28 PASS: no FAQ is added.
+- R-29 PASS: no interface palette role changes; subject colors are photographic content.
+- R-30 PASS: additions extend the existing physical book rather than a product-template shell.
+- R-31 PASS: DESIGN.md explains source choice, paper backing, placement, crop and clearance.
+- R-32 PASS: no new focus stops; existing button activation, dismissal and focus restoration pass.
+- R-33 PASS: UI, style and documentation edits use apply_patch; original served image bytes are copied unchanged.
+- R-34 PASS: the single shipped theme remains covered in scene/native/fallback.
+- R-35 PASS: current affected-control click-through and captures are recorded; unrelated historical suites are not presented as current reruns.
+- R-36 PASS: no hardware, performance, security or customer claims are invented.
+- R-37 PASS: the V42 design read and retained explicit dials precede implementation.
+- R-38 PASS: real sourced fan media remains distinct from honest personal-memory and gift placeholders.
+- Liveliness PASS: explicit dials, distinct focal objects, structured space, rose action accent and tactile photo/paper motifs remain coherent.
+- Craftsmanship C-1 through C-5 PASS: additions serve the explicit interests, introduce no dead controls or filler chapters, retain fallback resilience and have recorded evidence.
+- UI/Taste pre-flight PASS: preserve the authored paper aesthetic, local type, palette and physical motion; genuine images, whole subject windows and current responsive captures support the change.
+
+Owner-private access remains unchanged; recipient access is still deferred. The matching GitHub export excludes the private Site binding, credentials, local QA and deployment archive.
+
+# Historical validation: unopened notes and three more driver faces, V41
 
 25 October 2026. Add the requested real faces of George Russell, Lando Norris and Oscar Piastri. The main letter and birthday wish now show closed paper exteriors; tapping unfolds their full writing, and closing refolds them. Other recap text stays visible. Seven chapters, personal data, five whole cats, Pink + Sage, typography, candle/audio and the Amazon.de €25 ending are retained. There are now 50 default decorations, including seven portrait instances for five drivers.
 

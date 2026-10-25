@@ -1,6 +1,6 @@
 # natasya-25
 
-A personal birthday scrapbook made for a phone: pink cloth, paper pages, a hinged 3D cover, photographs, folded notes, five cats, illustrated racing/music stickers, and layered paper ornaments.
+A personal birthday scrapbook made for a phone: pink cloth, paper pages, a hinged 3D cover, photographs, folded notes, five cats, racing/music/football keepsakes, and layered paper ornaments.
 
 The current book has seven chapters: cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration, and a gift. The trip is 22–25 October 2026; the birthday is 2 November 2026. Personal names, photographs, memories, songs, and the Amazon.de €25 gift code remain placeholders until supplied.
 
@@ -27,9 +27,10 @@ Edit the shared defaults in [dist/config.js](dist/config.js), or use the editor 
 - Open keepsakes from the page and drag downward to dismiss them.
 - The personal letter and birthday wish stay folded shut on the page. Tap to unfold their complete writing; closing returns the same closed paper to the scrapbook. Other recap text remains visible.
 - The birthday page plays its candle-controlled melody; extinguishing the candle unlocks the gift.
-- Seven uncaptioned fan stickers represent Ferrari, Lewis Hamilton, George Russell, Taylor Swift, Olivia Rodrigo, Olivia Dean, and Sienna Spiro. Winnie, Bonnie, Connie, Wonnie, and Minnie keep their complete artwork.
+- Three illustrated racing stickers represent Ferrari, Lewis Hamilton and George Russell. Winnie, Bonnie, Connie, Wonnie, and Minnie keep their complete artwork.
 - Sixteen original paper motifs supply 36 additional ornaments: bows, pressed flowers, souvenir stamps, rail tickets, washi tape, wax seals, music and racing details. Decorations follow the page turns and leave the reading column and touch targets clear; continuation leaves use a sparse margin treatment.
 - Seven caption-free face stickers use credited official Formula 1 portraits: Alex Albon, Lewis Hamilton, George Russell, Lando Norris and Oscar Piastri across the cover, trip, photographs and gift pages. Their measured head-and-neck windows retain the complete faces.
+- Real photos of Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro replace the former guitar/microphone symbols. Lionel Messi, Lamine Yamal and the actual FC Barcelona crest also join the scrapbook. The 53 decorations use measured source windows, physical page attachments and no added captions. [Photo credits and licenses](dist/assets/FANDOM-PHOTOS.md) distinguish Creative Commons media from other credited photographs.
 
 Publish the contents of `dist/` with a static hosting provider. This repository contains the current application source and supporting documentation; local QA captures, deployment archives, credentials, and the original Sites hosting binding are excluded.
 

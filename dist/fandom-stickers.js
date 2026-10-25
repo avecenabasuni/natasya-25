@@ -4,11 +4,7 @@
   const favorites=[
     {key:'ferrari',name:'Ferrari',frame:[0,50,480,340],angle:-7,page:'cover'},
     {key:'hamilton',name:'Lewis Hamilton',frame:[475,55,435,360],angle:7,page:'dedication'},
-    {key:'russell',name:'George Russell',frame:[919,55,407,365],angle:-8,page:'your-world'},
-    {key:'taylor',name:'Taylor Swift',frame:[1360,0,408,455],angle:8,page:'october'},
-    {key:'rodrigo',name:'Olivia Rodrigo',frame:[45,455,365,410],angle:-10,page:'birthday'},
-    {key:'dean',name:'Olivia Dean',frame:[505,450,360,415],angle:-7,page:'gift'},
-    {key:'spiro',name:'Sienna Spiro',frame:[920,450,390,417],angle:8,page:'gift'}
+    {key:'russell',name:'George Russell',frame:[919,55,407,365],angle:-8,page:'your-world'}
   ];
   const ephemera={source:'assets/cutouts/scrapbook-ephemera.png',width:1536,height:1024};
   const frames={
@@ -84,15 +80,34 @@
     portrait('gift-norris-portrait','norris','gift',-5,43,44,{left:'35px',top:'var(--gift-norris-top,67px)'}),
     portrait('trip-piastri-portrait','piastri','dedication',-5,41,46,{left:'148px',bottom:'24px'})
   ];
-  const collection=[...favorites,...ornaments,...portraits];
+  const subjectPhotos={
+    taylor:{name:'Taylor Swift',source:'assets/cutouts/taylor-swift-photo.png',width:1000,height:1200,frame:[0,0,1000,1200],photo:true},
+    rodrigo:{name:'Olivia Rodrigo',source:'assets/cutouts/olivia-rodrigo-photo.png',width:853,height:1280,frame:[80,0,680,830],photo:true},
+    dean:{name:'Olivia Dean',source:'assets/cutouts/olivia-dean-photo.jpg',width:900,height:900,frame:[195,125,440,465],photo:true},
+    spiro:{name:'Sienna Spiro',source:'assets/cutouts/sienna-spiro-photo.jpg',width:768,height:1024,frame:[175,250,470,700],photo:true},
+    messi:{name:'Lionel Messi',source:'assets/cutouts/lionel-messi-portrait.png',width:600,height:436,frame:[184,16,232,326]},
+    yamal:{name:'Lamine Yamal',source:'assets/cutouts/lamine-yamal-portrait.png',width:600,height:708,frame:[188,18,188,264],photo:true},
+    barcelona:{name:'FC Barcelona',source:'assets/cutouts/fc-barcelona-crest.png',width:700,height:136,frame:[5,8,124,124],emblem:true}
+  };
+  const keepsake=(subject,page,angle,w,h,position)=>({key:subject+'-photo',subject,page,angle,w,h,position,name:subjectPhotos[subject].name,frame:subjectPhotos[subject].frame,atlas:subjectPhotos[subject],ornament:true,portrait:!subjectPhotos[subject].emblem,emblem:!!subjectPhotos[subject].emblem,photo:!!subjectPhotos[subject].photo});
+  const subjects=[
+    keepsake('taylor','october',6,52,58,{right:'18px',top:'2px'}),
+    keepsake('rodrigo','birthday',-6,48,58,{right:'13px',top:'132px'}),
+    keepsake('dean','gift',-6,52,56,{left:'62px',bottom:'78px'}),
+    keepsake('spiro','gift',7,52,62,{right:'62px',bottom:'66px'}),
+    keepsake('messi','your-world',-5,44,48,{left:'172px',bottom:'32px'}),
+    keepsake('yamal','letter',-6,44,46,{left:'105px',bottom:'24px'}),
+    keepsake('barcelona','letter',6,43,43,{left:'233px',bottom:'26px'})
+  ];
+  const collection=[...favorites,...ornaments,...portraits,...subjects];
   function layer(page){
     const items=collection.filter(item=>item.page===page);if(!items.length)return '';
     return `<div class="fandom-layer" data-sticker-page="${page}">${items.map(item=>{
       const [x,y,w,h]=item.frame,atlas=item.atlas||{source,width,height};
       const placement=item.ornament?`;--fan-w:${item.w}px;--fan-h:${item.h}px;${Object.entries(item.position).map(([key,value])=>`${key}:${value}`).join(';')}`:'';
-      const semantics=item.portrait?`role="img" aria-label="${item.name} portrait sticker"`:item.ornament?'aria-hidden="true"':`role="img" aria-label="${item.name} illustrated fan sticker"`;
+      const semantics=item.portrait||item.emblem?`role="img" aria-label="${item.name} ${item.emblem?'crest':'portrait'} sticker"`:item.ornament?'aria-hidden="true"':`role="img" aria-label="${item.name} illustrated fan sticker"`;
       const polygon=polygons[item.motif],mask=polygon?`;clip-path:polygon(${polygon.split(' ').map(point=>point.split(',').join('% ')+'%').join(',')})`:'';
-      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.portrait?' driver-portrait':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.rail?' data-sticker-rail="true"':''}${item.portrait?` data-driver-portrait="${item.driver}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
+      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.driver?' driver-portrait':''}${item.photo?' photo-portrait':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.rail?' data-sticker-rail="true"':''}${item.driver?` data-driver-portrait="${item.driver}"`:''}${item.subject?` data-fandom-subject="${item.subject}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
     }).join('')}</div>`;
   }
   function fit(root){
@@ -116,5 +131,5 @@
       }
     });
   }
-  window.ScrapbookStickers={layer,fit,collection,source,width,height,ephemera,frames,polygons,driverPhotos,portraits};
+  window.ScrapbookStickers={layer,fit,collection,source,width,height,ephemera,frames,polygons,driverPhotos,portraits,subjectPhotos,subjects};
 })();

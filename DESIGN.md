@@ -1,5 +1,15 @@
 # A little world, physical scrapbook
 
+## V42: actual music portraits and Barcelona keepsakes
+
+Design Read: replace symbolic music props with recognizable photographs of Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro, and add Lionel Messi, Lamine Yamal and the actual FC Barcelona crest to this personal birthday scrapbook. Preserve the established Pink + Sage paper aesthetic, local printed type, seven chapters and caption-free sticker collection. Antislop during remains ENERGY/RHYTHM/MOTION 3/3/3; Taste remains 8/9/5.
+
+Remove the four guitar/microphone illustrations from the rendered collection rather than putting an actual face beside the unwanted symbol. Use credited real photographs with individually measured head/hair windows, leaving the served image bytes unchanged. Opaque photographs read as small printed paper keepsakes with a narrow paper edge; transparent football portraits retain their natural outline when available. Retain the complete official club emblem. Slight rotations and contact shadows attach these photographs to actual page surfaces; no sticker becomes a false control or acquires a visible caption.
+
+Reuse the music pieces' established spare areas and distribute football keepsakes around the existing compositions. Protect prose, whole cats, photographs, closed notes, cake/candle and the complete gift pocket at both phone heights and in native reading. Do not add a new chapter or alter the two concealed notes, candle/music gate, itinerary, owner content or access policy. Actual asset sources and rights belong in provenance, without claiming endorsement or real shared trip photography.
+
+Taylor's photo occupies the photograph page's upper corner; Rodrigo stays beside the birthday cake; Dean and Spiro occupy separate lower gift-page areas. Messi joins the Four days margin, and Yamal plus the club crest sit below the soundtrack on Notes. Spiro's lower offset keeps her photo clear of Alex's portrait. A 2px paper inset uses the exact source ratio in both HTML and scene rasterization; photo images are never stretched to the rectangular mount. The source club wordmark is excluded by a measured window around its complete crest.
+
 ## V41: three more faces and two unopened notes
 
 Design Read: make this personal birthday scrapbook feel collected and discovered by adding the real faces of George Russell, Lando Norris and Oscar Piastri, while keeping the main letter and birthday wish folded shut until touched. Retain Pink + Sage, local Fraunces and Source Sans 3, seven chapters, honest English placeholders and uncaptioned decorations. Antislop during remains the explicit session choice at ENERGY/RHYTHM/MOTION 3/3/3; Taste remains 8/9/5.

@@ -100,7 +100,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   };
 
   async function drawDOM(node,ctx,origin,relief=null,skipFandom=false){
-    const boxSelector='button,a.open-book,.cover-stitch,.cover-dedication,.cover-dedication-stitch,.page-foot,.placeholder-copy,.postcard-date,.fragment-image,.photo-blank,.coupon-card,.gift-pocket-front,.letter-crease,.note-fold-edge,.trier-map,.photo-fragments,.keepsake-slip,.pet-sticker,.folded-letter,.soundtrack-slip';
+    const boxSelector='button,a.open-book,.cover-stitch,.cover-dedication,.cover-dedication-stitch,.page-foot,.placeholder-copy,.postcard-date,.fragment-image,.photo-blank,.coupon-card,.gift-pocket-front,.letter-crease,.note-fold-edge,.trier-map,.photo-fragments,.keepsake-slip,.pet-sticker,.folded-letter,.soundtrack-slip,.photo-portrait .fandom-portrait';
     const boxes=[...(node.matches(boxSelector)?[node]:[]),...node.querySelectorAll(boxSelector)];
     boxes.forEach(e=>{
       if(skipFandom&&e.closest('.fandom-layer'))return;

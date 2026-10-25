@@ -1,5 +1,9 @@
 # Independent original paper cutouts
 
+## Actual music and football media, V42
+
+Seven individually sourced photographs/emblems now provide the four requested singers, Messi, Yamal and FC Barcelona. See [../FANDOM-PHOTOS.md](../FANDOM-PHOTOS.md) for exact original served media, authorship, rights, hashes and measured presentation windows. These replace the four symbolic guitar/microphone placements. The original fan atlas is retained unchanged because its three racing motifs are still used; its music cells are not rendered.
+
 ## Three additional driver portraits, V41
 
 The user requested actual George Russell, Lando Norris and Oscar Piastri faces. Their official 2026 Formula 1 photographs were downloaded on 25 October 2026, using media URLs extracted from each driver's page. Original RGBA WebP bytes remain unchanged at 720×2069. These are credited third-party photographs, not generated faces, personal trip photos or Creative Commons media. Copyright Formula One World Championship Limited and respective rights holders; no endorsement is implied.
