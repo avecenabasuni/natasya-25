@@ -69,14 +69,20 @@
   ];
   const driverPhotos={
     albon:{name:'Alex Albon',source:'assets/cutouts/alex-albon-portrait.webp',width:720,height:2069,frame:[212,8,328,352]},
-    hamilton:{name:'Lewis Hamilton',source:'assets/cutouts/lewis-hamilton-portrait.webp',width:720,height:2069,frame:[204,4,360,356]}
+    hamilton:{name:'Lewis Hamilton',source:'assets/cutouts/lewis-hamilton-portrait.webp',width:720,height:2069,frame:[204,4,360,356]},
+    russell:{name:'George Russell',source:'assets/cutouts/george-russell-portrait.webp',width:720,height:2069,frame:[220,10,256,310]},
+    norris:{name:'Lando Norris',source:'assets/cutouts/lando-norris-portrait.webp',width:720,height:2069,frame:[233,4,270,356]},
+    piastri:{name:'Oscar Piastri',source:'assets/cutouts/oscar-piastri-portrait.webp',width:720,height:2069,frame:[242,10,258,310]}
   };
   const portrait=(key,driver,page,angle,w,h,position)=>({key,driver,page,angle,w,h,position,name:driverPhotos[driver].name,frame:driverPhotos[driver].frame,atlas:driverPhotos[driver],ornament:true,portrait:true});
   const portraits=[
     portrait('cover-albon-portrait','albon','cover',-4,44,44,{left:'var(--cover-driver-left,49%)',top:'var(--cover-driver-top,0.5%)'}),
     portrait('trip-hamilton-portrait','hamilton','dedication',4,44,46,{left:'var(--trip-driver-left,255px)',top:'50px'}),
     portrait('photo-hamilton-portrait','hamilton','october',-4,42,45,{left:'134px',bottom:'31px'}),
-    portrait('gift-albon-portrait','albon','gift',6,46,50,{right:'33px',top:'var(--gift-driver-top,279px)'})
+    portrait('gift-albon-portrait','albon','gift',6,46,50,{right:'33px',top:'var(--gift-driver-top,279px)'}),
+    portrait('days-russell-portrait','russell','your-world',5,43,48,{right:'50px',bottom:'32px'}),
+    portrait('gift-norris-portrait','norris','gift',-5,43,44,{left:'35px',top:'var(--gift-norris-top,67px)'}),
+    portrait('trip-piastri-portrait','piastri','dedication',-5,41,46,{left:'148px',bottom:'24px'})
   ];
   const collection=[...favorites,...ornaments,...portraits];
   function layer(page){

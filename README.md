@@ -25,10 +25,11 @@ Edit the shared defaults in [dist/config.js](dist/config.js), or use the editor 
 - Local Fraunces and Source Sans 3 fonts, with the Pink + Sage material palette.
 - Scroll or use the arrows to turn pages; replay reverses the book back to its cover.
 - Open keepsakes from the page and drag downward to dismiss them.
+- The personal letter and birthday wish stay folded shut on the page. Tap to unfold their complete writing; closing returns the same closed paper to the scrapbook. Other recap text remains visible.
 - The birthday page plays its candle-controlled melody; extinguishing the candle unlocks the gift.
 - Seven uncaptioned fan stickers represent Ferrari, Lewis Hamilton, George Russell, Taylor Swift, Olivia Rodrigo, Olivia Dean, and Sienna Spiro. Winnie, Bonnie, Connie, Wonnie, and Minnie keep their complete artwork.
 - Sixteen original paper motifs supply 36 additional ornaments: bows, pressed flowers, souvenir stamps, rail tickets, washi tape, wax seals, music and racing details. Decorations follow the page turns and leave the reading column and touch targets clear; continuation leaves use a sparse margin treatment.
-- Four caption-free face stickers use credited official Formula 1 portraits: Alex Albon on the cover and gift page, Lewis Hamilton on the Luxembourg and photograph pages. Their measured head-and-neck windows retain the complete faces.
+- Seven caption-free face stickers use credited official Formula 1 portraits: Alex Albon, Lewis Hamilton, George Russell, Lando Norris and Oscar Piastri across the cover, trip, photographs and gift pages. Their measured head-and-neck windows retain the complete faces.
 
 Publish the contents of `dist/` with a static hosting provider. This repository contains the current application source and supporting documentation; local QA captures, deployment archives, credentials, and the original Sites hosting binding are excluded.
 

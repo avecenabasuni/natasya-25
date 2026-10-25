@@ -4,7 +4,7 @@
 .fandom-sticker *{pointer-events:none}
 .paper-ornament .fandom-portrait{filter:drop-shadow(.4px .8px .5px #63425322)}
 .fandom-layer[data-sticker-variant=continuation]{z-index:2}
-.album-story:not(.has-book-film){--cover-bow-top:0%;--notes-bow-top:0px;--notes-tape-top:94px;--cover-driver-left:75%;--cover-driver-top:1%;--trip-driver-left:280px;--gift-driver-top:352px}
+.album-story:not(.has-book-film){--cover-bow-top:0%;--notes-bow-top:0px;--notes-tape-top:94px;--cover-driver-left:75%;--cover-driver-top:1%;--trip-driver-left:280px;--gift-driver-top:352px;--gift-norris-top:119px}
 .album-story:not(.has-book-film) [data-fandom-sticker=ferrari]{top:13%}
 .fandom-portrait{display:block;position:relative;width:100%;height:var(--fan-h,48px);overflow:hidden;container-type:size}
 .fandom-frame{display:block;position:absolute;left:50%;top:50%;width:min(100cqw,calc(100cqh * var(--fan-ratio)));aspect-ratio:var(--fan-ratio);transform:translate(-50%,-50%);overflow:hidden}

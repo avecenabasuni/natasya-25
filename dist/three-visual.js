@@ -100,7 +100,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   };
 
   async function drawDOM(node,ctx,origin,relief=null,skipFandom=false){
-    const boxSelector='button,a.open-book,.cover-stitch,.cover-dedication,.cover-dedication-stitch,.page-foot,.placeholder-copy,.postcard-date,.fragment-image,.photo-blank,.coupon-card,.gift-pocket-front,.letter-crease,.trier-map,.photo-fragments,.keepsake-slip,.pet-sticker,.folded-letter,.soundtrack-slip';
+    const boxSelector='button,a.open-book,.cover-stitch,.cover-dedication,.cover-dedication-stitch,.page-foot,.placeholder-copy,.postcard-date,.fragment-image,.photo-blank,.coupon-card,.gift-pocket-front,.letter-crease,.note-fold-edge,.trier-map,.photo-fragments,.keepsake-slip,.pet-sticker,.folded-letter,.soundtrack-slip';
     const boxes=[...(node.matches(boxSelector)?[node]:[]),...node.querySelectorAll(boxSelector)];
     boxes.forEach(e=>{
       if(skipFandom&&e.closest('.fandom-layer'))return;
@@ -409,8 +409,8 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     if(set.type==='fragments')set.cards.forEach(card=>{card.rotation.x=0;});
     else if(set.type==='photograph')set.photo.rotation.x=0;
     else if(set.type==='letter'){
-      // A small crease keeps the note tactile without folding its text out
-      // of view or changing its pose when it becomes the outgoing leaf.
+      // This is the closed outer paper. Only the reader builds the writing
+      // on its inner faces after the attachment is opened.
       set.upper.rotation.x=-rad(1.2);set.upper.position.z=0;
       set.upperPrint.visible=set.lowerPrint.visible=true;
     }else if(set.type==='pocket'){

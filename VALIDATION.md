@@ -1,4 +1,69 @@
-# Validation: real driver portrait stickers, V40
+# Validation: unopened notes and three more driver faces, V41
+
+25 October 2026. Add the requested real faces of George Russell, Lando Norris and Oscar Piastri. The main letter and birthday wish now show closed paper exteriors; tapping unfolds their full writing, and closing refolds them. Other recap text stays visible. Seven chapters, personal data, five whole cats, Pink + Sage, typography, candle/audio and the Amazon.de €25 ending are retained. There are now 50 default decorations, including seven portrait instances for five drivers.
+
+Status: PASS, no unresolved finding. Current scoped evidence is `qa/v41/final-scope-summary.json`, with 19 final runtime/art hashes in `qa/v41/final-tested-sha256.json`. WebKit passes 356/356 focused assertions across scene 375×667/520, reduced-motion/native 375×667, aborted-3D 375×667, and long letter/wish fixtures in scene/native. Chromium's focused run is retained as 101/102: its sole failure was a 0.313px Lando/coupon-border overlap. The final 43×44px Lando slot, top67 in scene and top119 in native, passes a fresh 73/73 gift matrix across all five browser/render contexts. The 101 unaffected Chromium assertions remain scoped to their original run; no failed result is relabelled or hidden. The initial placement and intermediate top64 failures are also retained separately. The full historical V39 suite was not rerun.
+
+## Current behavior and source evidence
+
+- Main letter and birthday-wish text is absent from all page and print DOM before opening. Both retain their complete salutation, writing and signoff inside the existing reader. Distinct long-message begin/end sentinels prove no excerpt leaks onto the page and no writing is truncated after opening. Other recap copy remains unchanged.
+- Both attachments use the existing paper hinge, with multiple sampled opening/refolding poses and a single painted hinge face per pose. X disappears at dismissal; Escape, early close/reopen, downward mouse dismissal, resize during unfolding, source restoration and transient-layer cleanup pass. Reduced motion opens directly into the native reader. The reader engine itself is unchanged.
+- George uses frame `[220,10,256,310]`, Lando `[233,4,270,356]`, Oscar `[242,10,258,310]`, from unchanged official 2026 F1 RGBA photographs, each 720×2069. Independent alpha analysis and visual review retain complete hair, ears, faces and chin above the intentional upper-neck boundary. Source URLs, rights and SHA256s are in the asset provenance. No captions, controls or pointer interception are added.
+- George sits beside the Four days keepsakes; Oscar beside the Luxembourg souvenirs; Lando above the gift pocket. Measured clearance corrections protect writing, page numbers and the full coupon geometry in scene/native layouts. Their source windows scale uniformly, and George/Oscar have actual intermediate page-bending attachment evidence. Existing Alex and Lewis remain visible.
+- Click-through evidence covers cover opening, page navigation, both note readers, X/Escape/reopen, drag/resize, candle lock, birthday audio state, coupon reader/focus return and full animated replay. Opening the wish never unlocks the gift. Blowing the candle unlocks the gift and stops birthday audio. Existing unrelated map/photo/cat/song/editor behavior retains its historical evidence and unchanged implementation.
+- Syntax checks cover the four changed JavaScript modules; `git diff --check` passes. Config, trip data, original cats, fan art, ephemera and font bytes match the previous commit. New text contrast is 6.70:1 rose/paper, 5.70:1 rose/blush, 12.51:1 ink/paper and 10.65:1 ink/blush.
+
+Software WebKit/Chromium observations do not establish physical iPhone Safari, hardware frame rate or VoiceOver performance. The downward dismissal scope used trusted mouse input. QA files and labelled long-content fixtures remain excluded from publication and GitHub; no personal memory, photograph or voucher code was fabricated.
+
+## Current Antislop delivery gate
+
+PASS. Root reviewed the final closed-note, birthday, midfold, George/Oscar placement and final scene/native gift captures, the source diff, independent QA and final source hashes. Antislop during remains the user's explicit session mode, ENERGY/RHYTHM/MOTION 3/3/3; Taste remains 8/9/5. The V41 design read precedes implementation in DESIGN.md.
+
+- R-01 PASS: the established Pink + Sage materials remain; portrait clothing colors belong to real content.
+- R-02 PASS: new English labels use plain wording and no decorative punctuation or invented prose.
+- R-03 PASS: focused scene/native/fallback captures at 375×667 and 375×520 have no horizontal overflow or broken note layout.
+- R-04 PASS: the existing book-open icon identifies unfolding; real driver faces answer the explicit request.
+- R-05 PASS: existing chapter-specific compositions remain; no filler section or repeated marketing layout is added.
+- R-06 PASS: local Fraunces and Source Sans 3 retain their documented paper/display roles and exact font bytes.
+- R-07 PASS: linen and paper remain physical book materials; no generic background pattern is added.
+- R-08 PASS: existing arrows keep navigation and gift actions; opening cues use the existing book icon.
+- R-09 PASS: no sticker captions, pills, badges or headline labels are added.
+- R-10 PASS: no glass or decorative blur is introduced.
+- R-11 PASS: square paper attachments and existing control shapes retain their distinct roles.
+- R-12 PASS: contact shadows and the visible crease explain folded paper thickness.
+- R-13 PASS: no new glow, sparkle or looping pulse is added.
+- R-14 PASS: new faces fit measured spare areas on three different compositions.
+- R-15 PASS: 'Unfold the note' and 'Open the card' describe their actual actions.
+- R-16 PASS: no marketing language is added.
+- R-17 PASS: trip dates, birthday and gift amount remain user-supplied values.
+- R-18 PASS: the requested real drivers have exact official sources; no personal identities or memories are invented.
+- R-19 PASS: closed paper unfolds through its hinge and refolds on dismissal; reduced motion remains native.
+- R-20 PASS: racing faces, whole cats, birthday paper and Luxembourg/Trier keepsakes retain the specific personal identity.
+- R-21 PASS: the single approved light theme remains.
+- R-22 PASS: actual requested driver portraits join the existing scrapbook; no generic character art is substituted.
+- R-23 PASS: the user explicitly requested these faces and note interactions; all new photographs have documented provenance.
+- R-24 PASS: new decorations add no links; note buttons lead to their complete existing readers.
+- R-25 PASS: measured new text contrast exceeds 4.5:1 on both paper surfaces; focus retains the rose outline.
+- R-26 PASS: affected controls are clicked in the current scopes, including both readers, dismissal, candle, voucher and replay.
+- R-27 PASS: empty notes remain honest placeholders after opening; loading/error behavior is retained, with reduced/native and aborted-3D checks.
+- R-28 PASS: no FAQ is introduced.
+- R-29 PASS: no interface palette role is added; real photo colors remain content.
+- R-30 PASS: changes extend the existing physical scrapbook rather than a borrowed product shell.
+- R-31 PASS: DESIGN.md records the source, placement, concealed writing and folding purposes.
+- R-32 PASS: native buttons, visible focus, Escape dismissal and trigger-focus restoration remain; decorative portraits add no focus stops.
+- R-33 PASS: feature, stylesheet and documentation edits use apply_patch; source photo bytes are copied unchanged.
+- R-34 PASS: the single shipped theme is covered in scene/native/fallback; no theme toggle is introduced.
+- R-35 PASS: current affected-control click-through and screenshot evidence is recorded in qa/v41; unrelated historical evidence is explicitly scoped.
+- R-36 PASS: no hardware, security or performance claims are made from software-browser results.
+- R-37 PASS: the retained brand direction, current design read and explicit dials precede source edits.
+- R-38 PASS: messages, personal photos and gift code stay supplied data or honest placeholders; official portraits are credited accurately.
+- Liveliness PASS: varied chapter compositions, pink cloth, sage attachments, a rose action accent, whole cats and now physically concealed writing retain a clear focal object and intentional space.
+- Craftsmanship C-1 through C-5 PASS: every addition has a stated purpose; genuine unfolding and full-text readers work; no filler chapter, fabricated claim or unresolved layout defect is shipped.
+- UI/Taste pre-flight PASS: preserve the authored paper aesthetic, local type and one-theme palette; real sourced imagery, clear action labels, measured contrast, source-based movement and bounded responsive evidence support this change. No new generic landing-page patterns apply.
+
+The Site remains owner-private; arranging recipient access remains deferred. GitHub receives the matching app and supporting documents without the private Site binding, credentials, QA or deployment archives.
+
+# Historical validation: real driver portrait stickers, V40
 
 25 October 2026. Add the requested faces of Alex Albon and Lewis Hamilton in four places: Alex on the cover and gift page, Lewis on the Luxembourg and photograph pages. The default scrapbook now has 47 decorations, including the existing 43. No captions, reader actions, chapters, fonts, personal memories or gift data are added.
 

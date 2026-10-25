@@ -1,5 +1,13 @@
 # A little world, physical scrapbook
 
+## V41: three more faces and two unopened notes
+
+Design Read: make this personal birthday scrapbook feel collected and discovered by adding the real faces of George Russell, Lando Norris and Oscar Piastri, while keeping the main letter and birthday wish folded shut until touched. Retain Pink + Sage, local Fraunces and Source Sans 3, seven chapters, honest English placeholders and uncaptioned decorations. Antislop during remains the explicit session choice at ENERGY/RHYTHM/MOTION 3/3/3; Taste remains 8/9/5.
+
+Use official 2026 Formula 1 source portraits, unchanged bytes and individually measured whole-head windows. George sits beside the Four days keepsakes, Oscar beside the Luxembourg souvenirs and Lando above the gift pocket. Existing Alex and Lewis faces remain. Their chapter attachments, meaningful image labels and writing-clearance guard follow the existing physical sticker pipeline; no new controls or captions are added.
+
+Only the main letter and birthday wish conceal their writing. Their page markup contains a folded outer face, short exterior label and opening cue, never an excerpt or hidden copy of the message. A tap lifts that same paper and unfolds it into the complete existing reader. Closing refolds it; revisiting the page still presents the closed exterior. The birthday card retains its own interior style while gaining a hinge appropriate to its new folded source. Other recap text stays visible. Preserve keyboard access, immediate close behavior, reduced motion, native/graphics fallbacks, candle/music gating and complete untruncated owner writing in the reader.
+
 ## V40: recognizable driver portraits
 
 Design Read: add the actual faces of Alex Albon and Lewis Hamilton to several pages of this personal birthday scrapbook, as explicitly requested. Keep the existing Pink + Sage paper collection, English placeholders, typography, seven default chapters and caption-free stickers. Antislop during remains 3/3/3 and Taste remains 8/9/5.

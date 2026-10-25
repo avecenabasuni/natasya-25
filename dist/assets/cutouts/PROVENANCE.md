@@ -1,5 +1,15 @@
 # Independent original paper cutouts
 
+## Three additional driver portraits, V41
+
+The user requested actual George Russell, Lando Norris and Oscar Piastri faces. Their official 2026 Formula 1 photographs were downloaded on 25 October 2026, using media URLs extracted from each driver's page. Original RGBA WebP bytes remain unchanged at 720×2069. These are credited third-party photographs, not generated faces, personal trip photos or Creative Commons media. Copyright Formula One World Championship Limited and respective rights holders; no endorsement is implied.
+
+- `george-russell-portrait.webp`: 133,782 bytes, SHA256 `560b15114aa828316ea82718e0c518be7399016c4f1a80a0f6866174c72fb781`. Head-and-neck frame `[220,10,256,310]`. Driver page: https://www.formula1.com/en/drivers/george-russell . Exact media: https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp
+- `lando-norris-portrait.webp`: 139,550 bytes, SHA256 `32f14cc822f72b64c342d105befba05e69a77186dc5b52915b6f53d3facaa4c6`. Head-and-neck frame `[233,4,270,356]`. Driver page: https://www.formula1.com/en/drivers/lando-norris . Exact media: https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp
+- `oscar-piastri-portrait.webp`: 146,832 bytes, SHA256 `73d1ea69d012f5fbb0f5df50b22040071acf7fb083b1898763203702884f3143`. Head-and-neck frame `[242,10,258,310]`. Driver page: https://www.formula1.com/en/drivers/oscar-piastri . Exact media: https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp
+
+Visual frame review and independent alpha measurement retain all hair, ears and face pixels at alpha >=13 above the intentional upper-neck boundary, with zero pixels outside each window. No separating polygon is needed. Source evidence: `/workspace/scratch/v41-portraits/`. The three new uncaptioned instances join the four existing Alex/Lewis instances and existing paper ornaments.
+
 ## Real driver portraits, 25 October 2026
 
 The user explicitly requested the faces of Alex Albon and Lewis Hamilton on several pages. These are actual official Formula 1 photographs, not generated faces or personal travel photographs. The source files remain byte-for-byte unchanged; HTML and Three use the same measured head-and-neck windows, with all upper-head/face pixels at alpha >= 13 retained inside each frame. The lower boundary intentionally ends at the neck. Empty transparent RGB outside the subject is not painted as a background. Neither photograph requires a separating polygon.
