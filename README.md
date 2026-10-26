@@ -8,6 +8,8 @@ The journey page now keeps the owner-confirmed RE11 train toward Luxembourg and 
 
 ## Run locally
 
+Opening a note, map, keepsake or personalisation dialog holds the book in place through the complete closing motion. Long dialog content scrolls independently. Pending page movement stops at its visible pose; viewport or motion-mode changes wait until the dialog closes.
+
 No build step or package installation is needed. With Python 3 installed, run:
 
 ```sh

@@ -237,10 +237,10 @@
     }
     function finishClose(state){
       if(current!==state)return;const focus=state.source?.closest('button,a,[tabindex]')||state.source;
-      clean();if(dialog.open)dialog.close();if(focus?.isConnected)focus.focus({preventScroll:true});
+      clean();if(dialog.open)window.ScrapbookModalLock.close(dialog);if(focus?.isConnected)focus.focus({preventScroll:true});
     }
     function close(){
-      const state=current;if(!dialog.open)return;if(!state){dialog.close();return;}if(state.phase==='closing')return;
+      const state=current;if(!dialog.open)return;if(!state){window.ScrapbookModalLock.close(dialog);return;}if(state.phase==='closing')return;
       if(state.gesture)prepareGestureClose(state);
       const progress=state.phase==='reading'?1:Math.max(state.openingProgress||0,state.paper?.getAnimations()[0]?.effect.getComputedTiming().progress||0);
       const duration=Math.max(100,(state.kind==='letter'?560:440)*Math.sqrt(progress));

@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V45: hold the book while an object is open
+
+Keep the current Pink + Sage physical scrapbook. This is an interaction repair: every modal owns scroll input from acquisition through its complete closing motion. Hold the underlying book at its displayed pose, including an in-flight navigation or scrub; retain its pin and source geometry. Long notes and owner settings must still scroll and accept text. Restore the exact page position and normal input after the last modal closes, including synchronous contents navigation, Escape, backdrop and drag dismissal. Do not change content, decoration, typography or gesture appearance. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V44: the way there and back
 
 Design Read: turn the generic Trier/Luxembourg overview into a personal memory map of the owner's confirmed outward RE11 train and return L31 bus. Retain Pink + Sage, printed local type, physical map paper, seven chapters, existing collages and English reading. Antislop during remains3/3/3; Taste remains8/9/5.

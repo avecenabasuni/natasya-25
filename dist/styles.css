@@ -1,3 +1,4 @@
+dialog{overscroll-behavior:contain}
 :root{
   --paper:#fff4e6;--paper-veil:#fff4e6e6;--vellum:#fff4e6b8;
   --stage:#f6dfe5;--linen:#ecb4b9;--lining:#f3cfd9;--binding:#ad657d;

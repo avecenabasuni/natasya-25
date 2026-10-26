@@ -1,4 +1,67 @@
-# Validation: RE11/L31 memory map and personal copy, V44
+# Validation: modal scroll ownership, V45
+
+26 October 2026. Hold the scrapbook whenever any reader or owner-settings modal is open, through its complete closing motion. Scrolling within a long note or form remains available. Pending book navigation and scrub stop at the displayed pose; close restores the prior page and normal controls.
+
+Status: PASS; no unresolved finding. Final WebKit passes240/240 focused checks across scene375×667/520, mobile scene, reduced/native mobile and aborted-3D CSS fallback. Chromium desktop/mobile scene passes101/101. Independent native-source/graphics-fallback checks pass9/9; explicit global-refresh and667→460→667 source-geometry checks pass6/6. See `qa/v45/final-scope-summary.json` and the complete116-file `final-tested-sha256.json`. Root verifies109 other existing distribution files unchanged.
+
+## Current evidence and resolved findings
+
+- The V44 baseline reproduces an active-navigation race: opening settings leaves the book moving from scroll1369 to1721/read→turn. Final same-task capture/click checks show the exact displayed pose held during active navigation and scrub, with no restart on close.
+- Shared acquisition happens before object capture. Root/body scroll containment, selective wheel/touch boundary guards and Space paging cover readers and owner settings. Nested active dialogs keep the lock until the last close. Inline styles and their priorities are restored. The same-task contents close→go path releases synchronously.
+- Native mobile WebKit uses an offset fixed body because its document scroll event can be deferred. Direct source-rectangle measurements show no acquisition or dismissal jump; long modal content remains scrollable. Pinned scene/CSS books retain their existing DOM and pin geometry.
+- A disabled ScrollTrigger pin can be reverted by global refresh. The book temporarily participates in that synchronous refresh, then returns to the same held pose with scrolling disabled. Actual source bounds, document position and displayed time remain unchanged through explicit refresh and a667→460→667 round trip. The next tap reaches the immediate next chapter. Rendering uses a local held display time, keeping GSAP's invalidated start values intact.
+- Viewport/motion mode changes wait until release. X, Escape, backdrop, trusted mouse dismissal, early close, native direct close, owner cancel/save and contents selection release correctly. Full owner writing, typed spaces, focus handling, current chapter, graphics-loss fallback, candle/audio/gift gate, coupon and animated reverse cover replay are covered.
+- Initial reports remain separately labelled `initial-*`, `before-refresh-fix-*` and `before-playhead-fix-*`; they are not presented as final passes. The initial Chromium scrub comparison had a separate-evaluation timing confound; final same-task race samples distinguish displayed motion from automation delay. Root JS syntax checks and `git diff --check` pass. No new asset, dependency or animation loop is introduced. Content, map, palette, fonts and decoration artwork remain unchanged.
+
+Root visually reviewed the375×667 scene and native opened-map screenshots. This is software WebKit/Chromium evidence. WebKit trusted wheel uses desktop browser mode at375px; mobile touch cancellation uses explicit synthetic events. No physical iPhone, hardware FPS or VoiceOver claim is made, and earlier broad suites are not described as rerun.
+
+## Current Antislop delivery gate
+
+PASS. Antislop during3/3/3 and Taste8/9/5 remain the session direction. DESIGN.md records the functional reason for holding the physical book and allowing independent modal reading.
+
+- R-01 PASS: Pink + Sage and all surface/ink tokens are unchanged.
+- R-02 PASS: No product copy or naming is rewritten.
+- R-03 PASS: Current375×667/520 scene/native/fallback checks preserve usable modal reading.
+- R-04 PASS: No decorative UI or unrelated component is added.
+- R-05 PASS: The existing seven-chapter path is retained.
+- R-06 PASS: Local Fraunces and Source Sans3 font files are byte-identical.
+- R-07 PASS: No generic card grid or filler layout is introduced.
+- R-08 PASS: Existing context-specific icons are preserved.
+- R-09 PASS: No new badge, pill or caption is added.
+- R-10 PASS: No glass or decorative blur is introduced.
+- R-11 PASS: Existing control shapes and targets are retained.
+- R-12 PASS: Paper and contact-shadow styling remains unchanged.
+- R-13 PASS: No glow, sparkle or idle pulse is added.
+- R-14 PASS: The existing paper hierarchy and object composition remain.
+- R-15 PASS: Contents, close, navigation, candle and coupon actions have working handlers.
+- R-16 PASS: English personal writing and existing action labels remain unchanged.
+- R-17 PASS: Trip dates, routes and birthday facts are unchanged.
+- R-18 PASS: No anecdote, identity, photo or gift code is invented.
+- R-19 PASS: Object opening/return motion remains; the background book alone is held.
+- R-20 PASS: The approved tactile scrapbook identity remains.
+- R-21 PASS: The existing light theme is preserved.
+- R-22 PASS: Scroll locks serve the explicit request for modal input ownership.
+- R-23 PASS: Existing sourced artwork and credits are byte-identical.
+- R-24 PASS: Contents destinations and external links retain real targets.
+- R-25 PASS: All existing type/color contrast tokens are preserved.
+- R-26 PASS: Current close, contents, form, candle, coupon and replay interactions pass.
+- R-27 PASS: Full long writing, native reading and graphics fallback pass.
+- R-28 PASS: No artificial delay or additional playback loop is added.
+- R-29 PASS: The selected pink-primary palette is unchanged.
+- R-30 PASS: No unrelated product visual system is copied.
+- R-31 PASS: DESIGN.md gives the reason for acquisition, held pose and release.
+- R-32 PASS: Escape, arrows, page keys and Space work; editable fields retain Space.
+- R-33 PASS: Reader boundaries contain input while long content still scrolls.
+- R-34 PASS: Final contexts report no JavaScript exceptions or unresolved layer cleanup.
+- R-35 PASS: Current meaningful browser checks pass356/356; syntax and diff checks pass.
+- R-36 PASS: Existing design dials remain3/3/3 and8/9/5.
+- R-37 PASS: Complete source hashes, baseline, initial findings and final limits are recorded.
+- R-38 PASS: No realistically styled fabricated content is introduced.
+- Liveliness PASS: the retained physical book, object focal points, pink/sage materials and varied paper composition remain; the functional lock protects their motion.
+- Craftsmanship C-1 through C-5 PASS: stated purpose, complete inner reading, genuine controls, current native/scene/fallback coverage and retained factual sources.
+- UI preflight PASS: no new font, copy, asset, layout pattern, decorative effect or unresolved input state.
+
+# Historical V44 validation: RE11/L31 memory map and personal copy
 
 26 October 2026. Replace the generic country overview with the owner's confirmed RE11 journey toward Luxembourg and L31 return toward Trier. The railway has two rails and sleepers; the bus is a distinct dashed connection with its own direction arrow. Short personal English prose appears above the map. Both main and reader figures have no caption or prose below them; the old technical disclaimer, empty souvenir slip and duplicated itinerary list are removed.
 

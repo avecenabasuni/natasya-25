@@ -23,13 +23,7 @@
   const recentExamples={intro:'Sedikit tentang kamu, sedikit tentang kita. Kubuat supaya bisa kamu buka kapan pun kamu kangen.',distanceNote:'Jarak memang ada. Tapi aku tetap ingin dekat, lewat hal kecil seperti buku ini.',letter:'Selamat ulang tahun, sayang.\n\nSemoga kamu selalu merasa disayang dan berani mengejar hal yang kamu mau.\n\nAku senang bisa ada di ceritamu.'};
   let config=structuredClone(defaults), db=null, draft=null, story=null, uploads=0, toastTimer, objectReader=null;
   const icon=name=>story?.icon(name)||'';
-  function containModalScroll(event){
-    const dialog=$$('dialog[open]').at(-1);if(!dialog)return;
-    const point=event.touches?.[0]||event,r=dialog.getBoundingClientRect();
-    if(!event.composedPath().includes(dialog)||point.clientX<r.left||point.clientX>r.right||point.clientY<r.top||point.clientY>r.bottom)event.preventDefault();
-  }
-  document.addEventListener('wheel',containModalScroll,{capture:true,passive:false});
-  document.addEventListener('touchmove',containModalScroll,{capture:true,passive:false});
+  const modalLock=window.ScrapbookModalLock;
   $('#personalize-dialog').addEventListener('keydown',event=>{
     if(!['ArrowUp','ArrowDown','PageUp','PageDown','Home','End'].includes(event.key)||event.target.closest('input,textarea,select,[contenteditable="true"]'))return;
     const dialog=event.currentTarget,page=dialog.clientHeight*.85,max=Math.max(0,dialog.scrollHeight-dialog.clientHeight);
@@ -62,9 +56,10 @@
   function persist(value){return new Promise(resolve=>{if(!db)return resolve(false);try{const t=db.transaction('settings','readwrite');t.objectStore('settings').put(value,'config');t.oncomplete=()=>resolve(true);t.onerror=t.onabort=()=>resolve(false)}catch{resolve(false)}});}
   function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3500);}
   function openDialog(html,options={}){
+    modalLock.acquire();
     const d=$('#map-dialog');
     if(window.ScrapbookObjectReader){objectReader??=window.ScrapbookObjectReader.create({dialog:d,closeIcon:()=>icon('close')});objectReader.open(html,options);return;}
-    d.innerHTML=`<button class="dialog-close icon-button" id="close-note-dialog" aria-label="Close dialog">${icon('close')}</button>${html}`;if(!d.open)d.showModal();$('#close-note-dialog').onclick=()=>d.close();
+    d.innerHTML=`<button class="dialog-close icon-button" id="close-note-dialog" aria-label="Close dialog">${icon('close')}</button>${html}`;if(!d.open)d.showModal();$('#close-note-dialog').onclick=()=>modalLock.close(d);
   }
   function snapshot(){const f=$('#settings-form');if(!f)return;const data=new FormData(f);for(const k of ['name','sender','intro','dedication','distanceNote','letter','voucherCode'])draft[k]=String(data.get(k)||'');for(let i=0;i<6;i++){draft.captions[i]=String(data.get('caption-'+i)||'');draft.littleThings[i]=String(data.get('detail-'+i)||'');}for(let i=0;i<4;i++)draft.germanyCaptions[i]=String(data.get('germanyCaption-'+i)||'');for(let i=0;i<3;i++)draft.wishes[i]=String(data.get('wish-'+i)||'');artists.forEach((a,i)=>{draft.artistNotes[a]=String(data.get('artist-'+i)||'');draft.songTitles[a]=String(data.get('song-'+i)||'');draft.songLinks[a]=String(data.get('songLink-'+i)||'');});}
   function photoForm(kind,i){const isTrip=kind==='germanyPhotos',cap=isTrip?'germanyCaptions':'captions',field=isTrip?'germanyCaption-':'caption-';return `<div class="photo-form"><img id="${kind}-preview-${i}" src="${esc(draft[kind][i]||'assets/illustrations/postcard.webp')}" alt="${draft[kind][i]?'Preview of '+(isTrip?'October photo':'memory photo')+' '+(i+1):'No photo added; postcard illustration'}"><div><label>${isTrip?trip.days[i].date+' · '+trip.days[i].place:'Memory photo '+(i+1)}<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-kind="${kind}" data-photo-index="${i}"></label><label><span class="visually-hidden">Story for ${isTrip?'October photo':'memory photo'} ${i+1}</span><textarea name="${field+i}" maxlength="1200" placeholder="The story behind this photo">${esc(draft[cap][i])}</textarea></label><button class="plain-button remove-photo" type="button" data-remove="${kind}" data-index="${i}">Remove photo</button></div></div>`;}
@@ -84,9 +79,9 @@
     <h3>Gift · €25</h3><label>Amazon.de voucher code<input name="voucherCode" value="${esc(draft.voucherCode)}" maxlength="120" autocomplete="off" placeholder="Add after purchasing the voucher"></label><p class="settings-hint">Leave blank until you have a real code. This website does not purchase vouchers.</p>
     <div class="settings-actions"><button class="primary-button" type="submit">Save on this device</button><button class="secondary-button" type="button" id="cancel-settings">Cancel</button></div></form>
     <div class="settings-export"><button class="secondary-button" id="export-config">${icon('download')}Download personalisation</button><label class="import-label">Import personalisation<input type="file" accept="application/json,.json" id="import-config"></label></div><p class="settings-hint">The file includes your photos, messages and any voucher code you add.</p><button class="plain-button" id="restore-defaults">Restore placeholders</button></div>`;
-    $('[data-close]',d).onclick=()=>d.close();$('#cancel-settings').onclick=()=>d.close();
+    $('[data-close]',d).onclick=()=>modalLock.close(d);$('#cancel-settings').onclick=()=>modalLock.close(d);
     const importer=$('.import-label',d);importer.tabIndex=0;importer.setAttribute('role','button');importer.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('#import-config').click();}};
-    $('#settings-form').onsubmit=async e=>{e.preventDefault();if(uploads){toast('Wait for the photo to finish processing.');return;}snapshot();config=normalize(draft);const saved=await persist(config);await preparePrintFonts(config);d.close();story.refresh();toast(saved?'Personalisation saved on this device.':'Personalisation is active for this session. Download a backup to keep it.');};
+    $('#settings-form').onsubmit=async e=>{e.preventDefault();if(uploads){toast('Wait for the photo to finish processing.');return;}snapshot();config=normalize(draft);const saved=await persist(config);await preparePrintFonts(config);modalLock.close(d);story.refresh();toast(saved?'Personalisation saved on this device.':'Personalisation is active for this session. Download a backup to keep it.');};
     $$('[data-photo-kind]').forEach(input=>input.onchange=async()=>{
       const file=input.files[0];if(!file)return;uploads++;input.disabled=true;$('#settings-form button[type="submit"]').disabled=true;$('#export-config').disabled=true;toast('Preparing photo…');
       try{const data=await resizePhoto(file);draft[input.dataset.photoKind][+input.dataset.photoIndex]=data;$(`#${input.dataset.photoKind}-preview-${input.dataset.photoIndex}`).src=data;toast('Photo ready. Save when you have finished.');}catch(error){toast(error.message);}finally{uploads--;input.disabled=false;const save=$('#settings-form button[type="submit"]'),exporter=$('#export-config');if(save)save.disabled=uploads>0;if(exporter)exporter.disabled=uploads>0;}
@@ -101,7 +96,7 @@
     let bitmap;try{bitmap=await createImageBitmap(file);}catch{throw new Error('This photo could not be opened. Try another one.');}
     const ratio=Math.min(1,1100/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bitmap.width*ratio));canvas.height=Math.max(1,Math.round(bitmap.height*ratio));const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();return canvas.toDataURL('image/jpeg',.82);
   }
-  $$('dialog').forEach(d=>d.addEventListener('click',e=>{const r=d.getBoundingClientRect();if(e.target===d&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)){if(d.id==='map-dialog'&&objectReader)objectReader.close();else d.close();}}));
+  $$('dialog').forEach(d=>d.addEventListener('click',e=>{const r=d.getBoundingClientRect();if(e.target===d&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)){if(d.id==='map-dialog'&&objectReader)objectReader.close();else modalLock.close(d);}}));
   (async()=>{
     db=await database();const local=await read();if(local)config=normalize(local);
     let music=null;
@@ -111,7 +106,7 @@
     $('.brand').onclick=e=>{e.preventDefault();story.replay();};
     $('.skip-link').onclick=e=>{e.preventDefault();story.go('letter',true);};
     $('#personalize-button').innerHTML=icon('settings');$('#personalize-button').hidden=!ownerView;
-    $('#personalize-button').onclick=()=>{draft=structuredClone(config);renderSettings();$('#personalize-dialog').showModal();};
+    $('#personalize-button').onclick=()=>{draft=structuredClone(config);renderSettings();modalLock.acquire();$('#personalize-dialog').showModal();};
     await preparePrintFonts(config);
     await window.bookRendererReady;
     story.render();

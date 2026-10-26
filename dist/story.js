@@ -31,7 +31,7 @@
   }
   window.ScrapbookStory=({getConfig,toast,openDialog:presentDialog,onSceneChange=()=>{}})=>{
     const app=document.getElementById('app');
-    let motion=null,film=null,observer=null,active=0,activePosition=null,mediaChapter=null,refreshToken=0,candleLit=true,candleBlown=false,candleSmokeTimer=0;
+    let motion=null,film=null,observer=null,active=0,activePosition=null,refreshToken=0,candleLit=true,candleBlown=false,candleSmokeTimer=0;
     let objectSource=null,objectPointer=false;
     const withObject=(source,fn,pointer=false)=>{const previous=objectSource,previousPointer=objectPointer;objectSource=source;objectPointer=pointer;try{return fn();}finally{objectSource=previous;objectPointer=previousPointer;}};
     const openDialog=html=>{
@@ -164,7 +164,7 @@
       bind('next-page',e=>film?film.next(e.detail===0):go(chapters[Math.min(chapters.length-1,active+1)][0],e.detail===0));
       bind('book-contents',()=>{
         openDialog(`<h2>The pages.</h2><nav class="contents-list" aria-label="Contents">${chapters.map(([id,label],i)=>`<a href="#${id}"${i===active?' aria-current="page"':''}><span>${label}</span><span>${id==='gift'&&!candleBlown?'Blow out the candle first':i+1}</span></a>`).join('')}</nav>`);
-        document.querySelectorAll('.contents-list a').forEach(a=>a.onclick=e=>{e.preventDefault();document.getElementById('map-dialog').close();go(a.hash.slice(1),true);});
+        document.querySelectorAll('.contents-list a').forEach(a=>a.onclick=e=>{e.preventDefault();window.ScrapbookModalLock.close(document.getElementById('map-dialog'));go(a.hash.slice(1),true);});
       });
       observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting);if(visible.length)setActive(chapters.findIndex(c=>c[0]===visible.at(-1).target.id));},{rootMargin:'-35% 0px -45% 0px',threshold:0});
       chapters.forEach(([id])=>observer.observe(document.getElementById(id)));setActive(0);animate();syncGiftGate();fitNativeOrnaments();
@@ -186,13 +186,29 @@
     }
     function animate(){
       if(!window.gsap||!window.ScrollTrigger||!window.BookExperience)return;
-      gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});motion=gsap.matchMedia();
-      motion.add('(prefers-reduced-motion: no-preference) and (min-height: 500px)',()=>{
-        const returnTo=mediaChapter||chapters[active]?.[0]||'cover',token=refreshToken;mediaChapter=null;observer?.disconnect();const gift=document.getElementById('gift');gift.hidden=false;gift.inert=false;
-        film=BookExperience.create({app,chapters,setActive,isGiftUnlocked:()=>candleBlown});
-        if(!film)chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));else if(returnTo!=='cover')film.go(returnTo,true);
-        return()=>{const returnTo=mediaChapter||chapters[active]?.[0]||'cover';mediaChapter=null;film?.destroy();film=null;syncGiftGate();chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));requestAnimationFrame(()=>{if(token===refreshToken&&!film){fitNativeOrnaments();go(returnTo,true);}});};
-      });
+      gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
+      const query=matchMedia('(prefers-reduced-motion: no-preference) and (min-height: 500px)'),token=refreshToken;
+      let enabled=false,pending=false;
+      function apply(){
+        if(token!==refreshToken)return;
+        // A keyboard/viewport or motion preference change must not rebuild
+        // the physical source beneath an open object. Apply it after release.
+        if(window.ScrapbookModalLock.isLocked){pending=true;return;}
+        pending=false;if(query.matches===enabled)return;
+        const returnTo=chapters[active]?.[0]||'cover';enabled=query.matches;
+        if(enabled){
+          observer?.disconnect();const gift=document.getElementById('gift');gift.hidden=false;gift.inert=false;
+          film=BookExperience.create({app,chapters,setActive,isGiftUnlocked:()=>candleBlown});
+          if(!film)chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));else if(returnTo!=='cover')film.go(returnTo,true);
+        }else{
+          film?.destroy();film=null;syncGiftGate();chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));
+          requestAnimationFrame(()=>{if(token===refreshToken&&!film&&!window.ScrapbookModalLock.isLocked){fitNativeOrnaments();go(returnTo,true);}});
+        }
+      }
+      function released(event){if(!event.detail.locked&&pending)apply();}
+      query.addEventListener('change',apply);window.addEventListener('book-modal-lock',released);
+      motion={revert(){query.removeEventListener('change',apply);window.removeEventListener('book-modal-lock',released);film?.destroy();film=null;}};
+      apply();
     }
     function go(id,focus=false){
       id=aliases[id]||id;if(id==='gift'&&!candleBlown){id='birthday';toast('Blow out the candle to open your gift.');}
@@ -235,9 +251,6 @@
     }
     window.visualViewport?.addEventListener('resize',restoreVisibleBook,{passive:true});
     document.addEventListener('close',restoreVisibleBook,true);
-    // GSAP reverts its timeline before context cleanup and can report Cover.
-    // Remember the actual leaf first when the motion preference changes.
-    window.gsap?.addEventListener('matchMediaInit',()=>{mediaChapter=chapters[active]?.[0]||'cover';});
     app.addEventListener('book-reflow',refresh);return {render,refresh,go,icon,replay:()=>film?.replay?film.replay(false):go('cover')};
   };
 })();

@@ -50,7 +50,7 @@
   window.BookExperience = {
     viewportSize,
     create({app, chapters, setActive, isGiftUnlocked=()=>true}) {
-      let disposed = false, current = -2, cachedTurn = -1, timeline, phaseCursor = 0,turningPage=-1,scrollTween=null,navigationLabel=null;
+      let disposed = false, current = -2, cachedTurn = -1, timeline, phaseCursor = 0,turningPage=-1,scrollTween=null,navigationLabel=null,modalTime=null;
       let userSettle=false,touchHeld=false,releaseDelay=null,navigationIntent=null,resumeIntent=null;
       const screen = viewportSize(), mobile = screen.width < 960;
       if(screen.height<500)return null;
@@ -256,7 +256,8 @@
       const playhead={time:0};
       function render() {
         if(disposed)return;
-        if(playhead.time>readingLimit()+.001){
+        const time=modalTime??playhead.time;
+        if(time>readingLimit()+.001){
           if(clampingCandle)return;
           clampingCandle=true;cancelNavigation();
           const trigger=timeline.scrollTrigger,limit=readingLimit();
@@ -265,7 +266,6 @@
           clampingCandle=false;render();return;
         }
         film.dataset.giftLocked=String(!isGiftUnlocked());
-        const time=playhead.time;
         while(phaseCursor<phases.length-1 && time>=phases[phaseCursor].end)phaseCursor++;
         while(phaseCursor>0 && time<phases[phaseCursor].start)phaseCursor--;
         const phase=phases[phaseCursor],p=clamp((time-phase.start)/(phase.end-phase.start));
@@ -327,6 +327,32 @@
         tween.time(Math.min(tween.duration(),tween.time()+Math.min(delta,40)/1000),false);
       }
       function cancelNavigation(){gsap.ticker.remove(advanceNavigation);scrollTween?.kill();scrollTween=null;navigationLabel=null;navigationIntent=null;resumeIntent=null;userSettle=false;releaseDelay?.kill();releaseDelay=null;film.dataset.navigation='idle';}
+      function modalLock(event){
+        const trigger=timeline.scrollTrigger;
+        if(event.detail.locked){
+          if(modalTime!==null)return;
+          modalTime=playhead.time;cancelNavigation();touchHeld=false;
+          // Keep the pinned book and its displayed pose; don't finish a scrub.
+          trigger.disable(false,false);trigger.getTween()?.pause();
+          window.scrollTo({top:trigger.start+modalTime/distance*(trigger.end-trigger.start),behavior:'instant'});
+          film.dataset.modalLocked='true';
+        }else if(modalTime!==null){
+          const time=modalTime;trigger.enable(false,false);ScrollTrigger.update();trigger.getTween()?.pause();
+          modalTime=null;timeline.time(time,false);render();delete film.dataset.modalLocked;
+        }
+      }
+      window.addEventListener('book-modal-lock',modalLock);
+      // Global ScrollTrigger refresh reverts even disabled pins. Enroll this
+      // pin for that synchronous refresh, then return it to the held pose.
+      function prepareModalRefresh(){if(modalTime!==null)timeline.scrollTrigger.enable(false,false);}
+      function finishModalRefresh(){
+        if(modalTime===null)return;
+        const trigger=timeline.scrollTrigger;trigger.disable(false,false);trigger.getTween()?.pause();
+        timeline.time(modalTime,false);render();
+        window.scrollTo({top:trigger.start+modalTime/distance*(trigger.end-trigger.start),behavior:'instant'});
+      }
+      ScrollTrigger.addEventListener('refreshInit',prepareModalRefresh);
+      ScrollTrigger.addEventListener('refresh',finishModalRefresh);
       function interruptNavigation(e){
         if(document.querySelector('dialog[open]'))return;
         if(e.type==='keydown'&&!['ArrowUp','ArrowDown','PageUp','PageDown','Home','End','Escape'].includes(e.key))return;
@@ -351,6 +377,7 @@
       window.addEventListener('touchend',releaseTouch,{passive:true});window.addEventListener('touchcancel',releaseTouch,{passive:true});
       window.addEventListener('pointerdown',interruptNavigation,{passive:true});window.addEventListener('keydown',interruptNavigation);
       function goLabel(label, focus=false, animate=false, replay=false,complete=null,durationOverride=null){
+        if(modalTime!==null)return;
         if(!isGiftUnlocked()&&candlePhase&&labels[label]>candleStop){label='leaf-'+candlePhase.index;complete=null;}
         const labelTime=labels[label];if(labelTime===undefined)return;
         if(animate&&navigationLabel===label&&scrollTween)return;
@@ -435,7 +462,7 @@
         next:focus=>goLabel('leaf-'+Math.min(pages.length-1,current+1),focus,true),
         previous:focus=>turningPage>=0?goLabel('leaf-'+turningPage,focus,true):current<=0?goLabel('cover',focus,true):goLabel('leaf-'+(current-1),focus,true),
         destroy(){
-          disposed=true;cancelNavigation();ScrollTrigger.removeEventListener('scrollEnd',settlePage);window.removeEventListener('touchend',releaseTouch);window.removeEventListener('touchcancel',releaseTouch);clearTimeout(resizeTimer);window.removeEventListener('wheel',interruptNavigation);window.removeEventListener('touchstart',interruptNavigation);window.removeEventListener('pointerdown',interruptNavigation);window.removeEventListener('keydown',interruptNavigation);window.removeEventListener('resize',resized);window.visualViewport?.removeEventListener('resize',resized);document.removeEventListener('close',closedDialog,true);app.removeEventListener('focusin',revealFocused);film.removeEventListener('book-graphics-fallback',graphicsFallback);film.removeEventListener('book-graphics-ready',graphicsReady);timeline.scrollTrigger?.kill(true);timeline.kill();visual?.destroy();
+          disposed=true;cancelNavigation();window.removeEventListener('book-modal-lock',modalLock);ScrollTrigger.removeEventListener('refreshInit',prepareModalRefresh);ScrollTrigger.removeEventListener('refresh',finishModalRefresh);ScrollTrigger.removeEventListener('scrollEnd',settlePage);window.removeEventListener('touchend',releaseTouch);window.removeEventListener('touchcancel',releaseTouch);clearTimeout(resizeTimer);window.removeEventListener('wheel',interruptNavigation);window.removeEventListener('touchstart',interruptNavigation);window.removeEventListener('pointerdown',interruptNavigation);window.removeEventListener('keydown',interruptNavigation);window.removeEventListener('resize',resized);window.visualViewport?.removeEventListener('resize',resized);document.removeEventListener('close',closedDialog,true);app.removeEventListener('focusin',revealFocused);film.removeEventListener('book-graphics-fallback',graphicsFallback);film.removeEventListener('book-graphics-ready',graphicsReady);timeline.scrollTrigger?.kill(true);timeline.kill();visual?.destroy();
           sources.forEach(({section,article})=>{section.querySelector('.page-seat').replaceChildren(article);section.classList.remove('film-chapter');});
           originals.forEach(s=>{s.inert=false;s.removeAttribute('aria-hidden');s.style.removeProperty('visibility');s.style.removeProperty('opacity');s.style.removeProperty('display');app.append(s);});
           if(coverAction){coverAction.classList.remove('cover-open-action');coverAction.hidden=false;coverActionHome.append(coverAction);}
