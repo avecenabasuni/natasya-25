@@ -6,12 +6,13 @@
   const chapters=[['cover','Cover'],['dedication','Trier & Luxembourg'],['your-world',trip.shortDates],['october','Photographs'],['letter','Notes'],['birthday','2 November'],['gift','Your gift']];
   const aliases={'little-things':'your-world','soundtrack-a':'your-world','soundtrack-b':'your-world',moments:'october',closer:'october','next-chapter':'letter'};
   const artists=['Olivia Rodrigo','Taylor Swift','Olivia Dean','Sienna Spiro'];
-  const cats=[{name:'Winnie',coat:'Orange.'},{name:'Bonnie',coat:'Grey and white, mostly white.'},{name:'Connie',coat:'Grey, white and orange.'},{name:'Wonnie',coat:'Grey and white, mostly grey.'},{name:'Minnie',coat:'Black, brown and orange tortoiseshell, based on your photo.'}];
+  const cats=[{name:'Winnie',coat:'Orange.'},{name:'Bonnie',coat:'Grey and white, mostly white.'},{name:'Connie',coat:'Grey, white and orange.'},{name:'Wonnie',coat:'Grey-brown tabby with dark stripes, a white chest and white paws.'},{name:'Minnie',coat:'Black, brown and orange tortoiseshell, based on your photo.'}];
   // The family illustration has uneven, touching outlines; these shared seams
   // follow its white sticker borders instead of cutting five equal columns.
   const catSeams=[[[419,0],[419,432],[416,437],[416,451],[411,457],[416,472],[414,483],[418,487],[416,489],[418,500],[413,505],[414,518],[416,520],[415,539],[419,545],[420,557],[425,562],[424,571],[426,577],[425,599],[421,603],[422,819]],[[784,0],[784,469],[788,473],[788,479],[786,482],[787,496],[783,501],[784,510],[780,514],[782,518],[780,522],[782,528],[782,544],[780,546],[782,564],[777,574],[783,585],[783,591],[793,606],[790,612],[791,624],[789,630],[804,648],[800,658],[800,819]],[[1151,0],[1151,318],[1153,320],[1153,387],[1160,395],[1160,443],[1164,459],[1162,468],[1162,501],[1153,510],[1152,515],[1160,523],[1165,547],[1163,554],[1164,565],[1161,568],[1164,579],[1159,590],[1159,594],[1165,603],[1163,608],[1165,624],[1163,632],[1163,819]],[[1528,0],[1528,395],[1532,400],[1533,415],[1536,422],[1536,501],[1538,503],[1538,532],[1532,539],[1536,552],[1535,578],[1540,584],[1537,613],[1538,623],[1541,634],[1547,644],[1548,653],[1552,657],[1552,661],[1548,665],[1552,677],[1552,819]]];
   const catBounds=[[11,47,427,772],[411,66,805,769],[777,63,1166,768],[1152,69,1553,768],[1532,132,1909,769]];
   function catPortrait(index,classes='',attrs=''){
+    if(index===3)return `<span class="pet-portrait ${classes}" style="--pet:${index}" ${attrs}><span class="pet-frame" data-cat-frame="0,0,1024,1536" data-cat-polygon="0,0 100,0 100,100 0,100" style="--cat-ratio:${1024/1536};--cat-width:100%;--cat-height:100%;--cat-left:0%;--cat-top:0%;clip-path:polygon(0% 0%,100% 0%,100% 100%,0% 100%)"><img src="assets/cutouts/wonnie.webp" alt="Wonnie, a grey-brown tabby with dark stripes, a white chest and white paws" width="1024" height="1536"></span></span>`;
     const cat=cats[index],[x0,,x1]=catBounds[index],x=Math.max(0,x0-12),y=31,w=Math.min(1919,x1+12)-x,h=759;
     const left=index?catSeams[index-1]:[[0,0],[0,820]],right=index<4?catSeams[index]:[[1919,0],[1919,820]];
     const points=[...left,...[...right].reverse()].map(([px,py])=>[+(100*(px-x)/w).toFixed(5),+(100*(py-y)/h).toFixed(5)]);
@@ -90,7 +91,7 @@
       const key=objectSource?.dataset.bookObject,index=/^cat-[0-4]$/.test(key||'')?Number(key.slice(4)):-1,selected=cats[index];
       const portrait=selected?catPortrait(index,'reader-cat-portrait',`data-reader-cat="${index}"`):'';
       const family=`<figure class="reader-cat-family" aria-label="Winnie, Bonnie, Connie, Wonnie and Minnie">${cats.map((cat,i)=>`<span class="pet-sticker" style="--pet:${i}">${catPortrait(i)}<span class="pet-name">${cat.name}</span></span>`).join('')}</figure>`;
-      openDialog(`${portrait}<h2>${selected?selected.name:'Your five cats.'}</h2>${selected?`<p>${selected.coat}</p><p class="dialog-label">Your five cats.</p>`:'<p class="dialog-label">Winnie, Bonnie, Connie, Wonnie, Minnie</p>'}${family}<p class="settings-hint">Illustrated from their descriptions. Minnie is based on your photo.</p><dl class="cat-coats">${cats.map(cat=>`<div><dt>${cat.name}</dt><dd>${cat.coat}</dd></div>`).join('')}</dl>`);
+      openDialog(`${portrait}<h2>${selected?selected.name:'Your five cats.'}</h2>${selected?`<p>${selected.coat}</p><p class="dialog-label">Your five cats.</p>`:'<p class="dialog-label">Winnie, Bonnie, Connie, Wonnie, Minnie</p>'}${family}<p class="settings-hint">Wonnie and Minnie are illustrated from your photos; the others follow their descriptions.</p><dl class="cat-coats">${cats.map(cat=>`<div><dt>${cat.name}</dt><dd>${cat.coat}</dd></div>`).join('')}</dl>`);
     }
     function showDay(c,index){
       const src=c.germanyPhotos[index],caption=c.germanyCaptions[index],day=trip.days[index];

@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V46: Wonnie from the owner's photograph
+
+Correct only Wonnie's identity using the newly supplied real photograph: a slender grey-brown tabby with dark stripes, greenish eyes, large ears, a white chest bib and white paw socks. Use a standalone full-body transparent paper illustration in the established cat-sticker style, with the predominantly tabby face and narrow muzzle from the reference. Keep the other four cats and original atlas unchanged. Reuse the same Wonnie artwork on the page, in the family reader and the selected-cat reader; preserve complete ears/paws and the existing physical lift/return. English descriptions must distinguish the two photo-referenced cats, Wonnie and Minnie. Retain Pink + Sage, current type, seven chapters, modal scroll ownership and Antislop during3/3/3 / Taste8/9/5.
+
 ## V45: hold the book while an object is open
 
 Keep the current Pink + Sage physical scrapbook. This is an interaction repair: every modal owns scroll input from acquisition through its complete closing motion. Hold the underlying book at its displayed pose, including an in-flight navigation or scrub; retain its pin and source geometry. Long notes and owner settings must still scroll and accept text. Restore the exact page position and normal input after the last modal closes, including synchronous contents navigation, Escape, backdrop and drag dismissal. Do not change content, decoration, typography or gesture appearance. Retain Antislop during3/3/3 and Taste8/9/5.

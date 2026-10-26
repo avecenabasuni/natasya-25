@@ -31,7 +31,17 @@ Seven fan motifs: red open-wheel racing car with a yellow pennant; red 44 helmet
 
 The original RGBA bytes are retained without pixel editing, recoloring or equal-cell slicing. Each complete motif uses its own measured source frame in `fandom-stickers.js`; the renderer and native view fit the same frame uniformly. Artwork has transparent paper cut edges. Source analysis and generation metadata remain outside the published archive in `/workspace/scratch/v37-art/` and `qa/v37/`.
 
-## Five personal cats, 14 October 2026
+## Wonnie photo-reference correction, 26 October 2026
+
+`wonnie.webp` is a standalone1024×1536 transparent illustration generated with image_gen from the user's Wonnie photograph, using the existing five-cat sheet only as a paper/fur-style reference. A follow-up image_gen edit refined the transparent cutout. The owner identified the photographed cat as Wonnie. The corrected cat has a slender build, large ears, predominantly grey-brown tabby face, dark forehead/leg/body stripes, greenish eyes, narrow muzzle, white chest and white paw socks. No person, room, furniture or other photograph background is retained.
+
+Final source PNG: `/workspace/generated_images/exec-7f0643d8-f139-41bf-9ed1-e26facbf06ec.png`; the earlier generation remains `/workspace/generated_images/exec-154842b5-14f4-4866-8d33-5e56b4b45ff6.png`. Delivery is WebP quality92 with no crop, resize or recoloring; all alpha bytes are preserved. The full rectangular image frame and a uniform contain fit preserve ears, paws and tail in the printed page and readers. Source/delivery byte hashes and alpha evidence are retained in `qa/v46/asset-proof.json` outside publication.
+
+Delivery:406,720bytes; SHA256 `08625f61a98dc83fb7ef3ea00db15551f8fd4f65b5bba319ae89649e0a385856`. Final PNG SHA256 `2b7214d25b3252e90ffab3e605d2afc9c4727c09aa9889b010d4baf60760f45a`.
+
+Only Wonnie's fourth slot now uses the new asset. Winnie, Bonnie, Connie and Minnie retain their exact original atlas bytes and measured separating polygons. The historical atlas's fourth generic grey/white cat is retained in that source file but no longer selected as Wonnie. The original photograph is a likeness reference; the new artwork remains an illustration rather than a pet photograph. No pet biography or personality is invented.
+
+## Five personal cats, 14 October 2026 (original atlas)
 
 `five-cats.webp`: transparent original paper illustration, 1919x820, 705380 bytes. Original PNG `/workspace/generated_images/exec-34c4ba54-e243-4192-9e73-af3705d27db0.png`. Generated with image_gen using the user's attached Minnie photograph as the sole image reference, and supplied coat descriptions for Winnie, Bonnie, Connie and Wonnie. Left to right: orange Winnie; mostly white gray/white Bonnie; gray/white/orange Connie; mostly gray gray/white Wonnie; black/brown/orange tortoiseshell kitten Minnie. No human or photograph background is retained. These are illustrations, not exact photographs of the pets; only Minnie had a likeness reference.
 

@@ -1,5 +1,7 @@
 # Scrapbook asset sources
 
+Wonnie now uses a separate photo-referenced illustration in `cutouts/wonnie.webp`: a slender grey-brown tabby with dark stripes, a white chest and white paws, based on the owner's supplied26 October2026 photograph. The other four cats keep their original illustration windows. The same complete Wonnie source is used on the page and in both cat readers. This is generated paper artwork, not the original photograph; generation, alpha and delivery details are in [cutouts/PROVENANCE.md](cutouts/PROVENANCE.md).
+
 The live Trier–Luxembourg map now shows the owner's RE11 outward train and L31 bus return as a geographically anchored schematic. Verified railway-location facts come from CFL/ACF and OpenStreetMap; the simplified bus connection does not claim an exact road trace or terminal. Credits appear inside the map, with detailed sources, rights, projection and limitations in [illustrations/trier-luxembourg-route.md](illustrations/trier-luxembourg-route.md). The old below-map technical caption is removed.
 
 V43 groups the existing photographs into small collages and adds a restrained warm display grade plus paper/cover detail. Original source files are unchanged; on-screen color/framing changes are documented in [FANDOM-PHOTOS.md](FANDOM-PHOTOS.md). The actual club crest keeps its original colors. This finishing adds no personal content, generated likeness or endorsement claim.

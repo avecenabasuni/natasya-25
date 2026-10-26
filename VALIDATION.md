@@ -1,4 +1,63 @@
-# Validation: modal scroll ownership, V45
+# Validation: photo-referenced Wonnie correction, V46
+
+26 October2026. Replace only Wonnie's generic fourth-cat rendering with a standalone photo-referenced illustration: slender grey-brown tabby, dark stripes, large ears, narrow face, white chest and white paw socks. The same new source appears on the physical page, selected-Wonnie reader and family reader. Four other cats retain their original illustration windows and atlas bytes.
+
+Status: PASS; no unresolved finding. Focused WebKit passes404/404 across scene375×667/520, reduced/native375×667 and aborted-3D CSS fallback375×667. Chromium scene375×667 passes104/104. A trusted family-gap touchscreen tap adds7/7 checks, for515/515 overall. Source proof and full evidence are in `qa/v46/`. Root visually reviewed the actual scene page, selected-Wonnie reader and family reader at375×667; the rendered cream paper has no baked grey rectangle or clipping.
+
+## Current evidence
+
+- New `assets/cutouts/wonnie.webp` is1024×1536,406,720bytes, SHA256 `08625f61a98dc83fb7ef3ea00db15551f8fd4f65b5bba319ae89649e0a385856`. Image_gen uses the owner's cat photo as the likeness reference, with a separate transparent-cutout refinement. Delivery encoding preserves every alpha byte and the full canvas; no crop, resize or recoloring is applied. Illustration provenance is explicit.
+- Wonnie's full rectangular source frame uses a uniform contain fit. Source/reader bounds and image geometry retain all ears, paws and tail. Actual Three drawImage calls, prepared portrait masks and captured texture use the standalone source. Opening and return have intermediate motion; X/Escape restore focus and remove transient layers. Full family reading remains scrollable while the background book stays locked.
+- The original atlas, other four rendering function, seam polygons/bounds and known subject landmarks are unchanged. Root verifies112 existing distribution files unchanged, including all motion/modal engines, fonts, palette, decoration and original image files. Story syntax and `git diff --check` pass. The English coat and reference note now correctly distinguish Wonnie's supplied photo from the older generic description.
+- This is focused software-browser evidence. It does not establish physical iPhone Safari, hardware frame rate or VoiceOver. V45's broader modal/pin/candle/gift/replay evidence remains historical; those engine files are unchanged rather than represented as fully rerun here. The generated artwork is a photo-referenced illustration and is not claimed as a literal pet photograph.
+
+## Current Antislop delivery gate
+
+PASS. The established Antislop during3/3/3 and Taste8/9/5 direction remains. The correction follows the existing paper-sticker aesthetic and preserves the surrounding book.
+
+- R-01 PASS: Pink + Sage and all surface/ink tokens are unchanged.
+- R-02 PASS: No product copy or naming is rewritten.
+- R-03 PASS: Current375×667/520 scene/native/fallback checks preserve complete cats and readable controls.
+- R-04 PASS: A standalone Wonnie illustration corrects the owner-supplied likeness reference.
+- R-05 PASS: The existing seven-chapter path is retained.
+- R-06 PASS: Local Fraunces and Source Sans3 font files are byte-identical.
+- R-07 PASS: No generic card grid or filler layout is introduced.
+- R-08 PASS: Existing context-specific icons are preserved.
+- R-09 PASS: No new badge, pill or caption is added.
+- R-10 PASS: No glass or decorative blur is introduced.
+- R-11 PASS: Existing control shapes and targets are retained.
+- R-12 PASS: Paper and contact-shadow styling remains unchanged.
+- R-13 PASS: No glow, sparkle or idle pulse is added.
+- R-14 PASS: Existing five-cat paper mounts and page hierarchy stay in place.
+- R-15 PASS: Contents, close, navigation, candle and coupon actions have working handlers.
+- R-16 PASS: English personal writing and existing action labels remain unchanged.
+- R-17 PASS: Trip dates, routes and birthday facts are unchanged.
+- R-18 PASS: Wonnie identity and coat details come from the owner and supplied photograph.
+- R-19 PASS: Selected-cat lift/return remains material-specific and complete; modal scroll lock stays functional.
+- R-20 PASS: The new illustrated tabby matches this particular pet in the approved tactile scrapbook aesthetic.
+- R-21 PASS: The existing light theme is preserved.
+- R-22 PASS: The image serves the explicit Wonnie correction; no unrelated component is added.
+- R-23 PASS: Photo-referenced image_gen artwork and delivery/alpha/source hashes are documented in asset provenance.
+- R-24 PASS: Contents destinations and external links retain real targets.
+- R-25 PASS: All existing type/color contrast tokens are preserved.
+- R-26 PASS: Selected-Wonnie and family readers, close/focus/layer cleanup and modal book-lock checks pass.
+- R-27 PASS: Native, CSS fallback, shorter viewport and full family-reader scrolling remain usable.
+- R-28 PASS: No artificial delay or additional playback loop is added.
+- R-29 PASS: The selected pink-primary palette is unchanged.
+- R-30 PASS: No unrelated product visual system is copied.
+- R-31 PASS: DESIGN.md explains likeness, complete silhouette, source reuse and protected other-cat artwork.
+- R-32 PASS: Escape, arrows, page keys and Space work; editable fields retain Space.
+- R-33 PASS: Reader boundaries contain input while long content still scrolls.
+- R-34 PASS: Final contexts contain no JavaScript errors or unresolved source-mask/layer cleanup.
+- R-35 PASS: Current focused WebKit404/404 and Chromium104/104 checks pass; JS syntax and diff checks pass.
+- R-36 PASS: Existing design dials remain3/3/3 and8/9/5.
+- R-37 PASS: Current asset/source proofs and protected112-file hashes record exact image and geometry preservation.
+- R-38 PASS: The artwork is identified as an illustration; no fake photograph or pet biography is presented.
+- Liveliness PASS: full personal cat silhouettes retain their existing focal paper mounts, pink/sage materials and varied scrapbook composition.
+- Craftsmanship C-1 through C-5 PASS: an owner-supplied likeness reference, complete matching readers, preserved four-cat originals, current responsive fallback checks and explicit illustration provenance support the change.
+- UI preflight PASS: no new control, decorative caption, font, palette, loop or unrelated section is added.
+
+# Historical V45 validation: modal scroll ownership
 
 26 October 2026. Hold the scrapbook whenever any reader or owner-settings modal is open, through its complete closing motion. Scrolling within a long note or form remains available. Pending book navigation and scrub stop at the displayed pose; close restores the prior page and normal controls.
 
