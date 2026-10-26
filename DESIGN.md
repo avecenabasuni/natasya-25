@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V47: Connie from the owner's photograph
+
+Correct Connie's third-cat rendering from the newly supplied photo: slender calico/tabby-and-white build, asymmetric orange/dark facial and body patches, white central face/chest/legs, greenish eyes, ringed tail and the small muted grey collar/bell visible in the reference. Use a separate full-body transparent paper illustration in the same pencil/watercolor style as Wonnie. Preserve the recognizable standing pose where practical while keeping all paws, ears and tail inside the printed frame. Use the same source in the physical page and both cat readers. Preserve Wonnie's new standalone artwork and the exact atlas windows for Winnie, Bonnie and Minnie. Keep the current motion, scroll ownership, palette, type and seven chapters. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V46: Wonnie from the owner's photograph
 
 Correct only Wonnie's identity using the newly supplied real photograph: a slender grey-brown tabby with dark stripes, greenish eyes, large ears, a white chest bib and white paw socks. Use a standalone full-body transparent paper illustration in the established cat-sticker style, with the predominantly tabby face and narrow muzzle from the reference. Keep the other four cats and original atlas unchanged. Reuse the same Wonnie artwork on the page, in the family reader and the selected-cat reader; preserve complete ears/paws and the existing physical lift/return. English descriptions must distinguish the two photo-referenced cats, Wonnie and Minnie. Retain Pink + Sage, current type, seven chapters, modal scroll ownership and Antislop during3/3/3 / Taste8/9/5.

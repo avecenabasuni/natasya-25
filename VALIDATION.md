@@ -1,4 +1,63 @@
-# Validation: photo-referenced Wonnie correction, V46
+# Validation: photo-referenced Connie correction, V47
+
+26 October2026. Connie now uses a standalone image_gen paper illustration based on the owner's supplied photo: asymmetric orange/dark calico-tabby patches, white central face/chest/legs, greenish eyes, ringed tail and the little grey collar with a bell. The standing pose is retained. Page, selected-Connie reader and family reader share one complete image. Wonnie and the other three cats keep their existing rendering.
+
+Status: PASS; no unresolved finding. WebKit passes469/469 across scene375×667/520, reduced/native375×667 and aborted-3D CSS fallback375×667. Chromium scene375×667 passes111/111, for580/580 overall. Trusted family-gap touchscreen taps and keyboard family opening are included. Root reviewed the actual scene page and selected reader; Connie is a recognizable full standing calico with no grey matte or ear/paw/tail clipping. The pose naturally has less vertical ink than the seated cats; it is contained without stretching.
+
+## Current evidence
+
+- `assets/cutouts/connie.webp` is1024×1536,386,910bytes, SHA256 `80666c8bae69c08a025f46dedff61249674c3e2aefcd7a1d5a2f3e768075a815`. The real Connie photo supplies identity/coat/pose/accessories; Wonnie supplies the existing paper illustration style only. Quality92 WebP delivery preserves every source alpha byte and full dimensions, without crop, resize or recoloring. Source PNG and provenance are documented explicitly as generated illustration rather than a literal pet photo.
+- Actual Three drawImage and prepared capture instrumentation verifies the new Connie source and retained Wonnie source. Full-frame rectangular clipping and uniform containment keep the complete figure in page and reader. Intermediate lift/return, close/focus/source restoration and transient-layer cleanup pass. Long reader content scrolls while the background book remains held.
+- Independent source proof confirms Winnie, Bonnie, Wonnie and Minnie rendering/coats unchanged; the Wonnie branch/asset and original atlas/seam/bounds remain identical to V46. Root checks113 unchanged distribution files, including all modal, motion, config, palette, fonts and original assets. Source descriptions/reference note are updated in English; no biography or personality is invented.
+- Evidence lives in `qa/v47/final-scope-summary.json`, source identity, current runtime/art hashes, screenshots and asset alpha proof. This is software WebKit/Chromium evidence, not physical iPhone Safari, hardware FPS or VoiceOver. Broader earlier modal/pin/candle/gift/replay suites remain historical; unchanged engine files are verified rather than described as fully rerun here.
+
+## Current Antislop delivery gate
+
+PASS. Retain the established Antislop during3/3/3 and Taste8/9/5 direction. Connie's new reference follows the existing pencil/watercolor paper style; surrounding layouts and controls remain.
+
+- R-01 PASS: Pink + Sage and all surface/ink tokens are unchanged.
+- R-02 PASS: No product copy or naming is rewritten.
+- R-03 PASS: Current375×667/520 scene/native/fallback checks preserve complete cats and readable controls.
+- R-04 PASS: A standalone Connie illustration corrects the owner-supplied likeness reference.
+- R-05 PASS: The existing seven-chapter path is retained.
+- R-06 PASS: Local Fraunces and Source Sans3 font files are byte-identical.
+- R-07 PASS: No generic card grid or filler layout is introduced.
+- R-08 PASS: Existing context-specific icons are preserved.
+- R-09 PASS: No new badge, pill or caption is added.
+- R-10 PASS: No glass or decorative blur is introduced.
+- R-11 PASS: Existing control shapes and targets are retained.
+- R-12 PASS: Paper and contact-shadow styling remains unchanged.
+- R-13 PASS: No glow, sparkle or idle pulse is added.
+- R-14 PASS: Existing five-cat paper mounts and page hierarchy stay in place.
+- R-15 PASS: Contents, close, navigation, candle and coupon actions have working handlers.
+- R-16 PASS: English personal writing and existing action labels remain unchanged.
+- R-17 PASS: Trip dates, routes and birthday facts are unchanged.
+- R-18 PASS: Connie identity, coat, standing pose and collar/bell come from the owner photograph.
+- R-19 PASS: Selected-cat lift/return remains material-specific and complete; modal scroll lock stays functional.
+- R-20 PASS: The distinctive calico illustration follows this pet and the approved tactile scrapbook aesthetic.
+- R-21 PASS: The existing light theme is preserved.
+- R-22 PASS: The image serves the explicit Connie reference correction; no unrelated component is added.
+- R-23 PASS: Photo-referenced image_gen artwork and delivery/alpha/source hashes are documented in asset provenance.
+- R-24 PASS: Contents destinations and external links retain real targets.
+- R-25 PASS: All existing type/color contrast tokens are preserved.
+- R-26 PASS: Selected-Connie and family readers, trusted touch/keyboard opening, modal hold, focus and cleanup pass.
+- R-27 PASS: Native, CSS fallback, shorter viewport and full family-reader scrolling remain usable.
+- R-28 PASS: No artificial delay or additional playback loop is added.
+- R-29 PASS: The selected pink-primary palette is unchanged.
+- R-30 PASS: No unrelated product visual system is copied.
+- R-31 PASS: DESIGN.md explains likeness, standing silhouette, matching readers and protected other-cat artwork.
+- R-32 PASS: Escape, arrows, page keys and Space work; editable fields retain Space.
+- R-33 PASS: Reader boundaries contain input while long content still scrolls.
+- R-34 PASS: Final contexts contain no JavaScript errors or unresolved source-mask/layer cleanup.
+- R-35 PASS: Focused WebKit469/469 and Chromium111/111 checks pass; JS syntax and diff checks pass.
+- R-36 PASS: Existing design dials remain3/3/3 and8/9/5.
+- R-37 PASS: Asset/source proofs and113 protected-file hashes record preservation, including Wonnie and other cats.
+- R-38 PASS: The artwork is identified as an illustration; no fake photograph or pet biography is presented.
+- Liveliness PASS: the personal standing cat silhouette adds natural pose variation within existing paper mounts and approved pink/sage materials.
+- Craftsmanship C-1 through C-5 PASS: a real owner reference, matched complete readers, preserved four-cat output, current responsive fallback evidence and explicit generated-art provenance support the correction.
+- UI preflight PASS: no new control, caption pattern, font, palette, loop or unrelated section.
+
+# Historical V46 validation: photo-referenced Wonnie correction
 
 26 October2026. Replace only Wonnie's generic fourth-cat rendering with a standalone photo-referenced illustration: slender grey-brown tabby, dark stripes, large ears, narrow face, white chest and white paw socks. The same new source appears on the physical page, selected-Wonnie reader and family reader. Four other cats retain their original illustration windows and atlas bytes.
 

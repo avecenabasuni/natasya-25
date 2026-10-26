@@ -6,7 +6,7 @@ The current book has seven chapters: cover, Trier and Luxembourg, four days, pho
 
 The journey page now keeps the owner-confirmed RE11 train toward Luxembourg and L31 bus return toward Trier in a geographically anchored memory-map schematic. A short personal English note sits above it, with no caption or technical prose below the main or opened map. Owner-written opening/trip notes remain overrides. [Map sources and construction](dist/assets/illustrations/trier-luxembourg-route.md) explain the verified anchors and simplified connections; this is not a surveyed navigation route or timetable.
 
-Wonnie now has a separate paper illustration based on the owner's photograph: a slender grey-brown tabby with a white chest and paw socks. The full sticker appears on the page and in both cat readers; the other four cats keep their existing artwork. [Illustration provenance](dist/assets/cutouts/PROVENANCE.md) records the reference and delivery details.
+Connie and Wonnie now have separate paper illustrations based on the owner's photographs. Connie keeps the orange/dark calico-tabby patches, white face/chest/legs and small grey collar with a bell; Wonnie is a slender grey-brown tabby with a white chest and paw socks. Their full stickers appear on the page and in both cat readers. Winnie, Bonnie and Minnie retain their existing artwork. [Illustration provenance](dist/assets/cutouts/PROVENANCE.md) records references and delivery details.
 
 ## Run locally
 

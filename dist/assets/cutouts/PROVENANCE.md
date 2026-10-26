@@ -31,7 +31,15 @@ Seven fan motifs: red open-wheel racing car with a yellow pennant; red 44 helmet
 
 The original RGBA bytes are retained without pixel editing, recoloring or equal-cell slicing. Each complete motif uses its own measured source frame in `fandom-stickers.js`; the renderer and native view fit the same frame uniformly. Artwork has transparent paper cut edges. Source analysis and generation metadata remain outside the published archive in `/workspace/scratch/v37-art/` and `qa/v37/`.
 
-## Wonnie photo-reference correction, 26 October 2026
+## Connie photo-reference correction, V47, 26 October 2026
+
+`connie.webp` is a standalone1024×1536 transparent image_gen paper illustration based on the owner's photograph identifying Connie. The existing Wonnie sticker is a visual-style reference only. Connie retains an asymmetric calico/tabby-and-white coat, orange and dark body patches, white central face/chest/legs, greenish eyes, ringed tail and the small grey collar with a dark bell visible in the photograph. The full-body standing pose is retained, with paws, ears and tail inside the source frame. No sofa, room, person or photograph background is retained.
+
+Source PNG: `/workspace/generated_images/exec-94abc707-0c48-44b9-868b-670358d79473.png`; SHA256 `eff753b85d63b00cb9aed55549b50ae39668cfc07918f87a9bbff61ebc11ffb3`. WebP quality92 delivery:386,910bytes, SHA256 `80666c8bae69c08a025f46dedff61249674c3e2aefcd7a1d5a2f3e768075a815`. Delivery encoding preserves every alpha byte and the full canvas, with no crop, resize or recoloring. Full rectangular framing and a uniform contain fit are used in the physical page and both cat readers. `qa/v47/asset-proof.json` retains the encoding/alpha evidence outside publication.
+
+Connie's third slot now uses this new source. Wonnie's existing standalone asset and rendering remain unchanged. Winnie, Bonnie and Minnie keep their exact original atlas windows, seam polygons and source bytes. The old atlas's generic Connie remains in that historical asset but is no longer selected. This generated artwork is a photo-referenced illustration, not a literal pet photograph; no personality or biography is invented.
+
+## Wonnie photo-reference correction, V46, 26 October 2026
 
 `wonnie.webp` is a standalone1024×1536 transparent illustration generated with image_gen from the user's Wonnie photograph, using the existing five-cat sheet only as a paper/fur-style reference. A follow-up image_gen edit refined the transparent cutout. The owner identified the photographed cat as Wonnie. The corrected cat has a slender build, large ears, predominantly grey-brown tabby face, dark forehead/leg/body stripes, greenish eyes, narrow muzzle, white chest and white paw socks. No person, room, furniture or other photograph background is retained.
 
@@ -39,7 +47,7 @@ Final source PNG: `/workspace/generated_images/exec-7f0643d8-f139-41bf-9ed1-e26f
 
 Delivery:406,720bytes; SHA256 `08625f61a98dc83fb7ef3ea00db15551f8fd4f65b5bba319ae89649e0a385856`. Final PNG SHA256 `2b7214d25b3252e90ffab3e605d2afc9c4727c09aa9889b010d4baf60760f45a`.
 
-Only Wonnie's fourth slot now uses the new asset. Winnie, Bonnie, Connie and Minnie retain their exact original atlas bytes and measured separating polygons. The historical atlas's fourth generic grey/white cat is retained in that source file but no longer selected as Wonnie. The original photograph is a likeness reference; the new artwork remains an illustration rather than a pet photograph. No pet biography or personality is invented.
+At V46, only Wonnie's fourth slot used the new asset; Winnie, Bonnie, Connie and Minnie retained their original atlas windows. Connie subsequently received a separate source in V47, documented above. The atlas's fourth generic grey/white cat remains in the historical source file but is no longer selected as Wonnie. The original photograph is a likeness reference; the new artwork remains an illustration rather than a pet photograph. No pet biography or personality is invented.
 
 ## Five personal cats, 14 October 2026 (original atlas)
 
