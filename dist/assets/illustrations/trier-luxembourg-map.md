@@ -1,4 +1,6 @@
-# Luxembourg and Trier, 18 October 2026
+# Historical Luxembourg and Trier overview, 18 October 2026
+
+This is the retained V24 country-outline source record. The live V44 scrapbook map uses [trier-luxembourg-route.md](trier-luxembourg-route.md), with the owner-confirmed RE11 train, L31 return bus and personal prose above the map. Statements below describe the older overview version.
 
 The country border is Natural Earth's public-domain 1:50m Luxembourg polygon, retrieved 18 October 2026 from https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson . Select the feature with ADM0_A3 equal to LUX. License: https://www.naturalearthdata.com/about/terms-of-use/ . This overview scale is geographic context, not a navigation map.
 

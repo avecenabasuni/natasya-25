@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650" role="img" aria-labelledby="title description" data-map-kind="geographic-schematic">
+  <title id="title">Our way to Luxembourg and back to Trier</title>
+  <desc id="description">A north-up memory map. RE11 railway runs from Trier toward Luxembourg through the Wasserbillig corridor. A separate dashed L31 bus connection returns from Luxembourg toward Trier. Railway-line anchors are geographically placed; connecting lines are schematic, not surveyed tracks or roads. City pins do not claim the owner's exact bus stops.</desc>
+  <defs>
+    <marker id="rail-arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10" fill="none" stroke="#8e3a55" stroke-width="3"/></marker>
+    <marker id="bus-arrow" markerWidth="15" markerHeight="15" refX="11" refY="7.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L13 7.5L0 15" fill="none" stroke="#5f735f" stroke-width="4"/></marker>
+  </defs>
+  <rect width="1000" height="650" fill="#fff4e6"/>
+  <g id="north" fill="#5f5054" stroke="#5f5054" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <text x="83" y="104" font-family="'Source Sans 3',Arial,sans-serif" font-size="30" text-anchor="middle" stroke="none">N</text>
+    <path d="M83 164V123M72 138L83 123L94 138" fill="none"/>
+  </g>
+  <g id="bus-l31" data-route="L31" data-from="Luxembourg" data-to="Trier" data-path-kind="schematic-corridor" fill="none" stroke="#5f735f" stroke-linecap="round">
+    <path id="bus-return-path" d="M168.3 518.3 C210 470 270 465 324 476 C365 460 352 405 396 360 C460 290 525 255 592 250 C631 245 656 249 697 236 C745 224 770 237 790 213 C833 177 867 135 918.3 166" stroke-width="8" stroke-dasharray="14 17"/>
+    <path id="bus-return-direction" d="M450 309 Q471 290 493 278" stroke-width="5" marker-end="url(#bus-arrow)"/>
+  </g>
+  <g id="rail-re11" data-route="RE11" data-from="Trier" data-to="Luxembourg" data-source-anchors="16" data-path-kind="verified-anchor-schematic" fill="none" stroke="#8e3a55" stroke-linejoin="round" stroke-linecap="round">
+    <path id="railway-sleepers" d="M918.3 166 L895.9 194.1 L809.1 285 L771.3 277 L707.3 263.2 L696.8 265 L667.4 286.8 L586.8 279.4 L533.3 293.7 L478.5 318.6 L412.4 369 L362.1 449.2 L347.2 511.4 L281.5 520.1 L213.5 484.1 L168.3 518.3" stroke-width="24" stroke-linecap="butt" stroke-dasharray="2 18" opacity=".72"/>
+    <path id="railway-outer" d="M918.3 166 L895.9 194.1 L809.1 285 L771.3 277 L707.3 263.2 L696.8 265 L667.4 286.8 L586.8 279.4 L533.3 293.7 L478.5 318.6 L412.4 369 L362.1 449.2 L347.2 511.4 L281.5 520.1 L213.5 484.1 L168.3 518.3" stroke-width="13"/>
+    <path id="railway-inner" d="M918.3 166 L895.9 194.1 L809.1 285 L771.3 277 L707.3 263.2 L696.8 265 L667.4 286.8 L586.8 279.4 L533.3 293.7 L478.5 318.6 L412.4 369 L362.1 449.2 L347.2 511.4 L281.5 520.1 L213.5 484.1 L168.3 518.3" stroke="#fff4e6" stroke-width="6"/>
+    <path id="rail-outward-direction" d="M443 345 L413 368 L395 397" stroke-width="3" marker-end="url(#rail-arrow)"/>
+  </g>
+  <g id="railway-location-marks" fill="#fff4e6" stroke="#8e3a55" stroke-width="3">
+    <circle cx="895.9" cy="194.1" r="5"/><circle cx="809.1" cy="285" r="5"/><circle cx="771.3" cy="277" r="5"/><circle cx="281.5" cy="520.1" r="5"/>
+    <circle id="wasserbillig" cx="696.8" cy="265" r="9"/>
+  </g>
+  <g id="route-labels" font-family="'Source Sans 3',Arial,sans-serif">
+    <text id="re11-label" x="475" y="415" fill="#8e3a55" font-size="58" font-weight="600">RE11</text>
+    <text x="475" y="455" fill="#5f5054" font-size="38">to Luxembourg</text>
+    <text id="l31-label" x="340" y="190" fill="#5f735f" font-size="58" font-weight="600">L31</text>
+    <text x="340" y="230" fill="#5f5054" font-size="38">back to Trier</text>
+    <text x="628" y="335" fill="#5f5054" font-size="32">Wasserbillig</text>
+  </g>
+  <g id="trier-endpoint" data-place="Trier" data-lon="6.65194" data-lat="49.75694">
+    <circle cx="918.3" cy="166" r="15" fill="#8e3a55" stroke="#fff4e6" stroke-width="5"/>
+    <g font-family="'Source Sans 3',Arial,sans-serif" text-anchor="end"><text x="924" y="96" fill="#342c2e" font-size="64" font-weight="600">Trier</text><text x="924" y="132" fill="#5f5054" font-size="29">Germany</text></g>
+  </g>
+  <g id="luxembourg-endpoint" data-place="Luxembourg" data-lon="6.13472222" data-lat="49.59972222">
+    <circle cx="168.3" cy="518.3" r="15" fill="#8e3a55" stroke="#fff4e6" stroke-width="5"/>
+    <text x="88" y="588" fill="#342c2e" font-family="'Source Sans 3',Arial,sans-serif" font-size="62" font-weight="600">Luxembourg</text>
+  </g>
+  <text x="40" y="630" fill="#5f5054" font-family="'Source Sans 3',Arial,sans-serif" font-size="22">© OpenStreetMap contributors · CFL/ACF</text>
+</svg>

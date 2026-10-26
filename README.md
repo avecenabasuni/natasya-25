@@ -4,6 +4,8 @@ A personal birthday scrapbook made for a phone: pink cloth, paper pages, a hinge
 
 The current book has seven chapters: cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration, and a gift. The trip is 22–25 October 2026; the birthday is 2 November 2026. Personal names, photographs, memories, songs, and the Amazon.de €25 gift code remain placeholders until supplied.
 
+The journey page now keeps the owner-confirmed RE11 train toward Luxembourg and L31 bus return toward Trier in a geographically anchored memory-map schematic. A short personal English note sits above it, with no caption or technical prose below the main or opened map. Owner-written opening/trip notes remain overrides. [Map sources and construction](dist/assets/illustrations/trier-luxembourg-route.md) explain the verified anchors and simplified connections; this is not a surveyed navigation route or timetable.
+
 ## Run locally
 
 No build step or package installation is needed. With Python 3 installed, run:

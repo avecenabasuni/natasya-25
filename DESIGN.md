@@ -1,5 +1,15 @@
 # A little world, physical scrapbook
 
+## V44: the way there and back
+
+Design Read: turn the generic Trier/Luxembourg overview into a personal memory map of the owner's confirmed outward RE11 train and return L31 bus. Retain Pink + Sage, printed local type, physical map paper, seven chapters, existing collages and English reading. Antislop during remains3/3/3; Taste remains8/9/5.
+
+Show Trier and Luxembourg city anchors, a visible railway with sleepers for RE11 toward Luxembourg, and a distinct dashed L31 return connection toward Trier. Verified CFL/ACF railway-location coordinates and OSM station anchors support a geographically grounded schematic. It is a memory diagram, not continuous surveyed track/road geometry or a timetable. Do not infer the owner's exact bus stop, departure time or service disruption from a separate dated notice. The owner's mode/direction statement is authoritative.
+
+Place the personal description above the map and make the map the final content object on its page and reader. Remove all below-map captions, technical prose, generic souvenir placeholders and duplicated itinerary lists. Preserve any owner-written opening/trip notes as overrides and display full writing above the reader map. A short authored fallback names the two journeys and the four days together; it invents no weather, café, seat or shared incident. Unknown names, photographs and gift code remain placeholders.
+
+Keep route labels, direction marks and necessary cartographic attribution inside the map; detailed sources belong in asset documentation. The existing map object still lifts into the same source illustration and returns to its physical page. Verify legibility and decoration clearance at375×667/520 and native/fallback reading; no change to birthday, notes, music, voucher, paper finishing or access is required.
+
 ## V43: composed collage, photographic finish and paper detail
 
 Design Read: carry out the four selected aesthetic changes for a personal scrapbook read on a phone: coherent small collages, consistent photo finishing, deliberate busy/quiet areas and subtle physical paper/cover details. Retain Pink + Sage, local Fraunces/Source Sans 3, English placeholders, seven chapters, uncaptioned actual faces and every existing interaction. Antislop during remains ENERGY/RHYTHM/MOTION 3/3/3; Taste remains 8/9/5.

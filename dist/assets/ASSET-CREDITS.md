@@ -1,5 +1,7 @@
 # Scrapbook asset sources
 
+The live Trier–Luxembourg map now shows the owner's RE11 outward train and L31 bus return as a geographically anchored schematic. Verified railway-location facts come from CFL/ACF and OpenStreetMap; the simplified bus connection does not claim an exact road trace or terminal. Credits appear inside the map, with detailed sources, rights, projection and limitations in [illustrations/trier-luxembourg-route.md](illustrations/trier-luxembourg-route.md). The old below-map technical caption is removed.
+
 V43 groups the existing photographs into small collages and adds a restrained warm display grade plus paper/cover detail. Original source files are unchanged; on-screen color/framing changes are documented in [FANDOM-PHOTOS.md](FANDOM-PHOTOS.md). The actual club crest keeps its original colors. This finishing adds no personal content, generated likeness or endorsement claim.
 
 Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro now use real portrait photographs, replacing the four symbolic music-prop stickers. Lionel Messi, Lamine Yamal and the actual FC Barcelona crest join the collection. Full credits, source links, license distinctions, exact byte hashes and presentation frames are in [FANDOM-PHOTOS.md](FANDOM-PHOTOS.md). Taylor and Olivia Rodrigo are credited to iHeartRadioCA under CC BY 3.0; the other new media remains credited third-party copyright. No endorsement or personal-photo claim is made.
@@ -10,7 +12,7 @@ Sixteen original paper ornaments were generated for this scrapbook and placed as
 
 Seven illustrated fan stickers represent the recipient's supplied favorites: Ferrari, Lewis Hamilton, George Russell, Taylor Swift, Olivia Rodrigo, Olivia Dean and Sienna Spiro. Original artwork was generated for this scrapbook and uses racing/music keepsake motifs with accessible names and no visible captions. The original RGBA sheet and its per-sticker frames retain complete silhouettes. Generation and file provenance: [cutouts/PROVENANCE.md](cutouts/PROVENANCE.md).
 
-The map of central Trier uses actual OpenStreetMap river-bank, street and landmark geometry downloaded through the Overpass API on 17 October 2026. It is geographic context, with no invented route or claim of places visited. The live book uses the1000x650 WebP; the editable SVG is also included.
+The historical central-Trier map uses actual OpenStreetMap river-bank, street and landmark geometry downloaded through the Overpass API on 17 October 2026. It is retained as a source asset rather than the live map. Its1000x650 WebP and editable SVG are included; no route or claim of places visited was added to that earlier asset.
 
 Map data copyright OpenStreetMap contributors, available under the Open Database License. Attribution and license: https://www.openstreetmap.org/copyright
 

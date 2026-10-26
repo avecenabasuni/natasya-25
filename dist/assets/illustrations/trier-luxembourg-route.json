@@ -1,0 +1,211 @@
+{
+  "retrieved_date": "2026-10-26",
+  "coordinate_order": "lon,lat",
+  "rail_waypoints_trier_to_luxembourg": [
+    {
+      "name": "Trier Hbf",
+      "lon": 6.65194,
+      "lat": 49.75694,
+      "source": "https://en.wikipedia.org/wiki/Trier_Hauptbahnhof"
+    },
+    {
+      "name": "Trier Süd",
+      "lon": 6.6364657,
+      "lat": 49.7444073,
+      "source": "https://www.openstreetmap.org/node/4999323919"
+    },
+    {
+      "name": "Kreuz Konz",
+      "lon": 6.5765949,
+      "lat": 49.703852,
+      "source": "https://www.openstreetmap.org/node/700940389"
+    },
+    {
+      "name": "Igel",
+      "lon": 6.5505255,
+      "lat": 49.7074306,
+      "source": "https://www.openstreetmap.org/node/3801053061"
+    },
+    {
+      "name": "Wasserbillig border",
+      "lon": 6.50638889,
+      "lat": 49.71361111,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Wasserbillig",
+      "lon": 6.49916667,
+      "lat": 49.71277778,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Mertert",
+      "lon": 6.47888889,
+      "lat": 49.70305556,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Manternach",
+      "lon": 6.42333333,
+      "lat": 49.70638889,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Wecker",
+      "lon": 6.38638889,
+      "lat": 49.7,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Betzdorf",
+      "lon": 6.34861111,
+      "lat": 49.68888889,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Roodt",
+      "lon": 6.30305556,
+      "lat": 49.66638889,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Munsbach",
+      "lon": 6.26833333,
+      "lat": 49.63055556,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Oetrange",
+      "lon": 6.25805556,
+      "lat": 49.60277778,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Sandweiler-Contern",
+      "lon": 6.21277778,
+      "lat": 49.59888889,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Cents-Hamm",
+      "lon": 6.16583333,
+      "lat": 49.615,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    },
+    {
+      "name": "Luxembourg",
+      "lon": 6.13472222,
+      "lat": 49.59972222,
+      "source": "https://acf.gouvernement.lu/dam-assets/sillon/documents-de-reference-du-reseau/2027/en-ns-2027-v10.pdf",
+      "source_section": "Appendix2A Line3 detailed WGS84(DMS) table, page23"
+    }
+  ],
+  "rail_coordinates": [
+    [
+      6.65194,
+      49.75694
+    ],
+    [
+      6.6364657,
+      49.7444073
+    ],
+    [
+      6.5765949,
+      49.703852
+    ],
+    [
+      6.5505255,
+      49.7074306
+    ],
+    [
+      6.50638889,
+      49.71361111
+    ],
+    [
+      6.49916667,
+      49.71277778
+    ],
+    [
+      6.47888889,
+      49.70305556
+    ],
+    [
+      6.42333333,
+      49.70638889
+    ],
+    [
+      6.38638889,
+      49.7
+    ],
+    [
+      6.34861111,
+      49.68888889
+    ],
+    [
+      6.30305556,
+      49.66638889
+    ],
+    [
+      6.26833333,
+      49.63055556
+    ],
+    [
+      6.25805556,
+      49.60277778
+    ],
+    [
+      6.21277778,
+      49.59888889
+    ],
+    [
+      6.16583333,
+      49.615
+    ],
+    [
+      6.13472222,
+      49.59972222
+    ]
+  ],
+  "rail_path_kind": "Geographically anchored schematic connecting verified railway-line locations; not surveyed continuous track geometry. Intermediate line locations are not all RE11 stops.",
+  "re11_served_stations_trier_to_luxembourg": [
+    "Trier Hbf",
+    "Trier Süd",
+    "Kreuz Konz",
+    "Igel",
+    "Wasserbillig",
+    "Sandweiler-Contern",
+    "Luxembourg"
+  ],
+  "service_sources": [
+    "https://www.mobiliteit.lu/wp-content/uploads/horaires-new/cfl/2025-12-14/30.pdf?v=20251120",
+    "https://www.cfl.lu/en-gb/news/travaux-cfl"
+  ],
+  "l31_evidence": {
+    "confirmed_by_user": true,
+    "official_service_source": "https://www.cfl.lu/en-gb/news/travaux-cfl",
+    "official_corridor": "Luxembourg bus station, Cents/Contern/Oetrange/Munsbach, Mertert, Wasserbillig, Igel, Trier-Zewen/Euren/Süd, Trier. Service variants depend on direction/date.",
+    "source_period": "Official page discusses Aug/Sep2026 works; confirms service identity/corridor, not the user’s precise October stops.",
+    "bus_path_kind": "Draw a distinct dashed schematic return connection using the known corridor, not a claimed road trace or exact bus boarding/alighting stop.",
+    "endpoint_labels": "Luxembourg and Trier city names only; do not label user bus terminal Hbf or SWT without user confirmation."
+  },
+  "attribution": {
+    "osm": "© OpenStreetMap contributors, ODbL. https://www.openstreetmap.org/copyright",
+    "cfl": "CFL/ACF network statement, numerical station-coordinate facts and service information; source credited. No graphic from the PDF is copied."
+  },
+  "limitations": [
+    "No exact continuously surveyed railway geometry retrieved; Overpass endpoints returned406/timeouts.",
+    "No exact bus road polyline or user terminal was verified.",
+    "No timetable, departure, distance or service date should be inferred as the user’s actual journey."
+  ]
+}

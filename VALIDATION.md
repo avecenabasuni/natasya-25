@@ -1,4 +1,69 @@
-# Validation: composed collages and tactile photo finish, V43
+# Validation: RE11/L31 memory map and personal copy, V44
+
+26 October 2026. Replace the generic country overview with the owner's confirmed RE11 journey toward Luxembourg and L31 return toward Trier. The railway has two rails and sleepers; the bus is a distinct dashed connection with its own direction arrow. Short personal English prose appears above the map. Both main and reader figures have no caption or prose below them; the old technical disclaimer, empty souvenir slip and duplicated itinerary list are removed.
+
+Status: PASS, no unresolved finding. Final WebKit passes444/444 focused checks across scene375×667/520, reduced/native375×667, aborted-3D375×667 and long owner-written intro/dedication fixtures. Chromium scene375×667 passes112/112. Current scope, source hashes and screenshots are in `qa/v44/final-scope-summary.json`. Initial reports remain historical: the first above-map paragraph caused writing-clearance to hide Lewis, fixed by6px internal paragraph padding; an oversized default reader paragraph was removed and the map-reader prose made compact. Internal rotated-object bounds and expected short-screen camera scaling are distinguished from actual paper/document overflow in the corrected harness. No earlier broad suite is claimed as rerun.
+
+## Geography, content and interaction evidence
+
+- Sixteen railway-location anchors are independently reprojected against the editable SVG, with maximum0.1235 output-pixel error. CFL/ACF location tables and OSM station facts support the rose rail corridor. Intermediate anchors are not all RE11 stops. The L31 curve is a geographically anchored schematic connection along the supported corridor, not an exact road trace or claim about the owner's boarding/alighting terminal. No time, distance, fare or service disruption is invented. Detailed primary sources and limitations are in `dist/assets/illustrations/trier-luxembourg-route.md` and its JSON reference.
+- Directional SVG metadata, visible service labels and arrows identify Trier→Luxembourg RE11 and Luxembourg→Trier L31. Trier lies northeast of Luxembourg. Both rails and perpendicular sleepers are present; the final labels are enlarged for phone reading. A complete1000×650 vector render uses the actual local Source Sans3 font, then WebP encoding without crop/resize. Delivery SHA256 is `a4c49c9aec5b3c4f432b97ba161a17418578c39e40f19e6acfc0073ab715ee00`,39,238bytes.
+- The new authored fallback reads: “RE11 to Luxembourg. L31 back to Trier. I wish those four days with you had been just a little longer.” It uses confirmed modes and the four-day visit, without fabricated anecdotes. Any owner-written intro/dedication remains intact, including full beginning/end sentinels in the expanded reader. Default and custom prose stays above the final map object. Names, photographs, other notes and gift code remain unchanged.
+- The same new map source appears on the paper and in the reader. Current trusted-input checks cover actual lift/return, Escape/X, downward dismissal, focus restoration and temporary-layer cleanup. The complete default reader map is visible without scrolling at375×667; longer owner writing and shorter displays retain native scrolling. Scene page-turn attachment, candle/audio/gift gate, coupon reader and animated cover replay still pass.
+- All14 named portrait/crest instances remain visible and clear in the final default contexts. The prose padding protects Lewis without moving him into his helmet sticker. No horizontal document overflow or physical map escape from the paper remains. Rotated paper may extend2px beyond its inner content box while staying within the actual sheet, which is intentional physical layout rather than a document-overflow defect.
+- Root independently verifies46 protected configuration, interaction, decoration, original image and font files against V43. The two changed JavaScript modules pass syntax checks; `git diff --check` passes. No new dependency, animation loop or remote runtime image is introduced. QA artifacts, research downloads and diagram render scripts remain excluded from publication and GitHub.
+
+Root visually reviewed the final full source render, main375×667 page and opened Chromium reader. This is software WebKit/Chromium evidence, not physical iPhone Safari, hardware frame rate or VoiceOver testing. The mapped connections are explicitly schematic; the user's actual transport statement is retained without replacing it with a separate notice's dates or terminals.
+
+## Current Antislop delivery gate
+
+PASS. DESIGN.md records the current route/copy design read before edits. Explicit Antislop during3/3/3 and Taste8/9/5 preserve the authored paper aesthetic, printed type and responsive reading.
+
+- R-01 PASS: existing Pink + Sage materials and ink roles distinguish rail and bus meaningfully.
+- R-02 PASS: short English personal prose replaces placeholders; route names/dates keep their established spelling and no decorative em dash is added.
+- R-03 PASS: final375×667/520 scene/native/fallback checks preserve paper bounds, readable labels, whole faces and controls.
+- R-04 PASS: rails, sleepers, city pins and direction arrows communicate the actual requested transport story.
+- R-05 PASS: the existing journey chapter remains; duplicated below-map content is removed rather than adding a filler section.
+- R-06 PASS: Source Sans3 map labels use the site's actual local font; all existing font files remain unchanged.
+- R-07 PASS: the paper illustration carries geographic route data, not a generic decorative grid.
+- R-08 PASS: new arrows express confirmed outward and return directions.
+- R-09 PASS: no badge, pill or sticker caption is added.
+- R-10 PASS: no glass or decorative blur is introduced.
+- R-11 PASS: existing physical map mount and controls retain their established shapes.
+- R-12 PASS: existing paper/contact shadows remain unchanged.
+- R-13 PASS: no glow, sparkle or idle pulse is added.
+- R-14 PASS: personal prose, route image and retained corner keepsakes follow a measured composition.
+- R-15 PASS: the real map button still opens its matching reader; no false action is added.
+- R-16 PASS: no marketing language is added.
+- R-17 PASS: modes/directions and22–25 October come from the owner; no exact travel time or terminal is fabricated.
+- R-18 PASS: no shared incident, personal photo or unknown identity is invented.
+- R-19 PASS: the same source map lifts and returns through existing motion; native reduced-motion reading remains.
+- R-20 PASS: the user's specific RE11/L31 journeys and personal four-day message make the page particular to this relationship.
+- R-21 PASS: the approved single light theme remains.
+- R-22 PASS: a sourced data diagram replaces the old overview for an explicit map purpose.
+- R-23 PASS: the user requested route imagery; source facts, original diagram construction and delivery provenance are documented.
+- R-24 PASS: existing map/coupon readers and source links have real destinations.
+- R-25 PASS: existing dark ink/action colors and approved paper surfaces carry map text and personal prose; interface contrast roles remain.
+- R-26 PASS: current map, dismissal, page, candle, gift and replay click-through passes.
+- R-27 PASS: remaining honest placeholders and loading/error/fallback behavior stay usable; full owner-text fixtures are checked.
+- R-28 PASS: no FAQ is introduced.
+- R-29 PASS: no unrelated palette system is added; rail and bus use the established rose/sage language.
+- R-30 PASS: the route illustration extends the authored scrapbook, not a product template.
+- R-31 PASS: DESIGN.md explains source geography, schematic limits, above-map prose, attribution and clearance.
+- R-32 PASS: existing keyboard dismissal, visible focus and trigger restoration remain functional.
+- R-33 PASS: feature/style/vector/documentation changes use apply_patch; browser rendering produces the new data-diagram delivery without changing photo files.
+- R-34 PASS: the single shipped theme is exercised in scene/native/fallback.
+- R-35 PASS: current source, image identity, motion and input checks are recorded; earlier broad suites remain historical.
+- R-36 PASS: no surveyed-path, timetable, hardware or performance claim is invented.
+- R-37 PASS: the current design read and retained explicit dials precede implementation.
+- R-38 PASS: owner-confirmed journeys, verified location facts and authored emotional prose remain distinct from unsupplied personal details.
+- Liveliness PASS: a clear personal route focal point, purposeful paper space, distinct service strokes and retained scrapbook keepsakes match the declared dials.
+- Craftsmanship C-1 through C-5 PASS: the requested changes have written purposes, genuine readers, no duplicated filler, current fallback coverage and factual source evidence.
+- UI/Taste pre-flight PASS: preserve the paper aesthetic, approved type/color hierarchy and one theme; original data artwork and measured mobile layouts serve the requested story.
+
+Owner-private access remains unchanged; recipient access remains deferred. GitHub receives the matching app and documents without the private Site binding, credentials, local QA or deployment archive.
+
+# Historical validation: composed collages and tactile photo finish, V43
 
 25 October 2026. Implement the four selected aesthetic changes: grouped collages, consistent photographic finishing, deliberate busy/quiet composition and subtle paper/cover material details. All 53 decorations and all 14 named portrait/crest instances remain. Seven chapters, original sources, personal content, fonts, closed notes, candle/audio, gift and replay behavior are retained.
 
