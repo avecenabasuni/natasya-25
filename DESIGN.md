@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V53: five real personalities
+
+Design Read: keep the existing pink physical scrapbook, Antislop during 3/3/3 and Taste 8/9/5. Replace the repeated individual-cat greeting with five affectionate English notes in the cats' voices, addressed to Tasya. Use only the owner's newly supplied traits: chubby, lazy, food-loving Winnie is her second favourite; Bonnie loves playing with other cats; Connie is shy; wandering, pamper-loving Wonnie is her favourite; little Minnie loves playing with her. Each note has its own wording and a light birthday connection. Keep all portraits, useful image alternatives, the family reader, song, paper treatment and opening motion unchanged. Do not invent a specific shared incident or add more text to the closed page.
+
 ## V52: birthday company and one shared song
 
 Design Read: a focused edit of the girlfriend's pink physical birthday scrapbook, Antislop during ENERGY/RHYTHM/MOTION 3/3/3 and Taste 8/9/5. The five real named cats belong as birthday company, not an animal-description catalogue. Keep their artwork and useful image alternatives; show one short birthday greeting instead of visible fur descriptions, repeated biographies or implementation notes. An individual sticker opens its own portrait, while the family opens all five.

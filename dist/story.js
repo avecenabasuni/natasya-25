@@ -5,7 +5,13 @@
   const trip=window.SCRAPBOOK_TRIP;
   const chapters=[['cover','Cover'],['dedication','Trier & Luxembourg'],['your-world',trip.shortDates],['october','Photographs'],['letter','Notes'],['birthday','2 November'],['gift','Your gift']];
   const aliases={'little-things':'your-world','soundtrack-a':'your-world','soundtrack-b':'your-world',moments:'october',closer:'october','next-chapter':'letter'};
-  const cats=[{name:'Winnie',coat:'Orange.'},{name:'Bonnie',coat:'Mostly white, with brown-grey tabby markings on the head and forelegs, a striped tail and a pink nose.'},{name:'Connie',coat:'Orange and dark calico-tabby patches, a white face, chest and legs, and a little grey collar with a bell.'},{name:'Wonnie',coat:'Grey-brown tabby with dark stripes, a white chest and white paws.'},{name:'Minnie',coat:'Black, brown and orange tortoiseshell, based on your photo.'}];
+  const cats=[
+    {name:'Winnie',coat:'Orange.',birthdayNote:"Your chubby, lazy, food-loving second favourite. I’m here for your 25th, preferably lying down and close to something to eat."},
+    {name:'Bonnie',coat:'Mostly white, with brown-grey tabby markings on the head and forelegs, a striped tail and a pink nose.',birthdayNote:"I love having other cats to play with. Today, though, you’re the one we’re all celebrating."},
+    {name:'Connie',coat:'Orange and dark calico-tabby patches, a white face, chest and legs, and a little grey collar with a bell.',birthdayNote:"I’m the shy one, so I’ll keep this small: a little birthday love, just for you."},
+    {name:'Wonnie',coat:'Grey-brown tabby with dark stripes, a white chest and white paws.',birthdayNote:"Here, there, everywhere, then ready for more pampering. Your favourite little wanderer couldn’t be left out of your 25th."},
+    {name:'Minnie',coat:'Black, brown and orange tortoiseshell, based on your photo.',birthdayNote:"I may be little, but playing with you is a big deal to me. Your tiny playmate had to be here, too."}
+  ];
   // The family illustration has uneven, touching outlines; these shared seams
   // follow its white sticker borders instead of cutting five equal columns.
   const catSeams=[[[419,0],[419,432],[416,437],[416,451],[411,457],[416,472],[414,483],[418,487],[416,489],[418,500],[413,505],[414,518],[416,520],[415,539],[419,545],[420,557],[425,562],[424,571],[426,577],[425,599],[421,603],[422,819]],[[784,0],[784,469],[788,473],[788,479],[786,482],[787,496],[783,501],[784,510],[780,514],[782,518],[780,522],[782,528],[782,544],[780,546],[782,564],[777,574],[783,585],[783,591],[793,606],[790,612],[791,624],[789,630],[804,648],[800,658],[800,819]],[[1151,0],[1151,318],[1153,320],[1153,387],[1160,395],[1160,443],[1164,459],[1162,468],[1162,501],[1153,510],[1152,515],[1160,523],[1165,547],[1163,554],[1164,565],[1161,568],[1164,579],[1159,590],[1159,594],[1165,603],[1163,608],[1165,624],[1163,632],[1163,819]],[[1528,0],[1528,395],[1532,400],[1533,415],[1536,422],[1536,501],[1538,503],[1538,532],[1532,539],[1536,552],[1535,578],[1540,584],[1537,613],[1538,623],[1541,634],[1547,644],[1548,653],[1552,657],[1552,661],[1548,665],[1552,677],[1552,819]]];
@@ -88,7 +94,7 @@
       const key=objectSource?.dataset.bookObject,index=/^cat-[0-4]$/.test(key||'')?Number(key.slice(4)):-1,selected=cats[index];
       const portrait=selected?catPortrait(index,'reader-cat-portrait',`data-reader-cat="${index}"`):'';
       const family=`<figure class="reader-cat-family" aria-label="Winnie, Bonnie, Connie, Wonnie and Minnie">${cats.map((cat,i)=>`<span class="pet-sticker" style="--pet:${i}">${catPortrait(i)}<span class="pet-name">${cat.name}</span></span>`).join('')}</figure>`;
-      openDialog(`${portrait}<h2>${selected?selected.name:'Your birthday committee.'}</h2>${selected?'':family}<p class="cat-birthday-greeting">${selected?'A little birthday hello from '+selected.name+'.':'All five, here for your 25th.'}</p>`);
+      openDialog(`${portrait}<h2>${selected?selected.name:'Your birthday committee.'}</h2>${selected?'':family}<p class="cat-birthday-greeting">${selected?esc(selected.birthdayNote):'All five, here for your 25th.'}</p>`);
     }
     function showDay(c,index){
       const src=c.germanyPhotos[index],caption=c.germanyCaptions[index],day=trip.days[index];
