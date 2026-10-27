@@ -5,7 +5,6 @@
   const trip=window.SCRAPBOOK_TRIP;
   const chapters=[['cover','Cover'],['dedication','Trier & Luxembourg'],['your-world',trip.shortDates],['october','Photographs'],['letter','Notes'],['birthday','2 November'],['gift','Your gift']];
   const aliases={'little-things':'your-world','soundtrack-a':'your-world','soundtrack-b':'your-world',moments:'october',closer:'october','next-chapter':'letter'};
-  const artists=['Olivia Rodrigo','Taylor Swift','Olivia Dean','Sienna Spiro'];
   const cats=[{name:'Winnie',coat:'Orange.'},{name:'Bonnie',coat:'Mostly white, with brown-grey tabby markings on the head and forelegs, a striped tail and a pink nose.'},{name:'Connie',coat:'Orange and dark calico-tabby patches, a white face, chest and legs, and a little grey collar with a bell.'},{name:'Wonnie',coat:'Grey-brown tabby with dark stripes, a white chest and white paws.'},{name:'Minnie',coat:'Black, brown and orange tortoiseshell, based on your photo.'}];
   // The family illustration has uneven, touching outlines; these shared seams
   // follow its white sticker borders instead of cutting five equal columns.
@@ -79,24 +78,17 @@
     }
     function soundtrackContent(c){
       const memory=c.memorableSong;
-      if(memory?.title)return `<span><span class="soundtrack-label">Our song${memory.artist?`<span class="soundtrack-artist"> · ${esc(memory.artist)}</span>`:''}</span><span class="soundtrack-song">${esc(memory.title)}</span></span>${icon('music')}`;
-      const selectedSong=artists.find(a=>c.songTitles[a]);
-      return `<span><span class="soundtrack-label">The soundtrack</span><span class="soundtrack-song"${selectedSong?'':' data-placeholder="true"'}>${esc(selectedSong?c.songTitles[selectedSong]:'[A song from these days]')}</span></span>${icon('music')}`;
+      return `<span><span class="soundtrack-label">Our song${memory?.artist?`<span class="soundtrack-artist"> · ${esc(memory.artist)}</span>`:''}</span><span class="soundtrack-song"${memory?.title?'':' data-placeholder="true"'}>${esc(memory?.title||'[Our song]')}</span></span>${icon('music')}`;
     }
     function showMusic(c){
-      const prepared=artists.some(a=>c.songTitles[a]||c.songLinks[a]||c.artistNotes[a]);
       const memorableLink=c.memorableSong?.title?safeLink(c.memorableSong.url):'';
-      openDialog(`<h2 class="visually-hidden">The soundtrack.</h2><div class="reader-soundtrack soundtrack-slip">${soundtrackContent(c)}</div>${memorableLink?`<a class="song-link memorable-song-link" href="${esc(memorableLink)}" target="_blank" rel="noopener noreferrer">Listen to our song ${icon('arrow')}</a>`:''}<p class="dialog-label">Music you love</p>${prepared||c.memorableSong?.title?'':'<p class="placeholder-copy" data-placeholder="true">[Choose a song that means something to you both. Add the story behind it.]</p>'}<div class="playlist-dialog">${artists.map(a=>{
-        const url=safeLink(c.songLinks[a]),has=Boolean(c.songTitles[a]||url||c.artistNotes[a]);
-        const body=`${c.songTitles[a]?`<p class="dialog-song">${esc(c.songTitles[a])}</p>`:''}${c.artistNotes[a]?`<div class="prose">${paragraphs(c.artistNotes[a])}</div>`:''}${url?`<a class="song-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Listen to the song ${icon('arrow')}</a>`:''}`;
-        return has?`<details class="playlist-entry"><summary>${a}${icon('music')}</summary>${body}</details>`:`<p class="playlist-name">${a}${icon('music')}</p>`;
-      }).join('')}</div><div class="hamilton-caption" aria-label="Lewis Hamilton, number 44"><strong>44</strong><span>Lewis Hamilton</span></div>`);
+      openDialog(`<h2 class="visually-hidden">Our song.</h2><div class="reader-soundtrack soundtrack-slip">${soundtrackContent(c)}</div>${memorableLink?`<a class="song-link memorable-song-link" href="${esc(memorableLink)}" target="_blank" rel="noopener noreferrer">Listen to our song ${icon('arrow')}</a>`:''}`);
     }
     function showCats(){
       const key=objectSource?.dataset.bookObject,index=/^cat-[0-4]$/.test(key||'')?Number(key.slice(4)):-1,selected=cats[index];
       const portrait=selected?catPortrait(index,'reader-cat-portrait',`data-reader-cat="${index}"`):'';
       const family=`<figure class="reader-cat-family" aria-label="Winnie, Bonnie, Connie, Wonnie and Minnie">${cats.map((cat,i)=>`<span class="pet-sticker" style="--pet:${i}">${catPortrait(i)}<span class="pet-name">${cat.name}</span></span>`).join('')}</figure>`;
-      openDialog(`${portrait}<h2>${selected?selected.name:'Your five cats.'}</h2>${selected?`<p>${selected.coat}</p><p class="dialog-label">Your five cats.</p>`:'<p class="dialog-label">Winnie, Bonnie, Connie, Wonnie, Minnie</p>'}${family}<p class="settings-hint">Bonnie, Connie, Wonnie and Minnie are illustrated from your photos; Winnie follows your description.</p><dl class="cat-coats">${cats.map(cat=>`<div><dt>${cat.name}</dt><dd>${cat.coat}</dd></div>`).join('')}</dl>`);
+      openDialog(`${portrait}<h2>${selected?selected.name:'Your birthday committee.'}</h2>${selected?'':family}<p class="cat-birthday-greeting">${selected?'A little birthday hello from '+selected.name+'.':'All five, here for your 25th.'}</p>`);
     }
     function showDay(c,index){
       const src=c.germanyPhotos[index],caption=c.germanyCaptions[index],day=trip.days[index];
@@ -145,7 +137,7 @@
       const hero=`<figure class="story-art real-memory${photo?'':' photo-placeholder'}"><button id="open-photo-hero" data-book-object="photograph" aria-label="Open our photographs">${photo?`<img src="${esc(photo.src)}" alt="${esc(photo.caption)}" width="600" height="700">`:'<span class="photo-blank" data-placeholder="true">[Our photograph in Luxembourg]</span>'}</button><figcaption>${esc(photo?.day?photo.day.place+' · '+photo.day.date+' 2026':photo?'October 2026':'Luxembourg · October 2026')}</figcaption><span class="photo-tape" aria-hidden="true"></span></figure>`;
       const catFamily=`<figure class="recap-pets"><button class="cat-family-open" id="open-cats" data-book-object="cats" aria-label="Meet Winnie, Bonnie, Connie, Wonnie and Minnie">${cats.map((cat,i)=>`<span class="pet-sticker" data-book-object="cat-${i}" style="--pet:${i}">${catPortrait(i)}<span class="pet-name">${cat.name}</span></span>`).join('')}</button></figure>`;
       const days=`<div class="recap-days photo-fragments">${trip.days.map((day,i)=>{const summary=excerpt(c.germanyCaptions[i],tight?28:40).text;return `<button class="recap-day photo-fragment" id="open-day-${i}" data-book-object="day-${i}" aria-label="Open ${day.date}: ${day.place}"><span class="fragment-image">${c.germanyPhotos[i]?`<img src="${esc(c.germanyPhotos[i])}" alt="Photo from ${day.date}" width="240" height="160">`:`<span class="fragment-placeholder" data-placeholder="true">[Photo ${i+1}]</span>`}</span><span class="fragment-caption"><strong>${day.shortDate}</strong><span class="recap-day-copy">${esc(summary||day.place)}</span></span></button>`;}).join('')}</div>`;
-      const soundtrack=`<button class="soundtrack-slip" id="open-playlist" data-book-object="song">${soundtrackContent(c)}</button>`;
+      const soundtrack=`<button class="soundtrack-slip" id="open-playlist" data-book-object="song" aria-haspopup="dialog" aria-controls="map-dialog">${soundtrackContent(c)}</button>`;
       app.className='album-story edited-story';
       app.innerHTML=`
         <section class="cover-chapter birthday-cover picture-cover" id="cover" aria-labelledby="cover-title"><div class="cover-seat"><div class="cover-model"><div class="cover-paper" aria-hidden="true"></div><div class="book-front"><h1 class="visually-hidden" id="cover-title" data-scene-skip="true" tabindex="-1">Happy 25th birthday, ${esc(c.name)}.</h1><p class="cover-art-fallback" hidden data-scene-skip="true" aria-hidden="true">Happy<br>25th birthday.</p><img class="cover-collage-art" src="assets/illustrations/birthday-collage-cover.webp" alt="" width="1060" height="1484" fetchpriority="high" decoding="async"><div class="cover-personalisation" data-scene-skip="true" aria-hidden="true" data-name-size="${c.name.length>48?'extended':c.name.length>36?'long':c.name.length>22?'medium':'short'}"><span class="cover-for">For</span><strong>${esc(c.name)}</strong></div><p class="cover-collage-date" data-scene-skip="true">2 November 2026</p>${stickers('cover','birthday')}</div></div><a class="open-book" href="#dedication">Open the book</a></div></section>

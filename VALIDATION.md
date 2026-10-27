@@ -1,4 +1,60 @@
-# Validation: romantic keepsakes and our song, V51
+# Validation: birthday cat readers and our song, V52
+
+Status: PASS, no unresolved finding. Root-focused WebKit passes 273/273 and Chromium 65/65. Independent WebKit review passes 104/104, for 442/442 checks. Root covers scene 375 × 667/520, reduced-native 375 × 667 and aborted-3D fallback 375 × 667; the independent review also covers reduced-native 375 × 520. Evidence and screenshots are in `qa/v52/`. Software browsers do not establish physical iPhone Safari performance or VoiceOver behavior.
+
+Individual cats now open one complete existing portrait, their real name and a short birthday hello. Keyboard activation of the family opens all five with “Your birthday committee.” and “All five, here for your 25th.” Visible fur descriptions, repeated coat lists and illustration implementation notes are removed; meaningful image alternatives remain. All five individual readers and the family are checked for viewport fit, close targets, focus restoration and transient cleanup.
+
+The song is one cream paper keepsake with the same fine border, contact shadow and printed serif title used in the scrapbook. Its page footprint stays 60 pixels tall. Source and opened reader share paper/border/padding/type styles. The reader contains only the confirmed song, Devin Velez and the verified official listening link. No other artist, playlist entry or Hamilton block appears. Actual intermediate opening poses, closing, source focus and modal book lock pass. The independent reviewer visually checked both phone heights, native reading and cat readers. A transparent ornament frame touches the song's outer edge slightly in native reading; actual writing and artwork remain clear.
+
+The owner editor now exposes only the shared song. Retired artist-song records are preserved through legacy import, export and save rather than overwritten by absent controls; they are not rendered as a fallback. Known song defaults, local personal writing, favorite-artist portraits, all imagery, map, audio, cover/page motion and Three renderer are unchanged. Source preservation verifies 120/126 distribution files byte-identical to V51, with no files added or removed. Only `app.js`, `story.js`, two object stylesheets, cache references and song provenance change. JavaScript syntax and whitespace checks pass. The initial root harness incorrectly assumed every reader contained a folded-letter panel and expected an animated busy flag in reduced motion; those harness assumptions were corrected before the final passing runs, without changing application motion.
+
+### V52 Antislop delivery gate
+
+- R-01 PASS: existing pink/cream palette retained; no new gradient.
+- R-02 PASS: new greetings, labels and title contain no em dash or filler.
+- R-03 PASS: root and independent mobile viewport/overflow checks pass in scene, native and fallback modes.
+- R-04 PASS: music-notes glyph identifies the actual song; no new generic icon.
+- R-05 PASS: seven existing compositions remain; no template section added.
+- R-06 PASS: established Source Sans 3 metadata and Fraunces printed title retain the scrapbook's chosen type identity.
+- R-07 PASS: existing paper/linen textures retain their physical-material role.
+- R-08 PASS: the listening arrow identifies an external action; navigation arrows remain functional.
+- R-09 PASS: no badges or repeated title pills added.
+- R-10 PASS: no glass added.
+- R-11 PASS: existing square paper mounts and control radii retained.
+- R-12 PASS: the song's small contact shadow matches map/letter mounts and establishes paper attachment.
+- R-13 PASS: existing interaction focus feedback remains; no new glow.
+- R-14 PASS: unrelated artist rows are removed, without adding replacement cards.
+- R-15 PASS: Listen to our song opens the verified release; portrait triggers open their readers.
+- R-16 PASS: plain birthday greetings replace catalogue-style text.
+- R-17 PASS: five named cats and age 25 come from the owner.
+- R-18 PASS: no testimonials or fabricated identities.
+- R-19 PASS: existing source lift/return has intermediate poses; no extra idle animation.
+- R-20 PASS: the real shared song and her five named cats anchor the content to this recipient.
+- R-21 PASS: the user-selected light physical-paper presentation is preserved.
+- R-22 PASS: existing owner-requested cat artwork retained byte-for-byte.
+- R-23 PASS: no new image or invented personal memory added.
+- R-24 PASS: the existing official HTTPS release remains the sole song destination.
+- R-25 PASS: existing ink/paper contrast roles retained, with title and greetings visually reviewed.
+- R-26 PASS: song, five cats, family, close controls, owner import/export/save/reload all exercised.
+- R-27 PASS: reduced/native and graphics fallback retain the requested content; empty song remains an explicit placeholder.
+- R-28 PASS: no filler FAQ or chapter.
+- R-29 PASS: existing pink/cream/ink and decorative accent roles remain.
+- R-30 PASS: matching this project's paper objects does not clone an unrelated product.
+- R-31 PASS: V52 design reasons are recorded in DESIGN.md before implementation.
+- R-32 PASS: family keyboard activation, Escape, focus restoration and 44-pixel close controls pass.
+- R-33 PASS: application changes are written directly in tracked source, without runtime patch injection.
+- R-34 PASS: no theme-toggle changes or additional mode added.
+- R-35 PASS: 442 recorded browser checks plus syntax/whitespace verification pass.
+- R-36 PASS: no hardware performance, security or service-playback claims made.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain the established design direction.
+- R-38 PASS: no invented cat behavior, listening anecdote, lyric or event.
+- Liveliness PASS: the cover, attached paper, varied collages and actual hinge motion retain the declared dials; letter/song/cats remain distinct objects with clear spacing.
+- C-1 through C-5 PASS: documented material/content purpose, exercised controls, recipient-specific content, tested fallbacks and owner-supplied facts.
+- Taste preflight PASS for this bounded edit: typography/material consistency, purposeful existing motion, mobile fit, focus and truthful content were checked; inherited Fraunces is explicitly retained for brand continuity. Marketing-page patterns and framework-specific hooks do not apply to this buildless scrapbook.
+
+The following V51 section and older sections are historical validation of earlier scopes.
+
+# Historical validation: romantic keepsakes and our song, V51
 
 27 October 2026. The new romantic reference is adapted for the owner's girlfriend: plush penguins, lipstick kisses, a rose foil heart, balloons and “my girl” cut paper. Seven placements replace seven earlier minor motifs, keeping the same default density: 50 interior decorations and one attached cover piece. All 68 earlier source records, all 15 birthday-25 pieces, all five personal cats and all 13 named portrait/crest instances remain. The source collection now contains 75 records.
 

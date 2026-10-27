@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V52: birthday company and one shared song
+
+Design Read: a focused edit of the girlfriend's pink physical birthday scrapbook, Antislop during ENERGY/RHYTHM/MOTION 3/3/3 and Taste 8/9/5. The five real named cats belong as birthday company, not an animal-description catalogue. Keep their artwork and useful image alternatives; show one short birthday greeting instead of visible fur descriptions, repeated biographies or implementation notes. An individual sticker opens its own portrait, while the family opens all five.
+
+The One I Choose by Devin Velez is the sole song object. Use the existing cream paper, fine mount edge, contact shadow and printed serif title so its page attachment and lifted reader belong to the same scrapbook. Keep the compact two-line footprint, its physical lift/return, official listening link and modal scroll ownership. Remove the unrelated artist list and Hamilton block from this reader; favorite-artist portrait stickers stay as decoration. Retire the artist-description editor controls while preserving previously saved fields in import/export instead of silently erasing personal writing. No new imagery, fonts, palette, chapters or idle motion is needed.
+
 ## V51: for my girl, our song
 
 Design Read: extend the owner's pink birthday scrapbook with the new romantic reference for his girlfriend. Add a small coherent set of original plush penguins, lipstick kisses, foil hearts, balloons and magazine-cut love phrases. Adapt the reference's boy label to “my girl”; retain pink as the primary color with cherry/silver and a small midnight-blue accent. Reuse the physical paper attachment system, measured transparent frames and protected reading areas. Preserve the existing collage cover, age 25, five personal cats, favorite faces and birthday/gift motion.
