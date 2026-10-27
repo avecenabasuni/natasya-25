@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V51: for my girl, our song
+
+Design Read: extend the owner's pink birthday scrapbook with the new romantic reference for his girlfriend. Add a small coherent set of original plush penguins, lipstick kisses, foil hearts, balloons and magazine-cut love phrases. Adapt the reference's boy label to “my girl”; retain pink as the primary color with cherry/silver and a small midnight-blue accent. Reuse the physical paper attachment system, measured transparent frames and protected reading areas. Preserve the existing collage cover, age 25, five personal cats, favorite faces and birthday/gift motion.
+
+The owner has now supplied a real shared detail: “The One I Choose” by Devin Velez is their memorable song. Give it a dedicated editable memorable-song record, independent of her four favorite artists. The printed song slip and opened soundtrack should lead with this title and artist, using a verified official listening link. Missing old saved fields receive the confirmed default; existing personal songs and writing stay intact. Use no invented listening story or copied lyrics. Preserve the candle-controlled Happy Birthday behavior and existing ambient soundtrack controls. Dials remain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V50: twenty-five, birthday ephemera
 
 Design Read: enrich the existing personal pink scrapbook with the owner's two new birthday-collage references and confirmed age 25. Generate a cohesive transparent cutout sheet of silver foil 25 balloons, bunting, foil stars, heart postage, romantic cards, a heart cake, retro camera, disco ball, varied-type paper notes and a red/blue car pair. Keep pink primary with cream, cherry, silver and small sage/gold/navy accents. Lettering belongs to the printed ornaments, with different physical type styles, rather than added captions beneath them.

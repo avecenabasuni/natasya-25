@@ -14,6 +14,11 @@ window.BIRTHDAY_CONFIG = {
   captions: ["", "", "", "", "", ""],
   germanyPhotos: ["", "", "", ""],
   germanyCaptions: ["", "", "", ""],
+  memorableSong: {
+    title: "The One I Choose",
+    artist: "Devin Velez",
+    url: "https://music.apple.com/us/album/the-one-i-choose-single/6791815005"
+  },
   songTitles: {"Olivia Rodrigo":"", "Taylor Swift":"", "Olivia Dean":"", "Sienna Spiro":""},
   songLinks: {"Olivia Rodrigo":"", "Taylor Swift":"", "Olivia Dean":"", "Sienna Spiro":""},
   artistNotes: {

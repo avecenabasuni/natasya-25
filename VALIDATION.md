@@ -1,4 +1,71 @@
-# Validation: birthday ephemera for twenty-five, V50
+# Validation: romantic keepsakes and our song, V51
+
+27 October 2026. The new romantic reference is adapted for the owner's girlfriend: plush penguins, lipstick kisses, a rose foil heart, balloons and “my girl” cut paper. Seven placements replace seven earlier minor motifs, keeping the same default density: 50 interior decorations and one attached cover piece. All 68 earlier source records, all 15 birthday-25 pieces, all five personal cats and all 13 named portrait/crest instances remain. The source collection now contains 75 records.
+
+The owner-confirmed memorable song is The One I Choose by Devin Velez. An independent editable `memorableSong` record now leads the printed “Our song” slip and opened soundtrack reader. Its listening destination is the verified official Apple Music release. Existing saved data without this field receives the confirmed default; old artist songs, artist notes and personal writing are retained. The favorite-artist list remains Olivia Rodrigo, Taylor Swift, Olivia Dean and Sienna Spiro.
+
+Status: PASS, no unresolved finding. WebKit passes 248/248 across scene 375 × 667/520, reduced/native 375 × 667 and aborted-3D CSS fallback 375 × 667. Chromium scene 375 × 667 passes 71/71, for 319/319 overall. The current printed slip, opened reader, romantic page compositions and native gift header were visually reviewed. Software-browser evidence does not certify physical iPhone Safari, hardware FPS or VoiceOver.
+
+## Current evidence
+
+- `assets/cutouts/romance-keepsakes.webp` is 1536 × 1024 RGBA, 586,992 bytes, SHA256 `5cfad76424598466aff911516dfcd17e64ffe4c84b9027168004327f5e6fed76`. Full dimensions and every original alpha byte are preserved. Main subject pixels above alpha 24 survive the measured frames and two separating polygons, with no neighboring subject pixels at that threshold. Seven motifs are placed; the quote is retained unused rather than reduced to an unreadable note.
+- Actual Three draw instrumentation confirms the atlas is printed. All seven new pieces load, remain visible, preserve uniform proportions, clear important text/art/faces and stay on paper in every tested mode. The first probe found the rotated foil heart touching the upper paper edge; its final 23 × 22 slot at top 3 clears both paper and the larger native heading.
+- The song slip remains within its existing 60-pixel height and keeps the seven-page path. The opened soundtrack matches its source, contains the exact title/artist and verified HTTPS release link, preserves all four favorite artists, holds the underlying book and restores trigger focus/scroll on Escape. The official recording is accessed through the listening link; ambient synthesis and candle-controlled Happy Birthday remain unchanged.
+- Public owner controls import a legacy settings file without the new record and supply the confirmed song while preserving the old Taylor Swift choice, artist note and letter. Editing, JSON export, saving and reload retain the independent new title/artist/URL. The reset label now says “Restore shared defaults”, reflecting that a real shared-song default exists.
+- Trusted cover opening, full reverse replay, birthday candle prerequisite and €25 coupon smoke pass. All earlier 3D/print-depth code, modal/object readers, birthday audio, map, fonts, palette and image files are byte-identical. Source proof protects 116 of 123 existing distribution files and all 68 previous source collection entries. Only the new settings/defaults, soundtrack rendering/type detail, new collection/framing and cache/preload references change.
+- Evidence is in `qa/v51/`: current browser reports/screenshots, asset/component proof, source preservation, final distribution hashes and publication/GitHub byte proofs. Earlier broad object/audio suites remain historical. Unknown names, photos, other memories/song choices and the purchased voucher code remain honest placeholders. No listening anecdote or song lyrics are invented.
+
+## Current Antislop delivery gate
+
+Root review retains the established Antislop during 3/3/3 and Taste 8/9/5 direction. The explicit girlfriend reference and confirmed personal song establish the scope.
+
+- R-01 PASS: Pink remains primary; cherry, silver and small midnight-blue details follow the supplied romantic reference.
+- R-02 PASS: New English labels are direct; printed “my girl” adapts the reference and no marketing filler or em dash is added.
+- R-03 PASS: All seven new frames, clear writing/art bounds and no horizontal overflow pass in both phone heights and fallback modes.
+- R-04 PASS: Penguins, kisses, balloons and foil heart are requested keepsakes, not unrelated UI icons.
+- R-05 PASS: The seven-chapter path and overall decoration count remain unchanged.
+- R-06 PASS: Cut-paper type belongs to the generated motif; live song text retains local Source Sans 3 and the established printed hierarchy.
+- R-07 PASS: Plush, foil and paper textures express the physical scrapbook reference.
+- R-08 PASS: The existing external-link arrow indicates the listening destination; navigation arrows keep their real function.
+- R-09 PASS: No status pill or repeated headline badge is added.
+- R-10 PASS: No glass or decorative blur is introduced.
+- R-11 PASS: Existing control shapes and touch targets are retained.
+- R-12 PASS: Existing paper contact shadows attach the motifs to the page.
+- R-13 PASS: No glow or new idle pulse is added.
+- R-14 PASS: Selected minor motifs are replaced to keep photos, notes and the cake as focal objects.
+- R-15 PASS: Listen to our song has a verified official destination; existing opening, candle, gift and replay actions remain concrete.
+- R-16 PASS: The new labels use plain English and the owner's supplied song identity.
+- R-17 PASS: Age, trip/birthday dates and gift value remain the owner's facts; song identity comes directly from the owner and official release metadata.
+- R-18 PASS: No testimonial or invented personal identity is added.
+- R-19 PASS: Decorations use existing physical page attachments; song-reader opening, close and reverse replay pass.
+- R-20 PASS: Girlfriend-directed paper words and the confirmed shared song make this a personal extension of the chosen scrapbook language.
+- R-21 PASS: The existing light presentation remains.
+- R-22 PASS: Generated motifs directly follow the supplied reference and keep the five named cats distinct.
+- R-23 PASS: The owner explicitly requested the reference and supplied the real song; asset and listening-source provenance are recorded.
+- R-24 PASS: Existing destinations remain; the new song anchor uses the verified official release URL.
+- R-25 PASS: Existing ink/paper contrast roles remain; the inline artist credit uses the same readable ink and the printed slip/reader are visually checked.
+- R-26 PASS: Decoration stays inert. The song slip opens its real reader, its link has a real target, settings save/export/reload and existing candle/gift/replay work.
+- R-27 PASS: Native/reduced and graphics failure modes retain the new content; empty shared-title fallback keeps the earlier artist-song path.
+- R-28 PASS: No FAQ, filler chapter or artificial delay is added.
+- R-29 PASS: Existing pink/cream/ink surfaces remain; blue is a small reference-directed accent.
+- R-30 PASS: The owner's romantic scrapbook reference drives the motifs rather than a software-product template.
+- R-31 PASS: `DESIGN.md` records girlfriend wording, shared-song priority, preservation, physical attachment and no fabricated story.
+- R-32 PASS: New decoration adds no focus stops; native song/settings/link controls and Escape retain keyboard behavior.
+- R-33 PASS: Settings, song rendering, frames and placements are authored directly in application source.
+- R-34 PASS: Existing light theme and scene/native/CSS modes are checked.
+- R-35 PASS: Current browser actions, screenshots, atlas instrumentation, migration/export/reload, source hashes and syntax checks support this scope.
+- R-36 PASS: No fake personal event, performance, security or subscription/playback guarantee is added.
+- R-37 PASS: The explicit reference and V51 direction precede the implementation.
+- R-38 PASS: The confirmed real song is distinguished from unknown personal placeholders; generated motifs are identified as decorative artwork.
+- Liveliness PASS: Dials remain 3/3/3 and 8/9/5. The penguin pair, varied paper words and real shared song enrich the book while its primary objects retain breathing space.
+- C-1 PASS: Every new motif and the song priority have an explicit owner reference.
+- C-2 PASS: The new record roundtrips through real controls and the soundtrack opens/closes with a real listening destination.
+- C-3 PASS: Personal song content replaces an unchosen-song placeholder; no filler section is added.
+- C-4 PASS: Current phone/native/graphics fallback checks and legacy-data migration protect the added content.
+- C-5 PASS: No lyric, listening anecdote, personal-event photograph or fabricated endorsement is invented.
+- UI preflight PASS: One transparent atlas, no new font dependency, no extra captions or idle loop, unchanged physical motion and a compact two-line shared-song slip.
+
+# Historical V50 validation: birthday ephemera for twenty-five
 
 27 October 2026. The owner's two new scrapbook references and confirmed age 25 direct a new transparent paper/foil atlas. Fifteen placements use eleven motifs: silver 25 balloons, bunting, foil stars, heart postage, romantic cards, camera, disco ball, varied-type phrases and a red/blue car pair. Nine minor earlier ornament placements give their slots to the new pieces. The current composition has 50 interior decorations and one new cover decoration, plus the baked collage cover. All 53 previous source entries and 13 interior portrait/crest instances are retained.
 

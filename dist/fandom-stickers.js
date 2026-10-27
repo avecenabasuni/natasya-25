@@ -124,16 +124,29 @@
     birthdayPiece('gift-love-postage','heartStamp','gift',8,28,35,{right:'12px',bottom:'46px'}),
     birthdayPiece('gift-my-darling','myDarling','gift',-4,60,40,{left:'132px',top:'var(--gift-darling-top,74px)'})
   ];
-  const replacedOrnaments=new Set(['trip-tape','photo-butterfly','notes-record','notes-tape','birthday-bow','birthday-moon','gift-key','gift-hearts','gift-cherries']);
-  const collection=[...favorites,...ornaments,...portraits,...subjects,...birthdayOrnaments];
+  const romanceAtlas={source:'assets/cutouts/romance-keepsakes.webp',width:1536,height:1024};
+  const romanceFrames={penguins:[8,90,430,382],redKiss:[413,133,389,305],blueKiss:[801,142,386,303],myGirl:[1198,121,330,350],kissHeart:[18,546,395,372],foilHeart:[415,546,379,389],balloons:[797,492,338,500],loveQuote:[1147,576,387,346]};
+  const romancePolygons={penguins:'0,0 91.162791,0 91.162791,56.544503 100,66.492147 100,100 0,100',redKiss:'0,0 100,0 100,100 6.940874,100 6.940874,67.868852 0,56.721311'};
+  const romancePiece=(key,motif,page,angle,w,h,position)=>({key,motif,page,angle,w,h,position,frame:romanceFrames[motif],atlas:romanceAtlas,ornament:true,romance:true});
+  const romanceOrnaments=[
+    romancePiece('trip-penguin-pair','penguins','dedication',-4,76,50,{left:'38px',bottom:'32px'}),
+    romancePiece('trip-love-balloons','balloons','dedication',-6,20,34,{left:'4px',top:'39%'}),
+    romancePiece('days-red-kiss','redKiss','your-world',-8,28,23,{left:'114px',bottom:'36px'}),
+    romancePiece('photo-blue-kiss','blueKiss','october',-12,19,17,{left:'5px',top:'30%'}),
+    romancePiece('notes-foil-heart','foilHeart','letter',10,23,22,{right:'25px',top:'3px'}),
+    romancePiece('birthday-kiss-heart','kissHeart','birthday',7,35,34,{left:'236px',bottom:'35px'}),
+    romancePiece('gift-my-girl','myGirl','gift',-4,43,40,{right:'20px',top:'72px'})
+  ];
+  const replacedOrnaments=new Set(['trip-tape','photo-butterfly','notes-record','notes-tape','birthday-bow','birthday-moon','gift-key','gift-hearts','gift-cherries','trip-trier-stamp','trip-luxembourg-stamp','trip-botanical','days-seal','photo-tape','notes-bow','gift-bow']);
+  const collection=[...favorites,...ornaments,...portraits,...subjects,...birthdayOrnaments,...romanceOrnaments];
   function layer(page,scope='all'){
     const items=collection.filter(item=>item.page===page&&!replacedOrnaments.has(item.key)&&(scope!=='birthday'||item.birthday));if(!items.length)return '';
     return `<div class="fandom-layer" data-sticker-page="${page}">${items.map(item=>{
       const [x,y,w,h]=item.frame,atlas=item.atlas||{source,width,height};
       const placement=item.ornament?`;--fan-w:${item.w}px;--fan-h:${item.h}px;${Object.entries(item.position).map(([key,value])=>`${key}:${value}`).join(';')}`:'';
       const semantics=item.portrait||item.emblem?`role="img" aria-label="${item.name} ${item.emblem?'crest':'portrait'} sticker"`:item.ornament?'aria-hidden="true"':`role="img" aria-label="${item.name} illustrated fan sticker"`;
-      const polygon=polygons[item.motif],mask=polygon?`;clip-path:polygon(${polygon.split(' ').map(point=>point.split(',').join('% ')+'%').join(',')})`:'';
-      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.portrait?' portrait-sticker':''}${item.driver?' driver-portrait':''}${item.photo?' photo-portrait':''}${item.birthday?' birthday-ornament':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.birthday?` data-birthday-ornament="${item.motif}"`:''}${item.onAttachment?' data-sticker-on-attachment="true"':''}${item.rail?' data-sticker-rail="true"':''}${item.driver?` data-driver-portrait="${item.driver}"`:''}${item.subject?` data-fandom-subject="${item.subject}" data-collage-group="${collageGroups[item.subject]}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
+      const polygon=romancePolygons[item.motif]||polygons[item.motif],mask=polygon?`;clip-path:polygon(${polygon.split(' ').map(point=>point.split(',').join('% ')+'%').join(',')})`:'';
+      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.portrait?' portrait-sticker':''}${item.driver?' driver-portrait':''}${item.photo?' photo-portrait':''}${item.birthday?' birthday-ornament':''}${item.romance?' romance-ornament':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.birthday?` data-birthday-ornament="${item.motif}"`:''}${item.romance?` data-romance-ornament="${item.motif}"`:''}${item.onAttachment?' data-sticker-on-attachment="true"':''}${item.rail?' data-sticker-rail="true"':''}${item.driver?` data-driver-portrait="${item.driver}"`:''}${item.subject?` data-fandom-subject="${item.subject}" data-collage-group="${collageGroups[item.subject]}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
     }).join('')}</div>`;
   }
   function fit(root){
@@ -157,5 +170,5 @@
       }
     });
   }
-  window.ScrapbookStickers={layer,fit,collection,source,width,height,ephemera,frames,polygons,driverPhotos,portraits,subjectPhotos,subjects,birthdayAtlas,birthdayFrames,birthdayOrnaments,replacedOrnaments};
+  window.ScrapbookStickers={layer,fit,collection,source,width,height,ephemera,frames,polygons,driverPhotos,portraits,subjectPhotos,subjects,birthdayAtlas,birthdayFrames,birthdayOrnaments,replacedOrnaments,romanceAtlas,romanceFrames,romancePolygons,romanceOrnaments};
 })();

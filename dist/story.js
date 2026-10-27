@@ -78,12 +78,15 @@
       document.querySelectorAll('.dialog-gallery img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;img.insertAdjacentHTML('afterend','<p class="image-error">This photo could not be loaded.</p>');},{once:true}));
     }
     function soundtrackContent(c){
+      const memory=c.memorableSong;
+      if(memory?.title)return `<span><span class="soundtrack-label">Our song${memory.artist?`<span class="soundtrack-artist"> · ${esc(memory.artist)}</span>`:''}</span><span class="soundtrack-song">${esc(memory.title)}</span></span>${icon('music')}`;
       const selectedSong=artists.find(a=>c.songTitles[a]);
       return `<span><span class="soundtrack-label">The soundtrack</span><span class="soundtrack-song"${selectedSong?'':' data-placeholder="true"'}>${esc(selectedSong?c.songTitles[selectedSong]:'[A song from these days]')}</span></span>${icon('music')}`;
     }
     function showMusic(c){
       const prepared=artists.some(a=>c.songTitles[a]||c.songLinks[a]||c.artistNotes[a]);
-      openDialog(`<h2 class="visually-hidden">The soundtrack.</h2><div class="reader-soundtrack soundtrack-slip">${soundtrackContent(c)}</div><p class="dialog-label">Music you love</p>${prepared?'':'<p class="placeholder-copy" data-placeholder="true">[Choose a song that means something to you both. Add the story behind it.]</p>'}<div class="playlist-dialog">${artists.map(a=>{
+      const memorableLink=c.memorableSong?.title?safeLink(c.memorableSong.url):'';
+      openDialog(`<h2 class="visually-hidden">The soundtrack.</h2><div class="reader-soundtrack soundtrack-slip">${soundtrackContent(c)}</div>${memorableLink?`<a class="song-link memorable-song-link" href="${esc(memorableLink)}" target="_blank" rel="noopener noreferrer">Listen to our song ${icon('arrow')}</a>`:''}<p class="dialog-label">Music you love</p>${prepared||c.memorableSong?.title?'':'<p class="placeholder-copy" data-placeholder="true">[Choose a song that means something to you both. Add the story behind it.]</p>'}<div class="playlist-dialog">${artists.map(a=>{
         const url=safeLink(c.songLinks[a]),has=Boolean(c.songTitles[a]||url||c.artistNotes[a]);
         const body=`${c.songTitles[a]?`<p class="dialog-song">${esc(c.songTitles[a])}</p>`:''}${c.artistNotes[a]?`<div class="prose">${paragraphs(c.artistNotes[a])}</div>`:''}${url?`<a class="song-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Listen to the song ${icon('arrow')}</a>`:''}`;
         return has?`<details class="playlist-entry"><summary>${a}${icon('music')}</summary>${body}</details>`:`<p class="playlist-name">${a}${icon('music')}</p>`;

@@ -2,7 +2,7 @@
 
 A personal birthday scrapbook made for a phone: a pink birthday-collage cover, hinged 3D board, paper pages, photographs, folded notes, five cats and racing/music/football keepsakes.
 
-The seven chapters follow the cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration and a gift. The trip is 22–25 October 2026; the birthday is 2 November 2026. Personal names, photographs, memories, songs and the Amazon.de €25 gift code remain explicit placeholders until supplied.
+The seven chapters follow the cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration and a gift. The trip is 22–25 October 2026; the birthday is 2 November 2026. The shared song is The One I Choose by Devin Velez. Other personal names, photographs, memories, song choices and the Amazon.de €25 gift code remain explicit placeholders until supplied.
 
 ## Image-first cover
 
@@ -11,6 +11,8 @@ The front uses one generated birthday collage inspired by the owner's supplied r
 The cover kittens are decorative characters. The five named cats inside retain their distinct existing artwork. The eight former front ornaments are replaced by the collage; the current interior retains 13 named portrait/crest instances alongside the paper decoration. All 53 original source entries remain available. [Cover provenance](dist/assets/illustrations/birthday-collage-cover.md) records source and delivery details.
 
 The birthday is her 25th. A new transparent paper/foil collection adds silver 25 balloons on the cover and celebration leaf, bunting, stars, heart postage, romantic cards, camera, disco ball, varied-type phrases and a red/blue toy-car couple. The current arrangement has 50 interior pieces and one attached cover piece, plus the baked cover collage. Fifteen new placements replace nine minor earlier ornaments; all 53 original collection entries and 13 interior portrait/crest instances remain. The pieces follow the existing physical hinge/page motion and have no added captions. [Birthday ephemera provenance](dist/assets/cutouts/birthday-25-ephemera.md) records the source and complete frames.
+
+The further romantic reference is adapted for his girlfriend with a plush penguin pair, lipstick kisses, a rose heart, balloons and “my girl” paper. Seven placements replace seven small earlier motifs, preserving the same overall density and all earlier source records. [Romantic keepsake provenance](dist/assets/cutouts/romance-keepsakes.md) documents the original generated sheet. The independent editable “Our song” card leads with The One I Choose and Devin Velez; its reader opens the [official listening release](https://music.apple.com/us/album/the-one-i-choose-single/6791815005) and retains her four favorite artists. Existing saved writing and music choices survive migration. [Song provenance](dist/assets/memorable-song.md) explains the listening link and unchanged candle/ambient behavior.
 
 ## Personal details and keepsakes
 
