@@ -1,4 +1,58 @@
-# Validation: five personal cat birthday notes, V53
+# Validation: our Luxembourg stops and meals, V54
+
+Status: PASS, no unresolved finding. Root WebKit 190/190 and Chromium 46/46, independent WebKit 192/192, final disclosure 39/39, total 467/467. Main suites cover scene 375 × 667/520, reduced-native 375 × 667/520 and aborted-3D fallback 375 × 667. The final SVG marker replacement has targeted scene 667/520 and native 520 checks; earlier day-reader evidence remains valid because that cosmetic adjustment changes only the map disclosure marker. Root visually reviewed the final food recap, full 23 October note, map reader and final plain arrow screenshots.
+
+The first three dated readers now contain the owner's actual meals. 22 October: chicken katsu curry in Trier, and McDonald's nuggets for him because Tasya dislikes them. 23 October: bread in Trier, afternoon Yangguofu Malatang in Luxembourg, night Indomie goreng at their Luxembourg Airbnb. 24 October: skipped breakfast, very good O'Tacos lunch, then Aldi Trier frozen food for dinner. 25 October remains unfilled. Compact labels keep every date and lower decoration clear; the longer 23/24 labels were shortened after visual review. Full text leads each reader instead of a missing-photo placeholder.
+
+All eleven visited places are in a keyboard-operable folded note before the existing map. Names were checked against the Luxembourg City Tourist Office, with sources in dist/assets/trip-recap.md. No sightseeing day or walking route is inferred. The map remains the final element with no caption below. Enter/Space toggle, all 11 items, reachable last item, internal scrolling while the book is held, 44-pixel close controls and restored source focus pass. Final snapshots replace the platform's orange emoji-like default marker with the existing 18-pixel arrow SVG. No new image is used as a personal trip photograph.
+
+Legacy empty day fields receive the shared memories. A custom day note takes precedence and survives export/save/reload with unrelated writing intact. Owner placeholders and hints explain this. All image/font bytes, cats, sole shared song, 3D renderer, full motion/modal/audio code and config defaults remain unchanged. Source proof protects 121 of 126 previous distribution files; five existing files change and one textual provenance file is added. Software browsers do not certify physical iPhone Safari, FPS or VoiceOver. Earlier broad book/cat/audio suites are historical; those source files are unchanged. An initial close-control assertion was adjusted to 1 pixel for fractional geometry. Final disclosure inspection uses the authored marker rule and computed flex/list-style plus screenshot evidence because WebKit returns an empty value for that unsupported pseudo-element query.
+
+### V54 Antislop delivery gate
+
+- R-01 PASS: existing pink/cream palette retained; no new gradient.
+- R-02 PASS: new greetings, labels and title contain no em dash or filler.
+- R-03 PASS: actual meal slips, dated readers, full place list and inner scrolling fit375x667/520 in scene, native and fallback.
+- R-04 PASS: the existing arrowSVG indicates unfolding places; it replaces a platform emoji-like marker and rotates with state.
+- R-05 PASS: seven existing compositions remain; no template section added.
+- R-06 PASS: established Source Sans 3 metadata and Fraunces printed title retain the scrapbook's chosen type identity.
+- R-07 PASS: existing paper/linen textures retain their physical-material role.
+- R-08 PASS: the listening arrow identifies an external action; navigation arrows remain functional.
+- R-09 PASS: no badges or repeated title pills added.
+- R-10 PASS: no glass added.
+- R-11 PASS: existing square paper mounts and control radii retained.
+- R-12 PASS: the song's small contact shadow matches map/letter mounts and establishes paper attachment.
+- R-13 PASS: existing interaction focus feedback remains; no new glow.
+- R-14 PASS: unrelated artist rows are removed, without adding replacement cards.
+- R-15 PASS: Listen to our song opens the verified release; portrait triggers open their readers.
+- R-16 PASS: direct English memories retain the actual nuggets, malatang, Indomie, O'Tacos and Aldi details.
+- R-17 PASS: places and meals come from the owner; city-tourism references verify spelling only;25October stays unknown.
+- R-18 PASS: no testimonials or fabricated identities.
+- R-19 PASS: dated-photo/map source flights have intermediate on-screen poses; disclosure arrow changes with state and no idle motion is added.
+- R-20 PASS: the food preferences, Airbnb meal and real Luxembourg stops identify this couple's trip.
+- R-21 PASS: the user-selected light physical-paper presentation is preserved.
+- R-22 PASS: existing owner-requested cat artwork retained byte-for-byte.
+- R-23 PASS: owner explicitly supplied all places and meals; no trip photograph or extra event is invented.
+- R-24 PASS: the existing official HTTPS release remains the sole song destination.
+- R-25 PASS: existing ink/paper contrast roles retained, with title and greetings visually reviewed.
+- R-26 PASS: fourdated readers, map, disclosurekeyboard, inner scroll, Escape, ownerimport/export/save/reload all pass current checks.
+- R-27 PASS: reduced/native and graphics fallback retain the requested content; empty song remains an explicit placeholder.
+- R-28 PASS: no filler FAQ or chapter.
+- R-29 PASS: existing pink/cream/ink and decorative accent roles remain.
+- R-30 PASS: matching this project's paper objects does not clone an unrelated product.
+- R-31 PASS: V54 layout, disclosure and content reasons are recorded in DESIGN.md before implementation.
+- R-32 PASS: family keyboard activation, Escape, focus restoration and 44-pixel close controls pass.
+- R-33 PASS: application changes are written directly in tracked source, without runtime patch injection.
+- R-34 PASS: no theme-toggle changes or additional mode added.
+- R-35 PASS: 467 recorded current-scope browser checks plus three JavaScript syntax checks and whitespace verification pass.
+- R-36 PASS: no hardware performance, security or service-playback claims made.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain the established design direction.
+- R-38 PASS: no sightseeing order/day, weather, tour, price, breakfast onday3 or meal onday4 is fabricated.
+- Liveliness PASS: the cover, attached paper, varied collages and actual hinge motion retain the declared dials; letter/song/cats remain distinct objects with clear spacing.
+- C-1 through C-5 PASS: documented material/content purpose, exercised controls, recipient-specific content, tested fallbacks and owner-supplied facts.
+- Taste preflight PASS for this bounded edit: typography/material consistency, purposeful existing motion, mobile fit, focus and truthful content were checked; inherited Fraunces is explicitly retained for brand continuity. Marketing-page patterns and framework-specific hooks do not apply to this buildless scrapbook.
+
+# Historical validation: five personal cat birthday notes, V53
 
 Status: PASS, no unresolved finding. WebKit passes 138/138 across scene 375 × 667/520 and reduced-native 375 × 520; Chromium scene 375 × 667 passes 46/46. Total 184/184. Every individual note was opened, read to its end and closed in each mode. Viewport bounds, reachable 44-pixel close controls, modal lock, focus restoration, transient cleanup, image loading and horizontal overflow pass. Family-reader and single-song smoke pass. Root visually reviewed Winnie, Connie and Wonnie at both phone heights.
 

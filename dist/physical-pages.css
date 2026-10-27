@@ -40,6 +40,16 @@ em{font-style:normal}
 .edited-story .book-print .recap-intro{margin:10px 0 16px;padding-top:6px;font:400 17px/1.4 var(--display)}
 .trip-personal-note{margin-top:20px;font:400 17px/1.55 var(--display)}
 .trip-personal-note p+p{margin-top:14px}
+.trip-stops{margin:20px 0;color:var(--ink);border-block:1px solid var(--line);font:400 16px/1.5 var(--display)}
+.trip-stops summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:11px 4px;cursor:pointer;font-weight:500;list-style:none}
+.trip-stops summary::-webkit-details-marker{display:none}
+.trip-stops summary .ui-icon{flex:none;width:18px;height:18px}
+.trip-stops[open] summary .ui-icon{transform:rotate(90deg)}
+.trip-stops summary:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.trip-stops ul{margin:4px 0 16px;padding-left:24px}
+.trip-stops li+li{margin-top:7px}
+.day-memory{margin:20px 0;font:400 17px/1.55 var(--display)}
+.day-memory p+p{margin-top:14px}
 .keepsake-slip{position:relative;padding:10px 13px 12px;background:var(--lining);border-top:1px dashed var(--control-line);color:var(--ink);font:400 14px/1.4 var(--display)}
 .keepsake-label{display:block;font-weight:600;margin-bottom:3px}
 .dialog-map{margin:23px 0}

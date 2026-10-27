@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V54: the places and what we ate
+
+Design Read: turn the existing Trier/Luxembourg recap into the owner's actual 22–24 October memories, keeping seven chapters, Antislop during 3/3/3 and Taste 8/9/5. Give the first three dated photo slips short food-led labels and full English memories when opened. Preserve the distinction between the boyfriend's McDonald's nuggets and Tasya disliking them, morning bread versus skipped breakfast, Yangguofu Malatang, Airbnb Indomie goreng, the very good O'Tacos lunch, and frozen food bought at Aldi Trier for dinner. The existing 22–25 October trip supplies the dates; leave the fourth day unfilled.
+
+Keep all eleven visited Luxembourg places in a collapsed, keyboard-operable “The places we went” paper note above the map inside its reader. This preserves the uncluttered printed page and the rule that nothing is captioned below the map. Verify place spellings against the city tourism source without assigning sightseeing dates or inventing a walking order. Keep the exact rail/bus graphic and all image bytes. Existing owner-written photo captions override these shared memories; empty older saved fields use the new confirmed memories. Show the known prose before a missing-photo placeholder so the actual memory leads. Match the existing paper/type, modal lock and source lift/return instead of adding a page or decorative control.
+
 ## V53: five real personalities
 
 Design Read: keep the existing pink physical scrapbook, Antislop during 3/3/3 and Taste 8/9/5. Replace the repeated individual-cat greeting with five affectionate English notes in the cats' voices, addressed to Tasya. Use only the owner's newly supplied traits: chubby, lazy, food-loving Winnie is her second favourite; Bonnie loves playing with other cats; Connie is shy; wandering, pamper-loving Wonnie is her favourite; little Minnie loves playing with her. Each note has its own wording and a light birthday connection. Keep all portraits, useful image alternatives, the family reader, song, paper treatment and opening motion unchanged. Do not invent a specific shared incident or add more text to the closed page.
