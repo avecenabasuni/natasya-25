@@ -1,0 +1,599 @@
+{
+  "city": "luxembourg",
+  "logical_dimensions": [
+    420,
+    920
+  ],
+  "projection": {
+    "kind": "spherical Mercator, north up, uniform x/y scale",
+    "bbox_lonlat": [
+      6.124,
+      49.6043,
+      6.1378,
+      49.6133
+    ],
+    "frame": [
+      16,
+      300,
+      388,
+      390
+    ],
+    "scale": 28080.12683775677,
+    "left": 16.247124819468468,
+    "top": 300.0
+  },
+  "basemap_feature_paths": {
+    "park": 23,
+    "water": 7,
+    "road": 1456
+  },
+  "places": [
+    {
+      "key": "ville-haute",
+      "name": "Ville Haute",
+      "coordinate": [
+        6.1286101,
+        49.6123988
+      ],
+      "pin": [
+        145.69931755423138,
+        339.0552442313266
+      ],
+      "callout": [
+        16,
+        151,
+        168,
+        35
+      ],
+      "lines": [
+        "Ville Haute"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/node/1374388907"
+      ],
+      "anchor_method": "district label point; representative of district, not the couple\u2019s exact position"
+    },
+    {
+      "key": "hammelsmarsch",
+      "name": "H\u00e4mmelsmarsch \u00b7 Wil Lofy",
+      "coordinate": [
+        6.1311725,
+        49.6118595
+      ],
+      "pin": [
+        217.65183456328586,
+        362.4265069642979
+      ],
+      "callout": [
+        16,
+        233,
+        168,
+        58
+      ],
+      "lines": [
+        "H\u00e4mmelsmarsch",
+        "fountain \u00b7 Wil Lofy"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/node/370599998"
+      ],
+      "anchor_method": "mapped fountain/artwork point"
+    },
+    {
+      "key": "place-guillaume",
+      "name": "Place Guillaume II",
+      "coordinate": [
+        6.1308936,
+        49.6106261
+      ],
+      "pin": [
+        209.82028718824566,
+        415.87651860022413
+      ],
+      "callout": [
+        16,
+        365,
+        168,
+        58
+      ],
+      "lines": [
+        "Place",
+        "Guillaume II"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/way/24387570"
+      ],
+      "anchor_method": "square polygon centroid"
+    },
+    {
+      "key": "place-constitution",
+      "name": "Place de la Constitution",
+      "coordinate": [
+        6.1293436,
+        49.6092445
+      ],
+      "pin": [
+        166.29609058972434,
+        475.747246076849
+      ],
+      "callout": [
+        16,
+        550,
+        168,
+        58
+      ],
+      "lines": [
+        "Place de la",
+        "Constitution"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/relation/7606983"
+      ],
+      "anchor_method": "square outer polygon centroid"
+    },
+    {
+      "key": "pont-adolphe",
+      "name": "Pont Adolphe",
+      "coordinate": [
+        6.1269274,
+        49.6084605
+      ],
+      "pin": [
+        98.4488881243152,
+        509.7206158680431
+      ],
+      "callout": [
+        16,
+        702,
+        168,
+        35
+      ],
+      "lines": [
+        "Pont Adolphe"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/way/503090622"
+      ],
+      "anchor_method": "bridge outline centroid"
+    },
+    {
+      "key": "plateau-bourbon",
+      "name": "Plateau Bourbon",
+      "coordinate": [
+        6.1286516,
+        49.6051541
+      ],
+      "pin": [
+        146.86464281799906,
+        652.9920921414478
+      ],
+      "callout": [
+        16,
+        799,
+        168,
+        35
+      ],
+      "lines": [
+        "Plateau Bourbon"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/node/3805227459"
+      ],
+      "anchor_method": "locality label point; representative of area, not the couple\u2019s exact position"
+    },
+    {
+      "key": "palais-grand-ducal",
+      "name": "Palais Grand-Ducal",
+      "coordinate": [
+        6.1329315,
+        49.6109829
+      ],
+      "pin": [
+        267.04477767089566,
+        400.41454951723085
+      ],
+      "callout": [
+        236,
+        113,
+        168,
+        58
+      ],
+      "lines": [
+        "Palais",
+        "Grand-Ducal"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/way/9653074"
+      ],
+      "anchor_method": "palace building outline centroid"
+    },
+    {
+      "key": "notre-dame",
+      "name": "Notre-Dame Cathedral",
+      "coordinate": [
+        6.1315567,
+        49.6098109
+      ],
+      "pin": [
+        228.4402192943536,
+        451.20287977045564
+      ],
+      "callout": [
+        236,
+        210,
+        168,
+        81
+      ],
+      "lines": [
+        "Notre-Dame",
+        "Cathedral of",
+        "Luxembourg"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/node/13917701491"
+      ],
+      "anchor_method": "mapped place-of-worship point"
+    },
+    {
+      "key": "clairefontaine",
+      "name": "Place de Clairefontaine",
+      "coordinate": [
+        6.1325441,
+        49.6098488
+      ],
+      "pin": [
+        256.1665365339445,
+        449.5605117460989
+      ],
+      "callout": [
+        236,
+        324,
+        168,
+        58
+      ],
+      "lines": [
+        "Place de",
+        "Clairefontaine"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/way/24387542"
+      ],
+      "anchor_method": "square polygon centroid"
+    },
+    {
+      "key": "corniche",
+      "name": "Chemin de la Corniche",
+      "coordinate": [
+        6.1339049,
+        49.6093102
+      ],
+      "pin": [
+        294.3779731347778,
+        472.90021820779214
+      ],
+      "callout": [
+        236,
+        576,
+        168,
+        58
+      ],
+      "lines": [
+        "Chemin de la",
+        "Corniche"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/way/26450709"
+      ],
+      "anchor_method": "length midpoint of one named street section; representative of path, not full visited route"
+    },
+    {
+      "key": "pont-grund",
+      "name": "Pont du Grund",
+      "coordinate": [
+        6.1357442,
+        49.608664
+      ],
+      "pin": [
+        346.0257504274728,
+        500.9023255771509
+      ],
+      "callout": [
+        236,
+        709,
+        168,
+        35
+      ],
+      "lines": [
+        "Pont du Grund"
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/way/9646328",
+        "https://www.luxembourg-city.com/en/about-luxembourg-city/meng-stad-my-city/details/the-10-must-see-bridges-in-luxembourg-city"
+      ],
+      "anchor_method": "length midpoint of Rue Munster bridge segment"
+    }
+  ],
+  "verification": {
+    "uniform_projected_scale": true,
+    "anchor_projection_error": 0,
+    "primary_label_logical_font_px": 20,
+    "pin_callout_overlaps": [],
+    "all_label_boxes_inside_canvas": true,
+    "browser_measured_label_text": [
+      {
+        "key": "ville-haute",
+        "text": "Ville Haute",
+        "box": {
+          "x": 21,
+          "y": 155,
+          "width": 92.203125,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "hammelsmarsch",
+        "text": "H\u00e4mmelsmarsch",
+        "box": {
+          "x": 22,
+          "y": 237,
+          "width": 143.296875,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "hammelsmarsch",
+        "text": "fountain \u00b7 Wil Lofy",
+        "box": {
+          "x": 22,
+          "y": 260,
+          "width": 151.7924041748047,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "place-guillaume",
+        "text": "Place",
+        "box": {
+          "x": 22,
+          "y": 369,
+          "width": 45.6875,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "place-guillaume",
+        "text": "Guillaume II",
+        "box": {
+          "x": 22,
+          "y": 392,
+          "width": 101.90625,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "place-constitution",
+        "text": "Place de la",
+        "box": {
+          "x": 22,
+          "y": 554,
+          "width": 90.359375,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "place-constitution",
+        "text": "Constitution",
+        "box": {
+          "x": 22,
+          "y": 577,
+          "width": 105.6875,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "pont-adolphe",
+        "text": "Pont Adolphe",
+        "box": {
+          "x": 22,
+          "y": 706,
+          "width": 114.609375,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "plateau-bourbon",
+        "text": "Plateau Bourbon",
+        "box": {
+          "x": 22,
+          "y": 803,
+          "width": 142.40625,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "palais-grand-ducal",
+        "text": "Palais",
+        "box": {
+          "x": 242,
+          "y": 117,
+          "width": 49.921875,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "palais-grand-ducal",
+        "text": "Grand-Ducal",
+        "box": {
+          "x": 242,
+          "y": 140,
+          "width": 105.75,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "notre-dame",
+        "text": "Notre-Dame",
+        "box": {
+          "x": 242,
+          "y": 214,
+          "width": 103.453125,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "notre-dame",
+        "text": "Cathedral of",
+        "box": {
+          "x": 242,
+          "y": 237,
+          "width": 104.60723876953125,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "notre-dame",
+        "text": "Luxembourg",
+        "box": {
+          "x": 242,
+          "y": 260,
+          "width": 106.640625,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "clairefontaine",
+        "text": "Place de",
+        "box": {
+          "x": 242,
+          "y": 328,
+          "width": 70.890625,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "clairefontaine",
+        "text": "Clairefontaine",
+        "box": {
+          "x": 242,
+          "y": 351,
+          "width": 119.765625,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "corniche",
+        "text": "Chemin de la",
+        "box": {
+          "x": 242,
+          "y": 580,
+          "width": 110.03125,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "corniche",
+        "text": "Corniche",
+        "box": {
+          "x": 242,
+          "y": 603,
+          "width": 75.953125,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      },
+      {
+        "key": "pont-grund",
+        "text": "Pont du Grund",
+        "box": {
+          "x": 242,
+          "y": 713,
+          "width": 123.0625,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      }
+    ],
+    "all_measured_label_text_inside_canvas": true,
+    "source_fonts_loaded": true
+  },
+  "raster_dimensions": [
+    1260,
+    2760
+  ],
+  "source_osm": "/workspace/research/v55/luxembourg.osm",
+  "source_geojson": "/workspace/research/v55/luxembourg-basemap.geojson",
+  "attribution": "\u00a9 OpenStreetMap contributors",
+  "source_coordinate_file": "/workspace/research/v55-places.json",
+  "files": {
+    ".svg": {
+      "sha256": "663a2f323b1a5aba9663f3f9f82db5bbf5f16a1cb66ead62ed0664630bbe5823",
+      "bytes": 556962
+    },
+    ".webp": {
+      "sha256": "1adb6157c51056d9ffe6849afeb8809a69ec8ec3fefa5ddf79c2b3d6adb40bc5",
+      "bytes": 211560
+    }
+  },
+  "source_data_sha256": {
+    "/workspace/research/v55/luxembourg.osm": "9d71ec693ec8921d3f92ecc03789cd60de116b7d7ca9ff5603604f2cec4122c9",
+    "/workspace/research/v55/luxembourg-basemap.geojson": "89795a12542227360b3b6949e70874cfc8b3327fa03368cc121c6739e85e0fa7",
+    "/workspace/research/v55-places.json": "09001219ace70f309f80bac61c190c3e83e2f2a47c415596d201a9660990755d"
+  },
+  "font_sources": {
+    "Source Sans 3": "../fonts/source-sans-3-OFL.txt",
+    "Fraunces": "../fonts/fraunces-OFL.txt"
+  },
+  "limitations": [
+    "This is a static city memory map, not a recorded walking track.",
+    "Label leader lines connect names to pins; they do not indicate a journey order.",
+    "The owner supplied attendance; OSM supplies representative place geometry and context.",
+    "Plateau Bourbon, Ville Haute and Chemin de la Corniche use representative locality/path anchors rather than exact user positions."
+  ]
+}

@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V55: keep the meals with the maps
+
+Design Read: follow the owner's content correction while retaining the pink physical scrapbook, seven chapters, Antislop during 3/3/3 and Taste 8/9/5. The dated recap is for photographs, dates and locations again. Move the three shared food memories to a folded “What we ate” note inside the Trier/Luxembourg map reader. Preserve custom photo captions as photo captions, without printing food labels on the recap.
+
+Replace the detached place list with actual geographic city maps: eleven owner-confirmed Luxembourg places pinned and labelled directly on one city map, plus Hauptmarkt and the surrounding walking area on the Trier map. Use open vector basemap data and verified location anchors, with representative points for areas/path features rather than a claimed exact position. Keep the existing regional RE11/L31 map first as the printed attachment and source-lift destination; city maps follow in the same opened fold-out. This keeps labels readable at city scale and avoids cramming landmarks onto a regional rail map. Map names, city titles and attribution belong inside the artwork. Put food before the maps, with nothing captioned underneath. Retain complete images, fixed intrinsic sizes, reader scrolling, focus and book lock; add no invented walking route, restaurant branch, Airbnb location or extra visit.
+
 ## V54: the places and what we ate
 
 Design Read: turn the existing Trier/Luxembourg recap into the owner's actual 22–24 October memories, keeping seven chapters, Antislop during 3/3/3 and Taste 8/9/5. Give the first three dated photo slips short food-led labels and full English memories when opened. Preserve the distinction between the boyfriend's McDonald's nuggets and Tasya disliking them, morning bread versus skipped breakfast, Yangguofu Malatang, Airbnb Indomie goreng, the very good O'Tacos lunch, and frozen food bought at Aldi Trier for dinner. The existing 22–25 October trip supplies the dates; leave the fourth day unfilled.

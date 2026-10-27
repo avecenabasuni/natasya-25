@@ -1,0 +1,422 @@
+{
+  "city": "trier",
+  "logical_dimensions": [
+    420,
+    660
+  ],
+  "projection": {
+    "kind": "spherical Mercator, north up, uniform x/y scale",
+    "bbox_lonlat": [
+      6.6377,
+      49.7542,
+      6.6449,
+      49.7594
+    ],
+    "frame": [
+      20,
+      122,
+      380,
+      424
+    ],
+    "scale": 52676.56888599563,
+    "left": 20.364352010413228,
+    "top": 122.0
+  },
+  "basemap_feature_paths": {
+    "park": 54,
+    "water": 1,
+    "road": 1103
+  },
+  "places": [
+    {
+      "key": "hauptmarkt",
+      "name": "Hauptmarkt",
+      "coordinate": [
+        6.6411602,
+        49.756765
+      ],
+      "pin": [
+        202.63581566974244,
+        336.85952843884894
+      ],
+      "callout": [
+        204,
+        143,
+        174,
+        43
+      ],
+      "font_size": 20,
+      "source_urls": [
+        "https://www.openstreetmap.org/node/5761430684"
+      ],
+      "anchor_method": "mapped marketplace point inside Hauptmarkt; representative of area walked, not an exact trail"
+    }
+  ],
+  "highlighted_square": {
+    "osm_relation": "6915864",
+    "source": "https://www.openstreetmap.org/relation/6915864",
+    "rings": [
+      {
+        "role": "outer",
+        "way": "10256449",
+        "coordinates": [
+          [
+            6.6412406,
+            49.7563757
+          ],
+          [
+            6.6412019,
+            49.7563917
+          ],
+          [
+            6.6410911,
+            49.7564268
+          ],
+          [
+            6.6409998,
+            49.756456
+          ],
+          [
+            6.6409825,
+            49.7564632
+          ],
+          [
+            6.640962,
+            49.7564711
+          ],
+          [
+            6.6409076,
+            49.756492
+          ],
+          [
+            6.6408199,
+            49.7565266
+          ],
+          [
+            6.640743,
+            49.7565554
+          ],
+          [
+            6.6406396,
+            49.7565977
+          ],
+          [
+            6.6405652,
+            49.756625
+          ],
+          [
+            6.6404514,
+            49.7566607
+          ],
+          [
+            6.6404941,
+            49.7567373
+          ],
+          [
+            6.6405403,
+            49.7568005
+          ],
+          [
+            6.6405575,
+            49.7568302
+          ],
+          [
+            6.6405747,
+            49.7568591
+          ],
+          [
+            6.6406484,
+            49.7568293
+          ],
+          [
+            6.6407148,
+            49.7568043
+          ],
+          [
+            6.6408245,
+            49.7567886
+          ],
+          [
+            6.6409112,
+            49.7567483
+          ],
+          [
+            6.6410106,
+            49.7568185
+          ],
+          [
+            6.6409822,
+            49.7568355
+          ],
+          [
+            6.6410462,
+            49.7568751
+          ],
+          [
+            6.6411097,
+            49.7569153
+          ],
+          [
+            6.6411929,
+            49.7569645
+          ],
+          [
+            6.6411871,
+            49.7569862
+          ],
+          [
+            6.6412458,
+            49.7570101
+          ],
+          [
+            6.6412836,
+            49.7570294
+          ],
+          [
+            6.6413601,
+            49.7570827
+          ],
+          [
+            6.6413841,
+            49.7570974
+          ],
+          [
+            6.641463,
+            49.7571474
+          ],
+          [
+            6.6415102,
+            49.757178
+          ],
+          [
+            6.6415665,
+            49.7572176
+          ],
+          [
+            6.6416278,
+            49.7572601
+          ],
+          [
+            6.6416196,
+            49.7572651
+          ],
+          [
+            6.6416935,
+            49.7573373
+          ],
+          [
+            6.6417537,
+            49.7573962
+          ],
+          [
+            6.6418154,
+            49.757465
+          ],
+          [
+            6.6418924,
+            49.7574447
+          ],
+          [
+            6.6419761,
+            49.7574184
+          ],
+          [
+            6.641968,
+            49.7574069
+          ],
+          [
+            6.6419193,
+            49.7573545
+          ],
+          [
+            6.6418754,
+            49.7573086
+          ],
+          [
+            6.6418195,
+            49.7572468
+          ],
+          [
+            6.641783,
+            49.7572041
+          ],
+          [
+            6.6417056,
+            49.7570857
+          ],
+          [
+            6.641677,
+            49.7570437
+          ],
+          [
+            6.6416521,
+            49.7570022
+          ],
+          [
+            6.6416992,
+            49.7569935
+          ],
+          [
+            6.6417304,
+            49.7569866
+          ],
+          [
+            6.6417414,
+            49.7569698
+          ],
+          [
+            6.6417274,
+            49.7569399
+          ],
+          [
+            6.6416872,
+            49.7568663
+          ],
+          [
+            6.6416553,
+            49.7568121
+          ],
+          [
+            6.6416263,
+            49.7567645
+          ],
+          [
+            6.6415937,
+            49.7567111
+          ],
+          [
+            6.6415913,
+            49.7566715
+          ],
+          [
+            6.6415904,
+            49.7566342
+          ],
+          [
+            6.6415496,
+            49.7565803
+          ],
+          [
+            6.6415054,
+            49.7565195
+          ],
+          [
+            6.6414539,
+            49.7564485
+          ],
+          [
+            6.6414781,
+            49.75644
+          ],
+          [
+            6.6413952,
+            49.7563034
+          ],
+          [
+            6.6413572,
+            49.75631
+          ],
+          [
+            6.6412932,
+            49.7563452
+          ],
+          [
+            6.6412406,
+            49.7563757
+          ]
+        ]
+      },
+      {
+        "role": "inner",
+        "way": "129496572",
+        "coordinates": [
+          [
+            6.6412542,
+            49.7565596
+          ],
+          [
+            6.6412675,
+            49.7565826
+          ],
+          [
+            6.6413054,
+            49.7565866
+          ],
+          [
+            6.6413294,
+            49.7565676
+          ],
+          [
+            6.6413161,
+            49.7565446
+          ],
+          [
+            6.6412783,
+            49.7565406
+          ],
+          [
+            6.6412542,
+            49.7565596
+          ]
+        ]
+      }
+    ],
+    "interpretation": "mapped square footprint, not user walking track"
+  },
+  "verification": {
+    "uniform_projected_scale": true,
+    "anchor_projection_error": 0,
+    "primary_label_logical_font_px": 20,
+    "pin_callout_overlaps": [],
+    "all_label_boxes_inside_canvas": true,
+    "browser_measured_label_text": [
+      {
+        "key": "hauptmarkt",
+        "text": "Hauptmarkt",
+        "box": {
+          "x": 212,
+          "y": 151,
+          "width": 102.921875,
+          "height": 28
+        },
+        "fontSize": "20px",
+        "fontFamily": "MapSans, Arial, sans-serif"
+      }
+    ],
+    "all_measured_label_text_inside_canvas": true,
+    "source_fonts_loaded": true
+  },
+  "raster_dimensions": [
+    1260,
+    1980
+  ],
+  "source_osm": "/workspace/research/v55/trier.osm",
+  "source_geojson": "/workspace/research/v55/trier-basemap.geojson",
+  "attribution": "\u00a9 OpenStreetMap contributors",
+  "source_coordinate_file": "/workspace/research/v55-places.json",
+  "files": {
+    ".svg": {
+      "sha256": "10dad2a90e66d6d0ca1455463ecf430f2be8cc947cbce80e85c3bbec52682d25",
+      "bytes": 451128
+    },
+    ".webp": {
+      "sha256": "6c5ffb27daaa47150fda40bd21bd2815495880590ac01fddebb480103aaaa2c6",
+      "bytes": 115448
+    }
+  },
+  "source_data_sha256": {
+    "/workspace/research/v55/trier.osm": "662d88611d2299a90b4bee6d9583ee4c72d5934cc26ea023f0ee7891208bc5c4",
+    "/workspace/research/v55/trier-basemap.geojson": "76f74d36af9d60e0303bfa0b0bc0a3af32a9c8d736c2fea30098ca0060bd3f9f",
+    "/workspace/research/v55-places.json": "09001219ace70f309f80bac61c190c3e83e2f2a47c415596d201a9660990755d"
+  },
+  "font_sources": {
+    "Source Sans 3": "../fonts/source-sans-3-OFL.txt",
+    "Fraunces": "../fonts/fraunces-OFL.txt"
+  },
+  "limitations": [
+    "This is a static city memory map, not a recorded walking track.",
+    "Label leader lines connect names to pins; they do not indicate a journey order.",
+    "The owner supplied attendance; OSM supplies representative place geometry and context.",
+    "The pink Hauptmarkt shape is OSM relation6915864, not a guessed route or an assertion that every part of the square was walked."
+  ]
+}

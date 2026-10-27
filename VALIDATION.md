@@ -1,4 +1,60 @@
-# Validation: our Luxembourg stops and meals, V54
+# Validation: food with the maps, visited places on city geography, V55
+
+Status: PASS, no unresolved finding. Root WebKit 167/167 and Chromium 40/40; independent WebKit 152/152; total 359/359 browser checks. Scope includes scene 375 × 667/520, reduced-native 375 × 520 and aborted-3D fallback 375 × 667. JavaScript syntax, whitespace and independent source-preservation/projection checks pass. Root reviewed the location-only recap, complete Luxembourg city artwork and Trier map at phone width. Independent review covers city-map top/middle/bottom, food disclosure, source flight, inner scroll and close cleanup. Software browsers do not certify physical iPhone Safari, hardware FPS or VoiceOver.
+
+Shared food stories and food labels are removed from the Four days recap and its dated readers. The three actual meal accounts appear only in the map reader's initially closed “What we ate” note. The recap prints Trier, Luxembourg, Lux → Trier and Trier. Unknown photo content remains honest placeholders; custom owner photo captions and unrelated writing survive import, export, save and reload. Editor hints now explain the new location of shared meals. The fourth day acquires no invented meal.
+
+The regional 1000 × 650 RE11/L31 attachment remains byte-identical and is still the first reader map and source-opening target. Two new static city maps follow inside the same reader: Luxembourg has all eleven user-confirmed places pinned and fully labelled on actual city geography; Trier highlights the real Hauptmarkt square footprint and surrounding streets. The detached places disclosure is removed. All city titles, labels and OSM attribution are inside the art. Below-map prose and technical footer sentences were removed during visual review. No outside caption follows the map group.
+
+Luxembourg delivery is 1260 × 2760; Trier is 1260 × 1980. Explicit intrinsic dimensions prevent image-loading layout shifts. Each uses a logical 420-pixel width and 20-pixel primary labels, about 13 screen pixels at reader width. Source SVG embeds the existing local Source Sans 3 and Fraunces subsets. Direct OSM API geometry supplies roads, water, parks and geographic anchors, without map screenshots or generated personal photography. Independent math reproduces every projected pin from its source coordinate with zero error; all 12 drawn pin centres match to 0.001 logical pixel. All label boxes and measured text remain inside the canvas, and pin/label collisions are absent. Area/path points remain representative rather than a claimed GPS trace.
+
+Map image sources, licensing, dimensions, hashes, projection and text bounds are in each map's JSON/Markdown. Local artifact evidence is in qa/v55/. Browser checks verify image loading, aspect ratios, width containment, source focus, reader scroll, full food content, no recap food, no caption below maps and closing after reaching the last Trier map. Source proof preserves 121 of 127 prior distribution files, including every earlier image, the regional map, all cat notes, the sole shared song, renderer, modal/audio code, fonts and config defaults. Six existing distribution files change and eight city-map/provenance files are added. Earlier broad book/cat/audio suites are historical because their implementation remains byte-identical.
+
+### V55 Antislop delivery gate
+
+- R-01 PASS: existing pink/cream palette retained; no new gradient.
+- R-02 PASS: new greetings, labels and title contain no em dash or filler.
+- R-03 PASS: location-only recap, food note and three maps fit 375 × 667/520 in scene, native and fallback modes.
+- R-04 PASS: the existing arrow SVG indicates the folded food note; geographic pins have a real map role.
+- R-05 PASS: seven existing compositions remain; no template section added.
+- R-06 PASS: established Source Sans 3 metadata and Fraunces printed title retain the scrapbook's chosen type identity.
+- R-07 PASS: existing paper/linen textures retain their physical-material role.
+- R-08 PASS: the listening arrow identifies an external action; navigation arrows remain functional.
+- R-09 PASS: no badges or repeated title pills added.
+- R-10 PASS: no glass added.
+- R-11 PASS: existing square paper mounts and control radii retained.
+- R-12 PASS: the song's small contact shadow matches map/letter mounts and establishes paper attachment.
+- R-13 PASS: existing interaction focus feedback remains; no new glow.
+- R-14 PASS: unrelated artist rows are removed, without adding replacement cards.
+- R-15 PASS: Listen to our song opens the verified release; portrait triggers open their readers.
+- R-16 PASS: actual English food memories are preserved in their new map location; photo recap labels are dates and places.
+- R-17 PASS: places, Hauptmarkt walk and meals come from the owner; OSM source geometry locates all 12 anchors without an invented walking order.
+- R-18 PASS: no testimonials or fabricated identities.
+- R-19 PASS: regional paper remains the source-lift target, static city maps scroll inside the reader, and closing from the final map restores focus.
+- R-20 PASS: all eleven real Luxembourg stops, Hauptmarkt in Trier and the couple's meal details belong to this trip.
+- R-21 PASS: the user-selected light physical-paper presentation is preserved.
+- R-22 PASS: existing artwork is retained; new maps are geographic visualizations of actual open vector data, without fabricated trip photography.
+- R-23 PASS: owner explicitly requested places directly on maps and Hauptmarkt; data/projection/attribution provenance is supplied for both new maps.
+- R-24 PASS: the existing official HTTPS release remains the sole song destination.
+- R-25 PASS: existing ink/paper contrast roles retained, with title and greetings visually reviewed.
+- R-26 PASS: dated readers, food disclosure, three map images, keyboard, inner scroll, Escape and owner import/export/save/reload pass.
+- R-27 PASS: reduced/native and graphics fallback retain the requested content; empty song remains an explicit placeholder.
+- R-28 PASS: no filler FAQ or chapter.
+- R-29 PASS: existing pink/cream/ink and decorative accent roles remain.
+- R-30 PASS: matching this project's paper objects does not clone an unrelated product.
+- R-31 PASS: V55 content placement, city scale and typography reasons are recorded in DESIGN.md before implementation.
+- R-32 PASS: family keyboard activation, Escape, focus restoration and 44-pixel close controls pass.
+- R-33 PASS: application changes are written directly in tracked source, without runtime patch injection.
+- R-34 PASS: no theme-toggle changes or additional mode added.
+- R-35 PASS: 359 current-scope browser checks, independent geographic source proof, syntax and whitespace checks pass.
+- R-36 PASS: no hardware performance, security or service-playback claims made.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain the established design direction.
+- R-38 PASS: representative district/path pins do not claim exact user positions; no walking track, restaurant branch or extra visit is invented.
+- Liveliness PASS: the cover, attached paper, varied collages and actual hinge motion retain the declared dials; letter/song/cats remain distinct objects with clear spacing.
+- C-1 through C-5 PASS: documented material/content purpose, exercised controls, recipient-specific content, tested fallbacks and owner-supplied facts.
+- Taste preflight PASS for this bounded edit: typography/material consistency, purposeful existing motion, mobile fit, focus and truthful content were checked; inherited Fraunces is explicitly retained for brand continuity. Marketing-page patterns and framework-specific hooks do not apply to this buildless scrapbook.
+
+# Historical validation: our Luxembourg stops and meals, V54
 
 Status: PASS, no unresolved finding. Root WebKit 190/190 and Chromium 46/46, independent WebKit 192/192, final disclosure 39/39, total 467/467. Main suites cover scene 375 × 667/520, reduced-native 375 × 667/520 and aborted-3D fallback 375 × 667. The final SVG marker replacement has targeted scene 667/520 and native 520 checks; earlier day-reader evidence remains valid because that cosmetic adjustment changes only the map disclosure marker. Root visually reviewed the final food recap, full 23 October note, map reader and final plain arrow screenshots.
 
