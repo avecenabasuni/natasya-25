@@ -63,12 +63,14 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     const line=mesh(geometry,paper);line.castShadow=false;line.receiveShadow=false;line.position.set(.7+i*.28,0,-12+i*1.6);deckLeaves.push(line);
   }
   const spine=roundedBox(13,H+15,22,3,edge);spine.position.set(-2,0,-15);
+  const imageCover=originals[0].classList.contains('picture-cover');
   const cover=new THREE.Group();root.add(cover);cover.position.z=18;
   const coverMaterials=[edge,edge,edge,edge,pink,material('#ffffff')];
   const coverBoard=roundedBox(W+7,H+10,8,3,pink,cover);coverBoard.position.x=W/2;
   const coverFace=plane(W+3,H+6,coverMaterials[4],cover);coverFace.position.set(W/2,0,4.5);coverFace.castShadow=false;
   const coverInside=plane(W+3,H+6,coverMaterials[5],cover);coverInside.position.set(W/2,0,-4.5);coverInside.rotation.y=Math.PI;coverInside.castShadow=false;
   const ribbon=new THREE.Group();cover.add(ribbon);ribbon.position.set(W*.09,-H/2+4,4.8);
+  ribbon.visible=!imageCover;
   const ribbonMat=material(palette.sage,{roughness:.85,side:THREE.DoubleSide,transparent:true,depthWrite:false});
   const ribbonLength=52,ribbonGeo=new THREE.PlaneGeometry(12,ribbonLength,1,20),ribbonPositions=ribbonGeo.attributes.position;
   for(let i=0;i<ribbonPositions.count;i++){const t=(ribbonLength/2-ribbonPositions.getY(i))/ribbonLength;ribbonPositions.setXYZ(i,ribbonPositions.getX(i)+13*Math.sin(t*Math.PI*.85),-t*ribbonLength,-4*Math.sin(t*Math.PI/2));}
@@ -94,6 +96,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   const canvas2d=(w=W,h=H)=>{const c=document.createElement('canvas');c.width=Math.ceil(w*2);c.height=Math.ceil(h*2);const ctx=c.getContext('2d');ctx.scale(2,2);return {c,ctx};};
   const paintPaper=(ctx,w=W,h=H)=>{ctx.fillStyle=palette.paper;ctx.fillRect(0,0,w,h);if(paperMap){ctx.save();ctx.globalAlpha=.1;const p=ctx.createPattern(paperMap,'repeat');p.setTransform(new DOMMatrix().scale(440/paperMap.width));ctx.fillStyle=p;ctx.fillRect(0,0,w,h);ctx.restore();}const shade=ctx.createLinearGradient(0,0,16,0);shade.addColorStop(0,'#63425316');shade.addColorStop(1,'#63425300');ctx.fillStyle=shade;ctx.fillRect(0,0,18,h);};
   const paintCover=ctx=>{
+    if(imageCover){ctx.fillStyle=palette.paper;ctx.fillRect(0,0,W,H);return;}
     ctx.fillStyle=palette.linen;ctx.fillRect(0,0,W,H);ctx.fillStyle=palette.rose;ctx.fillRect(0,0,W*.12,H);
     if(linenMap){ctx.save();ctx.globalAlpha=.1;const weave=ctx.createPattern(linenMap,'repeat');weave.setTransform(new DOMMatrix().scale(350/linenMap.width));ctx.fillStyle=weave;ctx.fillRect(0,0,W,H);ctx.restore();}
     const seam=ctx.createLinearGradient(W*.12-5,0,W*.12+3,0);seam.addColorStop(0,'#301e2a00');seam.addColorStop(.55,'#301e2a30');seam.addColorStop(.7,'#fffdf840');seam.addColorStop(1,'#301e2a00');ctx.fillStyle=seam;ctx.fillRect(W*.12-5,0,8,H);
@@ -142,7 +145,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);let n;
     while(n=walker.nextNode()){
       if(!n.textContent.trim())continue;
-      const e=n.parentElement,s=getComputedStyle(e);if(s.display==='none'||e.closest('.cover-spine-caption')||skipFandom&&e.closest('.fandom-layer'))continue;ctx.save();
+      const e=n.parentElement,s=getComputedStyle(e);if(s.display==='none'||e.closest('[data-scene-skip],.cover-spine-caption')||skipFandom&&e.closest('.fandom-layer'))continue;ctx.save();
       for(let ancestor=e;ancestor&&ancestor!==node.parentElement;ancestor=ancestor.parentElement){
         const style=getComputedStyle(ancestor);if(!['hidden','clip'].includes(style.overflowX)&&!['hidden','clip'].includes(style.overflowY))continue;
         const r=ancestor.getBoundingClientRect();ctx.beginPath();ctx.rect(r.left-origin.left,r.top-origin.top,r.width,r.height);ctx.clip();
@@ -165,9 +168,19 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     const node=original.cloneNode(true);node.removeAttribute('id');node.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
     [node,...node.querySelectorAll('.object-hovered,.object-pressed,.object-focused')].forEach(n=>n.classList.remove('object-hovered','object-pressed','object-focused'));
     node.style.position='absolute';node.style.inset='0';node.style.width=W+'px';node.style.height=H+'px';node.style.transform='none';node.style.display='block';host.append(node);
-    const {c,ctx}=canvas2d(),relief=isCover?canvas2d():null;paintPaper(ctx);
-    if(isCover){paintCover(ctx);relief.ctx.fillStyle='#b0b0b0';relief.ctx.fillRect(0,0,W,H);}
+    const {c,ctx}=canvas2d(),relief=isCover&&!imageCover?canvas2d():null;paintPaper(ctx);
+    if(isCover){paintCover(ctx);if(relief){relief.ctx.fillStyle='#b0b0b0';relief.ctx.fillRect(0,0,W,H);}}
     const origin=node.getBoundingClientRect();await drawDOM(node,ctx,origin,relief?.ctx,true);
+    if(isCover&&imageCover)for(const overlay of node.querySelectorAll('.cover-personalisation,.cover-collage-date')){
+      // Print live type in the same rotated paper coordinates as the DOM.
+      const pose=getComputedStyle(overlay).transform,matrix=pose==='none'?null:new DOMMatrix(pose),angle=matrix?Math.atan2(matrix.b,matrix.a):0;
+      const transform=overlay.style.transform,skip=overlay.getAttribute('data-scene-skip');
+      overlay.style.transform='none';overlay.removeAttribute('data-scene-skip');
+      try{
+        const r=overlay.getBoundingClientRect(),part=canvas2d(r.width,r.height);await drawDOM(overlay,part.ctx,r);
+        ctx.save();ctx.translate(r.left-origin.left+r.width/2,r.top-origin.top+r.height/2);ctx.rotate(angle);ctx.drawImage(part.c,-r.width/2,-r.height/2,r.width,r.height);ctx.restore();
+      }finally{if(transform)overlay.style.transform=transform;else overlay.style.removeProperty('transform');if(skip!==null)overlay.setAttribute('data-scene-skip',skip);}
+    }
     const bounds=e=>{const r=e.getBoundingClientRect();return {x:r.left-origin.left,y:r.top-origin.top,w:r.width,h:r.height};},anchors={},parts={};
     for(const selector of ['.story-art','.trier-image','.trier-map','.keepsake-slip','.cat-family-open','.postcard-date','.birthday-keepsake','.letter-excerpt','.photo-fragments','.coupon-card','.gift-pocket-front','.soundtrack-slip','.birthday-cake','.cake-popup','.cake-art','.cake-candle','.cake-caption','.birthday-wish-note']){
       const e=node.querySelector(selector);if(e)anchors[selector]=bounds(e);
@@ -185,7 +198,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       const patch=node.querySelector('.cover-dedication');
       if(patch){const b=bounds(patch),part=canvas2d(b.w,b.h);part.ctx.drawImage(c,b.x*2,b.y*2,b.w*2,b.h*2,0,0,b.w,b.h);parts.dedication=texture(part.c);anchors['.cover-dedication']=b;ctx.save();ctx.beginPath();ctx.rect(b.x-1,b.y-1,b.w+2,b.h+2);ctx.clip();paintCover(ctx);ctx.restore();ctx.save();ctx.fillStyle='#301e2a18';ctx.shadowColor='#301e2a40';ctx.shadowBlur=2;ctx.shadowOffsetX=.6;ctx.shadowOffsetY=1.2;ctx.fillRect(b.x+.5,b.y+.5,b.w-1,b.h-1);ctx.restore();}
       const caption=node.querySelector('.cover-spine-caption');if(caption){ctx.save();ctx.translate(W*.042,H*.83);ctx.rotate(-Math.PI/2);ctx.font='500 10px "Source Sans 3"';ctx.fillStyle=palette.paper;ctx.fillText(caption.textContent,0,0);ctx.restore();}
-      if(linenMap){relief.ctx.save();relief.ctx.globalAlpha=.1;relief.ctx.globalCompositeOperation='multiply';const weave=relief.ctx.createPattern(linenMap,'repeat');weave.setTransform(new DOMMatrix().scale(350/linenMap.width));relief.ctx.fillStyle=weave;relief.ctx.fillRect(0,0,W,H);relief.ctx.restore();}
+      if(linenMap&&relief){relief.ctx.save();relief.ctx.globalAlpha=.1;relief.ctx.globalCompositeOperation='multiply';const weave=relief.ctx.createPattern(linenMap,'repeat');weave.setTransform(new DOMMatrix().scale(350/linenMap.width));relief.ctx.fillStyle=weave;relief.ctx.fillRect(0,0,W,H);relief.ctx.restore();}
     }
     for(const [name,selector,bg] of [['card','.coupon-card',palette.paper],['pocket','.gift-pocket-front',palette.lining]]){
       const e=node.querySelector(selector);if(!e)continue;const r=e.getBoundingClientRect(),part=canvas2d(r.width,r.height);
@@ -477,7 +490,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     root.position.x=state.camX;root.position.y=bottomReserve/2+(state.coverLift||0);root.scale.setScalar(state.scale);root.rotation.set(rad(-state.rx),0,rad(-state.rz));
     const opening=state.phase.kind==='cover'?0:state.phase.kind==='opening'?state.p:1;
     cover.rotation.y=-Math.PI*smooth(opening);cover.position.z=mix(18,-14,smooth(opening));
-    ribbonMat.opacity=1-smooth(clamp((opening-.6)/.35));ribbon.visible=ribbonMat.opacity>0;
+    ribbonMat.opacity=1-smooth(clamp((opening-.6)/.35));ribbon.visible=!imageCover&&ribbonMat.opacity>0;
     const coverSurface=coverMap;if(coverSurface&&coverMaterials[4].map!==coverSurface){coverMaterials[4].map=coverSurface;coverMaterials[4].needsUpdate=true;}
     props.forEach(g=>g.visible=false);turningProps.forEach(g=>g.visible=false);curl.visible=reverse.visible=false;reading.visible=true;leftSheet.visible=false;
     reading.position.z=sheetTop;leftSheet.position.z=sheetTop;
@@ -528,9 +541,9 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   document.addEventListener('visibilitychange',cakeVisibility);
   let gutter=null;
   const memMaterials=new Map();function materialCache(i){if(!memMaterials.has(i))memMaterials.set(i,material('#ffffff',{map:backs[i]||null}));const mat=memMaterials.get(i);if(mat.map!==backs[i]){mat.map=backs[i]||null;mat.needsUpdate=true;}return mat;}
-  const assetSrc={paper:'assets/materials/paper.webp',linen:'assets/materials/linen.webp',family:'assets/cutouts/five-cats.webp',map:window.SCRAPBOOK_TRIP.map,cake:pages.find(page=>page.print.querySelector('.cake-art'))?.print.querySelector('.cake-art')?.src};
+  const assetSrc={paper:'assets/materials/paper.webp',linen:'assets/materials/linen.webp',family:'assets/cutouts/five-cats.webp',map:window.SCRAPBOOK_TRIP.map,cake:pages.find(page=>page.print.querySelector('.cake-art'))?.print.querySelector('.cake-art')?.src,...(imageCover?{cover:originals[0].querySelector('.cover-collage-art').src}:{})};
   const assets=Promise.all(Object.entries(assetSrc).map(async([k,src])=>[k,await loadImage(src)])).then(async entries=>{
-    if(disposed)return;const images=Object.fromEntries(entries);if(!images.family||!images.map||!images.cake)throw new Error('A scrapbook image is unavailable.');paperMap=images.paper;linenMap=images.linen;cakeImage=images.cake;
+    if(disposed)return;const images=Object.fromEntries(entries);if(!images.family||!images.map||!images.cake||imageCover&&!images.cover)throw new Error('A scrapbook image is unavailable.');paperMap=images.paper;linenMap=images.linen;cakeImage=images.cake;
     const {c,ctx}=canvas2d();paintPaper(ctx);pageBaseMap=texture(c);paper.map=pageBaseMap;paper.needsUpdate=true;
     if(images.paper){const bump=sourceTexture(images.paper);bump.wrapS=bump.wrapT=THREE.RepeatWrapping;bump.repeat.set(W/440,H/440);paper.bumpMap=bump;paper.bumpScale=.18;paper.needsUpdate=true;readingMaterial.bumpMap=curlFront.bumpMap=curlBack.bumpMap=bump;readingMaterial.bumpScale=curlFront.bumpScale=curlBack.bumpScale=.18;readingMaterial.needsUpdate=curlFront.needsUpdate=curlBack.needsUpdate=true;}
     for(const [mat,vertical] of [[foreEdge,true],[capEdge,false]]){
@@ -546,7 +559,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     // The print sits above the board geometrically. A slope-dependent depth
     // bias would pull it over the raised label as the cover turns edge-on.
     coverMaterials[4]=material('#ffffff',{map:coverMap,roughness:.93});coverFace.material=coverMaterials[4];
-    if(images.linen){const bump=sourceTexture(images.linen);bump.wrapS=bump.wrapT=THREE.RepeatWrapping;bump.repeat.set(W/350,H/350);coverMaterials[4].bumpMap=bump;coverMaterials[4].bumpScale=.5;edge.bumpMap=bump;edge.bumpScale=.3;edge.needsUpdate=true;coverMaterials[4].needsUpdate=true;ribbonMat.bumpMap=bump;ribbonMat.bumpScale=.15;ribbonMat.needsUpdate=true;}
+    if(images.linen){const bump=sourceTexture(images.linen);bump.wrapS=bump.wrapT=THREE.RepeatWrapping;bump.repeat.set(W/350,H/350);if(!imageCover){coverMaterials[4].bumpMap=bump;coverMaterials[4].bumpScale=.5;coverMaterials[4].needsUpdate=true;}edge.bumpMap=bump;edge.bumpScale=.3;edge.needsUpdate=true;ribbonMat.bumpMap=bump;ribbonMat.bumpScale=.15;ribbonMat.needsUpdate=true;}
     if(coverRaster.relief){const bump=texture(coverRaster.relief);bump.colorSpace=THREE.NoColorSpace;coverMaterials[4].bumpMap=bump;coverMaterials[4].bumpScale=.8;coverMaterials[4].needsUpdate=true;}
     const patch=coverRaster.anchors['.cover-dedication'];
     if(patch){const sewn=new THREE.Group();cover.add(sewn);sewn.position.set(patch.x+patch.w/2,H/2-patch.y-patch.h/2,5.2);box(patch.w,patch.h,1.4,material(palette['paper-edge']),sewn);const print=plane(patch.w,patch.h,material('#ffffff',{map:coverRaster.parts.dedication,roughness:1,bumpMap:paper.bumpMap,bumpScale:.16}),sewn);print.position.z=.76;print.castShadow=false;print.receiveShadow=false;}

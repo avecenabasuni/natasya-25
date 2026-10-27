@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V49: image-first birthday collage cover
+
+Replace the front's sewn-nameplate assembly with one flat generated collage artwork following the user's supplied visual reference: magazine/torn-paper HAPPY BIRTHDAY letters with deliberately different type styles, original birthday-cat photo cutouts, pink bows/strawberries, small pencil hearts/stars, cake and party paper. Keep pink primary with cream, ink and small sage/lilac accents. Give the picture its own interior-polaroid clear region for a live recipient name and date; preserve editable content without baking an unknown identity into the artwork. The image is generated decorative art, not personal pet photographs or evidence of an event.
+
+Use the same whole artwork and uniform fit on the native front and real hinged Three cover; align dynamic name/date to its fitted frame. Remove the old cloth plaque, embossed/kicker/itinerary and separate eight-item cover ornament layer so the new artwork is the cover itself. Existing interior images, paper, portrait subjects and motion stay intact. Suppress only old cover seam/linen/plaque drawing; retain actual board/hinge/page depth and full opening/replay. Keep accessible semantic title and controls, a legible fallback if the image fails,375×667/520 reading and short/long owner-name handling. Antislop during3/3/3 and Taste8/9/5 remain the design direction.
+
 ## V48: Bonnie from the owner's photograph
 
 Correct Bonnie's second-cat rendering from the supplied photograph: a slim predominantly white cat, brown-grey tabby head cap around a broad white facial blaze, pink nose, olive/golden-green eyes, distinct tabby foreleg bands/patches and a striped tail. Preserve the natural upright seated pose and visible paws, with no invented collar or accessories. Use a separate complete transparent pencil/watercolor paper illustration, matching Connie/Wonnie stylistically while retaining Bonnie's own markings. Reuse the source on the page and both cat readers; preserve Winnie, Connie, Wonnie and Minnie output, existing motion, modal input ownership, Pink + Sage, type and seven chapters. Keep Antislop during3/3/3 and Taste8/9/5.

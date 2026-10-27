@@ -1,4 +1,71 @@
-# Validation: photo-referenced Bonnie correction, V48
+# Validation: image-first birthday collage cover, V49
+
+27 October 2026. The cover now uses one original generated collage directed by the owner's birthday-scrapbook reference: individually varied magazine-cut letters, birthday kittens, bows, strawberries, flowers and cake. The live recipient name and birthday date sit in the blank tilted Polaroid. The same complete image is printed on the native front and the physical hinged Three cover. The old cloth plaque, sewn/embossed front details, sage ribbon and eight separate cover ornaments are removed only from this cover.
+
+Status: PASS, no unresolved finding. WebKit passes 230/230 and Chromium passes 41/41, for 271/271 recorded checks. Seven actual scene prints independently retain all image pixels outside the live text zones and have no printed ink over the bow. Minimum source-image contrast under the live text bounds is 6.85:1; the opening action is 6.70:1. All 121 final distribution hashes and 112 byte-identical existing files are recorded locally in `qa/v49/`. Root reviewed the actual cover rendering, including the whole collage, live Polaroid writing, clear opening action and absence of the old ribbon. Browser checks cover WebKit at 375 × 667/520, reduced-motion/native reading, aborted-3D CSS fallback, image failure and Chromium at 375 × 667. These are software-browser checks, not physical iPhone Safari, hardware FPS or VoiceOver certification.
+
+## Current evidence
+
+- `assets/illustrations/birthday-collage-cover.webp` is 1060 × 1484, 500,100 bytes, SHA256 `42db8324af81c5f7a33194a132b43fa0f8dcf5d03843b708602337cd41b5f60d`. The complete 5:7 generated canvas is retained without cropping, resizing or recoloring. The unlabelled cover kittens are decorative characters; they do not replace the five personal cat illustrations.
+- Actual canvas instrumentation verifies the new image source, two separately rotated live-text surfaces and a pixel comparison outside the live writing zones. The semantic title is excluded from the printed texture. Native and Three both use uniform containment, the same seven-degree text tilt and one opening action.
+- Trusted opening and reverse return traverse intermediate hinge poses. Full replay visits page-turn poses before closing the cover. Owner edits rebuild the cover, Unicode writing is retained and valid 60-character names fit the clear photo area. Names longer than the existing editor's 60-character limit remain subject to that unchanged limit.
+- Resolved observations: the renderer update previously restored the old ribbon after initial hiding; both initialization and update now exclude it for this image cover. A valid long unbroken name required the extended type style above 48 characters. The date moved slightly upward/right within its caption to avoid the bow edge and improve text contrast.
+- The QA harness was corrected to respect the existing 60-character editor limit, retain wrapped words when comparing printed text, measure the actual blank Polaroid boundary, avoid treating its own reference canvas as a production texture, and observe CSS hinge motion through the public book state. Earlier failed harness outputs are historical; final reports use those corrected assertions.
+- The interior letter still opens and locks the underlying book, Escape restores scroll ownership, the candle gates the gift, the coupon shows €25 and full replay returns to the image cover. Image failure produces a readable greeting, recipient/date and usable opening action rather than a false-ready blank canvas.
+- Independent source proof preserves all five cat outputs/coats, all interior chapter templates, readers, map, motion engines, birthday audio, candle gate, gift and shared configuration. All 45 interior decorations and 13 named portrait/crest instances remain. The 53-item source collection is retained; its eight old front placements are intentionally replaced by the new collage.
+- Changed JavaScript syntax and whitespace checks pass. Source, archive and GitHub byte proofs are recorded separately. Earlier broad object/modal suites remain historical where their files are unchanged; this update does not claim every old interaction was rerun on hardware.
+
+## Current Antislop delivery gate
+
+Root review uses the established Antislop during 3/3/3 and Taste 8/9/5 direction. The owner's supplied reference and `DESIGN.md` establish the cover design; the image-generation request is explicit authorization.
+
+- R-01 PASS: Existing Pink + Sage tokens remain; small paper-color accents belong to the requested collage artwork.
+- R-02 PASS: New cover writing is limited to the birthday title, recipient, date and existing opening label; no marketing copy or em dash is added.
+- R-03 PASS: Whole-image, clear-paper glyph bounds and document overflow checks cover both phone heights and native/fallback views.
+- R-04 PASS: Birthday cats, cake, bows and paper doodles follow the explicit reference; no unrelated UI icon is added.
+- R-05 PASS: The existing seven-chapter narrative remains; only its front cover is replaced.
+- R-06 PASS: Varied printed letterforms implement the requested cut-paper title; live editable writing uses the existing local Fraunces and Source Sans 3.
+- R-07 PASS: Paper and collage textures represent the requested physical scrapbook; the existing stage is retained.
+- R-08 PASS: The opening action retains its plain label; no decorative CTA arrow is added.
+- R-09 PASS: No new badge or status pill is introduced.
+- R-10 PASS: No glass panel or blur is introduced.
+- R-11 PASS: Existing control shapes and minimum touch targets remain.
+- R-12 PASS: Artwork contact shadows imply attached paper; real book board/page shadows retain their physical purpose.
+- R-13 PASS: No glow or idle pulse is added.
+- R-14 PASS: The front is one designed cover image; interior object hierarchy remains unchanged.
+- R-15 PASS: Open the book and Read from the cover retain concrete working actions.
+- R-16 PASS: English reading and direct action labels remain; no buzzwords or filler are added.
+- R-17 PASS: Birthday, trip dates and €25 amount retain the owner's supplied values.
+- R-18 PASS: No testimonial or invented personal identity is added.
+- R-19 PASS: The image travels on the actual hinged cover; trusted opening and full reverse replay have intermediate motion poses.
+- R-20 PASS: The reference's mismatched cutout letters and birthday collage give the front its requested paper identity.
+- R-21 PASS: The existing light presentation remains; no theme toggle is introduced.
+- R-22 PASS: The original generated image directly implements the owner's cover brief and preserves the five personal cats inside.
+- R-23 PASS: The owner explicitly requested an image-based cover and supplied its ornament reference; source/delivery hashes and generated-art provenance are documented.
+- R-24 PASS: Existing contents destinations and opening/replay links retain real targets.
+- R-25 PASS: Live ink is measured over its actual source-image glyph regions; the deep-rose opening action retains the verified cream/rose contrast pair. Decorative image lettering has a separate semantic title.
+- R-26 PASS: Recorded clicks cover opening, return, owner save, note open/close, candle, coupon and replay; no new dead control is added.
+- R-27 PASS: Missing artwork switches to a visible text greeting and functional CSS book; native/reduced and graphics fallbacks remain usable.
+- R-28 PASS: No FAQ, artificial delay or filler section is added.
+- R-29 PASS: Pink remains primary; cream/ink support reading and small sage/lilac/yellow paper pieces follow the supplied collage direction.
+- R-30 PASS: The result follows the owner's scrapbook reference rather than a software-product template.
+- R-31 PASS: `DESIGN.md` records image ownership, text clear zones, removed cover details, preserved physical depth and interior scope.
+- R-32 PASS: Native labelled actions, semantic heading and existing focus styles remain; Escape closes the exercised reader.
+- R-33 PASS: Cover styling, markup and renderer behavior live directly in the authored source files; no runtime file-rewrite script is shipped.
+- R-34 PASS: The existing light theme is retained and scene/native/CSS modes are checked.
+- R-35 PASS: Recorded browser actions, console checks, actual texture instrumentation, source preservation and syntax checks support the delivered scope.
+- R-36 PASS: No fabricated performance, security, compliance or personal-event claim is added; software-browser limits are explicit.
+- R-37 PASS: The user's visual reference and the V49 design direction precede the cover implementation.
+- R-38 PASS: The generated cover is identified as decorative art; unknown personal content and purchased gift code remain honest placeholders.
+- Liveliness PASS: Dials remain 3/3/3 and 8/9/5. Mixed cut-paper letters and the tilted Polaroid give a clear focal point; the writing field and external opening action retain purposeful space.
+- C-1 PASS: Image-led paper collage follows the explicit reference and resolves the dislike of the prior assembled cover.
+- C-2 PASS: The opening action, owner save, reader dismissal, candle, coupon and replay perform their recorded actions.
+- C-3 PASS: Existing personal chapters remain; no new filler section is introduced.
+- C-4 PASS: Phone heights, native/reduced mode, CSS graphics failure and artwork failure retain reading and controls.
+- C-5 PASS: Generated decorative kittens, retained personal-cat references and honest placeholders are distinguished in provenance.
+- UI preflight PASS: The cover uses one complete image and live paper writing, one primary action and the existing motion system; there are no new captions, loops or unrelated controls.
+
+# Historical V48 validation: photo-referenced Bonnie correction
 
 26 October2026. Bonnie now uses a standalone image_gen paper illustration based on the owner's photo: a predominantly white slim seated cat, brown-grey tabby head cap around a broad white blaze, pink nose, olive/golden-green eyes, distinct asymmetric foreleg patches and striped tail. No collar or accessories are invented. Page, selected-Bonnie reader and family reader share the same full source. Winnie, Connie, Wonnie and Minnie keep their existing output and descriptions.
 

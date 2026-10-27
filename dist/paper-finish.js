@@ -36,6 +36,7 @@
     if(!ctx||!node?.querySelectorAll||!origin||phase!=='after')return result;
     for(const element of elements(node,selectors)){
       if(element.closest('[hidden]')||skipFandom&&element.closest('.fandom-layer'))continue;
+      if(element.matches('.book-front')&&element.closest('.picture-cover'))continue;
       const r=relative(element,origin);if(![r.x,r.y,r.w,r.h].every(Number.isFinite)||r.w<2||r.h<2)continue;
       if(element.matches(mountSelector)){photoEdge(ctx,r);result.photos++;}
       else if(element.matches('.cover-dedication')){sewnLabel(ctx,r);result.labels++;}
