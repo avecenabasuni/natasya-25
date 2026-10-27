@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V50: twenty-five, birthday ephemera
+
+Design Read: enrich the existing personal pink scrapbook with the owner's two new birthday-collage references and confirmed age 25. Generate a cohesive transparent cutout sheet of silver foil 25 balloons, bunting, foil stars, heart postage, romantic cards, a heart cake, retro camera, disco ball, varied-type paper notes and a red/blue car pair. Keep pink primary with cream, cherry, silver and small sage/gold/navy accents. Lettering belongs to the printed ornaments, with different physical type styles, rather than added captions beneath them.
+
+Use existing attached-paper rendering so every piece follows the book hinge or page curl. Add a small 25 keepsake to the picture cover without restoring its old eight-piece ornament assembly; give the birthday leaf the larger age focal point. Distribute supporting pieces in spare corners and existing ephemera clusters, protecting the live Polaroid name/date, all five personal cats, actual favorite faces, map, writing, photographs, folded notes, cake/candle and gift controls. The favorite-person phrase sits over the photo's blank caption paper, so its one foreground flag must place its printed surface above the raised photo; it remains a loose page attachment during photo reading. Keep seven chapters, the current 3D motion, candle/audio gate, owner content, placeholders, fonts, palette and access. Dials remain Antislop during 3/3/3 and Taste 8/9/5. The collage pieces are generated decoration, not personal event photographs or additional interactive controls.
+
 ## V49: image-first birthday collage cover
 
 Replace the front's sewn-nameplate assembly with one flat generated collage artwork following the user's supplied visual reference: magazine/torn-paper HAPPY BIRTHDAY letters with deliberately different type styles, original birthday-cat photo cutouts, pink bows/strawberries, small pencil hearts/stars, cake and party paper. Keep pink primary with cream, ink and small sage/lilac accents. Give the picture its own interior-polaroid clear region for a live recipient name and date; preserve editable content without baking an unknown identity into the artwork. The image is generated decorative art, not personal pet photographs or evidence of an event.

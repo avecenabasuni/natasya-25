@@ -100,15 +100,40 @@
     keepsake('barcelona','letter',9,38,38,{left:'197px',bottom:'29px'})
   ];
   const collageGroups={taylor:'music-pop',rodrigo:'music-pop',dean:'music-soul',spiro:'music-soul',messi:'football',yamal:'football',barcelona:'football'};
-  const collection=[...favorites,...ornaments,...portraits,...subjects];
-  function layer(page){
-    const items=collection.filter(item=>item.page===page);if(!items.length)return '';
+  const birthdayAtlas={source:'assets/cutouts/birthday-25-ephemera.webp',width:1448,height:1086};
+  const birthdayFrames={
+    foil25:[12,79,365,318],bunting:[375,108,418,223],foilStars:[788,65,340,329],heartStamp:[1144,80,280,305],
+    loveMore:[45,409,309,351],loveCard:[414,390,268,365],heartCake:[724,411,346,356],camera:[1080,450,355,260],
+    disco:[9,770,331,290],favoritePerson:[354,795,381,251],myDarling:[746,770,304,277],cars:[1054,818,388,211]
+  };
+  const birthdayPiece=(key,motif,page,angle,w,h,position,onAttachment=false)=>({key,motif,page,angle,w,h,position,onAttachment,frame:birthdayFrames[motif],atlas:birthdayAtlas,ornament:true,birthday:true});
+  const birthdayOrnaments=[
+    birthdayPiece('cover-twenty-five','foil25','cover',3,44,64,{right:'4px',top:'8px'}),
+    birthdayPiece('trip-love-postage','heartStamp','dedication',7,17,24,{right:'5px',top:'66%'}),
+    birthdayPiece('days-digital-camera','camera','your-world',6,52,44,{left:'207px',bottom:'32px'}),
+    birthdayPiece('days-car-couple','cars','your-world',-4,62,30,{left:'196px',top:'10px'}),
+    birthdayPiece('photo-disco','disco','october',7,36,36,{left:'236px',bottom:'36px'}),
+    birthdayPiece('photo-favorite-person','favoritePerson','october',-5,54,36,{left:'230px',top:'309px'},true),
+    birthdayPiece('notes-foil-stars','foilStars','letter',-8,27,24,{right:'69px',top:'4px'}),
+    birthdayPiece('notes-party-bunting','bunting','letter',-3,60,26,{left:'142px',top:'var(--notes-party-top,51px)'}),
+    birthdayPiece('birthday-twenty-five','foil25','birthday',-5,50,64,{left:'8px',top:'117px'}),
+    birthdayPiece('birthday-party-bunting','bunting','birthday',5,75,35,{left:'var(--birthday-party-left,220px)',top:'4px'}),
+    birthdayPiece('birthday-foil-stars','foilStars','birthday',-7,40,34,{left:'104px',bottom:'36px'}),
+    birthdayPiece('gift-love-more','loveMore','gift',8,40,52,{left:'205px',bottom:'55px'}),
+    birthdayPiece('gift-love-card','loveCard','gift',-6,31,43,{left:'251px',bottom:'58px'}),
+    birthdayPiece('gift-love-postage','heartStamp','gift',8,28,35,{right:'12px',bottom:'46px'}),
+    birthdayPiece('gift-my-darling','myDarling','gift',-4,60,40,{left:'132px',top:'var(--gift-darling-top,74px)'})
+  ];
+  const replacedOrnaments=new Set(['trip-tape','photo-butterfly','notes-record','notes-tape','birthday-bow','birthday-moon','gift-key','gift-hearts','gift-cherries']);
+  const collection=[...favorites,...ornaments,...portraits,...subjects,...birthdayOrnaments];
+  function layer(page,scope='all'){
+    const items=collection.filter(item=>item.page===page&&!replacedOrnaments.has(item.key)&&(scope!=='birthday'||item.birthday));if(!items.length)return '';
     return `<div class="fandom-layer" data-sticker-page="${page}">${items.map(item=>{
       const [x,y,w,h]=item.frame,atlas=item.atlas||{source,width,height};
       const placement=item.ornament?`;--fan-w:${item.w}px;--fan-h:${item.h}px;${Object.entries(item.position).map(([key,value])=>`${key}:${value}`).join(';')}`:'';
       const semantics=item.portrait||item.emblem?`role="img" aria-label="${item.name} ${item.emblem?'crest':'portrait'} sticker"`:item.ornament?'aria-hidden="true"':`role="img" aria-label="${item.name} illustrated fan sticker"`;
       const polygon=polygons[item.motif],mask=polygon?`;clip-path:polygon(${polygon.split(' ').map(point=>point.split(',').join('% ')+'%').join(',')})`:'';
-      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.portrait?' portrait-sticker':''}${item.driver?' driver-portrait':''}${item.photo?' photo-portrait':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.rail?' data-sticker-rail="true"':''}${item.driver?` data-driver-portrait="${item.driver}"`:''}${item.subject?` data-fandom-subject="${item.subject}" data-collage-group="${collageGroups[item.subject]}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
+      return `<figure class="fandom-sticker${item.ornament?' paper-ornament':''}${item.portrait?' portrait-sticker':''}${item.driver?' driver-portrait':''}${item.photo?' photo-portrait':''}${item.birthday?' birthday-ornament':''}" data-fandom-sticker="${item.key}" data-sticker-angle="${item.angle}"${item.birthday?` data-birthday-ornament="${item.motif}"`:''}${item.onAttachment?' data-sticker-on-attachment="true"':''}${item.rail?' data-sticker-rail="true"':''}${item.driver?` data-driver-portrait="${item.driver}"`:''}${item.subject?` data-fandom-subject="${item.subject}" data-collage-group="${collageGroups[item.subject]}"`:''} style="--fan-angle:${item.angle}deg${placement}" ${semantics}><span class="fandom-portrait" aria-hidden="true"><span class="fandom-frame" data-sticker-frame="${item.frame.join(',')}"${polygon?` data-sticker-polygon="${polygon}"`:''} style="--fan-ratio:${w/h};--fan-image-w:${atlas.width/w*100}%;--fan-image-h:${atlas.height/h*100}%;--fan-image-x:${-x/w*100}%;--fan-image-y:${-y/h*100}%${mask}"><img src="${atlas.source}" alt="" width="${atlas.width}" height="${atlas.height}" decoding="async"></span></span></figure>`;
     }).join('')}</div>`;
   }
   function fit(root){
@@ -132,5 +157,5 @@
       }
     });
   }
-  window.ScrapbookStickers={layer,fit,collection,source,width,height,ephemera,frames,polygons,driverPhotos,portraits,subjectPhotos,subjects};
+  window.ScrapbookStickers={layer,fit,collection,source,width,height,ephemera,frames,polygons,driverPhotos,portraits,subjectPhotos,subjects,birthdayAtlas,birthdayFrames,birthdayOrnaments,replacedOrnaments};
 })();

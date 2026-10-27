@@ -1,4 +1,74 @@
-# Validation: image-first birthday collage cover, V49
+# Validation: birthday ephemera for twenty-five, V50
+
+27 October 2026. The owner's two new scrapbook references and confirmed age 25 direct a new transparent paper/foil atlas. Fifteen placements use eleven motifs: silver 25 balloons, bunting, foil stars, heart postage, romantic cards, camera, disco ball, varied-type phrases and a red/blue car pair. Nine minor earlier ornament placements give their slots to the new pieces. The current composition has 50 interior decorations and one new cover decoration, plus the baked collage cover. All 53 previous source entries and 13 interior portrait/crest instances are retained.
+
+The cover receives only its new silver 25. Its old eight-piece assembly remains omitted; the full image, live recipient/date and 3D hinge remain. The semantic cover title and celebration heading now expose age 25 in English. The new pieces use existing attached-page meshes and native atlas frames, with no additional controls, captions, animation loops or motion-engine changes.
+
+Status: PASS, no unresolved finding. Final evidence contains WebKit 574/574 and Chromium 148/148 checks, 722/722 overall. After the native-position changes, the affected native case and representative scene were rerun, 294/294. Unchanged scene-520 and CSS-fallback cases retain their passing checks. Extra photo-reader and actual cake-alpha checks supplement the matrix; `assertion-review.json` records superseded harness assumptions rather than silently changing raw failures. All 15 new pieces are visible in default scene/native/fallback compositions. The caption label stays once on its page during photograph opening and closing, with no duplicate reader decoration or transient ghost. The apparent Chromium overlap with the cake's rectangular image bounds contains zero cake alpha; actual cake ink remains clear.
+
+Following the foreground-depth correction, an additional WebKit 28/28 and Chromium 17/17 targeted checks pass, for 767 recorded passing checks overall. Actual screenshot ink verifies both complete words at rest, hover, focus, maximum press and natural focus restoration at 375 × 667/520. The photograph reader excludes the loose label, its page mask retains it once, closing leaves no ghost and a curved page turn returns it completely visible. Root reviewed the final pressed and restored screenshots. Prior failed 2.2/4.4 depth captures remain historical evidence of the corrected visibility bug; the final depth is 5.8.
+
+## Current evidence
+
+- `assets/cutouts/birthday-25-ephemera.webp` is 1448 × 1086 RGBA, 633,620 bytes, SHA256 `859e4cafd299bc5ab638cf77468c0c3bd2e19f7afe195130fe14ae1d4c0b225d`. Every original alpha byte and complete source dimension is preserved. Twelve measured frames retain every source pixel above alpha 1; eleven motifs are placed. The extra heart cake stays available on the source sheet rather than overlapping the interactive cake.
+- Source proof preserves 114 of 121 existing distribution files byte-for-byte, including all cats, prior imagery, fonts, palette, shared configuration, map, modal/audio/candle/gift and the book clock/page-turn engine. All 53 old collection records and the existing clearance routine are identical. Changes are scoped to ornament collection/placement, three native-position variables, age wording, cover's new decoration, a foreground print-depth flag and image preload/cache keys. Three animation, hinge and curl code remains unchanged.
+- A first WebKit probe caught two default placements omitted by the existing writing-clearance guard. The favorite-person label moved to the photo's blank lower-right paper beside its caption. The gift postage moved upward, away from the page number. Both keep their complete source frame and uniform proportions. The guard itself is unchanged.
+- Native reading uses taller type than the fixed scene paper. Three native-only position variables move the notes bunting below its heading, the birthday bunting toward the outside corner and the darling label below the wrapped gift heading. The fixed scene positions remain unchanged.
+- Root's visual review caught the photo-caption label behind the raised photograph even though its mesh existed and geometric bounds passed. Its declarative foreground flag now places that one loose paper at depth 5.8, above the photograph face, maximum 2.6 feedback lift and lower-edge tilt. The initial resting-only depth missed keyboard-focus restoration; accounting for center lift alone still missed the pressed photo's tilted lower edge. The final value clears these actual surface states. The flag changes print stacking only; the page/turn parent and motion remain the same. Targeted post-fix checks inspect actual visible wording, opening/closing and page-turn attachment rather than treating mesh existence as proof of visibility.
+- Browser reports, screenshots, actual atlas draws, fitted-frame clearance, source preservation and final distribution hashes are recorded in `qa/v50/`. The final scope summary records exact totals and tested modes. Critical click-through covers cover opening, a page turn, reverse replay, note opening/closing with the book held, candle completion and the €25 coupon. Owner names retain the unchanged 60-character limit.
+- These are software WebKit/Chromium checks. They do not certify physical iPhone Safari, hardware FPS or VoiceOver. Unchanged broad reader/modal suites remain historical. New generated ornaments are decorative art, distinct from the retained personal-cat illustrations and actual celebrity photographs.
+
+## Current Antislop delivery gate
+
+Root review retains Antislop during 3/3/3 and Taste 8/9/5. The explicit owner references and confirmed age establish the design and authorize the generated ornaments.
+
+- R-01 PASS: Pink remains primary; cherry, silver and small sage/gold accents represent the requested physical ephemera.
+- R-02 PASS: New English age wording and short printed love phrases follow the references; no marketing copy or em dash is added.
+- R-03 PASS: Phone-height, source-frame, writing-clearance and paper-bound checks protect the reading areas.
+- R-04 PASS: Stars, flags, camera, cards and cars are requested scrapbook objects rather than unrelated UI icons.
+- R-05 PASS: The existing seven-chapter sequence is unchanged.
+- R-06 PASS: Varied type belongs to the generated paper phrases; live writing retains the existing local fonts.
+- R-07 PASS: Paper grain, foil and worn printing give the referenced scrapbook materials their purpose.
+- R-08 PASS: Existing navigation arrows retain their real function; no decorative CTA arrow is added.
+- R-09 PASS: No status badge or pill is introduced; printed cards are physical decoration.
+- R-10 PASS: No glass panel or blur is added.
+- R-11 PASS: Existing control shapes and touch targets are unchanged.
+- R-12 PASS: Restrained contact shadows attach the new paper objects to the page.
+- R-13 PASS: No glow or idle pulse is added.
+- R-14 PASS: Existing page hierarchy remains; minor ornaments are selectively replaced to clear focal objects.
+- R-15 PASS: Open the book, candle, coupon and replay keep their concrete actions.
+- R-16 PASS: English labels stay direct; the romantic paper phrases follow the owner's examples.
+- R-17 PASS: Age 25 comes from the current instruction; trip, birthday and gift values retain the owner's facts.
+- R-18 PASS: No testimonial or invented personal identity is added.
+- R-19 PASS: New pieces use existing hinge and curled-page attachment geometry, with no competing motion loop.
+- R-20 PASS: Mixed foil, cut paper and romantic ephemera follow the supplied birthday-collage identity.
+- R-21 PASS: The existing light presentation remains.
+- R-22 PASS: Generated artwork directly implements the supplied ornament references.
+- R-23 PASS: The owner explicitly requested these ornaments; source/delivery hashes and alpha preservation are documented.
+- R-24 PASS: The existing real chapter and replay destinations remain.
+- R-25 PASS: Live typography, palette and clear Polaroid fields retain their measured contrast roles; the new pictures are decorative.
+- R-26 PASS: New pieces are inert; existing opening, note, candle, gift and replay handlers are retained and exercised.
+- R-27 PASS: Native/reduced-motion and graphics fallbacks retain the decoration and normal reading controls.
+- R-28 PASS: No FAQ, filler section or artificial delay is added.
+- R-29 PASS: Existing pink/cream/ink surfaces remain; foil and small paper accents have a clear birthday role.
+- R-30 PASS: The references are personal birthday scrapbooks, not a copied software-product template.
+- R-31 PASS: `DESIGN.md` records motif choices, physical attachment, protected content and retained behavior.
+- R-32 PASS: Decorative pieces add no focus stops; native labelled controls, focus styles and Escape remain.
+- R-33 PASS: Collection, scoped cover layer and age wording are authored directly in the application source.
+- R-34 PASS: Existing light theme and scene/native/CSS reading modes remain usable.
+- R-35 PASS: Recorded browser actions, actual atlas instrumentation, source proofs and syntax checks support the changed scope.
+- R-36 PASS: No invented performance, security, compliance or personal-event claim is added.
+- R-37 PASS: The owner's two visual references and the V50 direction precede implementation.
+- R-38 PASS: Generated decorative objects, retained real source photographs and personal placeholders are distinguished in provenance.
+- Liveliness PASS: Dials remain 3/3/3 and 8/9/5; silver 25, varied paper phrases and small ephemera clusters enrich the book while preserving clear writing and key objects.
+- C-1 PASS: Each new motif follows the supplied reference or confirmed age.
+- C-2 PASS: No false control is introduced; existing critical actions retain their behavior.
+- C-3 PASS: The current personal chapters remain; no generic filler chapter is added.
+- C-4 PASS: Fitted frames, writing-clearance, phone layouts and existing fallback modes support the added decoration.
+- C-5 PASS: The new pictures are identified as generated decoration; no fabricated personal-event photograph or endorsement is claimed.
+- UI preflight PASS: One transparent atlas, no new font dependency, unchanged main typography, no extra captions, no new idle animation and existing physical attachment code.
+
+# Historical V49 validation: image-first birthday collage cover
 
 27 October 2026. The cover now uses one original generated collage directed by the owner's birthday-scrapbook reference: individually varied magazine-cut letters, birthday kittens, bows, strawberries, flowers and cake. The live recipient name and birthday date sit in the blank tilted Polaroid. The same complete image is printed on the native front and the physical hinged Three cover. The old cloth plaque, sewn/embossed front details, sage ribbon and eight separate cover ornaments are removed only from this cover.
 

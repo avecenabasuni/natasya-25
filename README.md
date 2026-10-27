@@ -8,7 +8,9 @@ The seven chapters follow the cover, Trier and Luxembourg, four days, photograph
 
 The front uses one generated birthday collage inspired by the owner's supplied reference. Each cutout letter has a different magazine type style; birthday kittens, bows, strawberries, flowers and cake surround a blank Polaroid. The editable recipient name and birthday date sit within that paper frame. The same complete artwork appears in native reading and on the real hinged 3D cover, including animated opening and reverse replay.
 
-The cover kittens are decorative characters. The five named cats inside retain their distinct existing artwork. The eight former front ornaments are replaced by the collage; 45 interior decoration placements remain, including 13 named portrait/crest instances. The full 53-item source collection is retained. [Cover provenance](dist/assets/illustrations/birthday-collage-cover.md) records source and delivery details.
+The cover kittens are decorative characters. The five named cats inside retain their distinct existing artwork. The eight former front ornaments are replaced by the collage; the current interior retains 13 named portrait/crest instances alongside the paper decoration. All 53 original source entries remain available. [Cover provenance](dist/assets/illustrations/birthday-collage-cover.md) records source and delivery details.
+
+The birthday is her 25th. A new transparent paper/foil collection adds silver 25 balloons on the cover and celebration leaf, bunting, stars, heart postage, romantic cards, camera, disco ball, varied-type phrases and a red/blue toy-car couple. The current arrangement has 50 interior pieces and one attached cover piece, plus the baked cover collage. Fifteen new placements replace nine minor earlier ornaments; all 53 original collection entries and 13 interior portrait/crest instances remain. The pieces follow the existing physical hinge/page motion and have no added captions. [Birthday ephemera provenance](dist/assets/cutouts/birthday-25-ephemera.md) records the source and complete frames.
 
 ## Personal details and keepsakes
 

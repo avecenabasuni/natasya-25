@@ -192,7 +192,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     anchors.photoImages=[...node.querySelectorAll('.fragment-image')].map(bounds);
     anchors.actions=[...node.querySelectorAll('.story-button[data-book-object]')].map(e=>({key:e.dataset.bookObject,...bounds(e)}));
     const fandom=[...node.querySelectorAll('.fandom-sticker')].filter(node=>!node.hidden);
-    anchors.fandom=fandom.map(e=>({key:e.dataset.fandomSticker,angle:parseFloat(e.dataset.stickerAngle)||0,...bounds(e)}));
+    anchors.fandom=fandom.map(e=>({key:e.dataset.fandomSticker,angle:parseFloat(e.dataset.stickerAngle)||0,onAttachment:e.dataset.stickerOnAttachment==='true',...bounds(e)}));
     parts.fandom=await Promise.all(fandom.map(async e=>{const r=e.getBoundingClientRect(),part=canvas2d(r.width,r.height);await drawDOM(e,part.ctx,r);return texture(part.c);}));
     if(isCover){
       const patch=node.querySelector('.cover-dedication');
@@ -342,7 +342,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   }
   function setProps(index,a,parts={}){
     const type=pages[index].section.id,g=props[index];
-    a.fandom.forEach((b,i)=>fandomSticker(b,parts.fandom[i],g,index,'page',.95+i*.015));
+    a.fandom.forEach((b,i)=>fandomSticker(b,parts.fandom[i],g,index,'page',b.onAttachment?5.8:.95+i*.015));
     if(a['.birthday-cake']&&cakeImage){
       const cake=createBirthdayCakeVisual({THREE,parent:g,anchors:a,pageHeight:H,material,mesh,plane,track,texture,canvas2d,palette,image:cakeImage,lit:candleLit,captionText:pages[index].print.querySelector('.cake-caption').textContent});
       birthdayCakes.set(index,cake);sets.set(index,{type:'cake'});registerFeedback('cake',index,cake.face,cake.imageWidth,cake.imageHeight,{y:cake.imageY,z:1.1,shape:3,mask:cake.mask});clearUnderlay(index,a['.birthday-cake']);
