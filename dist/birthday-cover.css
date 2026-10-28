@@ -14,8 +14,5 @@
 .picture-cover .cover-art-fallback{position:absolute;left:10%;right:10%;top:6%;font:500 min(12cqw,8.5cqh)/1 var(--serif);text-align:center;color:var(--rose)}
 .picture-cover .cover-art-fallback[hidden]{display:none}
 .picture-cover .cover-art-unavailable{background:var(--paper)}
-.birthday-cover .open-book,.has-book-film .book-viewport>.cover-open-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 25px;max-width:calc(100% - 48px);width:max-content;background:var(--rose);color:var(--paper);border:0;border-radius:4px;box-shadow:none;font:500 16px/1.4 var(--display);text-decoration:none;white-space:nowrap}
-.birthday-cover .open-book:hover,.cover-open-action:hover,.birthday-cover .open-book:active,.cover-open-action:active{background:var(--rose-hover)}
-.has-book-film .book-viewport>.cover-open-action{position:absolute;left:50%;bottom:calc(var(--bottom-reserve,84px) - 8px);transform:translateX(-50%);z-index:3}
 @media(max-width:599px){.birthday-cover .cover-seat{gap:24px}.birthday-cover .cover-model{transform:rotate(3deg) rotateY(-4deg) rotateX(5deg)}.has-book-film .birthday-cover .cover-model{transform:none}}
 @media(prefers-reduced-motion:reduce){.birthday-cover .cover-model{transform:none}}

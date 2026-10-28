@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V57: matching opening and replay actions
+
+Give “Read from the cover” the same rose button, printed type, padding, radius and bottom placement as “Open the book”. Keep both actions outside the paper surface: the cover action stays in its existing stage position; the replay action moves to that same stage layer only on the unlocked final reading page. Remove its old text from the gift paper before pagination/rasterization. Hide replay as soon as its return journey begins, preserve the complete reverse animation, and restore each action to its source home during rebuild/fallback. Native reading places replay below its gift sheet with matching styling. Leave room for Previous page beside the final action by hiding only the redundant contents/disabled-next controls at that endpoint. Retain all content, media, page dimensions, candle prerequisite and V56 render fixes. Antislop during 3/3/3 and Taste 8/9/5 remain the direction.
+
 ## V56: stable page preparation during turns
 
 This is a rendering repair, retaining the established scrapbook, content, local type, seven chapters, Antislop during 3/3/3 and Taste 8/9/5. A controlled delayed-image test reproduced overlapping print after navigation: the raster origin was measured inside the scrolling film before awaited image loads, while later image/text geometry used the moved viewport position. Make the offscreen print surface use fixed coordinates so preparing a page is independent of the visible book's scroll/turn. Preserve the geometry and timing of the visible page animation. Confirm the same delayed-image/turn sequence against the original broken result, then exercise repeated navigation, toolbar-size changes and reader return. Repair only demonstrated lifecycle failures; keep all artwork, maps, personal notes, audio and access unchanged.

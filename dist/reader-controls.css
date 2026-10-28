@@ -16,6 +16,13 @@
 #book-contents{min-height:44px;padding:0 8px;font-size:13px;gap:7px;border-radius:3px}
 #page-position{font-size:12px}
 body[data-book-chapter="cover"] .book-navigation,body[data-book-chapter="cover"] .site-header .brand{visibility:hidden;pointer-events:none}
-.has-book-film .book-viewport>.cover-open-action{bottom:calc(max(20px,env(safe-area-inset-bottom,0px)) + var(--visual-bottom-inset,0px))}
+.album-story.edited-story .book-endpoint-action{display:inline-flex;align-items:center;justify-content:center;align-self:center;min-height:46px;padding:12px 25px;max-width:calc(100% - 48px);width:max-content;margin:0;background:var(--rose);color:var(--paper);border:0;border-radius:4px;box-shadow:none;font:500 16px/1.4 var(--display);text-decoration:none;white-space:nowrap}
+.album-story.edited-story .book-endpoint-action:hover,.album-story.edited-story .book-endpoint-action:active{background:var(--rose-hover)}
+.book-endpoint-action:focus-visible{outline:3px solid var(--rose);outline-offset:4px}
+.has-book-film .book-viewport>.book-endpoint-action{position:absolute;left:50%;bottom:calc(max(20px,env(safe-area-inset-bottom,0px)) + var(--visual-bottom-inset,0px));transform:translateX(-50%);z-index:3}
+.edited-story:not(.has-book-film) .gift-chapter .page-seat{display:flex;flex-direction:column;gap:24px}
+.has-book-film.at-book-end .book-navigation{bottom:calc(max(20px,env(safe-area-inset-bottom,0px)) + var(--visual-bottom-inset,0px));pointer-events:none}
+.has-book-film.at-book-end #previous-page{pointer-events:auto}
+.has-book-film.at-book-end #book-contents,.has-book-film.at-book-end #next-page{visibility:hidden;pointer-events:none}
 @media(hover:hover){.site-header .brand:hover,.site-header .icon-button:hover,.book-navigation>.icon-button:not(:disabled):hover,#book-contents:hover{background:var(--lining)}}
 @media(min-width:960px){.site-header{padding-left:20px;padding-right:20px}.book-navigation,.has-book-film .book-navigation{max-width:350px}}

@@ -1,4 +1,60 @@
-# Validation: intermittent page corruption during turns, V56
+# Validation: matching opening and replay buttons, V57
+
+28 October 2026. Status: PASS, no unresolved finding. Root WebKit 60/60, Chromium 16/16 and independent WebKit 38/38, total 114/114 checks. Main coverage includes scene 375 × 667/520, reduced-native 375 × 520 and aborted-3D CSS fallback 375 × 667. Independent review covers both phone heights and native reading. Root visually reviewed cover/final screenshots at 520 height and the final 667 endpoint; the replay action matches the original rose control, font, padding, radius, height, centre and stage-bottom gap.
+
+The original replay anchor is moved out of the gift article before pagination and attached to the same viewport layer as the opening action. No replay link remains in the printed paper or its raster source. A single shared final style now owns both actions. The final endpoint clears the centre contents and disabled next control while retaining the Previous arrow on the left. The transparent navigation container initially intercepted the new CTA despite hidden children; its endpoint pointer surface now passes through, while Previous explicitly retains pointer input. Final hit tests confirm both controls are independently reachable without overlap.
+
+Replay is shown only on the unlocked final reading phase and hides synchronously when its reverse navigation is accepted. The existing full reverse page/cover animation is retained; native reduced motion returns directly. The cover action's pre-existing initial cover-phase visibility timing is unchanged. Resize rebuild, destroy into native reading and scene recreation preserve exactly one original action, with no ghost or duplicated text. Native reading places the styled action beneath its gift sheet. Shared controls retain their focus outline and touch target height.
+
+The final WebKit report combines the completed scene/native checks with a focused corrected CSS-fallback run. The initial fallback harness sampled only the Three renderer's state, which does not exist when Three is intentionally blocked; sampling the book controller verifies the actual CSS opening/reverse animation. A separate initial wait assumed a new scene must set navigation=idle even before any animated navigation; the harness now accepts an unset idle state. These harness corrections required no further application changes.
+
+Evidence is in qa/v57/: endpoint.py, final browser reports, independent reports/screenshots, shared style/geometry details and source-preservation.json. Source proof preserves 130 of 135 distribution files; only story action placement, book action ownership/visibility, two control stylesheets and cache references change. All media, maps, fonts, data defaults, cats, song, audio and Three renderer remain unchanged. V56 fixed raster CSS, failure recovery and deferred reflow remain in place. Earlier broader motion/content/audio suites are historical. Software browser evidence does not certify a physical iPhone, hardware FPS or VoiceOver.
+
+### V57 Antislop delivery gate
+
+- R-01 PASS: existing pink/cream palette retained; no new gradient.
+- R-02 PASS: new greetings, labels and title contain no em dash or filler.
+- R-03 PASS: opening/final CTA placement, tap geometry and page fit pass at 375 × 667/520, including native and CSS fallback.
+- R-04 PASS: all existing icons and geographic pins remain byte-identical; no new decorative icon is added.
+- R-05 PASS: seven existing compositions remain; no template section added.
+- R-06 PASS: both CTAs use the exact same existing Source Sans 3 500/16px control type; no font change is introduced.
+- R-07 PASS: existing paper/linen textures retain their physical-material role.
+- R-08 PASS: the listening arrow identifies an external action; navigation arrows remain functional.
+- R-09 PASS: no badges or repeated title pills added.
+- R-10 PASS: no glass added.
+- R-11 PASS: opening and replay share the existing four-pixel CTA radius and padding.
+- R-12 PASS: the song's small contact shadow matches map/letter mounts and establishes paper attachment.
+- R-13 PASS: existing interaction focus feedback remains; no new glow.
+- R-14 PASS: unrelated artist rows are removed, without adding replacement cards.
+- R-15 PASS: Listen to our song opens the verified release; portrait triggers open their readers.
+- R-16 PASS: actual English food memories are preserved in their new map location; photo recap labels are dates and places.
+- R-17 PASS: places, Hauptmarkt walk and meals come from the owner; OSM source geometry locates all 12 anchors without an invented walking order.
+- R-18 PASS: no testimonials or fabricated identities.
+- R-19 PASS: replay hides when accepted, then completes all reverse page turns and the cover hinge; reduced motion returns directly.
+- R-20 PASS: all eleven real Luxembourg stops, Hauptmarkt in Trier and the couple's meal details belong to this trip.
+- R-21 PASS: the user-selected light physical-paper presentation is preserved.
+- R-22 PASS: existing artwork is retained; new maps are geographic visualizations of actual open vector data, without fabricated trip photography.
+- R-23 PASS: no new image or personal content is created; every existing image/font/audio file is retained.
+- R-24 PASS: the existing official HTTPS release remains the sole song destination.
+- R-25 PASS: replay reuses the opening button's rose/paper colors and control type, verified through computed-style comparison and screenshots.
+- R-26 PASS: replay and Previous have distinct pointer targets; full replay, scene rebuild and native teardown/recreation pass.
+- R-27 PASS: native/reduced-motion and graphics-failure CSS paths retain one styled replay action and usable return to cover.
+- R-28 PASS: no filler FAQ or chapter.
+- R-29 PASS: existing pink/cream/ink and decorative accent roles remain.
+- R-30 PASS: matching this project's paper objects does not clone an unrelated product.
+- R-31 PASS: V57 shared styling, stage placement and final navigation-space reasons are recorded in DESIGN.md before implementation.
+- R-32 PASS: actions remain native anchors with visible focus styling; Previous remains reachable and hidden redundant controls leave the endpoint clear.
+- R-33 PASS: application changes are written directly in tracked source, without runtime patch injection.
+- R-34 PASS: no theme-toggle changes or additional mode added.
+- R-35 PASS: 114 focused browser checks, source preservation, two JavaScript syntax checks and whitespace verification pass.
+- R-36 PASS: no hardware performance, security or service-playback claims made.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain the established design direction.
+- R-38 PASS: no personal content, memory, image or new claim is added; this edit matches an existing control.
+- Liveliness PASS: the cover, attached paper, varied collages and actual hinge motion retain the declared dials; letter/song/cats remain distinct objects with clear spacing.
+- C-1 through C-5 PASS: documented material/content purpose, exercised controls, recipient-specific content, tested fallbacks and owner-supplied facts.
+- Taste preflight PASS for this bounded edit: typography/material consistency, purposeful existing motion, mobile fit, focus and truthful content were checked; inherited Fraunces is explicitly retained for brand continuity. Marketing-page patterns and framework-specific hooks do not apply to this buildless scrapbook.
+
+# Historical validation: intermittent page corruption during turns, V56
 
 28 October 2026. Status: PASS, no unresolved finding. The user located the symptom after turning book pages. A controlled WebKit reproduction delayed Bonnie while the Notes raster was active, then opened the book before the image completed. The stationary page painted Bonnie at local y=220; the moving case painted it at y=169 after 51 pixels of document scroll. Its later Notes screenshot showed text, paper edges, cats and decorations overlapping. This establishes a real application bug, rather than attributing it to a generic font or browser-cache issue.
 

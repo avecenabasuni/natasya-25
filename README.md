@@ -41,6 +41,7 @@ Edit shared defaults in [dist/config.js](dist/config.js), or use the editor to s
 - Buildless HTML/CSS/JavaScript with local Three.js, GSAP, Fraunces and Source Sans 3.
 - Pink + Sage paper materials, designed around 375 × 667, with shorter-screen, reduced-motion and graphics fallbacks.
 - Scroll or use arrows to turn pages; replay reverses each page and closes the cover.
+- “Open the book” and “Read from the cover” share one button style and stage-bottom position. The final action sits outside the printed gift page, with Previous page reachable beside it; native reading places it beneath the gift sheet.
 - Tap keepsakes to open them from their paper source; drag down, use Escape or the close button to dismiss.
 - Important personal notes stay folded until opened. Long reader content scrolls independently while the book stays held through the full closing motion.
 - The birthday melody follows the candle; extinguishing it unlocks the final Amazon.de gift.

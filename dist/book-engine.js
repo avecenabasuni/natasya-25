@@ -70,6 +70,9 @@
       film.style.setProperty('--leaf-w',width+'px');film.style.setProperty('--leaf-h',height+'px');film.style.setProperty('--header-h',header+'px');
       film.style.setProperty('--stage-h',stageHeight+'px');film.style.setProperty('--bottom-reserve',bottomReserve+'px');
       viewport.append(camera);camera.append(book);film.append(viewport);app.prepend(film);
+      const replayAction=originals.at(-1).querySelector('.replay-link'),replayActionHome=replayAction?.parentElement;
+      if(replayAction){replayAction.classList.add('cover-replay-action');replayAction.hidden=true;viewport.append(replayAction);}
+      const restoreReplay=()=>{app.classList.remove('at-book-end');if(replayAction){replayAction.classList.remove('cover-replay-action');replayAction.hidden=false;replayActionHome.append(replayAction);}};
       const ground = el('div','book-ground');viewport.prepend(ground);
       const leftBase = el('div','book-board left-board'), rightBase = el('div','book-board right-board');
       const edges = el('div','paper-edges'), left = el('div','left-leaf'), right = el('div','right-deck'), binding = el('div','book-binding');
@@ -167,7 +170,7 @@
         if(!body.childElementCount){print.remove();pages.pop();}
       }); } catch(error) {
         sources.forEach(({section,article})=>{section.querySelector('.page-seat').replaceChildren(article);section.classList.remove('film-chapter');});
-        originals.forEach(s=>app.append(s));app.append(document.querySelector('.book-navigation'));film.remove();app.classList.remove('has-book-film');
+        originals.forEach(s=>app.append(s));restoreReplay();app.append(document.querySelector('.book-navigation'));film.remove();app.classList.remove('has-book-film');
         console.warn(error.message);return null;
       }
       const total = pages.length+1;
@@ -280,6 +283,9 @@
         originals[0].style.display=nativeCover?'block':'none';
         film.dataset.nativeLayer=phase.kind==='cover'?'cover':phase.kind==='read'?'page':'scene';
         if(coverAction)coverAction.hidden=phase.kind!=='cover';
+        const atEnd=phase.kind==='read'&&phase.index===pages.length-1&&isGiftUnlocked();
+        app.classList.toggle('at-book-end',atEnd);
+        if(replayAction)replayAction.hidden=!atEnd||!!navigationIntent?.replay;
         let scale=readingScale,camX=mobile?-width*scale/2:0,rx=visual?1.4:0,rz=0,coverLift=-6;
         // A visible print child can override its parent's visibility in WebKit.
         // Remove the entire decorative curl from painting while at rest.
@@ -380,6 +386,7 @@
         if(modalTime!==null)return;
         if(!isGiftUnlocked()&&candlePhase&&labels[label]>candleStop){label='leaf-'+candlePhase.index;complete=null;}
         const labelTime=labels[label];if(labelTime===undefined)return;
+        if(replay&&replayAction)replayAction.hidden=true;
         if(animate&&navigationLabel===label&&scrollTween)return;
         cancelNavigation();
         const readingPhase=label==='cover'?null:phases.find(p=>p.kind==='read'&&labelTime>=p.start&&labelTime<p.end);
@@ -478,6 +485,7 @@
           sources.forEach(({section,article})=>{section.querySelector('.page-seat').replaceChildren(article);section.classList.remove('film-chapter');});
           originals.forEach(s=>{s.inert=false;s.removeAttribute('aria-hidden');s.style.removeProperty('visibility');s.style.removeProperty('opacity');s.style.removeProperty('display');app.append(s);});
           if(coverAction){coverAction.classList.remove('cover-open-action');coverAction.hidden=false;coverActionHome.append(coverAction);}
+          restoreReplay();
           app.append(document.querySelector('.book-navigation'));film.remove();app.classList.remove('has-book-film');
         }
       };

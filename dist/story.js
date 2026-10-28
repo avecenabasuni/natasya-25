@@ -164,6 +164,10 @@
       bind('open-trier',()=>showTrip(c));dayPrompts.forEach((_,i)=>bind('open-day-'+i,()=>showDay(c,i)));
       bind('birthday-candle',toggleCandle);
       bind('open-distance',()=>showLong('From here, for you','From afar.',c.distanceNote));bind('open-letter',()=>showLong('Your birthday letter','For '+esc(c.name)+'.',c.letter||prompts.letter));bind('open-birthday-note',()=>showLong('2 November','Happy birthday.',c.wishes[2]||prompts.wish));bind('open-gift',()=>{if(!candleBlown){go('gift',true);return;}showGift(c);});
+      const replayAction=app.querySelector('.replay-link');
+      app.querySelector('.open-book').classList.add('book-endpoint-action');
+      replayAction.classList.add('book-endpoint-action');replayAction.querySelector('.ui-icon')?.remove();
+      replayAction.closest('.page-seat').append(replayAction);
       app.querySelectorAll('.real-memory img,.fragment-image img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;if(!img.parentElement.querySelector('.image-error'))img.parentElement.insertAdjacentHTML('beforeend','<span class="image-error">This photo could not be loaded.</span>');},{once:true}));
       app.querySelectorAll('.cake-art').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;img.parentElement.querySelector('.cake-art-error').hidden=false;},{once:true}));
       app.querySelectorAll('a[href^="#"]').forEach(a=>a.onclick=e=>{e.preventDefault();if(film&&a.classList.contains('open-book'))film.open(e.detail===0);else if(film&&a.classList.contains('replay-link'))film.replay(e.detail===0);else go(a.hash.slice(1),e.detail===0);});
