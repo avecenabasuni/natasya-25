@@ -1,4 +1,68 @@
-# Validation: continuous touch halos, V63
+# Validation: immediate halos and heated blanket gift, V64
+
+28 October 2026. Status: PASS, no unresolved finding. 133/133 focused checks: fast-halo cases total79 (WebKit375×667:19, WebKit375×520:18, Chromium375×667:18, native fallback:19, reduced/native:5); gift cases total54 (WebKit667:14, WebKit520:13, native fallback:13, reduced/native:14).
+
+The previous delay stacked navigation scroll interruptions, a 660 ms queued refresh, another 650 ms minimum wait and a 400 ms fade from zero. Ready-right entry now schedules the next animation frame, paints a visible initial strength0.55, and reaches full strength over140 ms. Navigation's programmatic scroll no longer renews a cooldown. Short40 ms retries handle manual touch settlement without requiring another page-phase change. The continuous3600 ms orbit and staggered targets remain.
+
+Instrumented actual navigation, revisits and the seven-object page produce the first positive cue on the first observed ready frame in every final case (frameDelta0). Tests record no long intentional ready timeout and no prior object input. Multiple laps retain their run, with one contour repaint per callback and no full book-pose updates. Left/pan/turn states remain clear; reader opening cancels loops and locks the book, and closing resumes automatically. Reduced motion remains static. This measures browser callbacks/render state, not a physical display's latency or hardware frame rate.
+
+The final pocket now reads “For chilly evenings / Heated blanket,” with a personal English reader about cold Trier evenings and pickup at the Amazon collection point near her WG. No pickup address, availability, date or code is invented. Euro value, voucher placeholder, copy and redemption actions are removed. Owner editing no longer has a voucher field; importing and exporting a legacy test config drops that retired field while preserving personal writing.
+
+Gift text fits the physical card at375×667/520, the card still extracts into its reader, the candle prerequisite still unlocks the ending, book scrolling stays locked through the reader and closure leaves no flight/mask residue. A single final replay visibly turns the pages and closes the cover. Root visually reviewed the first-ready map, final gift page and gift reader. All final cases have no JavaScript/shader errors or horizontal overflow.
+
+Evidence: qa/v64/fast-halos.py, gift-check.py, all nine final reports, independent-summary.json, final-scope-summary.json, screenshots, frame traces and source-preservation.json. 131/139 distribution files remain byte-identical. Eight files change: discovery entry scheduling, a safe optional navigation-tween read, gift story/config/editor, two gift layout styles and cache references. All media, maps, fonts, audio, cat notes, Three renderer/masks, book geometry/clock and hosting configuration remain. Earlier broad suites are historical.
+
+Limits: software WebKit/Chromium touch-mode testing does not certify physical iPhone Safari, FPS or VoiceOver. Slow software Chromium sampling limits wall-time conclusions. Initial gift harness reports used unsupported mobile-WebKit mouse wheel input; they are preserved as historical, and final supported PageDown scroll-lock checks pass without any application change for that harness issue.
+
+### V64 Antislop delivery gate
+
+- R-01 PASS: localized halos provide the requested immediate touch discoverability.
+- R-02 PASS: no em dash added to product copy.
+- R-03 PASS: gift/card/reader fit and horizontal bounds pass at both phone heights and fallback paths.
+- R-04 PASS: no new icons added.
+- R-05 PASS: original scrapbook compositions retained.
+- R-06 PASS: local fonts and their identity remain; gift title fits with existing type.
+- R-07 PASS: paper/linen materials unchanged.
+- R-08 PASS: functional left/right navigation and replay retained.
+- R-09 PASS: no badges or repeated tap labels added.
+- R-10 PASS: no glass surfaces added.
+- R-11 PASS: existing paper/subject contours and corners retained.
+- R-12 PASS: existing physical shadows retained.
+- R-13 PASS: emphasis belongs only to current interactive keepsakes.
+- R-14 PASS: no replacement cards or grids added.
+- R-15 PASS: existing “Open your gift” now opens the actual heated blanket note.
+- R-16 PASS: new copy is plain personal English, with no marketing claims.
+- R-17 PASS: gift facts come from the owner's message; QA numbers come from final reports.
+- R-18 PASS: no identity or testimonial added.
+- R-19 PASS: entry removes stacked waits while the requested unlimited loop and motion gates remain.
+- R-20 PASS: Trier/WG context and personal gift make the ending specific.
+- R-21 PASS: selected light/pink scrapbook retained.
+- R-22 PASS: all image bytes retained; no invented product photo added.
+- R-23 PASS: gift wording follows the supplied purchase; unprovided pickup details are omitted.
+- R-24 PASS: retired redemption links removed; remaining reader/candle/replay destinations pass.
+- R-25 PASS: color/focus tokens unchanged; new gift print and reader use the existing accessible ink/paper pair.
+- R-26 PASS: actual navigation, gift tap, candle, closure, replay and owner import/export pass.
+- R-27 PASS: native and reduced paths retain working content and static affordances.
+- R-28 PASS: no filler section added.
+- R-29 PASS: original rose/mauve highlight palette retained.
+- R-30 PASS: original scrapbook composition retained; Photos reference remains a localized contour gesture.
+- R-31 PASS: immediate entry, settlement retries and factual gift treatment documented in DESIGN.md.
+- R-32 PASS: no hover required; inert overlays and keyboard/dialog controls retained.
+- R-33 PASS: tracked application changes use apply_patch.
+- R-34 PASS: no extra theme or presentation mode added.
+- R-35 PASS: 133 focused browser checks, five JavaScript syntax checks and diff whitespace checks pass.
+- R-36 PASS: callback/frame evidence is explicitly distinguished from physical-device performance.
+- R-37 PASS: Antislop during3/3/3 and Taste8/9/5 retained.
+- R-38 PASS: the supplied heated blanket order replaces the retired gift; unknown pickup information is not fabricated.
+- Liveliness PASS: original focal objects, whitespace, pink material motif and continuous contour gesture retained.
+- C-1 PASS: removal of stacked waits resolves the demonstrated entry delay; the ending reflects the actual gift.
+- C-2 PASS: focused real-input checks cover changed actions and retained prerequisites.
+- C-3 PASS: the physical pocket carries the personal gift note without extra filler.
+- C-4 PASS: touch, revisits, short viewport, modal return, native/reduced and legacy settings paths pass.
+- C-5 PASS: order facts, measured callback evidence and software limits are explicit.
+- Taste preflight PASS: root reviewed phone gift typography, physical pocket/reader, first-ready map and existing visual direction.
+
+# Historical validation: continuous touch halos, V63
 
 28 October 2026. Status: PASS, no unresolved finding. 56/56 focused checks: WebKit touch mode 375 × 667 (17), WebKit 375 × 520 (13), Chromium touch mode 375 × 667 (13), native CSS fallback (8), and reduced/native (5).
 

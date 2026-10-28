@@ -33,13 +33,13 @@
   const safeImage=v=>typeof v==='string'&&(/^assets\/[a-zA-Z0-9._/-]+$/.test(v)||/^https:\/\//.test(v)||/^data:image\/(jpeg|png|webp);base64,[a-zA-Z0-9+/=]+$/.test(v))?v:'';
   const safeSongLink=v=>{try{const url=new URL(v);return url.protocol==='https:'?url.href:'';}catch{return '';}};
   async function preparePrintFonts(value){
-    const sample=[value.name,value.sender,'Trier Luxembourg October November €25'].join(' ');
+    const sample=[value.name,value.sender,'Trier Luxembourg October November Heated blanket'].join(' ');
     await Promise.allSettled(['500 32px Fraunces','400 16px "Source Sans 3"'].map(font=>document.fonts.load(font,sample)));
     await document.fonts.ready;
   }
   function normalize(c){
     const out=structuredClone(defaults);
-    for(const k of ['name','sender','intro','dedication','distanceNote','letter','voucherCode'])if(typeof c?.[k]==='string')out[k]=c[k].slice(0,k==='letter'?15000:['intro','dedication','distanceNote'].includes(k)?4000:120);
+    for(const k of ['name','sender','intro','dedication','distanceNote','letter'])if(typeof c?.[k]==='string')out[k]=c[k].slice(0,k==='letter'?15000:['intro','dedication','distanceNote'].includes(k)?4000:120);
     for(const k of ['photos','germanyPhotos'])if(Array.isArray(c?.[k]))out[k]=defaults[k].map((_,i)=>safeImage(c[k][i]));
     for(const k of ['captions','germanyCaptions','littleThings','wishes'])if(Array.isArray(c?.[k]))out[k]=defaults[k].map((_,i)=>typeof c[k][i]==='string'?c[k][i].slice(0,1200):defaults[k][i]);
     for(const a of artists)if(typeof c?.artistNotes?.[a]==='string')out.artistNotes[a]=c.artistNotes[a].slice(0,2000);
@@ -50,7 +50,7 @@
     for(const k of Object.keys(recentExamples))if(out[k]===recentExamples[k])out[k]=defaults[k];
     for(const a of artists)if(out.artistNotes[a]===oldArtistExamples[a])out.artistNotes[a]=defaults.artistNotes[a];
     if(out.name==='[Panggilan dia]')out.name=defaults.name;if(out.sender==='[Namamu]')out.sender=defaults.sender;
-    out.voucherCode=out.voucherCode.trim();out.name=out.name.trim()||defaults.name;out.sender=out.sender.trim()||defaults.sender;return out;
+    out.name=out.name.trim()||defaults.name;out.sender=out.sender.trim()||defaults.sender;return out;
   }
   function database(){return new Promise(resolve=>{let r;try{r=indexedDB.open('little-world-birthday',1)}catch{return resolve(null)}r.onupgradeneeded=()=>r.result.createObjectStore('settings');r.onsuccess=()=>resolve(r.result);r.onerror=r.onblocked=()=>resolve(null)});}
   function read(){return new Promise(resolve=>{if(!db)return resolve(null);try{const r=db.transaction('settings').objectStore('settings').get('config');r.onsuccess=()=>resolve(r.result||null);r.onerror=()=>resolve(null)}catch{resolve(null)}});}
@@ -62,7 +62,7 @@
     if(window.ScrapbookObjectReader){objectReader??=window.ScrapbookObjectReader.create({dialog:d,closeIcon:()=>icon('close')});objectReader.open(html,options);return;}
     d.innerHTML=`<button class="dialog-close icon-button" id="close-note-dialog" aria-label="Close dialog">${icon('close')}</button>${html}`;if(!d.open)d.showModal();$('#close-note-dialog').onclick=()=>modalLock.close(d);
   }
-  function snapshot(){const f=$('#settings-form');if(!f)return;const data=new FormData(f);for(const k of ['name','sender','intro','dedication','distanceNote','letter','voucherCode'])draft[k]=String(data.get(k)||'');draft.memorableSong={title:String(data.get('memorable-song-title')||''),artist:String(data.get('memorable-song-artist')||''),url:String(data.get('memorable-song-url')||'')};for(let i=0;i<6;i++){draft.captions[i]=String(data.get('caption-'+i)||'');draft.littleThings[i]=String(data.get('detail-'+i)||'');}for(let i=0;i<4;i++)draft.germanyCaptions[i]=String(data.get('germanyCaption-'+i)||'');for(let i=0;i<3;i++)draft.wishes[i]=String(data.get('wish-'+i)||'');}
+  function snapshot(){const f=$('#settings-form');if(!f)return;const data=new FormData(f);for(const k of ['name','sender','intro','dedication','distanceNote','letter'])draft[k]=String(data.get(k)||'');draft.memorableSong={title:String(data.get('memorable-song-title')||''),artist:String(data.get('memorable-song-artist')||''),url:String(data.get('memorable-song-url')||'')};for(let i=0;i<6;i++){draft.captions[i]=String(data.get('caption-'+i)||'');draft.littleThings[i]=String(data.get('detail-'+i)||'');}for(let i=0;i<4;i++)draft.germanyCaptions[i]=String(data.get('germanyCaption-'+i)||'');for(let i=0;i<3;i++)draft.wishes[i]=String(data.get('wish-'+i)||'');}
   function photoForm(kind,i){const isTrip=kind==='germanyPhotos',cap=isTrip?'germanyCaptions':'captions',field=isTrip?'germanyCaption-':'caption-';return `<div class="photo-form"><img id="${kind}-preview-${i}" src="${esc(draft[kind][i]||'assets/illustrations/postcard.webp')}" alt="${draft[kind][i]?'Preview of '+(isTrip?'October photo':'memory photo')+' '+(i+1):'No photo added; postcard illustration'}"><div><label>${isTrip?trip.days[i].date+' · '+trip.days[i].place:'Memory photo '+(i+1)}<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-kind="${kind}" data-photo-index="${i}"></label><label><span class="visually-hidden">Story for ${isTrip?'October photo':'memory photo'} ${i+1}</span><textarea name="${field+i}" maxlength="1200" placeholder="The story behind this photo">${esc(draft[cap][i])}</textarea></label><button class="plain-button remove-photo" type="button" data-remove="${kind}" data-index="${i}">Remove photo</button></div></div>`;}
   function renderSettings(){
     const d=$('#personalize-dialog');
@@ -77,9 +77,8 @@
     <h3>Our song</h3><label class="settings-field">Song title<input name="memorable-song-title" value="${esc(draft.memorableSong.title)}" maxlength="180"></label><label class="settings-field">Artist<input name="memorable-song-artist" value="${esc(draft.memorableSong.artist)}" maxlength="180"></label><label class="settings-field">Listening link<input type="url" pattern="https://.*" name="memorable-song-url" value="${esc(draft.memorableSong.url)}" maxlength="1000" placeholder="https://..."></label>
     <h3>What you want to keep</h3><label class="settings-field">A note after four days<textarea name="letter" rows="8" maxlength="15000" placeholder="One thing from your time together you want to keep, and why.">${esc(draft.letter)}</textarea></label>
     <h3>The 2 November ending</h3><p class="settings-hint">Your birthday wish appears on the final page. The other two notes are also saved.</p>${['Places you want to visit','Things you want to try','Your wish for her on 2 November'].map((label,i)=>`<label class="settings-field">${label}<textarea name="wish-${i}" maxlength="1200" placeholder="Connect it to something she really wants.">${esc(draft.wishes[i])}</textarea></label>`).join('')}
-    <h3>Gift · €25</h3><label>Amazon.de voucher code<input name="voucherCode" value="${esc(draft.voucherCode)}" maxlength="120" autocomplete="off" placeholder="Add after purchasing the voucher"></label><p class="settings-hint">Leave blank until you have a real code. This website does not purchase vouchers.</p>
     <div class="settings-actions"><button class="primary-button" type="submit">Save on this device</button><button class="secondary-button" type="button" id="cancel-settings">Cancel</button></div></form>
-    <div class="settings-export"><button class="secondary-button" id="export-config">${icon('download')}Download personalisation</button><label class="import-label">Import personalisation<input type="file" accept="application/json,.json" id="import-config"></label></div><p class="settings-hint">The file includes your photos, messages and any voucher code you add.</p><button class="plain-button" id="restore-defaults">Restore shared defaults</button></div>`;
+    <div class="settings-export"><button class="secondary-button" id="export-config">${icon('download')}Download personalisation</button><label class="import-label">Import personalisation<input type="file" accept="application/json,.json" id="import-config"></label></div><p class="settings-hint">The file includes your photos and personal messages.</p><button class="plain-button" id="restore-defaults">Restore shared defaults</button></div>`;
     $('[data-close]',d).onclick=()=>modalLock.close(d);$('#cancel-settings').onclick=()=>modalLock.close(d);
     const importer=$('.import-label',d);importer.tabIndex=0;importer.setAttribute('role','button');importer.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('#import-config').click();}};
     $('#settings-form').onsubmit=async e=>{e.preventDefault();if(uploads){toast('Wait for the photo to finish processing.');return;}snapshot();config=normalize(draft);const saved=await persist(config);await preparePrintFonts(config);modalLock.close(d);story.refresh();toast(saved?'Personalisation saved on this device.':'Personalisation is active for this session. Download a backup to keep it.');};

@@ -7,7 +7,7 @@
     const listeners=[],media=matchMedia('(prefers-reduced-motion: reduce)');
     const css=getComputedStyle(document.documentElement),rgb=(name,fallback)=>{const hex=css.getPropertyValue(name).trim();return /^#[\da-f]{6}$/i.test(hex)?hex.slice(1).match(/../g).map(v=>parseInt(v,16)):fallback;};
     const tint=rgb('--object-glint',[156,85,119]),shift=rgb('--object-glint-shift',[134,112,159]);
-    let pending=null,active=null,timer=0,frame=0,quietUntil=0,destroyed=false,blurred=false,count=0;
+    let pending=null,active=null,timer=0,frame=0,destroyed=false,blurred=false,count=0;
     const listen=(target,type,fn,options)=>{target.addEventListener(type,fn,options);listeners.push(()=>target.removeEventListener(type,fn,options));};
     const status=(value,key='')=>{app.dataset.discoveryState=value;app.dataset.discoveryObject=key;};
     function readingPosition(){
@@ -88,7 +88,7 @@
     function tick(now){
       if(!active)return;
       const position=readingPosition();if(!position||pageKey(position)!==active.page){stop();return;}
-      const elapsed=Math.max(0,now-active.started),phase=elapsed/3600,amount=smooth(elapsed/400);
+      const elapsed=Math.max(0,now-active.started),phase=elapsed/3600,amount=.55+.45*smooth(elapsed/140);
       const items=active.items.map((item,i)=>({key:item.key,amount,progress:(phase+i*.173)%1}));
       app.dataset.discoveryProgress=items[0].progress.toFixed(4);app.dataset.discoveryLap=String(Math.floor(phase));
       if(active.scene){if(!onLift?.({items})){stop();return;}}
@@ -96,30 +96,36 @@
       frame=requestAnimationFrame(tick);
     }
     function start(){
-      timer=0;const items=available();
+      timer=frame=0;const items=available();
       if(!pending||!items.length||items.map(item=>item.id).join(',')!==pending){stop();refresh();return;}
-      if(performance.now()<quietUntil){timer=setTimeout(start,quietUntil-performance.now());return;}
-      pending=null;active={items,page:pageKey(readingPosition()),started:performance.now()};active.scene=!!onLift?.({items:items.map((item,i)=>({key:item.key,amount:0,progress:i*.173%1}))});
-      if(!active.scene)items.forEach(item=>item.native=nativeGlint(item));
+      pending=null;active={items,page:pageKey(readingPosition()),started:performance.now()};active.scene=!!onLift?.({items:items.map((item,i)=>({key:item.key,amount:.55,progress:i*.173%1}))});
+      if(!active.scene)items.forEach((item,i)=>{item.native=nativeGlint(item);item.native?.paint(i*.173%1,.55);});
+      active.started=performance.now();
       status('playing',items.map(item=>item.key).join(','));app.dataset.discoveryRenderer=active.scene?'scene':'native';app.dataset.discoveryCount=String(++count);app.dataset.discoveryLap='0';frame=requestAnimationFrame(tick);
     }
     function refresh(){
       if(destroyed)return;const items=available();
       const signature=items.map(item=>item.id).join(',');
       if(active){if(signature===active.items.map(item=>item.id).join(','))return;stop();}
-      if(!items.length){if(pending)stop();return;}
+      if(!items.length){
+        if(pending)stop();const position=getPosition();
+        if(!blurred&&!media.matches&&!document.hidden&&!document.querySelector('dialog[open]')&&position?.kind==='read'&&!position.navigation&&!position.touchHeld&&position.settle)queue(40);
+        return;
+      }
       if(pending===signature)return;
-      stop();pending=signature;status('waiting');timer=setTimeout(start,Math.max(650,quietUntil-performance.now()));
+      stop();pending=signature;status('waiting');frame=requestAnimationFrame(start);
     }
     function interrupt(event){
-      stop();quietUntil=performance.now()+650;if(!document.hidden&&!media.matches&&!blurred)queue(660);
+      stop();if(document.hidden||media.matches||blurred)return;
+      const position=getPosition();if(event.type==='scroll'&&position?.navigation)return;
+      queue(event.type==='scroll'&&!app.querySelector('.book-film')?60:0);
     }
     const observer=new MutationObserver(refresh);observer.observe(app,{subtree:true,childList:true,attributes:true,attributeFilter:['data-phase','data-navigation','data-assets-ready']});
     const modals=new MutationObserver(refresh);modals.observe(document.body,{subtree:true,attributes:true,attributeFilter:['open']});
-    ['pointerdown','touchstart','keydown','wheel','scroll','resize'].forEach(type=>listen(window,type,interrupt,{passive:true,capture:true}));
+    ['pointerdown','touchstart','pointerup','touchend','touchcancel','keydown','wheel','scroll','resize'].forEach(type=>listen(window,type,interrupt,{passive:true,capture:true}));
     listen(window,'pointermove',event=>{if(active)interrupt(event);},{passive:true,capture:true});
     listen(window,'blur',()=>{blurred=true;stop();});
-    listen(window,'focus',()=>{blurred=false;quietUntil=performance.now()+650;refresh();});
+    listen(window,'focus',()=>{blurred=false;refresh();});
     listen(app,'book-graphics-fallback',interrupt,true);listen(app,'book-graphics-ready',refresh,true);
     listen(document,'visibilitychange',interrupt);listen(media,'change',interrupt);
     if(window.visualViewport)listen(visualViewport,'resize',interrupt,{passive:true});

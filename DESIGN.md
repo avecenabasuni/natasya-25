@@ -1,5 +1,13 @@
 # A little world, physical scrapbook
 
+## V64: immediate halos and a warmer birthday gift
+
+Design Read: retain the pink physical scrapbook, continuous Photos-inspired touch contours and existing English personal voice. The owner now gives a heated blanket ordered to an Amazon pickup near her WG in Trier, replacing the gift card. Preserve Antislop during 3/3/3 and Taste 8/9/5.
+
+Remove the cumulative scroll cooldown and second queued wait. Introduce the halo on the first ready reading frame at visible strength, then soften into full strength over 140 ms. Programmatic navigation scroll is not fresh user input; actual turns, left dividers, dialogs and touch-held/settling states still suppress the orbit. Retain the shared 3600 ms unlimited loop, colors, silhouettes and light contour-only rendering path. Brief settle retries handle a touch ending on an already-readable page without waiting for another phase mutation.
+
+Keep the final physical pocket and extraction motion, but print a heated-blanket keepsake instead of a euro value. Reveal a short personal note about chilly Trier evenings and factual pickup near her WG. Remove voucher-code, copy and redemption UI from reading and owner editing. Do not invent a pickup address, collection code, availability or date. Preserve the birthday candle prerequisite and matching replay action.
+
 ## V63: continuous, smooth touch halos
 
 Design Read: preserve the girlfriend's pink physical scrapbook and Photos-inspired object contours; make touch discovery continuous as explicitly requested. Retain Antislop during 3/3/3 and Taste 8/9/5, existing colors, materials, content, geometry and access.

@@ -2,7 +2,7 @@
 
 A personal birthday scrapbook made for a phone: a pink birthday-collage cover, hinged 3D board, paper pages, photographs, folded notes, five cats and racing/music/football keepsakes.
 
-The seven chapters follow the cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration and a gift. The trip is 22–25 October 2026; the birthday is 2 November 2026. The shared song is The One I Choose by Devin Velez. Other personal names, photographs, memories and the Amazon.de €25 gift code remain explicit placeholders until supplied.
+The seven chapters follow the cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration and a gift. The trip is 22–25 October 2026; the birthday is 2 November 2026. The shared song is The One I Choose by Devin Velez. The final gift is a heated blanket ordered for pickup at the Amazon collection point near her WG in Trier. Other personal names, photographs and memories remain explicit placeholders until supplied.
 
 ## Image-first cover
 
@@ -41,11 +41,11 @@ Edit shared defaults in [dist/config.js](dist/config.js), or use the editor to s
 - Buildless HTML/CSS/JavaScript with local Three.js, GSAP, Fraunces and Source Sans 3.
 - Pink + Sage paper materials, designed around 375 × 667, with shorter-screen, reduced-motion and graphics fallbacks.
 - Every spread opens on an image-based left divider; scroll or Next crosses to the right-hand keepsakes before turning the next sheet. Previous retraces both sides; replay reverses the pans and page turns before closing the cover.
-- Every tappable keepsake has a soft rose/mauve halo before touch. Glints continuously circle the current objects on a shared 3.6-second clock with staggered positions and no pause between laps. Decorative stickers/dividers stay unmarked, movement or a reader suspends the loop, and reduced motion keeps the static colored halo.
+- Every tappable keepsake has a soft rose/mauve halo before touch. Glints appear on the first ready reading frame, then continuously circle the current objects on a shared 3.6-second clock with staggered positions and no pause between laps. Decorative stickers/dividers stay unmarked, movement or a reader suspends the loop, and reduced motion keeps the static colored halo.
 - “Open the book” and “Read from the cover” share one button style and stage-bottom position. The final action sits outside the printed gift page, with Previous page reachable beside it; native reading places it beneath the gift sheet.
 - Tap keepsakes to open them from their paper source; drag down, use Escape or the close button to dismiss.
 - Important personal notes stay folded until opened. Long reader content scrolls independently while the book stays held through the full closing motion.
-- The birthday melody follows the candle; extinguishing it unlocks the final Amazon.de gift.
+- The birthday melody follows the candle; extinguishing it unlocks the heated blanket gift note. The card still extracts from its pink pocket; there is no voucher code or redemption action.
 - Native semantic text and focus controls accompany the scene. Software-browser evidence does not certify physical iPhone GPU performance.
 
 Offscreen page printing uses fixed coordinates while images load, so turning the visible book cannot shift its prepared text or attachments. Viewport changes wait for page preparation and navigation to settle before rebuilding. Failed image requests can retry on a later rebuild, and interrupted graphics preparation falls back to a usable CSS book.

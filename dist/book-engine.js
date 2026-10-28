@@ -486,7 +486,7 @@
         freeze:()=>visual?.captureFrame?.()||null,
         getPosition(){
           const phase=phases[phaseCursor],page=pages[phase.index];
-          const intent=navigationIntent?{...navigationIntent,durationLeft:Math.max(.35,scrollTween.duration()-scrollTween.time())}:resumeIntent;
+          const intent=navigationIntent?{...navigationIntent,durationLeft:Math.max(.35,(scrollTween?.duration()||0)-(scrollTween?.time()||0))}:resumeIntent;
           return {kind:phase.kind,progress:clamp((playhead.time-phase.start)/(phase.end-phase.start)),chapter:page?chapters[page.chapter][0]:'cover',part:page?.part||1,side:currentSide,navigation:intent,settle:userSettle,touchHeld};
         },
         resume(position){

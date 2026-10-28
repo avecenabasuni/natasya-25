@@ -9,7 +9,6 @@ window.BIRTHDAY_CONFIG = {
   distanceNote: "",
   wishes: ["", "", ""],
   letter: "",
-  voucherCode: "",
   photos: ["", "", "", "", "", ""],
   captions: ["", "", "", "", "", ""],
   germanyPhotos: ["", "", "", ""],

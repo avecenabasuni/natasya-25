@@ -52,8 +52,8 @@
 .reader-cat-family .pet-name{font-size:11px}
 .reader-cat-family .pet-portrait{width:100%;height:auto;aspect-ratio:var(--portrait-ratio,.62)}
 .object-reader .reader-soundtrack{margin:20px 0}
-.reader-coupon{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;min-height:128px;margin:24px 0;padding:18px 16px;background:var(--paper);border:1px solid var(--control-line);box-shadow:1px 2px 3px #301e2a18;font:400 18px/1.4 var(--display)}
-.reader-coupon strong{font:500 36px/1 var(--serif)}
+.reader-coupon{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;min-height:128px;margin:24px 0;padding:18px 16px;background:var(--paper);border:1px solid var(--control-line);box-shadow:1px 2px 3px #301e2a18;font:400 18px/1.4 var(--display)}
+.reader-coupon strong{font:500 32px/1.15 var(--serif);letter-spacing:-.025em}
 .reader-letter .note-dialog-copy,.reader-birthday-card .note-dialog-copy{margin:22px 0;font:400 20px/1.65 var(--serif)}
 .reader-letter .reader-salutation,.reader-birthday-card .reader-salutation{font:400 17px/1.5 var(--display);margin:0;padding-right:28px}
 .reader-letter .reader-signoff,.reader-birthday-card .reader-signoff{font:400 16px/1.5 var(--display);margin-top:24px}
