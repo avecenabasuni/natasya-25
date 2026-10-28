@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V65: one last note to accompany the blanket
+
+Design Read: preserve the pink physical scrapbook and its folded keepsakes, with a personal birthday ending for a gift that arrived before 2 November. Retain Antislop during 3/3/3 and Taste 8/9/5. The owner approved the exact short English note about cold evenings at her WG in Trier, wishing he could wrap her up himself, and “Happy 25th, love.”
+
+Mark the final envelope “One last note” with an “Open the note” action. Keep the message concealed until opened. Remove product-reveal language and all Amazon/pickup/order logistics from the visitor experience. The card, Contents label, image divider caption, accessible label and candle guidance should identify the same closing note. Keep the existing pocket extraction, candle prerequisite, instant continuous halos and full return-to-cover motion; internal gift/coupon selectors remain implementation details. The compact reader header becomes a dated note title followed by the approved message, without adding another gift panel or new artwork.
+
 ## V64: immediate halos and a warmer birthday gift
 
 Design Read: retain the pink physical scrapbook, continuous Photos-inspired touch contours and existing English personal voice. The owner now gives a heated blanket ordered to an Amazon pickup near her WG in Trier, replacing the gift card. Preserve Antislop during 3/3/3 and Taste 8/9/5.

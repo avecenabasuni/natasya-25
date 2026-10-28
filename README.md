@@ -2,7 +2,7 @@
 
 A personal birthday scrapbook made for a phone: a pink birthday-collage cover, hinged 3D board, paper pages, photographs, folded notes, five cats and racing/music/football keepsakes.
 
-The seven chapters follow the cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration and a gift. The trip is 22–25 October 2026; the birthday is 2 November 2026. The shared song is The One I Choose by Devin Velez. The final gift is a heated blanket ordered for pickup at the Amazon collection point near her WG in Trier. Other personal names, photographs and memories remain explicit placeholders until supplied.
+The seven chapters follow the cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration and one last note. The trip is 22–25 October 2026; the birthday is 2 November 2026. The shared song is The One I Choose by Devin Velez. The final envelope carries a personal birthday message to accompany her blanket, with no delivery or pickup details. Other personal names, photographs and memories remain explicit placeholders until supplied.
 
 ## Image-first cover
 
@@ -45,7 +45,7 @@ Edit shared defaults in [dist/config.js](dist/config.js), or use the editor to s
 - “Open the book” and “Read from the cover” share one button style and stage-bottom position. The final action sits outside the printed gift page, with Previous page reachable beside it; native reading places it beneath the gift sheet.
 - Tap keepsakes to open them from their paper source; drag down, use Escape or the close button to dismiss.
 - Important personal notes stay folded until opened. Long reader content scrolls independently while the book stays held through the full closing motion.
-- The birthday melody follows the candle; extinguishing it unlocks the heated blanket gift note. The card still extracts from its pink pocket; there is no voucher code or redemption action.
+- The birthday melody follows the candle; extinguishing it unlocks “One last note.” Its message stays hidden until the envelope is opened, and its card extracts from the pink pocket.
 - Native semantic text and focus controls accompany the scene. Software-browser evidence does not certify physical iPhone GPU performance.
 
 Offscreen page printing uses fixed coordinates while images load, so turning the visible book cannot shift its prepared text or attachments. Viewport changes wait for page preparation and navigation to settle before rebuilding. Failed image requests can retry on a later rebuild, and interrupted graphics preparation falls back to a usable CSS book.

@@ -7,7 +7,7 @@
     october:{frame:[888,0,445,590],title:['Moments','to keep.'],alt:'Two empty Polaroid mounts, a pink ribbon and a pressed daisy.'},
     letter:{frame:[0,590,444,590],title:['For you,','folded in.'],alt:'A folded envelope and five decorative cat cutouts, surrounded by flowers and paper hearts.'},
     birthday:{frame:[444,590,444,590],title:['Twenty-five.'],alt:'A pink birthday cake with a candle and silver balloons spelling 25.'},
-    gift:{frame:[888,590,445,590],title:['A little','something.'],alt:'A sealed pink envelope with a ribbon, a heart stamp and a little brass key.'}
+    gift:{frame:[888,590,445,590],title:['One last','note.'],alt:'A sealed pink envelope with a ribbon, a heart stamp and a little brass key.'}
   };
   function create(id){
     const entry=entries[id]||entries.dedication,[x,y,w,h]=entry.frame;

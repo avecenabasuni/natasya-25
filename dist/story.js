@@ -3,7 +3,7 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const glyphs={close:'x',settings:'pencil-simple',mute:'speaker-slash',sound:'speaker-high',download:'download-simple',gift:'gift',arrow:'arrow-right',back:'arrow-left',copy:'copy',music:'music-notes',book:'book-open'};
   const trip=window.SCRAPBOOK_TRIP;
-  const chapters=[['cover','Cover'],['dedication','Trier & Luxembourg'],['your-world',trip.shortDates],['october','Photographs'],['letter','Notes'],['birthday','2 November'],['gift','Your gift']];
+  const chapters=[['cover','Cover'],['dedication','Trier & Luxembourg'],['your-world',trip.shortDates],['october','Photographs'],['letter','Notes'],['birthday','2 November'],['gift','One last note']];
   const aliases={'little-things':'your-world','soundtrack-a':'your-world','soundtrack-b':'your-world',moments:'october',closer:'october','next-chapter':'letter'};
   const cats=[
     {name:'Winnie',coat:'Orange.',birthdayNote:"Your chubby, lazy, food-loving second favourite. I’m here for your 25th, preferably lying down and close to something to eat."},
@@ -112,8 +112,8 @@
       openDialog(`<p class="dialog-label">Things I want to keep</p><h2>About you.</h2><div class="personal-note-list">${notes.map(n=>`<article><h3>${n.label}</h3><div class="prose">${paragraphs(n.text)}</div></article>`).join('')}</div>`);
     }
     function showGift(){
-      if(!candleBlown){go('birthday',true);toast('Blow out the candle to open your gift.');return;}
-      openDialog(`<div class="reader-coupon"><span class="coupon-heading">A little warmth, from me.</span><strong class="coupon-amount">Heated blanket</strong></div><p class="dialog-label">Your birthday gift</p><h2>For your Trier evenings.</h2><div class="note-dialog-copy"><p>I ordered you a heated blanket for the evenings when Trier gets cold. Something to curl up in when I can't be there beside you.</p><p>It's for pickup at the Amazon collection point near your WG in Trier.</p></div>`);
+      if(!candleBlown){go('birthday',true);toast('Blow out the candle to open the last note.');return;}
+      openDialog(`<div class="reader-coupon"><span class="coupon-heading">2 November 2026</span><h2>One last note.</h2></div><div class="note-dialog-copy"><p>For the cold evenings at your WG in Trier.</p><p>I wish I could be there to wrap you up myself. Until then, this one’s from me.</p><p>Happy 25th, love.</p></div>`);
     }
     const candleCaption=()=>!candleLit?'Make a wish.':candleBlown?'Tap the candle':'Tap to blow out the candle.';
     function syncGiftGate(){
@@ -153,7 +153,7 @@
         ${sheet('october','One photograph',`${hero}${copy(distance.text,prompts.scene,'distance-excerpt')}${distance.truncated?`<div class="story-actions">${action('open-distance','Read the note','book','distance')}</div>`:''}`,'together-chapter')}
         ${sheet('letter','A note, folded in',`<button class="letter-excerpt folded-letter closed-note" id="open-letter" data-book-object="note" data-note-closed="true" aria-label="Unfold your personal note" aria-haspopup="dialog" aria-controls="map-dialog"><span class="note-fold-edge" aria-hidden="true"></span><span class="closed-note-title">For you.</span><span class="closed-note-action">Unfold the note ${icon('book')}</span></button>${catFamily}${soundtrack}`,'short-letter-chapter')}
         ${sheet('birthday','Happy 25th.',`<p class="birthday-addressee">For ${esc(c.name)},</p>${cake()}<button class="birthday-wish-note closed-note" id="open-birthday-note" data-book-object="wish" data-note-closed="true" aria-label="Unfold your birthday card" aria-haspopup="dialog" aria-controls="map-dialog"><span class="note-fold-edge" aria-hidden="true"></span><span class="closed-note-title">A birthday wish.</span><span class="closed-note-action">Open the card ${icon('book')}</span></button>`,'birthday-cake-chapter')}
-        ${sheet('gift','A little warmth, from me.',`<div class="gift-ending"><button class="birthday-keepsake voucher-coupon pocket-gift" id="open-gift" data-book-object="gift" aria-label="Open your heated blanket gift" aria-haspopup="dialog" aria-controls="map-dialog"><span class="coupon-ink coupon-card"><span class="coupon-heading">For chilly evenings</span><strong class="coupon-amount">Heated blanket</strong></span><span class="gift-pocket-front"><span class="pocket-label">For you</span><span class="pocket-open">Open your gift ${icon('arrow')}</span></span></button><a class="replay-link" href="#cover">Read from the cover ${icon('back')}</a></div>`,'ending-chapter gift-chapter')}
+        ${sheet('gift','A little warmth, from me.',`<div class="gift-ending"><button class="birthday-keepsake voucher-coupon pocket-gift" id="open-gift" data-book-object="gift" aria-label="Open one last note" aria-haspopup="dialog" aria-controls="map-dialog"><span class="coupon-ink coupon-card"><span class="coupon-heading">For your Trier evenings</span><strong class="coupon-amount">With love.</strong></span><span class="gift-pocket-front"><span class="pocket-label">One last note</span><span class="pocket-open">Open the note ${icon('arrow')}</span></span></button><a class="replay-link" href="#cover">Read from the cover ${icon('back')}</a></div>`,'ending-chapter gift-chapter')}
         <nav class="book-navigation" aria-label="Book navigation"><button id="previous-page" class="icon-button" aria-label="Previous page">${icon('back')}</button><button id="book-contents"><span id="current-chapter" aria-live="polite" aria-atomic="true">Cover</span><span id="page-position">1 / ${chapters.length}</span></button><button id="next-page" class="icon-button" aria-label="Next page">${icon('arrow')}</button></nav>`;
       const bind=(id,fn)=>{const b=document.getElementById(id);if(b)b.onclick=event=>withObject(event.target.closest('[data-book-object]')||event.currentTarget,()=>fn(event),event.detail>0);};
       app.querySelector('.cover-collage-art')?.addEventListener('error',event=>{event.target.hidden=true;const front=event.target.closest('.book-front');front.classList.add('cover-art-unavailable');front.querySelector('.cover-art-fallback').hidden=false;},{once:true});
@@ -238,7 +238,7 @@
       apply();
     }
     function go(id,focus=false){
-      id=aliases[id]||id;if(id==='gift'&&!candleBlown){id='birthday';toast('Blow out the candle to open your gift.');}
+      id=aliases[id]||id;if(id==='gift'&&!candleBlown){id='birthday';toast('Blow out the candle to open the last note.');}
       const target=document.getElementById(id);if(!target)return;if(film){film.go(id,focus);return;}
       window.scrollTo({top:id==='cover'?0:target.getBoundingClientRect().top+scrollY-82,behavior:focus||reduced()?'instant':'smooth'});const index=chapters.findIndex(c=>c[0]===id);setActive(index,index?nativePosition(index,'left'):null);
       if(focus)target.querySelector('h1,.divider-title,h2')?.focus({preventScroll:true});

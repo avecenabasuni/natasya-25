@@ -1,4 +1,64 @@
-# Validation: immediate halos and heated blanket gift, V64
+# Validation: one last personal note, V65
+
+28 October 2026. Status: PASS, no unresolved finding. 32/32 focused reading checks: WebKit375×667 (9), WebKit375×520 (8), native fallback667 (8), reduced/native520 (7).
+
+The final envelope, chapter/Contents label, divider caption, accessible action and candle guidance now identify “One last note.” The closed card reads “For your Trier evenings / With love.” The full message is concealed until the envelope is opened. The reader uses a compact dated title and the exact approved three-paragraph English message, ending “Happy 25th, love.” Product-reveal, Amazon, order and pickup language are absent from the visitor ending.
+
+Actual taps verify the candle prerequisite, hidden-before-opening message, pocket text fit, exact note content and accessible dialog title. The note still extracts through the existing card flight, fits both phone heights, holds book scroll and returns without flight/mask residue. The single replay action visibly turns the sheets and closes the cover. Root visually reviewed the final envelope and complete note at375×667. Every final case has no JavaScript errors or horizontal overflow.
+
+Evidence: qa/v65/last-note.py, four final reports/screenshots, independent-summary.json, final-scope-summary.json and source-preservation.json. 135/139 distribution files remain byte-identical. Only story copy, the shared divider caption, the compact title selector and cache references change. All images, fonts, audio, maps, cats, shared config, halo controller/renderer, book geometry/motion and hosting config remain unchanged. Earlier broad suites are historical.
+
+One initial harness assertion read inner_text() from the intentionally hidden final navigation label, returning an empty string. Its reports are preserved; final checks use the stored text_content() state label, with no application change for that harness correction. Browser evidence is software WebKit touch-mode, not a physical iPhone/FPS/VoiceOver certification.
+
+### V65 Antislop delivery gate
+
+- R-01 PASS: existing functional halos retained; no glow added.
+- R-02 PASS: new product copy contains no em dash.
+- R-03 PASS: note/card/reader fit and horizontal bounds pass at both phone heights and fallback paths.
+- R-04 PASS: existing navigation/book icons retained.
+- R-05 PASS: original physical scrapbook composition retained.
+- R-06 PASS: local fonts retained; dated note title uses the existing32px print style.
+- R-07 PASS: paper/linen materials unchanged.
+- R-08 PASS: functional page arrows and replay retained.
+- R-09 PASS: no badges or extra tap labels added.
+- R-10 PASS: no glass surfaces added.
+- R-11 PASS: original paper contours/corners retained.
+- R-12 PASS: existing physical contact shadows unchanged.
+- R-13 PASS: existing current-object emphasis retained.
+- R-14 PASS: existing envelope becomes the note; no extra gift panel or grid added.
+- R-15 PASS: “Open the note” names its actual action.
+- R-16 PASS: exact owner-approved personal English copy, with no marketing text.
+- R-17 PASS: birthday/date come from the brief; QA counts come from final reports.
+- R-18 PASS: no identity or testimonial added.
+- R-19 PASS: existing extraction, candle gate and complete reverse replay pass.
+- R-20 PASS: the approved Trier/WG message ties the ending to their actual situation.
+- R-21 PASS: selected light/pink scrapbook retained.
+- R-22 PASS: all images remain byte-identical.
+- R-23 PASS: the owner approved the exact note; no unprovided memory or logistics invented.
+- R-24 PASS: note/candle/replay destinations retain working actions.
+- R-25 PASS: ink/paper colors and focus styles unchanged; the note uses existing readable print styles.
+- R-26 PASS: actual note opening/closing, candle gate, scroll lock and replay pass.
+- R-27 PASS: native and reduced reading retain the full message and usable controls.
+- R-28 PASS: no filler section added.
+- R-29 PASS: palette unchanged.
+- R-30 PASS: the original scrapbook remains; no template or product-site layout added.
+- R-31 PASS: concealed note and coordinated visible labels documented in DESIGN.md.
+- R-32 PASS: dialog aria-labelledby resolves to the new semantic h2; inert overlays and keyboard controls retained.
+- R-33 PASS: tracked application changes use apply_patch.
+- R-34 PASS: no new theme or mode added.
+- R-35 PASS: 32 focused browser checks, two JavaScript syntax checks and diff whitespace checks pass.
+- R-36 PASS: software verification limits are explicit; no hardware performance claims.
+- R-37 PASS: Antislop during3/3/3 and Taste8/9/5 retained.
+- R-38 PASS: exact approved message replaces delivery/product details without invented facts.
+- Liveliness PASS: original focal envelope, whitespace, pink materials and attached-keepsake motif retained.
+- C-1 PASS: a concealed personal message fits the birthday after the physical gift arrived early.
+- C-2 PASS: the note and retained navigation work through actual input.
+- C-3 PASS: the existing closing pocket carries the personal ending.
+- C-4 PASS: phone heights, native/reduced modes, modal ownership and replay pass.
+- C-5 PASS: approved prose, measured QA and its limits are recorded.
+- Taste preflight PASS: root reviewed final page, compact semantic heading and full message on the phone.
+
+# Historical validation: immediate halos and heated blanket gift, V64
 
 28 October 2026. Status: PASS, no unresolved finding. 133/133 focused checks: fast-halo cases total79 (WebKit375×667:19, WebKit375×520:18, Chromium375×667:18, native fallback:19, reduced/native:5); gift cases total54 (WebKit667:14, WebKit520:13, native fallback:13, reduced/native:14).
 
