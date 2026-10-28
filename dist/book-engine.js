@@ -50,7 +50,7 @@
   window.BookExperience = {
     viewportSize,
     create({app, chapters, setActive, isGiftUnlocked=()=>true}) {
-      let disposed = false, current = -2, cachedTurn = -1, timeline, phaseCursor = 0,turningPage=-1,scrollTween=null,navigationLabel=null,modalTime=null;
+      let disposed = false, current = -2, currentSide = null, cachedTurn = -1, timeline, phaseCursor = 0,turningPage=-1,scrollTween=null,navigationLabel=null,modalTime=null;
       let userSettle=false,touchHeld=false,releaseDelay=null,navigationIntent=null,resumeIntent=null;
       const screen = viewportSize(), mobile = screen.width < 960;
       if(screen.height<500)return null;
@@ -64,7 +64,7 @@
       const height = Math.round(width*1.4);
       const readingScale=Math.min(mobile?1:.96,(stageHeight-bottomReserve-24)/height);
       const originals = chapters.map(([id]) => document.getElementById(id));
-      const sources = originals.slice(1).map(s => ({section:s, article:s.querySelector('.sheet')}));
+      const sources = originals.slice(1).map(s => ({section:s, article:s.querySelector('.sheet'), divider:s.querySelector('.page-seat > .chapter-divider')}));
       const film = el('div','book-film'), viewport = el('div','book-viewport'), camera = el('div','camera-rig'), book = el('div','album-object');
       app.classList.add('has-book-film');film.classList.toggle('compact-book',height<440);
       film.style.setProperty('--leaf-w',width+'px');film.style.setProperty('--leaf-h',height+'px');film.style.setProperty('--header-h',header+'px');
@@ -169,10 +169,11 @@
         }
         if(!body.childElementCount){print.remove();pages.pop();}
       }); } catch(error) {
-        sources.forEach(({section,article})=>{section.querySelector('.page-seat').replaceChildren(article);section.classList.remove('film-chapter');});
+        sources.forEach(({section,article,divider})=>{section.querySelector('.page-seat').replaceChildren(...(divider?[divider,article]:[article]));section.classList.remove('film-chapter');});
         originals.forEach(s=>app.append(s));restoreReplay();app.append(document.querySelector('.book-navigation'));film.remove();app.classList.remove('has-book-film');
         console.warn(error.message);return null;
       }
+      if(pages[0]&&window.ScrapbookDividers)boardBack.replaceChildren(window.ScrapbookDividers.create(chapters[pages[0].chapter][0]));
       const total = pages.length+1;
       pages.forEach((page,i)=>{
         const siblings=pages.filter(p=>p.chapter===page.chapter);page.part=siblings.indexOf(page)+1;page.parts=siblings.length;
@@ -188,25 +189,37 @@
       const webgl=()=>film.classList.contains('three-book');
       const mementos = new Map();
       function memento(index) {
+        const page=pages[Math.max(0,Math.min(pages.length-1,index))];
         if(mementos.has(index))return mementos.get(index);
-        const panel = el('div','memento-page'), title = el('p','memento-title'), piece = el('div','memento-piece'), foot = el('span','memento-date');
-        title.textContent=index<0?'For you.':chapters[pages[index].chapter][1];
-        const tripLabel=el('p','');tripLabel.textContent=window.SCRAPBOOK_TRIP.reverseLabel;tripLabel.style.whiteSpace='pre-line';piece.append(tripLabel);
-        panel.append(title,piece,foot);panel.inert=true;panel.setAttribute('aria-hidden','true');mementos.set(index,panel);return panel;
+        const chapter=chapters[page.chapter],panel=window.ScrapbookDividers?.create(chapter[0])||el('div','chapter-divider');
+        if(!panel.childElementCount){const title=el('h3','');title.textContent=chapter[1];title.tabIndex=-1;panel.append(title);}
+        mementos.set(index,panel);return panel;
       }
       let leftIndex = -2;
-      function setLeft(index) {if(webgl())return;left.style.opacity=index<0?'0':'1';if(leftIndex===index)return;leftIndex=index;left.replaceChildren(memento(index));}
-      function show(index, turn = false) {
-        if(current !== index) {
-          const previous = pages[current];if(previous){previous.print.inert=true;previous.print.style.visibility='hidden';previous.print.style.display='none';previous.print.setAttribute('aria-hidden','true');previous.section.inert=true;previous.section.setAttribute('aria-hidden','true');}
+      function setLeft(index) {
+        if(index<0){left.style.opacity='0';return;}
+        left.style.opacity='1';if(leftIndex===index)return;
+        leftIndex=index;left.replaceChildren(memento(index));
+      }
+      function show(index, turn = false, side = 'right', stable = true) {
+        const changed=current!==index||currentSide!==side;
+        if(current!==index){
+          const previous=pages[current];
+          if(previous){previous.print.inert=true;previous.print.style.visibility='hidden';previous.print.style.display='none';previous.print.setAttribute('aria-hidden','true');previous.section.inert=true;previous.section.setAttribute('aria-hidden','true');}
           current=index;
-          const page=pages[index];
-          if(page){page.section.style.visibility='visible';page.print.style.visibility='visible';page.print.inert=false;page.print.removeAttribute('aria-hidden');page.section.inert=false;page.section.removeAttribute('aria-hidden');}
-          originals[0].inert=index!==-1;originals[0].setAttribute('aria-hidden',String(index!==-1));
-          setActive(page?.chapter||0,{page:index+2,total,part:page?.part||1,parts:page?.parts||1,last:index===pages.length-1,giftLocked:!!page?.print.querySelector('.birthday-cake')&&!isGiftUnlocked()});
         }
-        right.classList.toggle('is-turning',turn);if(pages[index])pages[index].print.inert=turn;
-        if(pages[index])pages[index].print.style.display=turn?'none':'block';
+        const page=pages[index],rightReadable=!!page&&!turn&&stable&&side==='right',leftReadable=!!page&&!turn&&stable&&side==='left';
+        if(page){
+          page.section.style.visibility='visible';page.print.style.visibility='visible';
+          page.print.inert=!rightReadable;page.print.setAttribute('aria-hidden',String(!rightReadable));
+          page.section.inert=!rightReadable;page.section.setAttribute('aria-hidden',String(!rightReadable));
+          page.print.style.display=turn?'none':'block';
+        }
+        left.inert=!leftReadable;left.setAttribute('aria-hidden',String(!leftReadable));
+        originals[0].inert=index!==-1;originals[0].setAttribute('aria-hidden',String(index!==-1));
+        currentSide=side;
+        if(changed)setActive(page?.chapter||0,{page:index+2,total,part:page?.part||1,parts:page?.parts||1,side,last:rightReadable&&index===pages.length-1,giftLocked:rightReadable&&!!page?.print.querySelector('.birthday-cake')&&!isGiftUnlocked()});
+        right.classList.toggle('is-turning',turn);
       }
       const strips=[];
       function ensureCSS(){
@@ -219,7 +232,7 @@
         ensureCSS();
         if(cachedTurn===index)return;cachedTurn=index;
         turning.className='curl-leaf '+[...pages[index].section.classList].filter(c=>!['album-chapter','film-chapter'].includes(c)).join(' ');
-        const back=memento(index);
+        const back=memento(index+1);
         strips.forEach(({front,back:reverse},i)=>{
           const frontPrint=copy(pages[index].print,true), backPrint=copy(back,true);
           frontPrint.style.visibility='visible';frontPrint.style.display='block';frontPrint.style.transform='none';
@@ -243,6 +256,9 @@
       let distance=opening;
       pages.forEach((page,index)=>{
         if(labels[chapters[page.chapter][0]]===undefined)labels[chapters[page.chapter][0]]=distance+16;
+        labels['divider-'+index]=distance+16;
+        phases.push({kind:'divider',index,start:distance,end:distance+220});distance+=220;
+        phases.push({kind:'pan',index,start:distance,end:distance+380});distance+=380;
         labels['leaf-'+index]=distance+16;
         const read=clamp(page.body.textContent.length*.22,390,760);
         phases.push({kind:'read',index,start:distance,end:distance+read});distance+=read;
@@ -286,7 +302,8 @@
         const atEnd=phase.kind==='read'&&phase.index===pages.length-1&&isGiftUnlocked();
         app.classList.toggle('at-book-end',atEnd);
         if(replayAction)replayAction.hidden=!atEnd||!!navigationIntent?.replay;
-        let scale=readingScale,camX=mobile?-width*scale/2:0,rx=visual?1.4:0,rz=0,coverLift=-6;
+        film.dataset.side=phase.kind==='divider'?'left':phase.kind==='pan'?'pan':phase.kind==='read'?'right':phase.kind;
+        let scale=readingScale,camX=-(mobile?.5:.15)*width*scale,rx=visual?1.4:0,rz=0,coverLift=-6;
         // A visible print child can override its parent's visibility in WebKit.
         // Remove the entire decorative curl from painting while at rest.
         turning.hidden=true;turning.style.visibility='hidden';turnShadow.style.opacity='0';
@@ -295,25 +312,34 @@
           originals[0].style.opacity=Math.abs(angle)<90?'1':'0';boardBack.style.opacity=Math.abs(angle)>=90?'1':'0';
           board.style.transform=`translateZ(8px) rotateY(${angle}deg)`;board.style.pointerEvents=openingP>.25?'none':'auto';board.style.zIndex=openingP<.99?'4':'0';
           leftBase.style.opacity=String(smooth(clamp(openingP*4)));
-          if(scenePrint){show(-1);pages[0].print.style.display='none';pages[0].print.style.visibility='hidden';}
-          else{show(openingP>.8?0:-1);pages[0].print.style.display=openingP>.46?'block':'none';pages[0].print.style.visibility=openingP>.46?'visible':'hidden';}
+          show(-1,false,'cover');
+          pages[0].section.style.visibility='visible';
+          pages[0].print.style.display=!scenePrint&&openingP>.46?'block':'none';pages[0].print.style.visibility=!scenePrint&&openingP>.46?'visible':'hidden';
+          pages[0].print.inert=true;pages[0].section.inert=true;pages[0].print.setAttribute('aria-hidden','true');pages[0].section.setAttribute('aria-hidden','true');
           setLeft(-1);
           if(mobile){
             const coverScale=Math.min(.94,readingScale*.94);
-            scale=mix(coverScale,readingScale,smooth(openingP))-readingScale*.14*Math.sin(Math.PI*openingP)**2;camX=-width*scale/2;
-          }else{camX=mix(-width*.42,0,smooth(openingP));scale=mix(.84,readingScale,smooth(openingP));}
+            scale=mix(coverScale,readingScale,smooth(openingP))-readingScale*.43*Math.sin(Math.PI*openingP)**2;camX=mix(-width*scale/2,width*scale/2,smooth(openingP));
+          }else{scale=mix(.84,readingScale,smooth(openingP));camX=mix(-width*scale*.42,width*scale*.15,smooth(openingP));}
           coverLift=mix(mobile?14:12,-6,smooth(clamp(openingP*2)));
           rx=mix(8,visual?1.4:0,smooth(clamp(openingP*3)));rz=3*(1-smooth(openingP));
           cue.style.opacity=String(1-clamp(openingP*2));
         }else{
           board.style.transform='translateZ(0px) rotateY(-180deg)';board.style.pointerEvents='none';board.style.zIndex='0';originals[0].style.opacity='0';boardBack.style.opacity='1';leftBase.style.opacity='1';cue.style.opacity='0';
           if(phase.kind==='turn'){
-            show(phase.index,true);setLeft(phase.index-1);
+            show(phase.index,true,'right',false);setLeft(phase.index);
             if(!webgl()){const next=pages[phase.index+1];next.section.style.visibility='visible';next.print.style.visibility='visible';next.print.style.display='block';}
             if(!webgl()){prepareTurn(phase.index);turning.hidden=false;turning.style.visibility='visible';curl(p);}
-            const wave=Math.sin(Math.PI*p)**2,turnScale=mobile?readingScale*.9:readingScale-.02;scale=mix(readingScale,turnScale,wave);camX=mobile?-width*scale/2:0;rx=(visual?1.4:0)+wave*.4;rz=-wave*.15;
+            const wave=Math.sin(Math.PI*p)**2,turnScale=readingScale*(mobile?.54:.94);scale=mix(readingScale,turnScale,wave);camX=mix(-(mobile?.5:.15)*width*scale,(mobile?.5:.15)*width*scale,smooth(p));rx=(visual?1.4:0)+wave*.4;rz=-wave*.15;
             if(mobile)coverLift-=12*wave;
-          }else{if(!webgl())pages.forEach((page,i)=>{if(i!==phase.index)page.print.style.display='none';});show(phase.index);setLeft(phase.index-1);if(!webgl())prepareTurn(phase.index);}
+          }else{
+            if(!webgl())pages.forEach((page,i)=>{if(i!==phase.index)page.print.style.display='none';});
+            const side=phase.kind==='read'?'right':'left';
+            show(phase.index,false,side,phase.kind!=='pan');setLeft(phase.index);
+            if(phase.kind==='divider')camX=(mobile?.5:.15)*width*scale;
+            else if(phase.kind==='pan')camX=mix((mobile?.5:.15)*width*scale,-(mobile?.5:.15)*width*scale,smooth(p));
+            if(!webgl())prepareTurn(phase.index);
+          }
         }
         camera.style.transform=`translate3d(calc(-50% + ${camX}px),calc(-50% - ${coverLift}px),0) scale(${scale}) rotateX(${rx}deg) rotateZ(${rz}deg)`;
         ground.style.transform=`translate(-50%,-50%) scaleX(${phase.kind==='cover'? .57:1})`;
@@ -372,9 +398,9 @@
         if(!userSettle||touchHeld||scrollTween||disposed||film.dataset.assetsReady==='false'||ScrollTrigger.isScrolling()||document.querySelector('dialog[open]'))return;
         userSettle=false;
         const time=clamp((scrollY-timeline.scrollTrigger.start)/(timeline.scrollTrigger.end-timeline.scrollTrigger.start))*distance;
-        const phase=phases.find(p=>time>=p.start&&time<p.end);if(!phase||!['opening','turn'].includes(phase.kind))return;
+        const phase=phases.find(p=>time>=p.start&&time<p.end);if(!phase||!['opening','turn','pan'].includes(phase.kind))return;
         const progress=(time-phase.start)/(phase.end-phase.start);
-        const target=phase.kind==='opening'?(progress>.24?'leaf-0':'cover'):'leaf-'+(phase.index+(progress>=.45?1:0));
+        const target=phase.kind==='opening'?(progress>.24?'divider-0':'cover'):phase.kind==='pan'?(progress>=.5?'leaf-':'divider-')+phase.index:progress>=.45?'divider-'+(phase.index+1):'leaf-'+phase.index;
         goLabel(target,false,true,false,null,.7);
       }
       function releaseTouch(){touchHeld=false;releaseDelay?.kill();releaseDelay=gsap.delayedCall(.25,settlePage);}
@@ -389,11 +415,13 @@
         if(replay&&replayAction)replayAction.hidden=true;
         if(animate&&navigationLabel===label&&scrollTween)return;
         cancelNavigation();
-        const readingPhase=label==='cover'?null:phases.find(p=>p.kind==='read'&&labelTime>=p.start&&labelTime<p.end);
-        const time=label==='gift-open'?labelTime:visual&&readingPhase?readingPhase.start+Math.max(175,(readingPhase.end-readingPhase.start)*.42):labelTime;
+        const targetPhase=label==='cover'?null:phases.find(p=>labelTime>=p.start&&labelTime<p.end);
+        const readingPhase=targetPhase?.kind==='read'?targetPhase:null;
+        const time=label==='gift-open'?labelTime:targetPhase?.kind==='divider'?targetPhase.start+(targetPhase.end-targetPhase.start)*.5:visual&&readingPhase?readingPhase.start+Math.max(175,(readingPhase.end-readingPhase.start)*.42):labelTime;
         const top=timeline.scrollTrigger.start+time/distance*(timeline.scrollTrigger.end-timeline.scrollTrigger.start);
         const focusPage=()=>{if(focus){
-          const target=current<0?originals[0].querySelector('h1'):pages[current].print.querySelector('h2')||pages[current].print;
+          const target=current<0?originals[0].querySelector('h1'):currentSide==='left'?left.querySelector('h2,h3,[tabindex]')||left:pages[current].print.querySelector('h2')||pages[current].print;
+          if(target===left)target.tabIndex=-1;
           if(target?.tagName==='ARTICLE')target.tabIndex=-1;
           target?.focus({preventScroll:true});
         }};
@@ -401,10 +429,10 @@
         const displayedTop=timeline.scrollTrigger.start+playhead.time/distance*(timeline.scrollTrigger.end-timeline.scrollTrigger.start);
         if(!animate||Math.abs(top-displayedTop)<2){seek(top);timeline.time(time,false);focusPage();complete?.();return;}
         const position={top:displayedTop};navigationLabel=label;film.dataset.navigation='moving';
-        const coverJourney=label==='leaf-0'&&playhead.time<opening||label==='dedication'&&playhead.time<opening;
+        const coverJourney=label==='divider-0'&&playhead.time<opening||label==='dedication'&&playhead.time<opening;
         const travel=Math.abs(top-displayedTop),duration=durationOverride??(label==='gift-open'?clamp(travel/500,.65,1):replay?Math.max(1.8,travel/850):coverJourney?2.2:Math.min(2.3,Math.max(1.25,travel/750)));
-        const destination=label.startsWith('leaf-')?pages[Number(label.slice(5))]:null;
-        navigationIntent={label,focus,replay,complete,chapter:destination?chapters[destination.chapter][0]:null,part:destination?.part};
+        const destination=label!=='gift-open'&&targetPhase?pages[targetPhase.index]:null;
+        navigationIntent={label,focus,replay,complete,chapter:destination?chapters[destination.chapter][0]:null,part:destination?.part,side:targetPhase?.kind==='divider'?'left':'right'};
         scrollTween=gsap.to(position,{top,paused:true,duration,ease:replay?'none':'power2.inOut',
           onUpdate:()=>seek(position.top),onComplete:()=>{gsap.ticker.remove(advanceNavigation);scrollTween=null;navigationLabel=null;navigationIntent=null;film.dataset.navigation='idle';timeline.time(time,false);focusPage();complete?.();}});
         gsap.ticker.add(advanceNavigation);
@@ -424,7 +452,7 @@
         if(Math.abs(next.width-snapshot.width)<2&&Math.abs(next.height-snapshot.height)<2)return;
         // Safari toolbar movement must not tear down a page being prepared
         // or a fold still controlled by the user's gesture/navigation.
-        if(film.dataset.assetsReady==='false'||scrollTween||touchHeld||['opening','turn'].includes(phases[phaseCursor]?.kind)||ScrollTrigger.isScrolling()){
+        if(film.dataset.assetsReady==='false'||scrollTween||touchHeld||['opening','turn','pan'].includes(phases[phaseCursor]?.kind)||ScrollTrigger.isScrolling()){
           resizeTimer=setTimeout(reflowWhenSettled,120);return;
         }
         app.dispatchEvent(new CustomEvent('book-reflow'));
@@ -444,7 +472,7 @@
       document.addEventListener('close',closedDialog,true);
       return {
         go:(id,focus)=>goLabel(id,focus),
-        open:focus=>goLabel('leaf-0',focus,true),
+        open:focus=>goLabel('divider-0',focus,true),
         replay:focus=>goLabel('cover',focus,true,true),
         revealGift:complete=>goLabel('gift-open',false,true,false,complete),
         highlightObject:detail=>visual?.setObjectFeedback?.(detail),
@@ -455,7 +483,7 @@
         getPosition(){
           const phase=phases[phaseCursor],page=pages[phase.index];
           const intent=navigationIntent?{...navigationIntent,durationLeft:Math.max(.35,scrollTween.duration()-scrollTween.time())}:resumeIntent;
-          return {kind:phase.kind,progress:clamp((playhead.time-phase.start)/(phase.end-phase.start)),chapter:page?chapters[page.chapter][0]:'cover',part:page?.part||1,navigation:intent,settle:userSettle,touchHeld};
+          return {kind:phase.kind,progress:clamp((playhead.time-phase.start)/(phase.end-phase.start)),chapter:page?chapters[page.chapter][0]:'cover',part:page?.part||1,side:currentSide,navigation:intent,settle:userSettle,touchHeld};
         },
         resume(position){
           const index=pages.findIndex(page=>chapters[page.chapter][0]===position.chapter&&page.part===position.part);
@@ -472,17 +500,17 @@
             if(disposed)return;
             if(intent&&resumeIntent===intent){
               let target=intent.label;
-              if(intent.chapter){const index=pages.findIndex(p=>chapters[p.chapter][0]===intent.chapter&&p.part===intent.part);if(index>=0)target='leaf-'+index;}
+              if(intent.chapter){const index=pages.findIndex(p=>chapters[p.chapter][0]===intent.chapter&&p.part===intent.part);if(index>=0)target=(intent.side==='left'?'divider-':'leaf-')+index;}
               goLabel(target,intent.focus,true,intent.replay,intent.complete,intent.durationLeft);
             }else if(userSettle&&!touchHeld&&!scrollTween){releaseDelay?.kill();releaseDelay=gsap.delayedCall(.25,settlePage);}
           };
           if(visual?.assets)visual.assets.then(continueReading);else continueReading();
         },
-        next:focus=>goLabel('leaf-'+Math.min(pages.length-1,current+1),focus,true),
-        previous:focus=>turningPage>=0?goLabel('leaf-'+turningPage,focus,true):current<=0?goLabel('cover',focus,true):goLabel('leaf-'+(current-1),focus,true),
+        next:focus=>{const phase=phases[phaseCursor];goLabel(phase.kind==='cover'||phase.kind==='opening'?'divider-0':['divider','pan'].includes(phase.kind)?'leaf-'+phase.index:'divider-'+Math.min(pages.length-1,current+1),focus,true);},
+        previous:focus=>{const phase=phases[phaseCursor];goLabel(turningPage>=0?'leaf-'+turningPage:phase.kind==='read'||phase.kind==='pan'?'divider-'+phase.index:current<=0?'cover':'leaf-'+(current-1),focus,true);},
         destroy(){
           disposed=true;cancelNavigation();window.removeEventListener('book-modal-lock',modalLock);ScrollTrigger.removeEventListener('refreshInit',prepareModalRefresh);ScrollTrigger.removeEventListener('refresh',finishModalRefresh);ScrollTrigger.removeEventListener('scrollEnd',settlePage);window.removeEventListener('touchend',releaseTouch);window.removeEventListener('touchcancel',releaseTouch);clearTimeout(resizeTimer);window.removeEventListener('wheel',interruptNavigation);window.removeEventListener('touchstart',interruptNavigation);window.removeEventListener('pointerdown',interruptNavigation);window.removeEventListener('keydown',interruptNavigation);window.removeEventListener('resize',resized);window.visualViewport?.removeEventListener('resize',resized);document.removeEventListener('close',closedDialog,true);app.removeEventListener('focusin',revealFocused);film.removeEventListener('book-graphics-fallback',graphicsFallback);film.removeEventListener('book-graphics-ready',graphicsReady);timeline.scrollTrigger?.kill(true);timeline.kill();visual?.destroy();
-          sources.forEach(({section,article})=>{section.querySelector('.page-seat').replaceChildren(article);section.classList.remove('film-chapter');});
+          sources.forEach(({section,article,divider})=>{section.querySelector('.page-seat').replaceChildren(...(divider?[divider,article]:[article]));section.classList.remove('film-chapter');});
           originals.forEach(s=>{s.inert=false;s.removeAttribute('aria-hidden');s.style.removeProperty('visibility');s.style.removeProperty('opacity');s.style.removeProperty('display');app.append(s);});
           if(coverAction){coverAction.classList.remove('cover-open-action');coverAction.hidden=false;coverActionHome.append(coverAction);}
           restoreReplay();

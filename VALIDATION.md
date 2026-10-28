@@ -1,4 +1,66 @@
-# Validation: matching opening and replay buttons, V57
+# Validation: left image dividers before right keepsakes, V58
+
+28 October 2026. Status: PASS, no unresolved finding. 211/211 checks: independent navigation and rendering 171, native mobile/desktop arrow navigation 30, root physical-boundary/resize probes 4, and title-ink contrast checks 6. WebKit covers 375 × 667/520, reduced motion and blocked-Three CSS fallback; Chromium covers 375 × 667. Native desktop is checked at 1280 × 800. Software browser evidence does not certify physical iPhone Safari, hardware frame rate or VoiceOver.
+
+Actual controls follow cover hinge → left image divider → horizontal pan → same spread's right content → page turn → next left divider. Previous reverses those steps. Chapter links land on the left; the right objects are inert and hidden from accessibility while the divider/pan is active. Keyboard opening focuses the current divider heading. Six generated decorative images load as measured uniform atlas windows; native reading places each image before its content. Native desktop retains the selected side when both pages intersect the viewport.
+
+The birthday's left divider can advance to its right cake. That right page still locks the gift until the candle is blown. The gift's left divider hides replay; its right endpoint shows the same styled action as the opener. Complete replay includes camera pans, turns and the closing hinge. Both stable-side resize tests and root mid-pan/mid-turn resize tests retain the intended side. The map reader retains scroll ownership. Destroying the scene restores six original dividers and one replay anchor.
+
+The first artwork remains on the physical inside front cover across opening and stable reading. Root captures immediately before/after that boundary have zero color-channel samples differing by more than two levels. This avoids replacing it with a plane at another depth after the hinge finishes. Other left textures index the current spread; the reverse of outgoing sheet i prints incoming divider i+1. Root reviewed first left/right, second left, the short-height divider and native layouts.
+
+Title contrast uses the actual Fraunces glyph mask over the uniformly fitted source image, excluding antialiased edge pixels. The six minimum ink/background ratios are 8.94, 8.98, 8.90, 9.05, 8.94 and 8.78. A broad rectangular crop includes an unrelated flower stem on the photograph tile, so glyph sampling verifies the actual text instead of treating unoccupied pixels as letters. Both CSS and canvas use the existing #342c2e ink.
+
+Evidence: qa/v58/final-scope-summary.json, individual browser reports, native-navigation-checks.json, root-motion-checks.json, divider-glyph-contrast.json, screenshots and source-preservation.json. 130/135 prior distribution files are byte-identical; five existing application files change and four new divider files bring the distribution to 139 files. All prior images, maps, fonts, audio, configuration, trip data, cats and song remain unchanged. Fixed offscreen raster coordinates and failed-image cache eviction remain; deferred reflow now also waits during a pan. Earlier broad content/audio suites remain historical. Initial harness-only fixes replaced unsupported mobile WebKit mouse.wheel with PageDown and allowed Chromium's existing 180-second software-rendering replay timeout; final reports pass.
+
+### V58 Antislop delivery gate
+
+- R-01 PASS: existing material palette; no added gradient or glow.
+- R-02 PASS: new six titles and navigation labels contain no em dash or filler.
+- R-03 PASS: phone, short-height, fallback and native bounds pass.
+- R-04 PASS: existing functional arrow icons retained; no new utility icon.
+- R-05 PASS: six distinct dividers introduce the six existing content spreads.
+- R-06 PASS: live Fraunces titles and Source Sans 3 controls retain brand typography.
+- R-07 PASS: generated paper collage supports the physical scrapbook purpose.
+- R-08 PASS: arrows navigate actual left/right/turn destinations.
+- R-09 PASS: no badges or title pills added.
+- R-10 PASS: no glass added.
+- R-11 PASS: original control radii retained; dividers have paper edges.
+- R-12 PASS: native divider contact shadow marks its physical paper surface.
+- R-13 PASS: no glow added; keyboard focus retains its existing rose outline.
+- R-14 PASS: each divider illustrates its chapter's subject; no feature-card grid.
+- R-15 PASS: Next/Previous accessible names describe reading or turning.
+- R-16 PASS: new copy is six short chapter titles and functional side labels.
+- R-17 PASS: no statistics added; age 25 comes from the owner.
+- R-18 PASS: no testimonials or fabricated identities.
+- R-19 PASS: one existing clock coordinates hinge, pan, fold and full replay.
+- R-20 PASS: travel, October, five cats, birthday and gift fit this scrapbook.
+- R-21 PASS: user-selected light paper presentation retained.
+- R-22 PASS: original generated collage motifs correspond to the actual chapters.
+- R-23 PASS: user explicitly requested image-based left dividers; provenance identifies decorative generated art.
+- R-24 PASS: chapter links resolve to the left side; final replay resolves to cover.
+- R-25 PASS: six actual-title glyph tests exceed 8.78:1; existing control palette retained.
+- R-26 PASS: actual Next/Previous, contents, candle, map close and replay flows pass.
+- R-27 PASS: native/reduced and CSS fallback retain divider titles and reading order; image error handler hides broken art without hiding the title.
+- R-28 PASS: no filler FAQ or explanatory divider paragraphs added.
+- R-29 PASS: pink, cream, ink and established sage/cherry accents retained.
+- R-30 PASS: physical chapter dividers follow the owner's scrapbook direction.
+- R-31 PASS: source ownership, art fit, camera motion and native decisions are documented in DESIGN.md.
+- R-32 PASS: keyboard focus reaches the left heading; offscreen right controls are inert; navigation names its destination.
+- R-33 PASS: changes are written in application source, without runtime patch injection.
+- R-34 PASS: no theme toggle or extra theme added.
+- R-35 PASS: 211 focused checks, four JavaScript syntax checks and whitespace checks pass.
+- R-36 PASS: no unsupported hardware, security or playback claim made.
+- R-37 PASS: existing Antislop during 3/3/3 and Taste 8/9/5 direction is preserved.
+- R-38 PASS: new imagery is declared decorative; maps, real portraits and memories remain unchanged.
+- Liveliness PASS: six collage focal points, quiet title space and a continuous left-to-right book gesture support the declared dials.
+- C-1 PASS: dividers establish chapter rhythm; the pan establishes reading order.
+- C-2 PASS: actual controls and endpoint actions pass browser interaction checks.
+- C-3 PASS: each opener belongs to existing content; no additional narrative chapter.
+- C-4 PASS: short viewport, resize during movement, native desktop, reduced motion and CSS fallback pass.
+- C-5 PASS: generated art is not presented as personal photography or a geographic map.
+- Taste preflight PASS: inspected paper/type consistency, original imagery, phone fit, native fallbacks, focus and purposeful continuous movement; no new framework or marketing pattern.
+
+# Historical validation: matching opening and replay buttons, V57
 
 28 October 2026. Status: PASS, no unresolved finding. Root WebKit 60/60, Chromium 16/16 and independent WebKit 38/38, total 114/114 checks. Main coverage includes scene 375 × 667/520, reduced-native 375 × 520 and aborted-3D CSS fallback 375 × 667. Independent review covers both phone heights and native reading. Root visually reviewed cover/final screenshots at 520 height and the final 667 endpoint; the replay action matches the original rose control, font, padding, radius, height, centre and stage-bottom gap.
 

@@ -483,7 +483,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     if(readerMasks.size)clearReaderMasks();
     if(!ready)return;
     // Finish the current native fold before changing renderers on a cold load.
-    if(!active&&!['cover','read'].includes(state.phase.kind))return;
+    if(!active&&!['cover','divider','read'].includes(state.phase.kind))return;
     if(state.phase.kind!=='read'||!birthdayCakes.has(state.phase.index))stopCakeAnimation();
     if(state.phase.kind!=='read'&&feedbackEntries.some(e=>e.value||e.target))clearFeedback();
     const activating=!active;
@@ -504,15 +504,15 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       const incomingOffset=-insertClearance*(1-smooth(state.p));reading.position.z+=incomingOffset;
       if(currentTurn!==i){currentTurn=i;curlFront.map=underlays[i]||null;curlBack.map=reverseMaps[i]||null;curlFront.needsUpdate=curlBack.needsUpdate=true;}
       turningProps[i].visible=true;bendAttachments(i,clearance);
-      if(i>0){leftSheet.visible=true;leftSheet.position.z-=.8*smooth(state.p);leftSheet.material=materialCache(i-1);}
+      if(i>0){leftSheet.visible=true;leftSheet.position.z-=.8*smooth(state.p);leftSheet.material=materialCache(i);}
       const next=props[i+1];if(next){next.visible=true;animateProps(i+1,0);next.position.z+=incomingOffset;}
-    }else if(state.phase.kind==='read'){
-      const i=state.phase.index;props[i].visible=true;animateProps(i,state.p);
-      if(i>0){leftSheet.visible=true;leftSheet.material=materialCache(i-1);}
+    }else if(['divider','pan','read'].includes(state.phase.kind)){
+      const i=state.phase.index;props[i].visible=true;animateProps(i,state.phase.kind==='read'?state.p:0);
+      if(i>0){leftSheet.visible=true;leftSheet.material=materialCache(i);}
     }else if(state.phase.kind==='opening'){
       props[0].visible=true;animateProps(0,0);
     }
-    const surface=state.phase.kind==='turn'?underlays[state.phase.index+1]:state.phase.kind==='read'?underlays[state.phase.index]:state.phase.kind==='opening'?underlays[0]:pageBaseMap;
+    const surface=state.phase.kind==='turn'?underlays[state.phase.index+1]:['divider','pan','read'].includes(state.phase.kind)?underlays[state.phase.index]:state.phase.kind==='opening'?underlays[0]:pageBaseMap;
     if(readingMaterial.map!==surface){readingMaterial.map=surface||null;readingMaterial.needsUpdate=true;}
     const stackTop=reading.position.z-.5;
     deck.scale.z=(stackTop-stackBottom)/stackDepth;deck.position.z=(stackTop+stackBottom)/2;
@@ -544,9 +544,9 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   document.addEventListener('visibilitychange',cakeVisibility);
   let gutter=null;
   const memMaterials=new Map();function materialCache(i){if(!memMaterials.has(i))memMaterials.set(i,material('#ffffff',{map:backs[i]||null}));const mat=memMaterials.get(i);if(mat.map!==backs[i]){mat.map=backs[i]||null;mat.needsUpdate=true;}return mat;}
-  const assetSrc={paper:'assets/materials/paper.webp',linen:'assets/materials/linen.webp',family:'assets/cutouts/five-cats.webp',map:window.SCRAPBOOK_TRIP.map,cake:pages.find(page=>page.print.querySelector('.cake-art'))?.print.querySelector('.cake-art')?.src,...(imageCover?{cover:originals[0].querySelector('.cover-collage-art').src}:{})};
+  const assetSrc={paper:'assets/materials/paper.webp',linen:'assets/materials/linen.webp',family:'assets/cutouts/five-cats.webp',map:window.SCRAPBOOK_TRIP.map,dividers:window.ScrapbookDividers.src,cake:pages.find(page=>page.print.querySelector('.cake-art'))?.print.querySelector('.cake-art')?.src,...(imageCover?{cover:originals[0].querySelector('.cover-collage-art').src}:{})};
   const assets=Promise.all(Object.entries(assetSrc).map(async([k,src])=>[k,await loadImage(src)])).then(async entries=>{
-    if(disposed||lost)return;const images=Object.fromEntries(entries);if(!images.family||!images.map||!images.cake||imageCover&&!images.cover)throw new Error('A scrapbook image is unavailable.');paperMap=images.paper;linenMap=images.linen;cakeImage=images.cake;
+    if(disposed||lost)return;const images=Object.fromEntries(entries);if(!images.family||!images.map||!images.cake||!images.dividers||imageCover&&!images.cover)throw new Error('A scrapbook image is unavailable.');paperMap=images.paper;linenMap=images.linen;cakeImage=images.cake;
     const {c,ctx}=canvas2d();paintPaper(ctx);pageBaseMap=texture(c);paper.map=pageBaseMap;paper.needsUpdate=true;
     if(images.paper){const bump=sourceTexture(images.paper);bump.wrapS=bump.wrapT=THREE.RepeatWrapping;bump.repeat.set(W/440,H/440);paper.bumpMap=bump;paper.bumpScale=.18;paper.needsUpdate=true;readingMaterial.bumpMap=curlFront.bumpMap=curlBack.bumpMap=bump;readingMaterial.bumpScale=curlFront.bumpScale=curlBack.bumpScale=.18;readingMaterial.needsUpdate=curlFront.needsUpdate=curlBack.needsUpdate=true;}
     for(const [mat,vertical] of [[foreEdge,true],[capEdge,false]]){
@@ -566,12 +566,13 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     if(coverRaster.relief){const bump=texture(coverRaster.relief);bump.colorSpace=THREE.NoColorSpace;coverMaterials[4].bumpMap=bump;coverMaterials[4].bumpScale=.8;coverMaterials[4].needsUpdate=true;}
     const patch=coverRaster.anchors['.cover-dedication'];
     if(patch){const sewn=new THREE.Group();cover.add(sewn);sewn.position.set(patch.x+patch.w/2,H/2-patch.y-patch.h/2,5.2);box(patch.w,patch.h,1.4,material(palette['paper-edge']),sewn);const print=plane(patch.w,patch.h,material('#ffffff',{map:coverRaster.parts.dedication,roughness:1,bumpMap:paper.bumpMap,bumpScale:.16}),sewn);print.position.z=.76;print.castShadow=false;print.receiveShadow=false;}
-    coverMaterials[5].map=label('',W,H,24,palette.lining);coverMaterials[5].needsUpdate=true;
+    pages.forEach((page,i)=>{const art=canvas2d();window.ScrapbookDividers.paint(art.ctx,images.dividers,chapters[page.chapter][0],W,H);backs[i]=texture(art.c);});
+    coverMaterials[5].map=backs[0];coverMaterials[5].needsUpdate=true;
     for(let i=0;i<pages.length;i++){
       if(disposed||lost)return;
       const r=await raster(pages[i].print);if(disposed||lost)return;snapshots[i]=r.map;
       const copy=canvas2d();copy.ctx.drawImage(r.map.image,0,0,W,H);underlays[i]=texture(copy.c);
-      const b=label(chapters[pages[i].chapter][1]+'\n\n'+window.SCRAPBOOK_TRIP.reverseLabel,W,H,23);backs[i]=b;const reverseMap=track(b.clone());reverseMaps[i]=reverseMap;
+      const reverseMap=track((backs[i+1]||backs[i]).clone());reverseMaps[i]=reverseMap;
       setProps(i,r.anchors,r.parts);
       prepareAttachedTurn(i);
     }

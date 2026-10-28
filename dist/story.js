@@ -168,17 +168,32 @@
       app.querySelector('.open-book').classList.add('book-endpoint-action');
       replayAction.classList.add('book-endpoint-action');replayAction.querySelector('.ui-icon')?.remove();
       replayAction.closest('.page-seat').append(replayAction);
+      chapters.slice(1).forEach(([id])=>{const seat=document.querySelector(`#${id}>.page-seat`);seat.prepend(window.ScrapbookDividers.create(id));});
       app.querySelectorAll('.real-memory img,.fragment-image img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;if(!img.parentElement.querySelector('.image-error'))img.parentElement.insertAdjacentHTML('beforeend','<span class="image-error">This photo could not be loaded.</span>');},{once:true}));
       app.querySelectorAll('.cake-art').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;img.parentElement.querySelector('.cake-art-error').hidden=false;},{once:true}));
       app.querySelectorAll('a[href^="#"]').forEach(a=>a.onclick=e=>{e.preventDefault();if(film&&a.classList.contains('open-book'))film.open(e.detail===0);else if(film&&a.classList.contains('replay-link'))film.replay(e.detail===0);else go(a.hash.slice(1),e.detail===0);});
-      bind('previous-page',e=>film?film.previous(e.detail===0):go(chapters[Math.max(0,active-1)][0],e.detail===0));
-      bind('next-page',e=>film?film.next(e.detail===0):go(chapters[Math.min(chapters.length-1,active+1)][0],e.detail===0));
+      bind('previous-page',e=>film?film.previous(e.detail===0):activePosition?.side==='right'?go(chapters[active][0],e.detail===0):active>1?nativeRight(active-1,e.detail===0):go('cover',e.detail===0));
+      bind('next-page',e=>film?film.next(e.detail===0):active>0&&activePosition?.side==='left'?nativeRight(active,e.detail===0):go(chapters[Math.min(chapters.length-1,active+1)][0],e.detail===0));
       bind('book-contents',()=>{
         openDialog(`<h2>The pages.</h2><nav class="contents-list" aria-label="Contents">${chapters.map(([id,label],i)=>`<a href="#${id}"${i===active?' aria-current="page"':''}><span>${label}</span><span>${id==='gift'&&!candleBlown?'Blow out the candle first':i+1}</span></a>`).join('')}</nav>`);
         document.querySelectorAll('.contents-list a').forEach(a=>a.onclick=e=>{e.preventDefault();window.ScrapbookModalLock.close(document.getElementById('map-dialog'));go(a.hash.slice(1),true);});
       });
-      observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting);if(visible.length)setActive(chapters.findIndex(c=>c[0]===visible.at(-1).target.id));},{rootMargin:'-35% 0px -45% 0px',threshold:0});
-      chapters.forEach(([id])=>observer.observe(document.getElementById(id)));setActive(0);animate();syncGiftGate();fitNativeOrnaments();
+      observer=new IntersectionObserver(entries=>{
+        const visible=entries.filter(e=>e.isIntersecting);if(!visible.length)return;
+        const target=visible.at(-1).target,section=target.closest('.album-chapter,.cover-chapter'),index=chapters.findIndex(c=>c[0]===section?.id);
+        if(index<0)return;
+        let side=target.matches('.chapter-divider')?'left':'right';
+        if(innerWidth>=960&&index>0)side=index===active?(activePosition?.side||'left'):'left';
+        setActive(index,index?nativePosition(index,side):null);
+      },{rootMargin:'-35% 0px -45% 0px',threshold:0});
+      observeNative();setActive(0);animate();syncGiftGate();fitNativeOrnaments();
+    }
+    function nativePosition(index,side){return {page:index+1,total:chapters.length,part:1,parts:1,side,last:side==='right'&&index===chapters.length-1,giftLocked:side==='right'&&chapters[index][0]==='birthday'&&!candleBlown};}
+    function observeNative(){app.querySelectorAll('.cover-chapter,.album-chapter>.page-seat>.chapter-divider,.album-chapter>.page-seat>.sheet').forEach(node=>observer?.observe(node));}
+    function nativeRight(index,focus){
+      const sheet=document.getElementById(chapters[index][0])?.querySelector('.sheet');if(!sheet)return;
+      window.scrollTo({top:sheet.getBoundingClientRect().top+scrollY-82,behavior:focus||reduced()?'instant':'smooth'});setActive(index,nativePosition(index,'right'));
+      if(focus)sheet.querySelector('h2')?.focus({preventScroll:true});
     }
     function setActive(index,position){
       if(index<0)return;active=index;activePosition=position||null;
@@ -187,10 +202,12 @@
       navigation.inert=cover;navigation.setAttribute('aria-hidden',String(cover));
       home.inert=cover;home.setAttribute('aria-hidden',String(cover));
       document.getElementById('current-chapter').textContent=chapters[index][1]+(position?.parts>1?` · ${position.part}/${position.parts}`:'');
-      document.getElementById('page-position').textContent=position?`${position.page} / ${position.total}`:`${index+1} / ${chapters.length}`;
+      document.getElementById('page-position').textContent=position?`${position.side==='left'?'Left · ':position.side==='right'?'Right · ':''}${position.page} / ${position.total}`:`${index+1} / ${chapters.length}`;
       document.getElementById('book-contents').setAttribute('aria-label',`Open contents, ${chapters[index][1]}, page ${position?.page||index+1} of ${position?.total||chapters.length}`);
       const locked=!candleBlown&&(position?position.giftLocked:chapters[index][0]==='birthday'),next=document.getElementById('next-page');
       document.getElementById('previous-page').disabled=index===0;next.disabled=(position?position.last:index===chapters.length-1)||locked;
+      document.getElementById('previous-page').setAttribute('aria-label',position?.side==='right'?'Back to the left divider':'Previous spread');
+      next.setAttribute('aria-label',position?.side==='left'?'Read the right page':'Turn to the next spread');
       if(locked)next.setAttribute('aria-describedby','birthday-candle-hint');else next.removeAttribute('aria-describedby');
       onSceneChange({chapter:chapters[index][0],candleBlown});
       discovery?.refresh();
@@ -210,9 +227,9 @@
         if(enabled){
           observer?.disconnect();const gift=document.getElementById('gift');gift.hidden=false;gift.inert=false;
           film=BookExperience.create({app,chapters,setActive,isGiftUnlocked:()=>candleBlown});
-          if(!film)chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));else if(returnTo!=='cover')film.go(returnTo,true);
+          if(!film)observeNative();else if(returnTo!=='cover')film.go(returnTo,true);
         }else{
-          film?.destroy();film=null;syncGiftGate();chapters.forEach(([id])=>observer?.observe(document.getElementById(id)));
+          film?.destroy();film=null;syncGiftGate();observeNative();
           requestAnimationFrame(()=>{if(token===refreshToken&&!film&&!window.ScrapbookModalLock.isLocked){fitNativeOrnaments();go(returnTo,true);}});
         }
       }
@@ -224,8 +241,8 @@
     function go(id,focus=false){
       id=aliases[id]||id;if(id==='gift'&&!candleBlown){id='birthday';toast('Blow out the candle to open your gift.');}
       const target=document.getElementById(id);if(!target)return;if(film){film.go(id,focus);return;}
-      window.scrollTo({top:id==='cover'?0:target.getBoundingClientRect().top+scrollY-82,behavior:focus||reduced()?'instant':'smooth'});setActive(chapters.findIndex(c=>c[0]===id));
-      if(focus)target.querySelector('h1,h2')?.focus({preventScroll:true});
+      window.scrollTo({top:id==='cover'?0:target.getBoundingClientRect().top+scrollY-82,behavior:focus||reduced()?'instant':'smooth'});const index=chapters.findIndex(c=>c[0]===id);setActive(index,index?nativePosition(index,'left'):null);
+      if(focus)target.querySelector('h1,.divider-title,h2')?.focus({preventScroll:true});
     }
     let reflowFrame=null,clearReflowWait=()=>{};
     function refresh(event){
