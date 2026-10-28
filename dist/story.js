@@ -113,7 +113,7 @@
     }
     function showGift(){
       if(!candleBlown){go('birthday',true);toast('Blow out the candle to open the last note.');return;}
-      openDialog(`<div class="reader-coupon"><span class="coupon-heading">2 November 2026</span><h2>One last note.</h2></div><div class="note-dialog-copy"><p>For the cold evenings at your WG in Trier.</p><p>I wish I could be there to wrap you up myself. Until then, this one’s from me.</p><p>Happy 25th, love.</p></div>`);
+      openDialog(`<div class="reader-coupon"><span class="coupon-heading">2 November 2026</span><h2>One last note.</h2></div><div class="note-dialog-copy"><p>I got you a heated blanket for the cold evenings at your WG in Trier.</p><p>I wish I could be there to wrap you up myself. Until then, I hope it feels a little like a hug from me.</p><p>Happy 25th, love.</p></div>`);
     }
     const candleCaption=()=>!candleLit?'Make a wish.':candleBlown?'Tap the candle':'Tap to blow out the candle.';
     function syncGiftGate(){

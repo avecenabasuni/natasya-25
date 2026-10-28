@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V66: give the closing note a clear gift reference
+
+Design Read: keep the personal English note inside its existing pink envelope. Retain Antislop during 3/3/3 and Taste 8/9/5. Removing the blanket's name made “this one” ambiguous; the first sentence must explicitly say he got her a heated blanket for cold evenings at her WG in Trier. The following paragraph connects wrapping up in it to a hug from him, followed by “Happy 25th, love.” This identifies the existing gift without adding Amazon, pickup, delivery status or another surprise. Keep the message concealed, with the same title, date, extraction, candle prerequisite, halos, type and page layout.
+
 ## V65: one last note to accompany the blanket
 
 Design Read: preserve the pink physical scrapbook and its folded keepsakes, with a personal birthday ending for a gift that arrived before 2 November. Retain Antislop during 3/3/3 and Taste 8/9/5. The owner approved the exact short English note about cold evenings at her WG in Trier, wishing he could wrap her up himself, and “Happy 25th, love.”

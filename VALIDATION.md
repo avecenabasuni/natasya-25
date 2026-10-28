@@ -1,4 +1,60 @@
-# Validation: one last personal note, V65
+# Validation: clear heated blanket context, V66
+
+28 October 2026. Status: PASS. This is a copy correction: the note now starts “I got you a heated blanket for the cold evenings at your WG in Trier.” Its next paragraph connects the blanket to a hug from him; the birthday sign-off remains. Amazon, pickup and delivery details stay absent. The title, envelope, concealed opening and all controls remain.
+
+Verification uses copy review, the existing WebKit reading paths at375×667 and reduced/native375×520, and a visual review of the resulting screenshots. The actual reader contains the intended three paragraphs, no horizontal overflow or JavaScript errors, and no residual flight/masks after closing. The message stays absent from the closed page. At667 the complete note fits; at520 its independent reader scroll exposes the ending. No new automated test suite was added for this low-impact prose change. Earlier V65 functional checks remain historical.
+
+Evidence: qa/v66/reading-observations.json, scene-667-note.png, reduced-520-note-end.png, final-scope-summary.json and source-preservation.json. 137/139 distribution files remain byte-identical; only the two message paragraphs and story cache reference change. All CSS, images, fonts, audio, config, book/reader motion and halos remain unchanged. Source syntax and diff whitespace checks pass. Software browser review does not certify physical-iPhone FPS or VoiceOver.
+
+### V66 Antislop delivery gate
+
+- R-01 PASS: existing functional highlights unchanged.
+- R-02 PASS: revised prose contains no em dash.
+- R-03 PASS: both phone reading paths have zero horizontal overflow; short reader scroll reaches the sign-off.
+- R-04 PASS: icons unchanged.
+- R-05 PASS: physical scrapbook layout unchanged.
+- R-06 PASS: fonts and print styles unchanged.
+- R-07 PASS: material backgrounds unchanged.
+- R-08 PASS: existing functional navigation retained.
+- R-09 PASS: no badges or tap labels added.
+- R-10 PASS: no glass added.
+- R-11 PASS: corners and contours unchanged.
+- R-12 PASS: physical shadows unchanged.
+- R-13 PASS: existing object emphasis unchanged.
+- R-14 PASS: no cards or panels added.
+- R-15 PASS: existing note action opens the clarified message.
+- R-16 PASS: direct personal English supplies the missing gift reference.
+- R-17 PASS: heated blanket and Trier/WG come from the owner's facts.
+- R-18 PASS: no identity or testimonial added.
+- R-19 PASS: all motion source remains byte-identical.
+- R-20 PASS: supplied gift and location make the note specific.
+- R-21 PASS: light/pink theme unchanged.
+- R-22 PASS: images unchanged.
+- R-23 PASS: new prose answers the owner's context correction without inventing delivery details.
+- R-24 PASS: action destinations unchanged.
+- R-25 PASS: foreground/background and type styles unchanged; root reviewed readable phone copy.
+- R-26 PASS: actual note opening and clean closure observed in both paths.
+- R-27 PASS: native/reduced reading retains the full note.
+- R-28 PASS: no filler section added.
+- R-29 PASS: palette unchanged.
+- R-30 PASS: original scrapbook retained.
+- R-31 PASS: explicit gift reference and personal connection documented in DESIGN.md.
+- R-32 PASS: semantic title and keyboard/dialog controls unchanged.
+- R-33 PASS: tracked prose changes use apply_patch.
+- R-34 PASS: no theme or mode added.
+- R-35 PASS: existing browser reading paths reviewed, story syntax and diff whitespace checks pass.
+- R-36 PASS: no hardware performance claim made.
+- R-37 PASS: Antislop during3/3/3 and Taste8/9/5 retained.
+- R-38 PASS: “I got you” refers to the supplied existing heated blanket gift.
+- Liveliness PASS: original envelope, whitespace, materials and keepsake motif unchanged.
+- C-1 PASS: naming the gift removes the ambiguous “this one.”
+- C-2 PASS: existing note action and closure work in actual reading.
+- C-3 PASS: the note explains the personal reason for the blanket.
+- C-4 PASS: both phone reading paths remain readable, with short-view scrolling.
+- C-5 PASS: supplied facts and verification limits are explicit.
+- Taste preflight PASS: root reviewed clarified copy in the unchanged phone reader.
+
+# Historical validation: one last personal note, V65
 
 28 October 2026. Status: PASS, no unresolved finding. 32/32 focused reading checks: WebKit375×667 (9), WebKit375×520 (8), native fallback667 (8), reduced/native520 (7).
 
