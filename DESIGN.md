@@ -1,5 +1,15 @@
 # A little world, physical scrapbook
 
+## V59: visible touch affordances before the first tap
+
+Design Read: preserve the pink physical scrapbook and make every attached interactive object recognisable before touching it on a phone. The user explicitly requests a highlight that distinguishes things that can be pressed from decoration. Keep Antislop during 3/3/3 and Taste 8/9/5; this is an affordance change, not a new animation or image direction.
+
+Use a steady fine rose contour with a cream separation edge around each actual interactive attachment on the current right-hand reading page. Trace cat and cake silhouettes and the gift pocket shape; follow paper edges for the map, photograph, dated photo fragments, folded note, song slip, birthday card and any configured extra note action. The existing stronger cream/pink hover, press and keyboard response remains separate from the resting contour: an idle attachment stays flat, and a touch produces the existing brief lift. Decorative portraits, stickers and left chapter illustrations remain unmarked. Add no captions, repeated tap labels, new hit layers or idle shimmer.
+
+Three uses the existing per-object contour meshes, masks and registration keys. A separate resting uniform never changes attachment geometry or schedules a new animation loop. Show it only on the current right read phase after navigation settles, and clear it during a left divider, pan, fold, replay or open reader. Include this visibility in the pose cache and explicitly repaint when navigation finishes and modal locking begins so touch devices do not need a hover to reveal the cue. Keep source extraction, modal scroll ownership, paper turns and left-to-right order intact.
+
+Native/reduced and CSS fallback use the same rose paper outlines and silhouette edges. Apply cat filters to the already-clipped outer portrait, rather than the large atlas image inside its clipping window. Keep offscreen raster sources unmarked so these cues are never baked into turned paper or duplicated under the actual Three contour. Preserve the current content, artwork, typography, palette, candle gate, replay control and access.
+
 ## V58: read the left divider, then the right keepsakes
 
 Design Read: preserve the girlfriend's pink physical scrapbook, with each spread opening on an illustrated left-hand chapter divider before moving to its right-hand content. Antislop during remains ENERGY/RHYTHM/MOTION 3/3/3 and Taste remains DESIGN_VARIANCE/MOTION_INTENSITY/VISUAL_DENSITY 8/9/5. The user explicitly requested image-based dividers and left-to-right reading. Generate six original collage artworks for travel, four October days, photographs, folded notes and five decorative cats, the 25th birthday, and the gift. Treat the art as decoration, never as an actual trip photograph or replacement for the geographic maps or real cat portraits.

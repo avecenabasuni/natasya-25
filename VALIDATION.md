@@ -1,4 +1,64 @@
-# Validation: left image dividers before right keepsakes, V58
+# Validation: resting highlights on tappable keepsakes, V59
+
+28 October 2026. Status: PASS, no unresolved finding. 126/126 focused checks: WebKit scene 375 × 667 (54), WebKit scene 375 × 520 (20), Chromium scene 375 × 667 (24), blocked-Three CSS fallback (16), reduced/native 375 × 520 (10), and two cue-color contrast calculations. Software browser evidence does not certify a physical iPhone, hardware FPS or VoiceOver.
+
+Actual Next from the left divider reveals the current right-page contours without any hover or additional touch. All registered interactive objects have resting cues: the map, four dated photo fragments, main photograph, folded note, five individual cats, song, cake, birthday card and gift. Decorative portraits, stickers and dividers have no contour registration. Contours clear throughout animated navigation, pan, left reading and an open modal. Modal close restores all current cues without leftover masks or flights. Reader interactions cover the map, dated and main photograph, cat, note, song, birthday wish and gift; the book stays scroll-locked while the reader is open. Candle gating and the matching single final replay action remain intact.
+
+Pressing changes visible rendered pixels, while resting map contours do not create a continuing render loop after the existing one-time discovery animation settles. Resting contour strength is separate from the existing interaction lift/scale. The navigation pose cache includes cue visibility; explicit navigation-completion and modal-lock repaints prevent the touch-only case from leaving stale outlines. Root visually reviewed final map, note/cat/song, birthday and CSS fallback screenshots.
+
+Native and fallback outlines follow the actual paper or clipped portrait silhouettes. CSS transitions take 160 ms; the native style probe waits 220 ms before measuring final colors. A controlled immediate/240 ms comparison confirmed that initially transparent filter values were a measurement of the transition's first frame, rather than missing resting CSS. The initial Three implementation used a GLSL reserved identifier; browser console checks caught the shader compilation failure. It was renamed and both final WebKit and Chromium reports contain no JavaScript or shader errors.
+
+The rose contour composited over cream paper gives 3.47:1 at native alpha 0.70 and 3.81:1 at the scene's core alpha 0.74. A cream separation edge supports visibility over darker photographs. Existing text colors, fonts, captions and all media are unchanged. Evidence: qa/v59/final-scope-summary.json, browser checks/screenshots, cue-contrast.json and source-preservation.json. 134/139 distribution files are byte-identical; only the feedback stylesheet, Three contour shader/visibility, engine repaint points and two cache references change. No images or content are added. Earlier full replay, resize and audio suites remain historical.
+
+### V59 Antislop delivery gate
+
+- R-01 PASS: rose/cream contours have the user's requested tappability purpose.
+- R-02 PASS: no new product copy or em dash added.
+- R-03 PASS: both phone heights, CSS fallback and reduced/native bounds pass.
+- R-04 PASS: no icons added; existing controls retain their meaning.
+- R-05 PASS: six existing content spreads and their dividers are retained.
+- R-06 PASS: Fraunces and Source Sans 3 assets are byte-identical.
+- R-07 PASS: existing paper/linen backgrounds remain unchanged.
+- R-08 PASS: navigation arrows still move through the established left/right order.
+- R-09 PASS: no badges or labels added.
+- R-10 PASS: no glass added.
+- R-11 PASS: outlines follow paper edges and silhouettes; control radii unchanged.
+- R-12 PASS: cream separation marks touchable attachments; no generic elevation added.
+- R-13 PASS: emphasis is limited to actual interactive objects as requested; decorations stay unmarked.
+- R-14 PASS: no replacement cards or uniform feature grid added.
+- R-15 PASS: existing concrete object/navigation actions remain.
+- R-16 PASS: no marketing copy added.
+- R-17 PASS: no statistics or new factual claims added.
+- R-18 PASS: no testimonials or identities added.
+- R-19 PASS: steady contours use no new idle loop; existing press lift strengthens feedback.
+- R-20 PASS: the real scrapbook's individual map, photos, cats and notes remain distinct.
+- R-21 PASS: user-selected light paper presentation retained.
+- R-22 PASS: all images and generated divider art remain byte-identical.
+- R-23 PASS: no new image, identity or navigation destination created.
+- R-24 PASS: every highlighted control opens its existing reader or candle action.
+- R-25 PASS: text styling unchanged; rose/cream contour-core contrast calculations exceed 3:1.
+- R-26 PASS: actual object taps, reader closes, candle and final endpoint pass.
+- R-27 PASS: reduced/native and graphics-fallback contours pass.
+- R-28 PASS: no filler section or FAQ added.
+- R-29 PASS: contours reuse existing rose and cream palette roles.
+- R-30 PASS: highlights follow this scrapbook's physical attachments.
+- R-31 PASS: resting/press separation and current-side ownership are documented in DESIGN.md.
+- R-32 PASS: existing keyboard focus remains stronger; inert/offscreen objects are not highlighted.
+- R-33 PASS: changes live in tracked application source; no feature is injected at runtime.
+- R-34 PASS: no theme or mode added.
+- R-35 PASS: 126 checks, three JavaScript syntax checks and whitespace checks pass.
+- R-36 PASS: no unsupported hardware-performance or service claim made.
+- R-37 PASS: established Antislop during 3/3/3 and Taste 8/9/5 retained.
+- R-38 PASS: original memories, media, portraits and placeholders remain unchanged.
+- Liveliness PASS: quiet contours clarify existing collage focal points; physical press feedback retains the established dials.
+- C-1 PASS: contours serve touch discovery, with no decorative extra hit layer.
+- C-2 PASS: highlighted controls perform their actual existing actions.
+- C-3 PASS: existing content determines each highlighted shape.
+- C-4 PASS: phone, fallback, reduced motion, modal ownership and shader compilation pass.
+- C-5 PASS: no personal fact or image fabricated.
+- Taste preflight PASS: inspected contours, press distinction, material/type continuity, phone fit and fallback behavior.
+
+# Historical validation: left image dividers before right keepsakes, V58
 
 28 October 2026. Status: PASS, no unresolved finding. 211/211 checks: independent navigation and rendering 171, native mobile/desktop arrow navigation 30, root physical-boundary/resize probes 4, and title-ink contrast checks 6. WebKit covers 375 × 667/520, reduced motion and blocked-Three CSS fallback; Chromium covers 375 × 667. Native desktop is checked at 1280 × 800. Software browser evidence does not certify physical iPhone Safari, hardware frame rate or VoiceOver.
 

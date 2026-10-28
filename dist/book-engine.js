@@ -368,6 +368,7 @@
           trigger.disable(false,false);trigger.getTween()?.pause();
           window.scrollTo({top:trigger.start+modalTime/distance*(trigger.end-trigger.start),behavior:'instant'});
           film.dataset.modalLocked='true';
+          render();
         }else if(modalTime!==null){
           const time=modalTime;trigger.enable(false,false);ScrollTrigger.update();trigger.getTween()?.pause();
           modalTime=null;timeline.time(time,false);render();delete film.dataset.modalLocked;
@@ -434,7 +435,7 @@
         const destination=label!=='gift-open'&&targetPhase?pages[targetPhase.index]:null;
         navigationIntent={label,focus,replay,complete,chapter:destination?chapters[destination.chapter][0]:null,part:destination?.part,side:targetPhase?.kind==='divider'?'left':'right'};
         scrollTween=gsap.to(position,{top,paused:true,duration,ease:replay?'none':'power2.inOut',
-          onUpdate:()=>seek(position.top),onComplete:()=>{gsap.ticker.remove(advanceNavigation);scrollTween=null;navigationLabel=null;navigationIntent=null;film.dataset.navigation='idle';timeline.time(time,false);focusPage();complete?.();}});
+          onUpdate:()=>seek(position.top),onComplete:()=>{gsap.ticker.remove(advanceNavigation);scrollTween=null;navigationLabel=null;navigationIntent=null;film.dataset.navigation='idle';timeline.time(time,false);render();focusPage();complete?.();}});
         gsap.ticker.add(advanceNavigation);
       }
       // A keyboard move keeps a focused link/button on its physical leaf.

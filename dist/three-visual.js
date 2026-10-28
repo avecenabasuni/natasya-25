@@ -275,8 +275,8 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   }
   const contourVertex=`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`;
   const contourFragment=`
-    uniform vec2 size;uniform float strength,shape,sweep;uniform sampler2D mask;
-    uniform vec3 edgeColor,haloColor;varying vec2 vUv;
+    uniform vec2 size;uniform float strength,affordance,shape,sweep;uniform sampler2D mask;
+    uniform vec3 edgeColor,haloColor,cueColor;varying vec2 vUv;
     float silhouette(vec2 uv){
       if(uv.x<0.0||uv.x>1.0||uv.y<0.0||uv.y>1.0)return 0.0;
       return texture2D(mask,uv).a;
@@ -300,32 +300,38 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
         rim=1.0-smoothstep(.55,1.65,abs(d));halo=1.0-smoothstep(1.0,5.4,abs(d));
       }
       float shine=(1.0-smoothstep(.0,.14,abs(vUv.x+vUv.y*.22-sweep*1.5+.15)))*step(sweep,1.0);
-      float alpha=strength*max(rim*(.82+.18*shine),halo*.25);
+      float alpha=max(affordance*max(rim*.74,halo*.18),strength*max(rim*(.82+.18*shine),halo*.25));
       if(alpha<.005)discard;
-      gl_FragColor=vec4(mix(haloColor,edgeColor,smoothstep(.08,.65,rim)),alpha);
+      float edge=smoothstep(.08,.65,rim);
+      vec3 resting=mix(edgeColor,cueColor,edge),emphasisColor=mix(haloColor,edgeColor,edge);
+      gl_FragColor=vec4(mix(resting,emphasisColor,strength),alpha);
       #include <colorspace_fragment>
     }`;
   function registerFeedback(key,index,object,w,h,{x=0,y=0,z=1.1,shape=0,aliases=[],mask=null}={}){
     // Keep the resting/turning anchor untouched; only its inner contents lift.
     const content=new THREE.Group();[...object.children].forEach(child=>content.add(child));object.add(content);object.userData.readerContent=content;
     const mat=track(new THREE.ShaderMaterial({vertexShader:contourVertex,fragmentShader:contourFragment,transparent:true,depthWrite:false,toneMapped:false,
-      uniforms:{size:{value:new THREE.Vector2(w,h)},strength:{value:0},shape:{value:shape},mask:{value:mask},sweep:{value:2},edgeColor:{value:new THREE.Color(palette['object-edge'])},haloColor:{value:new THREE.Color(palette['object-halo'])}}}));
+      uniforms:{size:{value:new THREE.Vector2(w,h)},strength:{value:0},affordance:{value:0},shape:{value:shape},mask:{value:mask},sweep:{value:2},edgeColor:{value:new THREE.Color(palette['object-edge'])},haloColor:{value:new THREE.Color(palette['object-halo'])},cueColor:{value:new THREE.Color(palette.rose)}}}));
     const ring=plane(w+12,h+12,mat,content);ring.position.set(x,y,z);ring.castShadow=ring.receiveShadow=false;ring.visible=false;ring.userData.objectContour=true;
     const entry={key,index,object,w,h,content,ring,mat,value:0,target:0,started:0};feedbackEntries.push(entry);
     [key,...aliases].forEach(name=>{if(!feedbackKeys.has(name))feedbackKeys.set(name,[]);feedbackKeys.get(name).push(entry);});
   }
   function clearFeedback(){
     cancelAnimationFrame(feedbackFrame);feedbackFrame=0;feedbackTime=0;
-    feedbackEntries.forEach(e=>{e.value=e.target=0;e.content.position.z=0;e.content.rotation.x=0;e.content.scale.setScalar(1);e.ring.visible=false;e.mat.uniforms.strength.value=0;});
-    film.dataset.objectFeedback='';
+    feedbackEntries.forEach(e=>{e.value=e.target=0;e.content.position.z=0;e.content.rotation.x=0;e.content.scale.setScalar(1);e.ring.visible=false;e.mat.uniforms.strength.value=e.mat.uniforms.affordance.value=0;});
+    film.dataset.objectFeedback='';film.dataset.objectAffordances='';
   }
+  const affordancesVisible=()=>latest?.phase.kind==='read'&&!readerHolding&&!document.querySelector('dialog[open]')&&!['moving','preparing'].includes(film.dataset.navigation);
   function applyFeedback(){
+    const visible=affordancesVisible();
     feedbackEntries.forEach(e=>{
       e.content.position.z=e.value*2.6;e.content.scale.setScalar(1+e.value*.012);e.content.rotation.x=-rad(.45)*e.value;
-      e.ring.visible=e.value>.005;e.mat.uniforms.strength.value=e.value;
+      const resting=visible&&e.index===latest.phase.index;
+      e.ring.visible=resting||e.value>.005;e.mat.uniforms.strength.value=e.value;e.mat.uniforms.affordance.value=resting?1:0;
       e.mat.uniforms.sweep.value=(performance.now()-e.started)/360;
     });
     film.dataset.objectFeedback=feedbackEntries.filter(e=>e.value>.005).map(e=>e.key+':'+e.value.toFixed(2)).join(',');
+    film.dataset.objectAffordances=feedbackEntries.filter(e=>e.mat.uniforms.affordance.value>0).map(e=>e.key).join(',');
   }
   function feedbackTick(now){
     feedbackFrame=0;const dt=feedbackTime?Math.min((now-feedbackTime)/1000,.05):1/60;feedbackTime=now;
@@ -488,7 +494,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     if(state.phase.kind!=='read'&&feedbackEntries.some(e=>e.value||e.target))clearFeedback();
     const activating=!active;
     if(activating){active=true;film.classList.add('three-book');}
-    const moving=state.phase.kind==='turn'||state.phase.kind==='opening'||(state.phase.kind==='read'&&((sets.get(state.phase.index)?.type==='pocket'&&state.p<.95)||(birthdayCakes.has(state.phase.index)&&(state.p<.35||state.p>.7)))),pose=[ready,state.phase.kind,state.phase.index,state.current,state.camX,state.scale,state.rx,state.rz,moving?state.p:0].join(':');
+    const moving=state.phase.kind==='turn'||state.phase.kind==='opening'||(state.phase.kind==='read'&&((sets.get(state.phase.index)?.type==='pocket'&&state.p<.95)||(birthdayCakes.has(state.phase.index)&&(state.p<.35||state.p>.7)))),pose=[ready,state.phase.kind,state.phase.index,state.current,state.camX,state.scale,state.rx,state.rz,moving?state.p:0,affordancesVisible()].join(':');
     if(pose===lastPose)return;lastPose=pose;
     root.position.x=state.camX;root.position.y=bottomReserve/2+(state.coverLift||0);root.scale.setScalar(state.scale);root.rotation.set(rad(-state.rx),0,rad(-state.rz));
     const opening=state.phase.kind==='cover'?0:state.phase.kind==='opening'?state.p:1;
