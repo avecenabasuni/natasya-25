@@ -1,5 +1,13 @@
 # A little world, physical scrapbook
 
+## V63: continuous, smooth touch halos
+
+Design Read: preserve the girlfriend's pink physical scrapbook and Photos-inspired object contours; make touch discovery continuous as explicitly requested. Retain Antislop during 3/3/3 and Taste 8/9/5, existing colors, materials, content, geometry and access.
+
+After 650 ms of settled reading, every actual current attachment receives a soft orbital highlight. Use a shared 3600 ms linear clock with staggered starting positions and a single 400 ms entry fade. Each orbit joins the next without a pause, fade-out or restart. Keep the quieter ambient contour underneath. Decorative stickers and left dividers remain unmarked; navigation, readers, hidden/blurred state and reduced motion suspend the loop. Reduced motion retains static colored halos.
+
+One animation callback updates all highlights together. Cache current targets between lifecycle changes; avoid measuring every object on every frame. Three repaints contour uniforms without rebuilding the stationary book pose or its diagnostic projections. Native fallback caches the tinted contour and angular beam, then composites those images instead of walking every pixel per frame. Verify multiple complete laps, the wrap seam, reader/navigation interruption and touch-only entry in software WebKit/Chromium; do not claim physical-iPhone frame rates.
+
 ## V62: touch targets stay visible without hover
 
 The owner requires visible highlights before a finger touches the page. V61's one-time orbital introduction and almost-white resting edge were too easy to miss. Give every actual current right-page attachment a persistent soft rose/mauve ambient halo, independently of hover, focus or press. Keep the contour translucent and diffuse, with the existing stronger moving/touch core; do not restore V59's heavy opaque border.

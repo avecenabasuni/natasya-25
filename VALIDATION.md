@@ -1,4 +1,66 @@
-# Validation: touch halos without hover, V62
+# Validation: continuous touch halos, V63
+
+28 October 2026. Status: PASS, no unresolved finding. 56/56 focused checks: WebKit touch mode 375 × 667 (17), WebKit 375 × 520 (13), Chromium touch mode 375 × 667 (13), native CSS fallback (8), and reduced/native (5).
+
+The current right-page attachments now share one continuous animation clock. A 3600 ms orbit, staggered positions and one 400 ms entry fade replace the old per-lap fade, inter-object gap and round pause. Multiple complete laps keep the same active run and join without a waiting state or restart. No object hover, touch or focus is needed. Static colored contours remain underneath, and decorative stickers/dividers remain unmarked.
+
+Browser samples record more than three complete laps, elapsed-time phase continuity across the wrap, all seven note/cat/song phases moving, and one scene repaint per animation callback with no full book-pose update. Native fallback retains seven inert clipped-alpha canvases across laps, with transparent corners and sparse visible pixels. Its moving beam composites cached images instead of rebuilding pixel data every frame. Root visually reviewed the WebKit map, seven-attachment page and native fallback page.
+
+Map reader opening clears every loop and locks book scrolling; closing it resumes automatically. Left dividers and captured navigation/turn frames stay clear. Cake/wish loops retain the candle prerequisite, finger input still blows the candle, and the gift reader opens and clears its halo. Reduced motion retains colored static cues. All final cases have no JavaScript/shader errors or horizontal overflow.
+
+Evidence: qa/v63/continuous-loop.py, individual checks/timing/screenshots, final-scope-summary.json and source-preservation.json. 135/139 distribution files remain byte-identical. Only discovery scheduling/native painting, contour-only scene repainting and cache references change. Book engine/geometry/clock, shader masks/colors, CSS, fonts, images, story, audio, maps, dividers and configuration remain unchanged. Earlier broad suites are historical.
+
+Limits: these are software WebKit/Chromium touch-mode tests, not physical iPhone Safari, hardware FPS or VoiceOver certification. The software Chromium run sampled slowly, so elapsed-time phase continuity supports the motion logic without asserting a display frame rate. An initial letter assertion required an arbitrary number of frames; its report is preserved, and the final check instead verifies elapsed duration, distinct poses and time-based progress for each key. No application change was needed for that harness correction.
+
+### V63 Antislop delivery gate
+
+- R-01 PASS: localized contours serve the explicitly requested touch discoverability.
+- R-02 PASS: no product prose or em dash added.
+- R-03 PASS: phone heights, native/reduced paths and horizontal bounds pass.
+- R-04 PASS: no icons added.
+- R-05 PASS: original scrapbook compositions retained.
+- R-06 PASS: font and text bytes unchanged.
+- R-07 PASS: paper/linen backgrounds unchanged.
+- R-08 PASS: existing functional left/right navigation retained.
+- R-09 PASS: no badges or repeated tap labels added.
+- R-10 PASS: no glass surfaces added.
+- R-11 PASS: original paper and subject contours retained.
+- R-12 PASS: existing physical shadows retained.
+- R-13 PASS: moving emphasis belongs only to current interactive attachments.
+- R-14 PASS: no cards or grids added.
+- R-15 PASS: existing concrete object actions retained.
+- R-16 PASS: no marketing text added.
+- R-17 PASS: timing and QA numbers come from source and recorded reports.
+- R-18 PASS: no identity or testimonial added.
+- R-19 PASS: continuous orbit directly follows the owner's unlimited-loop request; movement is suspended for navigation and reading dialogs.
+- R-20 PASS: original personal keepsakes remain distinct.
+- R-21 PASS: selected light/pink scrapbook retained.
+- R-22 PASS: all images unchanged.
+- R-23 PASS: no new visual asset or destination created.
+- R-24 PASS: map, cat, candle and gift actions retain their destinations.
+- R-25 PASS: text/focus styling unchanged; halos remain supplemental to semantic controls.
+- R-26 PASS: direct taps, modal return, candle gate and gift checks pass.
+- R-27 PASS: native fallback and reduced static paths pass.
+- R-28 PASS: no filler section added.
+- R-29 PASS: existing rose/mauve tokens retained.
+- R-30 PASS: original scrapbook composition remains; the owner's Photos reference informs only the contour gesture.
+- R-31 PASS: clock, entry fade, batching and cached native painting documented in DESIGN.md.
+- R-32 PASS: no hover required; canvases remain inert and keyboard focus unchanged.
+- R-33 PASS: tracked application changes use apply_patch.
+- R-34 PASS: no additional theme or presentation mode.
+- R-35 PASS: 56 focused browser checks, three JavaScript syntax checks and diff whitespace checks pass.
+- R-36 PASS: software timing is explicitly distinguished from hardware frame rates.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 retained.
+- R-38 PASS: personal facts, media and placeholders unchanged.
+- Liveliness PASS: original focal objects, whitespace, palette and physical keepsake motif retained; current continuous contour motion serves finger discovery.
+- C-1 PASS: uninterrupted laps and lighter repaint work resolve the stated motion issue.
+- C-2 PASS: existing interactive actions work in focused input checks.
+- C-3 PASS: actual current attachments determine the moving contours.
+- C-4 PASS: touch-only entry, repeated laps, navigation/modal gates, native and reduced paths pass.
+- C-5 PASS: phase/render evidence and its software limits are recorded.
+- Taste preflight PASS: reviewed scene/native contour fit, staggered motion, touch behavior, unchanged page composition and phone bounds.
+
+# Historical validation: touch halos without hover, V62
 
 28 October 2026. Status: PASS, no unresolved finding. 82/82 focused checks: WebKit touch mode 375 × 667/520 (18 each), Chromium touch mode 375 × 667 (18), CSS fallback (13), reduced/native (5), and focused navigation/cake/gift checks (10). Software browser evidence does not certify physical iPhone hardware, FPS or VoiceOver.
 

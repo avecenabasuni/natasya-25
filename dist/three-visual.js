@@ -254,13 +254,15 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     if(!discovery)return false;
     discovery=null;feedbackEntries.forEach(e=>{e.mat.uniforms.glint.value=0;});film.dataset.discoveryContour='';lastPose='';return true;
   }
-  function setDiscovery({key,amount=0,progress=0}){
-    const repaint=()=>{if(disposed||lost||!latest)return;lastPose='';feedbackRendering=true;update(latest);feedbackRendering=false;};
-    if(!key){if(clearDiscovery())repaint();return false;}
+  function setDiscovery({key,amount=0,progress=0,items}){
+    const repaint=()=>{if(disposed||lost||!active||!ready||!latest||readerHolding)return;applyFeedback();renderer.shadowMap.needsUpdate=false;renderer.render(scene,camera);film.dataset.renderFrame=String(++renderFrames);};
+    const cues=items|| (key?[{key,amount,progress}]:[]);
+    if(!cues.length){if(clearDiscovery())repaint();return false;}
     if(disposed||lost||!active||!ready||!affordancesVisible()){if(clearDiscovery())repaint();return false;}
-    const entries=(feedbackKeys.get(key)||[]).filter(e=>e.index===latest.phase.index);if(!entries.length)return false;
-    discovery={key,index:latest.phase.index,entries,amount:clamp(amount),progress:clamp(progress)};
-    film.dataset.discoveryContour=key+':'+progress.toFixed(3);repaint();return true;
+    const entries=new Map();for(const cue of cues)for(const entry of feedbackKeys.get(cue.key)||[])if(entry.index===latest.phase.index)entries.set(entry,{amount:clamp(cue.amount),progress:clamp(cue.progress)});
+    if(!entries.size)return false;
+    discovery={index:latest.phase.index,entries};
+    film.dataset.discoveryContour=cues.map(cue=>cue.key+':'+cue.progress.toFixed(4)).join(',');repaint();return true;
   }
   const contourVertex=`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`;
   const contourFragment=`
@@ -325,8 +327,9 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       e.content.position.z=e.value*2.6;e.content.scale.setScalar(1+e.value*.012);e.content.rotation.x=-rad(.45)*e.value;
       const resting=visible&&e.index===latest.phase.index;
       e.ring.visible=resting||e.value>.005;e.mat.uniforms.strength.value=e.value;e.mat.uniforms.affordance.value=resting?1:0;
-      e.mat.uniforms.glint.value=resting&&discovery?.entries.includes(e)?discovery.amount:0;
-      e.mat.uniforms.orbit.value=discovery?.progress||0;
+      const cue=resting?discovery?.entries.get(e):null;
+      e.mat.uniforms.glint.value=cue?.amount||0;
+      e.mat.uniforms.orbit.value=cue?.progress||0;
       e.mat.uniforms.sweep.value=(performance.now()-e.started)/560;
     });
     film.dataset.objectFeedback=feedbackEntries.filter(e=>e.value>.005).map(e=>e.key+':'+e.value.toFixed(2)).join(',');

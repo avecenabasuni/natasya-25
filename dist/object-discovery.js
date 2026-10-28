@@ -1,19 +1,23 @@
-/* Touch hints repeat while a page is being read; quiet gaps use no frames. */
+/* A shared clock keeps touch contours moving continuously while reading. */
 (() => {
   'use strict';
   const clamp=n=>Math.max(0,Math.min(1,n));
   const smooth=n=>{n=clamp(n);return n*n*(3-2*n);};
   window.ScrapbookDiscovery={create({app,getPosition,onLift}){
-    const seen=new Set(),listeners=[],media=matchMedia('(prefers-reduced-motion: reduce)');
+    const listeners=[],media=matchMedia('(prefers-reduced-motion: reduce)');
     const css=getComputedStyle(document.documentElement),rgb=(name,fallback)=>{const hex=css.getPropertyValue(name).trim();return /^#[\da-f]{6}$/i.test(hex)?hex.slice(1).match(/../g).map(v=>parseInt(v,16)):fallback;};
     const tint=rgb('--object-glint',[156,85,119]),shift=rgb('--object-glint-shift',[134,112,159]);
-    let pending=null,active=null,timer=0,frame=0,quietUntil=0,destroyed=false,blurred=false,count=0,readingPage=null;
+    let pending=null,active=null,timer=0,frame=0,quietUntil=0,destroyed=false,blurred=false,count=0;
     const listen=(target,type,fn,options)=>{target.addEventListener(type,fn,options);listeners.push(()=>target.removeEventListener(type,fn,options));};
     const status=(value,key='')=>{app.dataset.discoveryState=value;app.dataset.discoveryObject=key;};
-    function available(){
-      if(destroyed||blurred||media.matches||document.hidden||document.querySelector('dialog[open]'))return [];
+    function readingPosition(){
+      if(destroyed||blurred||media.matches||document.hidden||document.querySelector('dialog[open]'))return null;
       const position=getPosition(),film=app.querySelector('.book-film');
-      if(!position||position.kind!=='read'||position.navigation||position.touchHeld||position.settle||film?.dataset.assetsReady==='false')return [];
+      return position&&position.kind==='read'&&!position.navigation&&!position.touchHeld&&!position.settle&&film?.dataset.assetsReady!=='false'?position:null;
+    }
+    const pageKey=position=>position.chapter+':'+(position.part||1);
+    function available(){
+      const position=readingPosition();if(!position)return [];
       const unique=new Set();
       return [...app.querySelectorAll('[data-book-object]')].flatMap(source=>{
         const key=source.dataset.bookObject,control=source.closest('button,a'),chapter=source.closest('.album-chapter');
@@ -25,7 +29,7 @@
     }
     function stop(){
       clearTimeout(timer);timer=0;pending=null;cancelAnimationFrame(frame);frame=0;
-      if(active){onLift?.({key:null,amount:0,progress:0});active.native?.remove();}
+      if(active){onLift?.({key:null,amount:0,progress:0});active.items.forEach(item=>item.native?.remove());}
       active=null;status('idle');app.removeAttribute('data-discovery-renderer');app.removeAttribute('data-discovery-progress');
     }
     function nativeGlint(item){
@@ -63,8 +67,18 @@
           const rim=high-low,halo=Math.max(0,outer-a);if(rim<.025&&halo<.025)continue;
           const px=(x/ratio-pad)/w-.5,py=(y/ratio-pad)/h-.5,phase=Math.atan2(-py,px)/(Math.PI*2)+.5,mix=.65*(.5+.5*Math.cos(phase*Math.PI*2));points.push({offset:(y*width+x)*4,rim,halo,phase,color:tint.map((v,i)=>Math.round(v+(shift[i]-v)*mix))});
         }
-        const output=ctx.createImageData(width,height);
-        return {paint(progress,amount){const head=.75-progress;for(const p of points){let d=Math.abs(p.phase-head);d=Math.min(d,Math.abs(d-1),Math.abs(d-2));const beam=1-smooth(d/.13),v=amount*beam,index=p.offset;output.data[index]=p.color[0];output.data[index+1]=p.color[1];output.data[index+2]=p.color[2];output.data[index+3]=Math.round(255*v*Math.max(p.rim*.94,p.halo*.24));}ctx.putImageData(output,0,0);},remove};
+        const contour=document.createElement('canvas');contour.width=width;contour.height=height;
+        const contourContext=contour.getContext('2d'),output=contourContext.createImageData(width,height);
+        for(const p of points){const i=p.offset;output.data[i]=p.color[0];output.data[i+1]=p.color[1];output.data[i+2]=p.color[2];output.data[i+3]=Math.round(255*Math.max(p.rim*.94,p.halo*.24));}
+        contourContext.putImageData(output,0,0);
+        const beam=document.createElement('canvas');beam.width=beam.height=256;const b=beam.getContext('2d');
+        const gradient=b.createConicGradient(-Math.PI/2,128,128);
+        for(let i=0;i<=64;i++){const phase=i/64,d=Math.min(phase,1-phase),alpha=1-smooth(Math.max(0,d-.015)/.115);gradient.addColorStop(phase,`rgba(255,255,255,${alpha})`);}
+        b.fillStyle=gradient;b.fillRect(0,0,256,256);
+        return {paint(progress,amount){
+          ctx.clearRect(0,0,width,height);ctx.globalAlpha=amount;ctx.drawImage(contour,0,0);ctx.globalAlpha=1;ctx.globalCompositeOperation='destination-in';
+          ctx.save();ctx.translate((pad+w/2)*ratio,(pad+h/2)*ratio);ctx.scale(w*ratio,h*ratio);ctx.rotate(progress*Math.PI*2);ctx.drawImage(beam,-1,-1,2,2);ctx.restore();ctx.globalCompositeOperation='source-over';
+        },remove};
       }catch{
         remove();const previous=target.style.getPropertyValue('filter'),priority=target.style.getPropertyPriority('filter');
         target.classList.add('object-glint-pulse');return {paint(progress,amount){target.style.setProperty('filter',`drop-shadow(0 0 ${1+amount*1.2}px rgba(${tint.join(',')},${amount*.78}))`);},remove(){if(previous)target.style.setProperty('filter',previous,priority);else target.style.removeProperty('filter');target.classList.remove('object-glint-pulse');}};
@@ -73,36 +87,31 @@
     function queue(delay){clearTimeout(timer);timer=setTimeout(refresh,delay);}
     function tick(now){
       if(!active)return;
-      if(!available().some(item=>item.id===active.id)){stop();return;}
-      const progress=clamp((now-active.started)/1250),amount=smooth(progress/.12)*smooth((1-progress)/.12);
-      app.dataset.discoveryProgress=progress.toFixed(3);
-      if(active.scene){if(!onLift?.({key:active.key,amount,progress})){stop();return;}}
-      else active.native?.paint(progress,amount);
-      if(progress>=1){stop();quietUntil=performance.now()+1000;queue(1000);return;}
+      const position=readingPosition();if(!position||pageKey(position)!==active.page){stop();return;}
+      const elapsed=Math.max(0,now-active.started),phase=elapsed/3600,amount=smooth(elapsed/400);
+      const items=active.items.map((item,i)=>({key:item.key,amount,progress:(phase+i*.173)%1}));
+      app.dataset.discoveryProgress=items[0].progress.toFixed(4);app.dataset.discoveryLap=String(Math.floor(phase));
+      if(active.scene){if(!onLift?.({items})){stop();return;}}
+      else active.items.forEach((item,i)=>item.native?.paint(items[i].progress,amount));
       frame=requestAnimationFrame(tick);
     }
     function start(){
-      timer=0;const next=available().find(item=>!seen.has(item.id));
-      if(!pending||!next||next.id!==pending.id){stop();refresh();return;}
+      timer=0;const items=available();
+      if(!pending||!items.length||items.map(item=>item.id).join(',')!==pending){stop();refresh();return;}
       if(performance.now()<quietUntil){timer=setTimeout(start,quietUntil-performance.now());return;}
-      pending=null;seen.add(next.id);active={...next,started:performance.now()};active.scene=!!onLift?.({key:next.key,amount:0,progress:0});
-      if(!active.scene)active.native=nativeGlint(next);
-      status('playing',next.key);app.dataset.discoveryRenderer=active.scene?'scene':'native';app.dataset.discoveryCount=String(++count);frame=requestAnimationFrame(tick);
+      pending=null;active={items,page:pageKey(readingPosition()),started:performance.now()};active.scene=!!onLift?.({items:items.map((item,i)=>({key:item.key,amount:0,progress:i*.173%1}))});
+      if(!active.scene)items.forEach(item=>item.native=nativeGlint(item));
+      status('playing',items.map(item=>item.key).join(','));app.dataset.discoveryRenderer=active.scene?'scene':'native';app.dataset.discoveryCount=String(++count);app.dataset.discoveryLap='0';frame=requestAnimationFrame(tick);
     }
     function refresh(){
       if(destroyed)return;const items=available();
-      const position=getPosition(),page=items.length?position.chapter+':'+(position.part||1):null;
-      if(page!==readingPage){stop();seen.clear();readingPage=page;}
-      if(active){if(!items.some(item=>item.id===active.id))stop();return;}
-      let next=items.find(item=>!seen.has(item.id));
-      if(!next&&items.length){seen.clear();quietUntil=Math.max(quietUntil,performance.now()+4500);next=items[0];}
-      if(!next){if(pending)stop();return;}
-      if(pending?.id===next.id)return;
-      stop();pending=next;status('waiting');timer=setTimeout(start,Math.max(650,quietUntil-performance.now()));
+      const signature=items.map(item=>item.id).join(',');
+      if(active){if(signature===active.items.map(item=>item.id).join(','))return;stop();}
+      if(!items.length){if(pending)stop();return;}
+      if(pending===signature)return;
+      stop();pending=signature;status('waiting');timer=setTimeout(start,Math.max(650,quietUntil-performance.now()));
     }
     function interrupt(event){
-      const position=getPosition(),source=event.target instanceof Element?event.target.closest('[data-book-object]'):null;
-      if(source&&app.contains(source)&&position?.chapter){seen.add(position.chapter+':'+source.dataset.bookObject);if(source.dataset.bookObject==='cats')source.querySelectorAll('[data-book-object]').forEach(node=>seen.add(position.chapter+':'+node.dataset.bookObject));}
       stop();quietUntil=performance.now()+650;if(!document.hidden&&!media.matches&&!blurred)queue(660);
     }
     const observer=new MutationObserver(refresh);observer.observe(app,{subtree:true,childList:true,attributes:true,attributeFilter:['data-phase','data-navigation','data-assets-ready']});
