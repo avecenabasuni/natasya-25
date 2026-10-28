@@ -1,6 +1,6 @@
 // Shared content for all visitors. Edit this file for published personalisation.
 window.BIRTHDAY_CONFIG = {
-  name: "[Her nickname]",
+  name: "Tasya",
   sender: "[Your name]",
   birthday: "2026-11-02",
   intro: "",

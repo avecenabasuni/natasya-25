@@ -1,6 +1,6 @@
 # A little world
 
-A personal birthday scrapbook made for a phone: a pink birthday-collage cover, hinged 3D board, paper pages, photographs, folded notes, five cats and racing/music/football keepsakes.
+A personal birthday scrapbook for Tasya, made for a phone: a pink birthday-collage cover, hinged 3D board, paper pages, photographs, folded notes, five cats and racing/music/football keepsakes.
 
 The seven chapters follow the cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration and one last note. The trip is 22–25 October 2026; the birthday is 2 November 2026. The shared song is The One I Choose by Devin Velez. The final envelope names the heated blanket as his gift and connects it to a hug from him, with no delivery or pickup details. Other personal names, photographs and memories remain explicit placeholders until supplied.
 

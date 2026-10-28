@@ -1,4 +1,60 @@
-# Validation: clear heated blanket context, V66
+# Validation: recipient nickname Tasya, V67
+
+28 October 2026. Status: PASS. The shared recipient nickname is now Tasya. Existing c.name/defaults.name bindings cover the cover print and accessible title, birthday addressee, note/card salutations, page bylines and personalisation editor. Both exact legacy nickname placeholders, after trimming whitespace, migrate to the new default; real custom names and other writing stay intact.
+
+Verification: independent binding review, config/app JavaScript syntax checks and diff whitespace checks. This small content/default migration adds no automated tests and does not rerun browser motion suites. Earlier phone reading and rendering evidence remains historical. Only config.js, the exact-placeholder normalization and their cache references change; 136/139 distribution files remain byte-identical. Source preservation confirms all styling, assets, story, fonts, audio, halo/reader/book motion and hosting configuration are unchanged.
+
+Evidence: qa/v67/final-scope-summary.json and source-preservation.json. No new browser or physical-device performance claim is made.
+
+### V67 Antislop delivery gate
+
+- R-01 PASS: existing functional emphasis unchanged.
+- R-02 PASS: no product prose punctuation added.
+- R-03 PASS: five-character nickname uses the existing short-name layout; all sizing source unchanged.
+- R-04 PASS: icons unchanged.
+- R-05 PASS: composition unchanged.
+- R-06 PASS: local fonts and existing name font preparation retained.
+- R-07 PASS: materials unchanged.
+- R-08 PASS: navigation unchanged.
+- R-09 PASS: no badges or labels added.
+- R-10 PASS: no glass added.
+- R-11 PASS: corners/contours unchanged.
+- R-12 PASS: physical shadows unchanged.
+- R-13 PASS: existing object emphasis unchanged.
+- R-14 PASS: no panels or grids added.
+- R-15 PASS: action labels unchanged.
+- R-16 PASS: user-supplied proper name replaces a placeholder.
+- R-17 PASS: Tasya comes from the owner's instruction.
+- R-18 PASS: no invented identity or testimonial.
+- R-19 PASS: all animation source unchanged.
+- R-20 PASS: the actual recipient nickname personalises existing bindings.
+- R-21 PASS: theme unchanged.
+- R-22 PASS: all images unchanged.
+- R-23 PASS: supplied recipient name used directly.
+- R-24 PASS: destinations unchanged.
+- R-25 PASS: colors, type and focus styles unchanged.
+- R-26 PASS: controls unchanged; recipient bindings independently reviewed.
+- R-27 PASS: existing empty/error/native paths retained.
+- R-28 PASS: no filler added.
+- R-29 PASS: palette unchanged.
+- R-30 PASS: original scrapbook retained.
+- R-31 PASS: name and exact-placeholder migration documented in DESIGN.md.
+- R-32 PASS: accessible cover title and salutations use the same name binding.
+- R-33 PASS: tracked changes use apply_patch.
+- R-34 PASS: no theme/mode added.
+- R-35 PASS: config/app syntax and diff checks pass; unchanged runtime paths retain historical verification.
+- R-36 PASS: no new hardware or browser-performance claim.
+- R-37 PASS: Antislop during3/3/3 and Taste8/9/5 retained.
+- R-38 PASS: nickname matches the user's supplied fact.
+- Liveliness PASS: existing physical keepsakes, whitespace and visual identity unchanged.
+- C-1 PASS: the supplied name replaces the generic placeholder.
+- C-2 PASS: unchanged controls retain existing bindings.
+- C-3 PASS: personalisation uses the same recipient data.
+- C-4 PASS: only exact old placeholders migrate; other personal fields remain.
+- C-5 PASS: source review/checks and their limits are explicit.
+- Taste preflight PASS: name length, shared bindings and retained visual system reviewed.
+
+# Historical validation: clear heated blanket context, V66
 
 28 October 2026. Status: PASS. This is a copy correction: the note now starts “I got you a heated blanket for the cold evenings at your WG in Trier.” Its next paragraph connects the blanket to a hug from him; the birthday sign-off remains. Amazon, pickup and delivery details stay absent. The title, envelope, concealed opening and all controls remain.
 

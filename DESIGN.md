@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V67: Tasya as the recipient nickname
+
+Use Tasya as the shared recipient name requested by the owner. Existing name bindings supply the cover, birthday addressee, note/card salutations, bylines and editor. Normalize only the exact old nickname placeholders, including surrounding whitespace, to the new shared default so an existing local draft cannot keep the placeholder. Keep real custom names and other personal writing intact. No visual or motion change; retain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V66: give the closing note a clear gift reference
 
 Design Read: keep the personal English note inside its existing pink envelope. Retain Antislop during 3/3/3 and Taste 8/9/5. Removing the blanket's name made “this one” ambiguous; the first sentence must explicitly say he got her a heated blanket for cold evenings at her WG in Trier. The following paragraph connects wrapping up in it to a hug from him, followed by “Happy 25th, love.” This identifies the existing gift without adding Amazon, pickup, delivery status or another surprise. Keep the message concealed, with the same title, date, extraction, candle prerequisite, halos, type and page layout.
