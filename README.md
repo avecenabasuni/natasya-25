@@ -41,7 +41,7 @@ Edit shared defaults in [dist/config.js](dist/config.js), or use the editor to s
 - Buildless HTML/CSS/JavaScript with local Three.js, GSAP, Fraunces and Source Sans 3.
 - Pink + Sage paper materials, designed around 375 × 667, with shorter-screen, reduced-motion and graphics fallbacks.
 - Every spread opens on an image-based left divider; scroll or Next crosses to the right-hand keepsakes before turning the next sheet. Previous retraces both sides; replay reverses the pans and page turns before closing the cover.
-- A short pearl glint circles each tappable keepsake in turn, with stronger touch feedback inspired by iPhone Photos. Decorative stickers and dividers stay unmarked; movement or an open reader cancels the hint, and reduced motion keeps a quiet static cue.
+- A short dusty-rose/mauve glint circles each tappable keepsake in turn, with stronger touch feedback inspired by iPhone Photos. Its colored core stays visible against cream paper. Decorative stickers and dividers stay unmarked; movement or an open reader cancels the hint, and reduced motion keeps a quiet static cue.
 - “Open the book” and “Read from the cover” share one button style and stage-bottom position. The final action sits outside the printed gift page, with Previous page reachable beside it; native reading places it beneath the gift sheet.
 - Tap keepsakes to open them from their paper source; drag down, use Escape or the close button to dismiss.
 - Important personal notes stay folded until opened. Long reader content scrolls independently while the book stays held through the full closing motion.

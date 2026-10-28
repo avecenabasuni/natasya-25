@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V61: a contour color that separates from cream paper
+
+The owner reports that V60's white glint disappears against the pale scrapbook. Keep the Photos-inspired orbital movement, masks, once-per-object sequence and subtle resting state; replace only the moving/pressed light with dusty rose #9c5577 and a restrained mauve shift #86709f. Increase the traveling core alpha to 0.94 and its soft halo to 0.24. This gives the small moving contour enough separation on cream and pink paper without restoring a solid idle border.
+
+Define both colors once as CSS tokens for Three shader uniforms and native canvas samples. Native filters and pressed paper outlines use the same rose/mauve family. Preserve motion timing, subject silhouettes, geometry, input ownership, reduced motion, typography, content, original artwork and access. Antislop during 3/3/3 and Taste 8/9/5 remain the established direction. Verify visible colored pixels at multiple orbital positions, rather than accepting state metadata alone.
+
 ## V60: a Photos-inspired contour glint for iPhone
 
 Design Read: retain the girlfriend's pink physical scrapbook and make its touch feedback feel like selecting a subject in iPhone Photos. The owner specifically replaces V59's steady rose border with a subtle light moving around the actual object. Preserve Antislop during 3/3/3 and Taste 8/9/5; the main book gesture remains cinematic while touch discovery becomes quiet.

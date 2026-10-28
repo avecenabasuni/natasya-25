@@ -1,10 +1,12 @@
-/* A short pearl glint visits each real attachment once; quiet gaps use no frames. */
+/* A short rose glint visits each real attachment once; quiet gaps use no frames. */
 (() => {
   'use strict';
   const clamp=n=>Math.max(0,Math.min(1,n));
   const smooth=n=>{n=clamp(n);return n*n*(3-2*n);};
   window.ScrapbookDiscovery={create({app,getPosition,onLift}){
     const seen=new Set(),listeners=[],media=matchMedia('(prefers-reduced-motion: reduce)');
+    const css=getComputedStyle(document.documentElement),rgb=(name,fallback)=>{const hex=css.getPropertyValue(name).trim();return /^#[\da-f]{6}$/i.test(hex)?hex.slice(1).match(/../g).map(v=>parseInt(v,16)):fallback;};
+    const tint=rgb('--object-glint',[156,85,119]),shift=rgb('--object-glint-shift',[134,112,159]);
     let pending=null,active=null,timer=0,frame=0,quietUntil=0,destroyed=false,blurred=false,count=0;
     const listen=(target,type,fn,options)=>{target.addEventListener(type,fn,options);listeners.push(()=>target.removeEventListener(type,fn,options));};
     const status=(value,key='')=>{app.dataset.discoveryState=value;app.dataset.discoveryObject=key;};
@@ -59,13 +61,13 @@
           const a=alpha(x,y);let low=a,high=a,outer=a;
           for(const [dx,dy]of[[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,1],[1,-1],[-1,-1]]){const n=alpha(x+dx*near,y+dy*near);low=Math.min(low,n);high=Math.max(high,n);outer=Math.max(outer,alpha(x+dx*far,y+dy*far));}
           const rim=high-low,halo=Math.max(0,outer-a);if(rim<.025&&halo<.025)continue;
-          const px=(x/ratio-pad)/w-.5,py=(y/ratio-pad)/h-.5;points.push({offset:(y*width+x)*4,rim,halo,phase:Math.atan2(-py,px)/(Math.PI*2)+.5});
+          const px=(x/ratio-pad)/w-.5,py=(y/ratio-pad)/h-.5,phase=Math.atan2(-py,px)/(Math.PI*2)+.5,mix=.65*(.5+.5*Math.cos(phase*Math.PI*2));points.push({offset:(y*width+x)*4,rim,halo,phase,color:tint.map((v,i)=>Math.round(v+(shift[i]-v)*mix))});
         }
         const output=ctx.createImageData(width,height);
-        return {paint(progress,amount){const head=.75-progress;for(const p of points){let d=Math.abs(p.phase-head);d=Math.min(d,Math.abs(d-1),Math.abs(d-2));const beam=1-smooth(d/.13),v=amount*beam,index=p.offset;output.data[index]=255;output.data[index+1]=252;output.data[index+2]=247;output.data[index+3]=Math.round(255*v*Math.max(p.rim*.82,p.halo*.13));}ctx.putImageData(output,0,0);},remove};
+        return {paint(progress,amount){const head=.75-progress;for(const p of points){let d=Math.abs(p.phase-head);d=Math.min(d,Math.abs(d-1),Math.abs(d-2));const beam=1-smooth(d/.13),v=amount*beam,index=p.offset;output.data[index]=p.color[0];output.data[index+1]=p.color[1];output.data[index+2]=p.color[2];output.data[index+3]=Math.round(255*v*Math.max(p.rim*.94,p.halo*.24));}ctx.putImageData(output,0,0);},remove};
       }catch{
         remove();const previous=target.style.getPropertyValue('filter'),priority=target.style.getPropertyPriority('filter');
-        target.classList.add('object-glint-pulse');return {paint(progress,amount){target.style.setProperty('filter',`drop-shadow(0 0 ${1+amount*1.2}px rgba(255,252,247,${amount*.65}))`);},remove(){if(previous)target.style.setProperty('filter',previous,priority);else target.style.removeProperty('filter');target.classList.remove('object-glint-pulse');}};
+        target.classList.add('object-glint-pulse');return {paint(progress,amount){target.style.setProperty('filter',`drop-shadow(0 0 ${1+amount*1.2}px rgba(${tint.join(',')},${amount*.78}))`);},remove(){if(previous)target.style.setProperty('filter',previous,priority);else target.style.removeProperty('filter');target.classList.remove('object-glint-pulse');}};
       }
     }
     function queue(delay){clearTimeout(timer);timer=setTimeout(refresh,delay);}

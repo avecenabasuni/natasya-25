@@ -21,7 +21,7 @@ function loadImage(src){
 // Every pose is an absolute function of the same scroll state as the native book.
 window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight,bottomReserve,pages,chapters,originals})=>{
   const css=getComputedStyle(document.documentElement),color=role=>css.getPropertyValue('--'+role).trim();
-  const palette=Object.fromEntries(['paper','stage','linen','lining','binding','blush','rose','sage','paper-edge','scene-ink','scene-ground','scene-key','object-edge','object-halo'].map(role=>[role,color(role)]));
+  const palette=Object.fromEntries(['paper','stage','linen','lining','binding','blush','rose','sage','paper-edge','scene-ink','scene-ground','scene-key','object-edge','object-halo','object-glint','object-glint-shift'].map(role=>[role,color(role)]));
   let renderer;
   try{renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,stencil:false,powerPreference:'low-power'});}catch{return null;}
   const canvas=renderer.domElement;canvas.className='three-canvas';canvas.setAttribute('aria-hidden','true');
@@ -265,7 +265,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   const contourVertex=`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`;
   const contourFragment=`
     uniform vec2 size;uniform float strength,affordance,shape,sweep,glint,orbit;uniform sampler2D mask;
-    uniform vec3 edgeColor,haloColor;varying vec2 vUv;
+    uniform vec3 edgeColor,haloColor,glintColor,shiftColor;varying vec2 vUv;
     float silhouette(vec2 uv){
       if(uv.x<0.0||uv.x>1.0||uv.y<0.0||uv.y>1.0)return 0.0;
       return texture2D(mask,uv).a;
@@ -295,21 +295,20 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       float pressPhase=fract(.75-sweep),pressGap=abs(fract(perimeter-pressPhase+.5)-.5);
       float touchShine=1.0-smoothstep(.02,.16,pressGap);
       float quiet=affordance*max(rim*.11,halo*.025);
-      float alpha=max(quiet,max(gleam*max(rim*.82,halo*.13),strength*max(rim*(.55+.4*touchShine),halo*.14)));
+      float alpha=max(quiet,max(gleam*max(rim*.94,halo*.24),strength*max(rim*(.64+.34*touchShine),halo*.24)));
       if(alpha<.005)discard;
       float edge=smoothstep(.08,.65,rim);
       vec3 quietColor=mix(haloColor,edgeColor,.8);
-      vec3 pearl=mix(edgeColor,vec3(1.0),.72);
-      vec3 sheen=mix(pearl,vec3(.84,.85,1.0),.12*(.5+.5*cos(perimeter*6.2831853)));
-      vec3 lit=mix(haloColor,sheen,edge);
-      gl_FragColor=vec4(mix(quietColor,lit,max(gleam,strength)),alpha);
+      vec3 tint=mix(glintColor,shiftColor,.65*(.5+.5*cos(perimeter*6.2831853)));
+      vec3 lit=mix(haloColor,tint,edge);
+      gl_FragColor=vec4(mix(quietColor,lit,smoothstep(0.0,.35,max(gleam,strength))),alpha);
       #include <colorspace_fragment>
     }`;
   function registerFeedback(key,index,object,w,h,{x=0,y=0,z=1.1,shape=0,aliases=[],mask=null}={}){
     // Keep the resting/turning anchor untouched; only its inner contents lift.
     const content=new THREE.Group();[...object.children].forEach(child=>content.add(child));object.add(content);object.userData.readerContent=content;
     const mat=track(new THREE.ShaderMaterial({vertexShader:contourVertex,fragmentShader:contourFragment,transparent:true,depthWrite:false,toneMapped:false,
-      uniforms:{size:{value:new THREE.Vector2(w,h)},strength:{value:0},affordance:{value:0},glint:{value:0},orbit:{value:0},shape:{value:shape},mask:{value:mask},sweep:{value:2},edgeColor:{value:new THREE.Color(palette['object-edge'])},haloColor:{value:new THREE.Color(palette['object-halo'])}}}));
+      uniforms:{size:{value:new THREE.Vector2(w,h)},strength:{value:0},affordance:{value:0},glint:{value:0},orbit:{value:0},shape:{value:shape},mask:{value:mask},sweep:{value:2},edgeColor:{value:new THREE.Color(palette['object-edge'])},haloColor:{value:new THREE.Color(palette['object-halo'])},glintColor:{value:new THREE.Color(palette['object-glint'])},shiftColor:{value:new THREE.Color(palette['object-glint-shift'])}}}));
     const ring=plane(w+12,h+12,mat,content);ring.position.set(x,y,z);ring.castShadow=ring.receiveShadow=false;ring.visible=false;ring.userData.objectContour=true;
     const entry={key,index,object,w,h,content,ring,mat,value:0,target:0,started:0};feedbackEntries.push(entry);
     [key,...aliases].forEach(name=>{if(!feedbackKeys.has(name))feedbackKeys.set(name,[]);feedbackKeys.get(name).push(entry);});

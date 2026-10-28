@@ -1,4 +1,64 @@
-# Validation: Photos-inspired contour glints for iPhone, V60
+# Validation: visible rose/mauve contour color, V61
+
+28 October 2026. Status: PASS, no unresolved finding. 64/64 focused checks: WebKit 375 × 667 (19), WebKit 375 × 520 (17), Chromium 375 × 667 (17), native CSS fallback (5), reduced/native (4), and two peak-core contrast estimates. Software browser evidence does not certify physical iPhone hardware, FPS or VoiceOver.
+
+The owner found V60's white halo invisible against cream paper. The moving and pressed contour now uses dusty rose #9c5577 with a restrained mauve shift #86709f, core alpha 0.94 and soft halo alpha 0.24. CSS tokens supply the same color family to Three uniforms, native canvas pixels and native press filters. The quiet resting state and lack of a permanent rose border are preserved.
+
+Four manual orbital positions are compared with a no-glint baseline for both map and Minnie. WebKit 667 produces 152–243 visibly tinted map pixels and 25–56 tinted cat pixels, with differences up to 130 channel levels. Native fallback has 211 visibly tinted pixels with peak alpha 237; its canvas remains inert and pointer-transparent. Orbit movement, stronger press, modal clearing and reduced-motion behavior pass. Root visually reviewed a map quarter-position and Minnie's lower contour.
+
+The peak-core color estimate across the actual 0–0.65 rose/mauve gradient gives at least 3.88:1 against cream paper and 3.03:1 against pink lining. These estimates concern the core over declared paper colors, not every antialiased tail pixel or photographed background. Existing text styles and keyboard focus outlines are unchanged. Source preservation confirms 134/139 distribution files are byte-identical. Only contour color/opacity, native tint sampling, press CSS and cache references change. Discovery scheduling/cancellation is byte-identical from its queue function onward; all images, story content, masks, book engine, fonts, audio, maps and dividers remain unchanged.
+
+Evidence: qa/v61/final-scope-summary.json, colored-glint.py, final browser reports/screenshots, glint-contrast.json and source-preservation.json. Earlier V60 choreography, native geometry, candle and gift suites remain historical.
+
+### V61 Antislop delivery gate
+
+- R-01 PASS: the localized rose/mauve light solves the owner's reported cream-paper visibility problem.
+- R-02 PASS: no new product copy or em dash added.
+- R-03 PASS: both phone heights, fallback and reduced/native bounds pass.
+- R-04 PASS: no icons added.
+- R-05 PASS: existing content spreads and dividers retained.
+- R-06 PASS: font files and typography unchanged.
+- R-07 PASS: original paper/linen backgrounds unchanged.
+- R-08 PASS: functional navigation arrows unchanged.
+- R-09 PASS: no badges or tap labels added.
+- R-10 PASS: no glass surface added.
+- R-11 PASS: original paper and subject contours retained.
+- R-12 PASS: soft colored halo separates the moving core from pale paper.
+- R-13 PASS: only the current functional glint/press is emphasized; no permanent rose border.
+- R-14 PASS: no new cards or grids added.
+- R-15 PASS: existing concrete actions retained.
+- R-16 PASS: no marketing prose added.
+- R-17 PASS: no statistic or new factual claim added.
+- R-18 PASS: no identity or testimonial added.
+- R-19 PASS: orbital timing and once-per-object scheduling are byte-identical.
+- R-20 PASS: existing personal keepsake shapes and content retained.
+- R-21 PASS: the selected light scrapbook materials remain.
+- R-22 PASS: all image bytes retained.
+- R-23 PASS: the requested color correction creates no new visual asset.
+- R-24 PASS: reader/candle destinations unchanged.
+- R-25 PASS: original text/focus styles retained; moving core contrast estimates exceed 3:1 on the two paper colors.
+- R-26 PASS: orbit, colored press and modal return checks pass.
+- R-27 PASS: native colored-canvas and reduced quiet-mode checks pass.
+- R-28 PASS: no filler section added.
+- R-29 PASS: two dedicated highlight tokens keep tint consistent across renderers.
+- R-30 PASS: correction follows the owner's scrapbook and Photos-inspired direction.
+- R-31 PASS: color, alpha and renderer consistency are documented in DESIGN.md.
+- R-32 PASS: canvas stays inert and pointer-transparent; keyboard focus unchanged.
+- R-33 PASS: the correction lives in tracked source.
+- R-34 PASS: no theme or extra presentation mode added.
+- R-35 PASS: 64 focused checks, three JavaScript syntax checks and whitespace checks pass.
+- R-36 PASS: no unsupported hardware or native-Apple implementation claim made.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 retained.
+- R-38 PASS: original personal facts, media and placeholders unchanged.
+- Liveliness PASS: the existing traveling contour is visible while remaining localized and brief.
+- C-1 PASS: tint and opacity correct demonstrated visibility, without adding decoration.
+- C-2 PASS: existing interactions retained and press/modal checks pass.
+- C-3 PASS: existing attachment geometry determines the highlight.
+- C-4 PASS: phone heights, native fallback, reduced mode and shader compilation pass.
+- C-5 PASS: pixel measurements and contrast-estimate limits are recorded explicitly.
+- Taste preflight PASS: reviewed actual colored pixels, subtlety, paper separation, native parity and phone fit.
+
+# Historical validation: Photos-inspired contour glints for iPhone, V60
 
 28 October 2026. Status: PASS, no unresolved finding. 88/88 focused checks: WebKit 375 × 667/520 (21 each), Chromium 375 × 667 (21), CSS fallback core (13), reduced/native 375 × 520 (6), and focused native geometry/actions (6). Software browser evidence does not certify a physical iPhone, hardware frame rate or VoiceOver.
 
