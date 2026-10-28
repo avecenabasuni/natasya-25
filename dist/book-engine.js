@@ -43,6 +43,8 @@
         }, {once:true});
       }
     });
+    clone.querySelectorAll('.native-object-glint').forEach(n=>n.remove());
+    [clone,...clone.querySelectorAll('.object-glint-host,.object-glint-pulse')].forEach(n=>n.classList.remove('object-glint-host','object-glint-pulse'));
     if(decorative){clone.inert = true;clone.setAttribute('aria-hidden','true');}
     return clone;
   }

@@ -1,67 +1,111 @@
-/* One paper corner introduces the existing touch affordance, once per leaf. */
+/* A short pearl glint visits each real attachment once; quiet gaps use no frames. */
 (() => {
   'use strict';
+  const clamp=n=>Math.max(0,Math.min(1,n));
+  const smooth=n=>{n=clamp(n);return n*n*(3-2*n);};
   window.ScrapbookDiscovery={create({app,getPosition,onLift}){
     const seen=new Set(),listeners=[],media=matchMedia('(prefers-reduced-motion: reduce)');
-    const choices={dedication:'map','your-world':'day-0',october:'photograph',letter:'note'};
     let pending=null,active=null,timer=0,frame=0,quietUntil=0,destroyed=false,blurred=false,count=0;
     const listen=(target,type,fn,options)=>{target.addEventListener(type,fn,options);listeners.push(()=>target.removeEventListener(type,fn,options));};
-    function status(value,key=''){app.dataset.discoveryState=value;app.dataset.discoveryObject=key;}
-    function candidate(){
-      if(destroyed||blurred||media.matches||document.hidden||document.querySelector('dialog[open]'))return null;
+    const status=(value,key='')=>{app.dataset.discoveryState=value;app.dataset.discoveryObject=key;};
+    function available(){
+      if(destroyed||blurred||media.matches||document.hidden||document.querySelector('dialog[open]'))return [];
       const position=getPosition(),film=app.querySelector('.book-film');
-      if(!position||position.kind!=='read'||position.navigation||position.touchHeld||position.settle||film?.dataset.assetsReady==='false')return null;
-      const key=choices[position.chapter];if(!key)return null;
-      const source=app.querySelector(`[data-book-object="${key}"]`);if(!source||source.closest('[inert],[aria-hidden="true"]'))return null;
-      const r=source.getBoundingClientRect();if(r.width<10||r.height<10||r.bottom<50||r.top>innerHeight-44)return null;
-      return {key,id:position.chapter+':'+key,source};
+      if(!position||position.kind!=='read'||position.navigation||position.touchHeld||position.settle||film?.dataset.assetsReady==='false')return [];
+      const unique=new Set();
+      return [...app.querySelectorAll('[data-book-object]')].flatMap(source=>{
+        const key=source.dataset.bookObject,control=source.closest('button,a'),chapter=source.closest('.album-chapter');
+        if(!key||!control||control.disabled||source.closest('[inert],[aria-hidden="true"]')||chapter?.id!==position.chapter||key==='cats'&&source.querySelector('[data-book-object^="cat-"]'))return [];
+        const r=source.getBoundingClientRect();
+        if(r.width<8||r.height<8||r.bottom<50||r.top>innerHeight-48||r.right<0||r.left>innerWidth)return [];
+        const id=position.chapter+':'+key;if(unique.has(id))return [];unique.add(id);return [{key,id,source}];
+      });
     }
     function stop(){
       clearTimeout(timer);timer=0;pending=null;cancelAnimationFrame(frame);frame=0;
-      if(active){onLift?.({key:null,amount:0});active.target?.classList.remove('object-discovery');active.target?.style.removeProperty('--discovery-lift');active.corner?.remove();active.blank?.remove();}
-      active=null;status('idle');app.removeAttribute('data-discovery-renderer');
+      if(active){onLift?.({key:null,amount:0,progress:0});active.native?.remove();}
+      active=null;status('idle');app.removeAttribute('data-discovery-renderer');app.removeAttribute('data-discovery-progress');
     }
-    function nativeCorner(item){
-      const target=item.source.closest('.real-memory,.trier-map')||item.source.querySelector('.fragment-image')||item.source;
-      const copy=target.cloneNode(true),corner=document.createElement('span'),blank=document.createElement('span');
-      [copy,...copy.querySelectorAll('*')].forEach(node=>{node.removeAttribute('id');node.removeAttribute('data-book-object');node.removeAttribute('aria-labelledby');node.removeAttribute('aria-describedby');if(node.matches('button,input,select,textarea'))node.disabled=true;node.tabIndex=-1;});
-      Object.assign(copy.style,{position:'absolute',inset:'0',margin:'0',width:target.offsetWidth+'px',height:target.offsetHeight+'px',transform:'none',translate:'none',scale:'none',rotate:'none',pointerEvents:'none'});
-      corner.className='discovery-corner';blank.className='discovery-corner-blank';corner.inert=blank.inert=true;corner.setAttribute('aria-hidden','true');blank.setAttribute('aria-hidden','true');corner.append(copy);
-      target.classList.add('object-discovery');target.append(blank,corner);return {target,corner,blank};
+    function nativeGlint(item){
+      const key=item.key,source=item.source;
+      const target=key.startsWith('cat-')?source.querySelector('.pet-portrait'):key==='cake'?source.querySelector('.cake-art'):source.closest('.real-memory,.trier-map')||source.querySelector('.fragment-image')||source;
+      if(!target)return null;
+      const w=target.offsetWidth,h=target.offsetHeight;if(w<4||h<4)return null;
+      const image=target.matches('img')?target:target.querySelector('img'),silhouette=key.startsWith('cat-')||key==='cake';
+      const host=silhouette?(target.parentElement||target):target,pad=key==='gift'?20:6,ratio=Math.min(devicePixelRatio||1,1.5),canvas=document.createElement('canvas');
+      canvas.className='native-object-glint';canvas.inert=true;canvas.setAttribute('aria-hidden','true');canvas.width=Math.ceil((w+pad*2)*ratio);canvas.height=Math.ceil((h+pad*2)*ratio);
+      const hadHost=host.classList.contains('object-glint-host'),position=host.style.getPropertyValue('position'),positionPriority=host.style.getPropertyPriority('position'),positioned=getComputedStyle(host).position==='static';
+      if(positioned)host.style.setProperty('position','relative');host.classList.add('object-glint-host');
+      Object.assign(canvas.style,{left:(silhouette?target.offsetLeft:0)-pad+'px',top:(silhouette?target.offsetTop:0)-pad+'px',width:w+pad*2+'px',height:h+pad*2+'px'});host.append(canvas);
+      const mask=document.createElement('canvas');mask.width=canvas.width;mask.height=canvas.height;const m=mask.getContext('2d',{willReadFrequently:true}),ctx=canvas.getContext('2d');m.scale(ratio,ratio);
+      const remove=()=>{canvas.remove();if(!hadHost)host.classList.remove('object-glint-host');if(positioned){if(position)host.style.setProperty('position',position,positionPriority);else host.style.removeProperty('position');}};
+      try{
+        if(silhouette){
+          if(!image?.complete||!image.naturalWidth)throw new Error('Image unavailable');
+          const f=target.querySelector('.pet-frame');
+          if(f){
+            const frame=f.dataset.catFrame.split(',').map(Number),fw=f.offsetWidth,fh=f.offsetHeight,dx=pad+(w-fw)/2,dy=pad+(h-fh)/2;
+            m.save();m.beginPath();(f.dataset.catPolygon||'0,0 100,0 100,100 0,100').split(' ').forEach((point,i)=>{const [x,y]=point.split(',').map(Number);if(i)m.lineTo(dx+x/100*fw,dy+y/100*fh);else m.moveTo(dx+x/100*fw,dy+y/100*fh);});m.closePath();m.clip();m.drawImage(image,...frame,dx,dy,fw,fh);m.restore();
+          }else{
+            const scale=Math.min(w/image.naturalWidth,h/image.naturalHeight),dw=image.naturalWidth*scale,dh=image.naturalHeight*scale;m.drawImage(image,pad+(w-dw)/2,pad+(h-dh)/2,dw,dh);
+          }
+        }else if(key==='gift'){
+          const c=source.querySelector('.coupon-card'),p=source.querySelector('.gift-pocket-front');
+          m.fillStyle='#fff';if(c){const shift=new DOMMatrix(getComputedStyle(c).transform);m.fillRect(pad+c.offsetLeft+shift.m41,pad+c.offsetTop+shift.m42,c.offsetWidth,c.offsetHeight);}
+          if(p){const x=pad+p.offsetLeft,y=pad+p.offsetTop,pw=p.offsetWidth,ph=p.offsetHeight;m.beginPath();m.moveTo(x,y);m.lineTo(x+pw/2,y+ph*.14);m.lineTo(x+pw,y);m.lineTo(x+pw,y+ph);m.lineTo(x,y+ph);m.closePath();m.fill();}else m.fillRect(pad,pad,w,h);
+        }else{m.fillStyle='#fff';m.fillRect(pad,pad,w,h);}
+        const width=mask.width,height=mask.height,data=m.getImageData(0,0,width,height).data,points=[],near=Math.max(1,Math.round(1.1*ratio)),far=Math.max(2,Math.round(2.8*ratio)),alpha=(x,y)=>x<0||y<0||x>=width||y>=height?0:data[(y*width+x)*4+3]/255;
+        for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+          const a=alpha(x,y);let low=a,high=a,outer=a;
+          for(const [dx,dy]of[[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,1],[1,-1],[-1,-1]]){const n=alpha(x+dx*near,y+dy*near);low=Math.min(low,n);high=Math.max(high,n);outer=Math.max(outer,alpha(x+dx*far,y+dy*far));}
+          const rim=high-low,halo=Math.max(0,outer-a);if(rim<.025&&halo<.025)continue;
+          const px=(x/ratio-pad)/w-.5,py=(y/ratio-pad)/h-.5;points.push({offset:(y*width+x)*4,rim,halo,phase:Math.atan2(-py,px)/(Math.PI*2)+.5});
+        }
+        const output=ctx.createImageData(width,height);
+        return {paint(progress,amount){const head=.75-progress;for(const p of points){let d=Math.abs(p.phase-head);d=Math.min(d,Math.abs(d-1),Math.abs(d-2));const beam=1-smooth(d/.13),v=amount*beam,index=p.offset;output.data[index]=255;output.data[index+1]=252;output.data[index+2]=247;output.data[index+3]=Math.round(255*v*Math.max(p.rim*.82,p.halo*.13));}ctx.putImageData(output,0,0);},remove};
+      }catch{
+        remove();const previous=target.style.getPropertyValue('filter'),priority=target.style.getPropertyPriority('filter');
+        target.classList.add('object-glint-pulse');return {paint(progress,amount){target.style.setProperty('filter',`drop-shadow(0 0 ${1+amount*1.2}px rgba(255,252,247,${amount*.65}))`);},remove(){if(previous)target.style.setProperty('filter',previous,priority);else target.style.removeProperty('filter');target.classList.remove('object-glint-pulse');}};
+      }
     }
+    function queue(delay){clearTimeout(timer);timer=setTimeout(refresh,delay);}
     function tick(now){
-      if(!active)return;const next=candidate();
-      if(!next||next.id!==active.id){stop();return;}
-      const progress=Math.min(1,(now-active.started)/1100),amount=Math.sin(Math.PI*progress)**2;
-      if(active.scene){if(!onLift?.({key:active.key,amount})){stop();return;}}
-      else active.target.style.setProperty('--discovery-lift',amount.toFixed(4));
-      if(progress>=1){stop();return;}frame=requestAnimationFrame(tick);
+      if(!active)return;
+      if(!available().some(item=>item.id===active.id)){stop();return;}
+      const progress=clamp((now-active.started)/1250),amount=smooth(progress/.12)*smooth((1-progress)/.12);
+      app.dataset.discoveryProgress=progress.toFixed(3);
+      if(active.scene){if(!onLift?.({key:active.key,amount,progress})){stop();return;}}
+      else active.native?.paint(progress,amount);
+      if(progress>=1){stop();quietUntil=performance.now()+1000;queue(1000);return;}
+      frame=requestAnimationFrame(tick);
     }
     function start(){
-      timer=0;const next=candidate();if(!pending||!next||next.id!==pending.id){stop();return;}
+      timer=0;const next=available().find(item=>!seen.has(item.id));
+      if(!pending||!next||next.id!==pending.id){stop();refresh();return;}
       if(performance.now()<quietUntil){timer=setTimeout(start,quietUntil-performance.now());return;}
-      pending=null;seen.add(next.id);active={...next,started:performance.now()};
-      active.scene=!!onLift?.({key:next.key,amount:0});if(!active.scene)Object.assign(active,nativeCorner(next));
+      pending=null;seen.add(next.id);active={...next,started:performance.now()};active.scene=!!onLift?.({key:next.key,amount:0,progress:0});
+      if(!active.scene)active.native=nativeGlint(next);
       status('playing',next.key);app.dataset.discoveryRenderer=active.scene?'scene':'native';app.dataset.discoveryCount=String(++count);frame=requestAnimationFrame(tick);
     }
     function refresh(){
-      const next=candidate();
-      if(active){if(!next||next.id!==active.id)stop();return;}
-      if(!next||seen.has(next.id)){if(pending)stop();return;}
+      if(destroyed)return;const items=available();
+      if(active){if(!items.some(item=>item.id===active.id))stop();return;}
+      const next=items.find(item=>!seen.has(item.id));
+      if(!next){if(pending)stop();return;}
       if(pending?.id===next.id)return;
       stop();pending=next;status('waiting');timer=setTimeout(start,Math.max(650,quietUntil-performance.now()));
     }
     function interrupt(event){
-      const next=candidate();if(next&&event.target instanceof Element&&event.target.closest('[data-book-object]'))seen.add(next.id);
-      stop();quietUntil=performance.now()+650;
-      if(!document.hidden&&!media.matches)timer=setTimeout(refresh,660);
+      const position=getPosition(),source=event.target instanceof Element?event.target.closest('[data-book-object]'):null;
+      if(source&&app.contains(source)&&position?.chapter){seen.add(position.chapter+':'+source.dataset.bookObject);if(source.dataset.bookObject==='cats')source.querySelectorAll('[data-book-object]').forEach(node=>seen.add(position.chapter+':'+node.dataset.bookObject));}
+      stop();quietUntil=performance.now()+650;if(!document.hidden&&!media.matches&&!blurred)queue(660);
     }
     const observer=new MutationObserver(refresh);observer.observe(app,{subtree:true,childList:true,attributes:true,attributeFilter:['data-phase','data-navigation','data-assets-ready']});
     const modals=new MutationObserver(refresh);modals.observe(document.body,{subtree:true,attributes:true,attributeFilter:['open']});
     ['pointerdown','touchstart','keydown','wheel','scroll','resize'].forEach(type=>listen(window,type,interrupt,{passive:true,capture:true}));
+    listen(window,'pointermove',event=>{if(active)interrupt(event);},{passive:true,capture:true});
     listen(window,'blur',()=>{blurred=true;stop();});
     listen(window,'focus',()=>{blurred=false;quietUntil=performance.now()+650;refresh();});
-    listen(window,'pointermove',event=>{if(active)interrupt(event);},{passive:true,capture:true});
     listen(app,'book-graphics-fallback',interrupt,true);listen(app,'book-graphics-ready',refresh,true);
     listen(document,'visibilitychange',interrupt);listen(media,'change',interrupt);
     if(window.visualViewport)listen(visualViewport,'resize',interrupt,{passive:true});

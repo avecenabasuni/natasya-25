@@ -1,4 +1,64 @@
-# Validation: resting highlights on tappable keepsakes, V59
+# Validation: Photos-inspired contour glints for iPhone, V60
+
+28 October 2026. Status: PASS, no unresolved finding. 88/88 focused checks: WebKit 375 × 667/520 (21 each), Chromium 375 × 667 (21), CSS fallback core (13), reduced/native 375 × 520 (6), and focused native geometry/actions (6). Software browser evidence does not certify a physical iPhone, hardware frame rate or VoiceOver.
+
+Actual Next from the left divider starts a localized pearl contour glint on the map without an extra touch. Progress changes continuously; four manual quarter-orbit positions visibly move the light around Minnie's alpha silhouette. The scene adds no DOM overlay. The old solid rose resting border and corner-peel cue are removed. One real visible interactive object is introduced at a time, after 650 ms quiet, for 1250 ms, with a 1000 ms gap. Each object plays once per load; the completed map sweep leaves no idle rendering loop. Press feedback remains stronger and separate from idle geometry.
+
+Input, Previous to left, animated navigation and opened readers cancel the sweep. The map keeps book scroll locked; selected-cat reading opens and returns without mask residue. Reduced motion has no orbit. Native fallback draws a sparse clipped-alpha canvas, with transparent corners and no rectangular subject fill. Its canvas is inert, hidden from assistive technology and pointer-transparent; the focused native test confirms full overlap with the actual portrait. Existing absolute cake positioning remains intact before/during the sweep. The cake still blows out, unlocks the gift, and the gift reader opens/returns correctly. All final reports have no JavaScript or shader errors and no horizontal overflow.
+
+Root reviewed the pearl cat quarter frames, short-height map sweep and native cat image. The shader discards fragments outside its contour before angular math, avoiding undefined center-angle work. Glint updates reuse existing contour meshes and suppress shadow refreshes; quiet gaps use timers. A pale resting edge remains flat, and functional keyboard focus retains its stronger outline. Page copies strip transient canvases and host/pulse classes. A timing-only Chromium harness race was corrected by reading the active cue atomically; native extra sampling waits for finite mid-sweep progress. A separate strict selector was narrowed to the live cake rather than its inert turn copy. No application change was needed for those harness corrections.
+
+Evidence: qa/v60/final-scope-summary.json, ios-glint.py, final individual reports, native-extra-checks.json, screenshots and source-preservation.json. 131/139 distribution files are byte-identical; eight existing application files change, with no new files or images. All artwork, maps, fonts, audio, config, divider imagery and content remain unchanged; the story change only supplies native left/right ownership to discovery. Existing book geometry, candle gate and replay remain. The glint follows a normalized angular band over the contour, an intentional visual approximation rather than a native Apple API or exact constant-speed boundary trace. Earlier broad content/audio/replay suites remain historical.
+
+### V60 Antislop delivery gate
+
+- R-01 PASS: the moving light serves the owner's explicit Photos-style touch reference.
+- R-02 PASS: no product copy or em dash added.
+- R-03 PASS: both phone heights, native and fallback bounds pass.
+- R-04 PASS: no icons added; original functional controls retained.
+- R-05 PASS: existing six content spreads and image dividers remain.
+- R-06 PASS: font files and text styling are byte-identical.
+- R-07 PASS: physical paper/linen backgrounds remain unchanged.
+- R-08 PASS: arrows retain actual left/right navigation.
+- R-09 PASS: no badges or tap labels added.
+- R-10 PASS: no glass surface added.
+- R-11 PASS: the glint follows actual silhouettes or attached paper edges.
+- R-12 PASS: the very small warm separation shadow makes pearl light visible on paper.
+- R-13 PASS: one functional glint plays at a time; decorations remain unmarked.
+- R-14 PASS: no replacement card grid added.
+- R-15 PASS: existing object and page actions remain concrete.
+- R-16 PASS: no marketing prose added.
+- R-17 PASS: no statistic or new factual claim added.
+- R-18 PASS: no identity or testimonial added.
+- R-19 PASS: bounded once-per-object sweeps replace corner peeling; no endless idle shimmer.
+- R-20 PASS: each existing keepsake retains its own physical shape and content.
+- R-21 PASS: selected light/pink scrapbook materials retained.
+- R-22 PASS: all original image bytes retained.
+- R-23 PASS: user explicitly requested this visual touch treatment; no new image asset created.
+- R-24 PASS: highlighted controls retain their existing reader/candle destinations.
+- R-25 PASS: text styles and functional focus outlines are unchanged; the glint is supplementary feedback.
+- R-26 PASS: map/cat/cake/gift interactions and modal cancellation pass.
+- R-27 PASS: native silhouette fallback and reduced-motion static cues pass.
+- R-28 PASS: no filler section added.
+- R-29 PASS: pearl light uses the existing cream/warm separation palette.
+- R-30 PASS: the owner's Photos reference is adapted to existing scrapbook objects.
+- R-31 PASS: timing, clipping, cancellation and native geometry are documented in DESIGN.md.
+- R-32 PASS: keyboard focus remains strong; canvases are inert and do not intercept input.
+- R-33 PASS: behavior is implemented directly in tracked source.
+- R-34 PASS: no theme or extra presentation mode added.
+- R-35 PASS: 88 focused checks, five JavaScript syntax checks and whitespace checks pass.
+- R-36 PASS: no physical-device performance or native-Apple implementation claim made.
+- R-37 PASS: established Antislop during 3/3/3 and Taste 8/9/5 retained.
+- R-38 PASS: original personal content, media and placeholders remain unchanged.
+- Liveliness PASS: a quiet traveling highlight supports the existing paper identity without competing with the book motion.
+- C-1 PASS: the localized light explains which attachment can be touched.
+- C-2 PASS: highlighted objects keep their actual interactions.
+- C-3 PASS: each contour derives from existing paper or source alpha.
+- C-4 PASS: phone heights, shader compilation, native alignment, stable cake and reduced motion pass.
+- C-5 PASS: visual-reference approximation and verification limits are recorded honestly.
+- Taste preflight PASS: reviewed touch subtlety, silhouette accuracy, material/type continuity, cancellation and phone fit.
+
+# Historical validation: resting highlights on tappable keepsakes, V59
 
 28 October 2026. Status: PASS, no unresolved finding. 126/126 focused checks: WebKit scene 375 × 667 (54), WebKit scene 375 × 520 (20), Chromium scene 375 × 667 (24), blocked-Three CSS fallback (16), reduced/native 375 × 520 (10), and two cue-color contrast calculations. Software browser evidence does not certify a physical iPhone, hardware FPS or VoiceOver.
 

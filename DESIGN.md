@@ -1,5 +1,17 @@
 # A little world, physical scrapbook
 
+## V60: a Photos-inspired contour glint for iPhone
+
+Design Read: retain the girlfriend's pink physical scrapbook and make its touch feedback feel like selecting a subject in iPhone Photos. The owner specifically replaces V59's steady rose border with a subtle light moving around the actual object. Preserve Antislop during 3/3/3 and Taste 8/9/5; the main book gesture remains cinematic while touch discovery becomes quiet.
+
+Remove the solid rose perimeter. Keep only a faint pearl/neutral edge at rest and let a short localized pearl-white glint travel clockwise around the actual paper or subject silhouette. A very small warm shadow separates the light from cream paper; a slight cool pearl shift belongs to reflected light, not a new accent palette. A touch strengthens the subject edge briefly, with the existing small lift, then opens the object. Keep a functional keyboard focus outline and honour reduced motion with a static quiet cue.
+
+Replace the previous corner-peel hint entirely. After 650 ms of quiet right-page reading, introduce one actual interactive object for 1250 ms, then leave a 1000 ms gap before another. Each object is introduced once per load; do not run an endless shimmer on the whole page. Follow the map/photo/paper shapes, five separate cat silhouettes, cake and gift. Decorations and divider artwork never receive a cue. Input, navigation, modal display, blur, hidden state and reduced motion cancel the sweep immediately.
+
+Three reuses the existing alpha-mask contour shader. A normalized angular band moves along its clipped boundary; the glint is a localized contour approximation, not a claim of a native Apple API or exact constant-speed curve tracing. It never fills the subject, changes idle attachment geometry or re-renders shadows per glint frame. Frames run only during the brief sweep, with timers in quiet gaps. Native/CSS fallback uses an inert, pointer-transparent contour overlay derived from the same clipped source; reduced mode stays still. Remove transient overlay nodes/classes from page copies so moving paper and offscreen print never inherit the hint.
+
+Retain all page order, fonts, artwork, memories, maps, cats, audio, candle prerequisite, voucher, matching replay action and existing access.
+
 ## V59: visible touch affordances before the first tap
 
 Design Read: preserve the pink physical scrapbook and make every attached interactive object recognisable before touching it on a phone. The user explicitly requests a highlight that distinguishes things that can be pressed from decoration. Keep Antislop during 3/3/3 and Taste 8/9/5; this is an affordance change, not a new animation or image direction.

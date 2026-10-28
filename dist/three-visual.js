@@ -252,31 +252,20 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   let feedbackFrame=0,feedbackTime=0,feedbackRendering=false,discovery=null;
   function clearDiscovery(){
     if(!discovery)return false;
-    discovery.layer.remove();discovery=null;film.dataset.discoveryCorner='';return true;
+    discovery=null;feedbackEntries.forEach(e=>{e.mat.uniforms.glint.value=0;});film.dataset.discoveryContour='';lastPose='';return true;
   }
-  function setDiscovery({key,amount=0}){
-    if(!key){clearDiscovery();return false;}
-    if(disposed||lost||!active||!ready||readerHolding||document.hidden||latest?.phase.kind!=='read'||document.querySelector('dialog[open]')){clearDiscovery();return false;}
-    const entry=(feedbackKeys.get(key)||[]).find(e=>e.index===latest.phase.index),face=entry?.object.userData.readerFace;if(!face)return false;
-    if(!discovery||discovery.face!==face){
-      clearDiscovery();const {width:w,height:h}=face.geometry.parameters,map=face.material.map,source=map?.image;if(!source)return false;
-      const image=document.createElement('canvas');image.width=Math.ceil(source.width*map.repeat.x);image.height=Math.ceil(source.height*map.repeat.y);image.getContext('2d').drawImage(source,source.width*map.offset.x,source.height*(1-map.offset.y-map.repeat.y),image.width,image.height,0,0,image.width,image.height);
-      scene.updateMatrixWorld(true);const quad=projectQuad(face,w,h,0),left=Math.min(...quad.map(p=>p.x)),top=Math.min(...quad.map(p=>p.y)),width=Math.max(...quad.map(p=>p.x))-left,height=Math.max(...quad.map(p=>p.y))-top;
-      if(width<4||height<4)return false;
-      const q=quad.map(p=>({x:p.x-left,y:p.y-top})),index=q.reduce((best,p,i)=>p.x/width-p.y/height>q[best].x/width-q[best].y/height?i:best,0),tip=q[index],near=[q[(index+3)%4],q[(index+1)%4]];
-      const ends=near.map(p=>{const t=Math.min(.4,32/Math.hypot(p.x-tip.x,p.y-tip.y));return{x:tip.x+(p.x-tip.x)*t,y:tip.y+(p.y-tip.y)*t};}),[a,b]=ends;
-      const layer=document.createElement('span'),blank=document.createElement('span'),flap=document.createElement('canvas');layer.className='discovery-scene-corner';blank.className='discovery-scene-blank';flap.className='discovery-scene-flap';layer.inert=true;layer.setAttribute('aria-hidden','true');
-      Object.assign(layer.style,{left:left+'px',top:top+'px',width:width+'px',height:height+'px'});
-      flap.width=Math.ceil(width*resolution);flap.height=Math.ceil(height*resolution);const ctx=flap.getContext('2d');ctx.scale(flap.width/width,flap.height/height);paintQuad(ctx,image,q);
-      const clip=`polygon(${a.x}px ${a.y}px,${tip.x}px ${tip.y}px,${b.x}px ${b.y}px)`;blank.style.clipPath=flap.style.clipPath=clip;flap.style.transformOrigin=`${a.x}px ${a.y}px`;layer.append(blank,flap);document.body.append(layer);
-      discovery={face,layer,flap,index:entry.index,axis:{x:b.x-a.x,y:b.y-a.y}};
-    }
-    const {flap,axis,layer}=discovery;layer.style.opacity=String(Math.min(1,clamp(amount)*5));flap.style.transform=`perspective(420px) rotate3d(${axis.x},${axis.y},0,${-28*clamp(amount)}deg)`;film.dataset.discoveryCorner=key+':'+amount.toFixed(3);return true;
+  function setDiscovery({key,amount=0,progress=0}){
+    const repaint=()=>{if(disposed||lost||!latest)return;lastPose='';feedbackRendering=true;update(latest);feedbackRendering=false;};
+    if(!key){if(clearDiscovery())repaint();return false;}
+    if(disposed||lost||!active||!ready||!affordancesVisible()){if(clearDiscovery())repaint();return false;}
+    const entries=(feedbackKeys.get(key)||[]).filter(e=>e.index===latest.phase.index);if(!entries.length)return false;
+    discovery={key,index:latest.phase.index,entries,amount:clamp(amount),progress:clamp(progress)};
+    film.dataset.discoveryContour=key+':'+progress.toFixed(3);repaint();return true;
   }
   const contourVertex=`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`;
   const contourFragment=`
-    uniform vec2 size;uniform float strength,affordance,shape,sweep;uniform sampler2D mask;
-    uniform vec3 edgeColor,haloColor,cueColor;varying vec2 vUv;
+    uniform vec2 size;uniform float strength,affordance,shape,sweep,glint,orbit;uniform sampler2D mask;
+    uniform vec3 edgeColor,haloColor;varying vec2 vUv;
     float silhouette(vec2 uv){
       if(uv.x<0.0||uv.x>1.0||uv.y<0.0||uv.y>1.0)return 0.0;
       return texture2D(mask,uv).a;
@@ -297,38 +286,49 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
           float top=size.y*.5-size.y*.14*(1.0-abs(p.x)/(size.x*.5));
           d=max(d,p.y-top);
         }
-        rim=1.0-smoothstep(.55,1.65,abs(d));halo=1.0-smoothstep(1.0,5.4,abs(d));
+        rim=1.0-smoothstep(.35,1.25,abs(d));halo=1.0-smoothstep(.9,3.7,abs(d));
       }
-      float shine=(1.0-smoothstep(.0,.14,abs(vUv.x+vUv.y*.22-sweep*1.5+.15)))*step(sweep,1.0);
-      float alpha=max(affordance*max(rim*.74,halo*.18),strength*max(rim*(.82+.18*shine),halo*.25));
+      if(max(rim,halo)<.005)discard;
+      float perimeter=fract(atan(p.y/size.y,p.x/size.x)/6.2831853+.5);
+      float head=fract(.75-orbit),gap=abs(fract(perimeter-head+.5)-.5);
+      float gleam=glint*(1.0-smoothstep(.015,.12,gap));
+      float pressPhase=fract(.75-sweep),pressGap=abs(fract(perimeter-pressPhase+.5)-.5);
+      float touchShine=1.0-smoothstep(.02,.16,pressGap);
+      float quiet=affordance*max(rim*.11,halo*.025);
+      float alpha=max(quiet,max(gleam*max(rim*.82,halo*.13),strength*max(rim*(.55+.4*touchShine),halo*.14)));
       if(alpha<.005)discard;
       float edge=smoothstep(.08,.65,rim);
-      vec3 resting=mix(edgeColor,cueColor,edge),emphasisColor=mix(haloColor,edgeColor,edge);
-      gl_FragColor=vec4(mix(resting,emphasisColor,strength),alpha);
+      vec3 quietColor=mix(haloColor,edgeColor,.8);
+      vec3 pearl=mix(edgeColor,vec3(1.0),.72);
+      vec3 sheen=mix(pearl,vec3(.84,.85,1.0),.12*(.5+.5*cos(perimeter*6.2831853)));
+      vec3 lit=mix(haloColor,sheen,edge);
+      gl_FragColor=vec4(mix(quietColor,lit,max(gleam,strength)),alpha);
       #include <colorspace_fragment>
     }`;
   function registerFeedback(key,index,object,w,h,{x=0,y=0,z=1.1,shape=0,aliases=[],mask=null}={}){
     // Keep the resting/turning anchor untouched; only its inner contents lift.
     const content=new THREE.Group();[...object.children].forEach(child=>content.add(child));object.add(content);object.userData.readerContent=content;
     const mat=track(new THREE.ShaderMaterial({vertexShader:contourVertex,fragmentShader:contourFragment,transparent:true,depthWrite:false,toneMapped:false,
-      uniforms:{size:{value:new THREE.Vector2(w,h)},strength:{value:0},affordance:{value:0},shape:{value:shape},mask:{value:mask},sweep:{value:2},edgeColor:{value:new THREE.Color(palette['object-edge'])},haloColor:{value:new THREE.Color(palette['object-halo'])},cueColor:{value:new THREE.Color(palette.rose)}}}));
+      uniforms:{size:{value:new THREE.Vector2(w,h)},strength:{value:0},affordance:{value:0},glint:{value:0},orbit:{value:0},shape:{value:shape},mask:{value:mask},sweep:{value:2},edgeColor:{value:new THREE.Color(palette['object-edge'])},haloColor:{value:new THREE.Color(palette['object-halo'])}}}));
     const ring=plane(w+12,h+12,mat,content);ring.position.set(x,y,z);ring.castShadow=ring.receiveShadow=false;ring.visible=false;ring.userData.objectContour=true;
     const entry={key,index,object,w,h,content,ring,mat,value:0,target:0,started:0};feedbackEntries.push(entry);
     [key,...aliases].forEach(name=>{if(!feedbackKeys.has(name))feedbackKeys.set(name,[]);feedbackKeys.get(name).push(entry);});
   }
   function clearFeedback(){
     cancelAnimationFrame(feedbackFrame);feedbackFrame=0;feedbackTime=0;
-    feedbackEntries.forEach(e=>{e.value=e.target=0;e.content.position.z=0;e.content.rotation.x=0;e.content.scale.setScalar(1);e.ring.visible=false;e.mat.uniforms.strength.value=e.mat.uniforms.affordance.value=0;});
+    feedbackEntries.forEach(e=>{e.value=e.target=0;e.content.position.z=0;e.content.rotation.x=0;e.content.scale.setScalar(1);e.ring.visible=false;e.mat.uniforms.strength.value=e.mat.uniforms.affordance.value=e.mat.uniforms.glint.value=0;});
     film.dataset.objectFeedback='';film.dataset.objectAffordances='';
   }
-  const affordancesVisible=()=>latest?.phase.kind==='read'&&!readerHolding&&!document.querySelector('dialog[open]')&&!['moving','preparing'].includes(film.dataset.navigation);
+  const affordancesVisible=()=>latest?.phase.kind==='read'&&!readerHolding&&!document.hidden&&!document.querySelector('dialog[open]')&&!['moving','preparing'].includes(film.dataset.navigation);
   function applyFeedback(){
     const visible=affordancesVisible();
     feedbackEntries.forEach(e=>{
       e.content.position.z=e.value*2.6;e.content.scale.setScalar(1+e.value*.012);e.content.rotation.x=-rad(.45)*e.value;
       const resting=visible&&e.index===latest.phase.index;
       e.ring.visible=resting||e.value>.005;e.mat.uniforms.strength.value=e.value;e.mat.uniforms.affordance.value=resting?1:0;
-      e.mat.uniforms.sweep.value=(performance.now()-e.started)/360;
+      e.mat.uniforms.glint.value=resting&&discovery?.entries.includes(e)?discovery.amount:0;
+      e.mat.uniforms.orbit.value=discovery?.progress||0;
+      e.mat.uniforms.sweep.value=(performance.now()-e.started)/560;
     });
     film.dataset.objectFeedback=feedbackEntries.filter(e=>e.value>.005).map(e=>e.key+':'+e.value.toFixed(2)).join(',');
     film.dataset.objectAffordances=feedbackEntries.filter(e=>e.mat.uniforms.affordance.value>0).map(e=>e.key).join(',');

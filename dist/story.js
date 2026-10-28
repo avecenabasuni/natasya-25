@@ -48,7 +48,7 @@
       return presentDialog(html,source&&source.id!=='book-contents'?{source,objectKey:key,...material,pointer:objectPointer,capture:key&&material.kind!=='disclosure'?()=>film?.captureObject?.(key):undefined}:{});
     };
     const feedback=window.ScrapbookObjectFeedback?.create({app,onChange:detail=>film?.highlightObject?.(detail)});
-    const discovery=window.ScrapbookDiscovery?.create({app,getPosition:()=>film?.getPosition?.()||{kind:'read',chapter:chapters[active][0]},onLift:detail=>film?.discoverObject?.(detail)});
+    const discovery=window.ScrapbookDiscovery?.create({app,getPosition:()=>film?.getPosition?.()||{kind:activePosition?.side==='left'?'divider':'read',chapter:chapters[active][0]},onLift:detail=>film?.discoverObject?.(detail)});
     const icon=name=>`<img class="ui-icon" src="assets/icons/${glyphs[name]||'arrow-right'}.svg" alt="" width="20" height="20">`;
     const stickers=(page,scope)=>window.ScrapbookStickers?.layer(page,scope)||'';
     const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
