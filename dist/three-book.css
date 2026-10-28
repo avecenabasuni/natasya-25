@@ -36,7 +36,7 @@
 .three-book .voucher-coupon:before{display:none}
 .three-book .right-deck.is-turning,.three-book .front-board.is-hidden-front{visibility:hidden;pointer-events:none}
 .three-book .right-deck.is-turning .book-print{visibility:hidden!important}
-.scene-raster{position:absolute;left:-10000px;top:0;width:var(--leaf-w);height:var(--leaf-h);visibility:hidden;pointer-events:none;perspective:none;transform:none}
+.scene-raster{position:fixed;left:-10000px;top:0;width:var(--leaf-w);height:var(--leaf-h);visibility:hidden;pointer-events:none;perspective:none;transform:none}
 .scene-raster .book-print{visibility:hidden!important;transform:none!important}
 .scene-raster .book-print .story-art>img{visibility:hidden}
 .three-book .postcard-date{top:42%;left:26%;width:48%;transform:none;opacity:0;background:var(--paper)}

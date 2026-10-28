@@ -11,6 +11,9 @@ function loadImage(src){
   if(shared&&imagePromises.has(url))return imagePromises.get(url);
   const promise=new Promise(resolve=>{
     const img=new Image();img.crossOrigin='anonymous';img.onload=()=>resolve(img);img.onerror=()=>resolve(null);img.src=src;
+  }).then(image=>{
+    if(!image&&shared&&imagePromises.get(url)===promise)imagePromises.delete(url);
+    return image;
   });
   if(shared)imagePromises.set(url,promise);return promise;
 }
@@ -543,7 +546,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   const memMaterials=new Map();function materialCache(i){if(!memMaterials.has(i))memMaterials.set(i,material('#ffffff',{map:backs[i]||null}));const mat=memMaterials.get(i);if(mat.map!==backs[i]){mat.map=backs[i]||null;mat.needsUpdate=true;}return mat;}
   const assetSrc={paper:'assets/materials/paper.webp',linen:'assets/materials/linen.webp',family:'assets/cutouts/five-cats.webp',map:window.SCRAPBOOK_TRIP.map,cake:pages.find(page=>page.print.querySelector('.cake-art'))?.print.querySelector('.cake-art')?.src,...(imageCover?{cover:originals[0].querySelector('.cover-collage-art').src}:{})};
   const assets=Promise.all(Object.entries(assetSrc).map(async([k,src])=>[k,await loadImage(src)])).then(async entries=>{
-    if(disposed)return;const images=Object.fromEntries(entries);if(!images.family||!images.map||!images.cake||imageCover&&!images.cover)throw new Error('A scrapbook image is unavailable.');paperMap=images.paper;linenMap=images.linen;cakeImage=images.cake;
+    if(disposed||lost)return;const images=Object.fromEntries(entries);if(!images.family||!images.map||!images.cake||imageCover&&!images.cover)throw new Error('A scrapbook image is unavailable.');paperMap=images.paper;linenMap=images.linen;cakeImage=images.cake;
     const {c,ctx}=canvas2d();paintPaper(ctx);pageBaseMap=texture(c);paper.map=pageBaseMap;paper.needsUpdate=true;
     if(images.paper){const bump=sourceTexture(images.paper);bump.wrapS=bump.wrapT=THREE.RepeatWrapping;bump.repeat.set(W/440,H/440);paper.bumpMap=bump;paper.bumpScale=.18;paper.needsUpdate=true;readingMaterial.bumpMap=curlFront.bumpMap=curlBack.bumpMap=bump;readingMaterial.bumpScale=curlFront.bumpScale=curlBack.bumpScale=.18;readingMaterial.needsUpdate=curlFront.needsUpdate=curlBack.needsUpdate=true;}
     for(const [mat,vertical] of [[foreEdge,true],[capEdge,false]]){
@@ -553,7 +556,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     }
     const shade=canvas2d(18,H),gradient=shade.ctx.createLinearGradient(0,0,18,0);gradient.addColorStop(0,'#301e2a26');gradient.addColorStop(1,'#301e2a00');shade.ctx.fillStyle=gradient;shade.ctx.fillRect(0,0,18,H);
     gutter=plane(18,H,material('#ffffff',{map:texture(shade.c),transparent:true,depthWrite:false}),root);gutter.position.set(9,0,4.08);gutter.castShadow=false;gutter.receiveShadow=false;
-    const coverRaster=await raster(originals[0],true);if(disposed)return;
+    const coverRaster=await raster(originals[0],true);if(disposed||lost)return;
     coverMap=coverRaster.map;
     coverRaster.anchors.fandom.forEach((b,i)=>fandomSticker(b,coverRaster.parts.fandom[i],cover,-1,'cover',4.8+i*.015));
     // The print sits above the board geometrically. A slope-dependent depth
@@ -565,7 +568,8 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     if(patch){const sewn=new THREE.Group();cover.add(sewn);sewn.position.set(patch.x+patch.w/2,H/2-patch.y-patch.h/2,5.2);box(patch.w,patch.h,1.4,material(palette['paper-edge']),sewn);const print=plane(patch.w,patch.h,material('#ffffff',{map:coverRaster.parts.dedication,roughness:1,bumpMap:paper.bumpMap,bumpScale:.16}),sewn);print.position.z=.76;print.castShadow=false;print.receiveShadow=false;}
     coverMaterials[5].map=label('',W,H,24,palette.lining);coverMaterials[5].needsUpdate=true;
     for(let i=0;i<pages.length;i++){
-      const r=await raster(pages[i].print);if(disposed)return;snapshots[i]=r.map;
+      if(disposed||lost)return;
+      const r=await raster(pages[i].print);if(disposed||lost)return;snapshots[i]=r.map;
       const copy=canvas2d();copy.ctx.drawImage(r.map.image,0,0,W,H);underlays[i]=texture(copy.c);
       const b=label(chapters[pages[i].chapter][1]+'\n\n'+window.SCRAPBOOK_TRIP.reverseLabel,W,H,23);backs[i]=b;const reverseMap=track(b.clone());reverseMaps[i]=reverseMap;
       setProps(i,r.anchors,r.parts);
@@ -582,8 +586,14 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     renderer.shadowMap.needsUpdate=true;renderer.render(scene,camera);
     props.forEach(g=>g.visible=false);turningProps.forEach(g=>g.visible=false);birthdayCakes.forEach(cake=>cake.warm(false));curl.visible=leftSheet.visible=false;feedbackEntries.forEach(e=>e.ring.visible=false);
     ready=true;film.dataset.assetsReady='true';currentTurn=-1;lastPose='';if(latest)update(latest);
-  }).catch(()=>{if(!disposed){clearReaderMasks();clearFeedback();stopCakeAnimation();lost=true;film.classList.remove('three-book');canvas.hidden=true;film.dataset.assetsReady='partial';film.dataset.renderer='css';pages.forEach(p=>p.print.querySelectorAll('.letter-excerpt,.coupon-ink').forEach(d=>d.style.opacity=''));film.dispatchEvent(new Event('book-graphics-fallback'));}});
-  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();if(!disposed){clearReaderMasks();clearFeedback();stopCakeAnimation();lost=true;film.classList.remove('three-book');canvas.hidden=true;film.dataset.renderer='css';pages.forEach(p=>p.print.querySelectorAll('.postcard-date,.letter-excerpt,.coupon-ink').forEach(d=>{d.style.opacity='';d.style.transform='';}));film.dispatchEvent(new Event('book-graphics-fallback'));}});
+  }).catch(fallback);
+  function fallback(){
+    if(disposed||lost)return;
+    clearReaderMasks();clearFeedback();stopCakeAnimation();lost=true;film.classList.remove('three-book');canvas.hidden=true;film.dataset.assetsReady='partial';film.dataset.renderer='css';
+    pages.forEach(p=>p.print.querySelectorAll('.postcard-date,.letter-excerpt,.coupon-ink').forEach(d=>{d.style.opacity='';d.style.transform='';}));
+    film.dispatchEvent(new Event('book-graphics-fallback'));
+  }
+  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();fallback();});
   function captureFrame(){
     if(disposed||lost||!active||!ready)return null;
     clearDiscovery();

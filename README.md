@@ -46,6 +46,8 @@ Edit shared defaults in [dist/config.js](dist/config.js), or use the editor to s
 - The birthday melody follows the candle; extinguishing it unlocks the final Amazon.de gift.
 - Native semantic text and focus controls accompany the scene. Software-browser evidence does not certify physical iPhone GPU performance.
 
+Offscreen page printing uses fixed coordinates while images load, so turning the visible book cannot shift its prepared text or attachments. Viewport changes wait for page preparation and navigation to settle before rebuilding. Failed image requests can retry on a later rebuild, and interrupted graphics preparation falls back to a usable CSS book.
+
 Publish `dist/` with a static host. This repository contains application source and supporting documentation; local QA captures, deployment archives, credentials and the original Sites hosting binding are excluded from the GitHub export.
 
 [DESIGN.md](DESIGN.md) records the direction. [VALIDATION.md](VALIDATION.md) records current checks and historical limits. [Asset credits](dist/assets/ASSET-CREDITS.md) cover artwork, geographic data, fonts and media licenses.

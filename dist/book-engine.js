@@ -410,11 +410,23 @@
       }
       app.addEventListener('focusin',revealFocused);
       const snapshot=screen;let resizeTimer;
+      function reflowWhenSettled(){
+        resizeTimer=null;
+        if(disposed||document.querySelector('dialog[open]')||window.visualViewport&&Math.abs(window.visualViewport.scale-1)>.02)return;
+        const next=viewportSize();
+        if(Math.abs(next.width-snapshot.width)<2&&Math.abs(next.height-snapshot.height)<2)return;
+        // Safari toolbar movement must not tear down a page being prepared
+        // or a fold still controlled by the user's gesture/navigation.
+        if(film.dataset.assetsReady==='false'||scrollTween||touchHeld||['opening','turn'].includes(phases[phaseCursor]?.kind)||ScrollTrigger.isScrolling()){
+          resizeTimer=setTimeout(reflowWhenSettled,120);return;
+        }
+        app.dispatchEvent(new CustomEvent('book-reflow'));
+      }
       function resized(){
         if(document.querySelector('dialog[open]')||window.visualViewport&&Math.abs(window.visualViewport.scale-1)>.02)return;
         const next=viewportSize();
         if(Math.abs(next.width-snapshot.width)<2&&Math.abs(next.height-snapshot.height)<2)return;
-        clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(!disposed&&!document.querySelector('dialog[open]'))app.dispatchEvent(new CustomEvent('book-reflow'));},180);
+        clearTimeout(resizeTimer);resizeTimer=setTimeout(reflowWhenSettled,180);
       }
       function closedDialog(){
         resized();

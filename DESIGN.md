@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V56: stable page preparation during turns
+
+This is a rendering repair, retaining the established scrapbook, content, local type, seven chapters, Antislop during 3/3/3 and Taste 8/9/5. A controlled delayed-image test reproduced overlapping print after navigation: the raster origin was measured inside the scrolling film before awaited image loads, while later image/text geometry used the moved viewport position. Make the offscreen print surface use fixed coordinates so preparing a page is independent of the visible book's scroll/turn. Preserve the geometry and timing of the visible page animation. Confirm the same delayed-image/turn sequence against the original broken result, then exercise repeated navigation, toolbar-size changes and reader return. Repair only demonstrated lifecycle failures; keep all artwork, maps, personal notes, audio and access unchanged.
+
+The controlled height-change probe also rebuilt the book before the blocked page finished preparing. Defer viewport reflow until preparation, navigation, touch and scroll settle, then measure the latest viewport once. Two bounded failure probes support evicting failed image promises so later rebuilds can retry, and marking WebGL loss as a completed CSS fallback so interrupted native folds can settle. Keep successful image caching, the existing fallback appearance and the visible turn geometry intact.
+
 ## V55: keep the meals with the maps
 
 Design Read: follow the owner's content correction while retaining the pink physical scrapbook, seven chapters, Antislop during 3/3/3 and Taste 8/9/5. The dated recap is for photographs, dates and locations again. Move the three shared food memories to a folded “What we ate” note inside the Trier/Luxembourg map reader. Preserve custom photo captions as photo captions, without printing food labels on the recap.
