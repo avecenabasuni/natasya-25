@@ -436,6 +436,7 @@
         const travel=Math.abs(top-displayedTop),duration=durationOverride??(label==='gift-open'?clamp(travel/500,.65,1):replay?Math.max(1.8,travel/850):coverJourney?2.2:Math.min(2.3,Math.max(1.25,travel/750)));
         const destination=label!=='gift-open'&&targetPhase?pages[targetPhase.index]:null;
         navigationIntent={label,focus,replay,complete,chapter:destination?chapters[destination.chapter][0]:null,part:destination?.part,side:targetPhase?.kind==='divider'?'left':'right'};
+        render();
         scrollTween=gsap.to(position,{top,paused:true,duration,ease:replay?'none':'power2.inOut',
           onUpdate:()=>seek(position.top),onComplete:()=>{gsap.ticker.remove(advanceNavigation);scrollTween=null;navigationLabel=null;navigationIntent=null;film.dataset.navigation='idle';timeline.time(time,false);render();focusPage();complete?.();}});
         gsap.ticker.add(advanceNavigation);

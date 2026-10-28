@@ -1,4 +1,4 @@
-/* A short rose glint visits each real attachment once; quiet gaps use no frames. */
+/* Touch hints repeat while a page is being read; quiet gaps use no frames. */
 (() => {
   'use strict';
   const clamp=n=>Math.max(0,Math.min(1,n));
@@ -7,7 +7,7 @@
     const seen=new Set(),listeners=[],media=matchMedia('(prefers-reduced-motion: reduce)');
     const css=getComputedStyle(document.documentElement),rgb=(name,fallback)=>{const hex=css.getPropertyValue(name).trim();return /^#[\da-f]{6}$/i.test(hex)?hex.slice(1).match(/../g).map(v=>parseInt(v,16)):fallback;};
     const tint=rgb('--object-glint',[156,85,119]),shift=rgb('--object-glint-shift',[134,112,159]);
-    let pending=null,active=null,timer=0,frame=0,quietUntil=0,destroyed=false,blurred=false,count=0;
+    let pending=null,active=null,timer=0,frame=0,quietUntil=0,destroyed=false,blurred=false,count=0,readingPage=null;
     const listen=(target,type,fn,options)=>{target.addEventListener(type,fn,options);listeners.push(()=>target.removeEventListener(type,fn,options));};
     const status=(value,key='')=>{app.dataset.discoveryState=value;app.dataset.discoveryObject=key;};
     function available(){
@@ -91,8 +91,11 @@
     }
     function refresh(){
       if(destroyed)return;const items=available();
+      const position=getPosition(),page=items.length?position.chapter+':'+(position.part||1):null;
+      if(page!==readingPage){stop();seen.clear();readingPage=page;}
       if(active){if(!items.some(item=>item.id===active.id))stop();return;}
-      const next=items.find(item=>!seen.has(item.id));
+      let next=items.find(item=>!seen.has(item.id));
+      if(!next&&items.length){seen.clear();quietUntil=Math.max(quietUntil,performance.now()+4500);next=items[0];}
       if(!next){if(pending)stop();return;}
       if(pending?.id===next.id)return;
       stop();pending=next;status('waiting');timer=setTimeout(start,Math.max(650,quietUntil-performance.now()));

@@ -1,5 +1,13 @@
 # A little world, physical scrapbook
 
+## V62: touch targets stay visible without hover
+
+The owner requires visible highlights before a finger touches the page. V61's one-time orbital introduction and almost-white resting edge were too easy to miss. Give every actual current right-page attachment a persistent soft rose/mauve ambient halo, independently of hover, focus or press. Keep the contour translucent and diffuse, with the existing stronger moving/touch core; do not restore V59's heavy opaque border.
+
+Begin the orbital cue automatically after 650 ms of quiet reading. Retain the 1250 ms sweep and 1000 ms gap between objects. After a full round, leave 4500 ms of quiet before another round. Reset the introduction on entering a reading page again. Quiet gaps use timers and a static rendered halo; no continuous RAF runs between sweeps. This repeating touch hint follows the owner's current instruction, superseding the earlier once-per-load choice.
+
+Input, left pages, turns, navigation, open readers, hidden/blurred state and reduced motion continue to stop sweeps. Ambient halos appear only on readable interactive objects; decorative stickers and divider art remain unmarked. Reduced motion retains the colored static halo without orbit. Preserve colors, physical masks, book geometry, all content/assets, candle gate, replay and access. Antislop during 3/3/3 and Taste 8/9/5 remain the direction. Verify zero object input events before the automatic highlight, including after a sweep ends and after revisiting the page.
+
 ## V61: a contour color that separates from cream paper
 
 The owner reports that V60's white glint disappears against the pale scrapbook. Keep the Photos-inspired orbital movement, masks, once-per-object sequence and subtle resting state; replace only the moving/pressed light with dusty rose #9c5577 and a restrained mauve shift #86709f. Increase the traveling core alpha to 0.94 and its soft halo to 0.24. This gives the small moving contour enough separation on cream and pink paper without restoring a solid idle border.

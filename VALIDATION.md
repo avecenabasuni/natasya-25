@@ -1,4 +1,66 @@
-# Validation: visible rose/mauve contour color, V61
+# Validation: touch halos without hover, V62
+
+28 October 2026. Status: PASS, no unresolved finding. 82/82 focused checks: WebKit touch mode 375 × 667/520 (18 each), Chromium touch mode 375 × 667 (18), CSS fallback (13), reduced/native (5), and focused navigation/cake/gift checks (10). Software browser evidence does not certify physical iPhone hardware, FPS or VoiceOver.
+
+All actual current right-page attachments now keep a soft colored ambient halo before touch. The shader no longer returns to an almost-white resting edge after its introductory sweep. Native paper shadows and clipped-subject filters use the same visible rose/mauve family. The full opaque V59 border is not restored. Existing stronger orbital and press feedback remains separate from idle attachment geometry.
+
+The automatic sequence repeats after a quiet round pause instead of disappearing once per load. Entering a reading page again resets its introduction. The first quiet delay remains 650 ms, each sweep 1250 ms, object gaps 1000 ms, and the completed-round quiet pause is 4500 ms. Quiet intervals use timers and a static rendered halo, with no continuing RAF between sweeps. Navigation, left pages, modals, hidden/blurred state and reduced motion retain their gates; reduced motion keeps the colored static cue.
+
+The tests record object hover, movement, focus and touch events before the visibility assertions: zero object input occurs. Actual navigation buttons are tapped, then the page is observed hands-free. After the first map sweep ends, its resting image adds 1248 colored pixels in WebKit and 1227 in Chromium compared with the V61 quiet baseline. Resting Minnie adds 193/110 colored pixels. Automatic reminders repeat and reappear after revisiting, while interaction feedback stays empty until an actual touch. The quiet gap does not increment scene render frames. Left/modal ownership, direct reader taps, native ambient styles and reduced static cues pass. Root visually reviewed the resting map and note/cats/song page.
+
+The focused follow-up caught a halo remaining on the first stationary frame after navigation started. An immediate repaint after assigning navigation intent clears it before movement; the final 10/10 follow-up confirms both that frame and subsequent turns are clean. The candle still gates the gift, finger input blows it out, the gift reader clears its cue, and the replay action remains singular.
+
+Evidence: qa/v62/final-scope-summary.json, touch-only.py, touch-extras.py, individual reports/screenshots and source-preservation.json. 133/139 distribution files remain byte-identical. Resting contour styling, discovery round scheduling, one explicit navigation-start repaint and cache references change; no assets or content are added. The map, cat/cake masks, 1250 ms orbital movement, book geometry and clock, fonts, audio, story, divider art and original configuration remain. Earlier broad suites are historical.
+
+### V62 Antislop delivery gate
+
+- R-01 PASS: soft colored halos provide the explicitly requested finger-first discoverability.
+- R-02 PASS: no product prose or em dash added.
+- R-03 PASS: phone heights, native and fallback bounds pass.
+- R-04 PASS: no icons added.
+- R-05 PASS: existing scrapbook compositions retained.
+- R-06 PASS: fonts and text styling unchanged.
+- R-07 PASS: original paper/linen backgrounds retained.
+- R-08 PASS: actual left/right navigation retained.
+- R-09 PASS: no badges or repeated tap labels added.
+- R-10 PASS: no glass surfaces added.
+- R-11 PASS: halos follow actual paper or clipped subject contours.
+- R-12 PASS: the diffuse native shadow identifies a touchable attachment.
+- R-13 PASS: ambient emphasis belongs only to interactive objects; orbital emphasis remains one at a time.
+- R-14 PASS: no replacement cards or grids added.
+- R-15 PASS: existing concrete object actions retained.
+- R-16 PASS: no marketing text added.
+- R-17 PASS: no new product statistic or factual claim added.
+- R-18 PASS: no identity or testimonial added.
+- R-19 PASS: recurring cues follow the owner's current touch-only requirement; quiet gaps use no RAF.
+- R-20 PASS: original personal keepsakes remain distinct.
+- R-21 PASS: selected light/pink materials retained.
+- R-22 PASS: all image bytes retained.
+- R-23 PASS: no new image asset or destination created.
+- R-24 PASS: existing reader/candle destinations retained.
+- R-25 PASS: text/focus styles unchanged; stronger interaction cue remains supplementary to semantic controls.
+- R-26 PASS: actual navigation, automatic repeat, revisit and direct reader checks pass.
+- R-27 PASS: native fallback and reduced static cues pass.
+- R-28 PASS: no filler section added.
+- R-29 PASS: existing rose/mauve highlight tokens retained.
+- R-30 PASS: behavior follows the owner's physical scrapbook and finger-first reference.
+- R-31 PASS: persistent/periodic touch ownership and timing documented in DESIGN.md.
+- R-32 PASS: no hover is required; canvas stays inert, keyboard focus retained.
+- R-33 PASS: implementation is in tracked application source.
+- R-34 PASS: no theme or extra presentation mode added.
+- R-35 PASS: 82 focused checks, four JavaScript syntax checks and whitespace checks pass.
+- R-36 PASS: no unsupported physical-device performance claim made.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 retained.
+- R-38 PASS: original personal facts, media and placeholders unchanged.
+- Liveliness PASS: visible ambient contours and spaced orbital sweeps support touch discovery without competing with page turns.
+- C-1 PASS: the change resolves the demonstrated one-time/faint-rest discoverability gap.
+- C-2 PASS: actual taps still perform their existing actions.
+- C-3 PASS: current attachments determine what is highlighted.
+- C-4 PASS: touch-mode input tracking, automatic repeat/revisit, quiet gaps, native and reduced paths pass.
+- C-5 PASS: zero-input and rendered-pixel evidence supports the reported behavior.
+- Taste preflight PASS: reviewed soft colored rest, silhouette fit, direct touch behavior, cancellation and phone sizing.
+
+# Historical validation: visible rose/mauve contour color, V61
 
 28 October 2026. Status: PASS, no unresolved finding. 64/64 focused checks: WebKit 375 × 667 (19), WebKit 375 × 520 (17), Chromium 375 × 667 (17), native CSS fallback (5), reduced/native (4), and two peak-core contrast estimates. Software browser evidence does not certify physical iPhone hardware, FPS or VoiceOver.
 

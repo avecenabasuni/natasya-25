@@ -294,12 +294,12 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       float gleam=glint*(1.0-smoothstep(.015,.12,gap));
       float pressPhase=fract(.75-sweep),pressGap=abs(fract(perimeter-pressPhase+.5)-.5);
       float touchShine=1.0-smoothstep(.02,.16,pressGap);
-      float quiet=affordance*max(rim*.11,halo*.025);
+      float quiet=affordance*max(rim*.42,halo*.18);
       float alpha=max(quiet,max(gleam*max(rim*.94,halo*.24),strength*max(rim*(.64+.34*touchShine),halo*.24)));
       if(alpha<.005)discard;
       float edge=smoothstep(.08,.65,rim);
-      vec3 quietColor=mix(haloColor,edgeColor,.8);
       vec3 tint=mix(glintColor,shiftColor,.65*(.5+.5*cos(perimeter*6.2831853)));
+      vec3 quietColor=mix(haloColor,tint,edge);
       vec3 lit=mix(haloColor,tint,edge);
       gl_FragColor=vec4(mix(quietColor,lit,smoothstep(0.0,.35,max(gleam,strength))),alpha);
       #include <colorspace_fragment>
