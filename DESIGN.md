@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V68: Ave as the sender
+
+Use Ave as the shared sender name requested by the owner. Existing sender bindings supply “Ave & Tasya” bylines, letter/card signatures, other From labels and the personalisation editor. Normalize only the exact old sender placeholders, including surrounding whitespace, to the current default so saved drafts do not keep the placeholder. Preserve other real custom names and personal writing. No visual or motion change; retain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V67: Tasya as the recipient nickname
 
 Use Tasya as the shared recipient name requested by the owner. Existing name bindings supply the cover, birthday addressee, note/card salutations, bylines and editor. Normalize only the exact old nickname placeholders, including surrounding whitespace, to the new shared default so an existing local draft cannot keep the placeholder. Keep real custom names and other personal writing intact. No visual or motion change; retain Antislop during 3/3/3 and Taste 8/9/5.

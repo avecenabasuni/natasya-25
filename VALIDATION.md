@@ -1,4 +1,60 @@
-# Validation: recipient nickname Tasya, V67
+# Validation: sender name Ave, V68
+
+28 October 2026. Status: PASS. The shared sender name is now Ave. Existing c.sender/defaults.sender bindings supply “Ave & Tasya” page bylines, letter/card signatures, other From labels, the editor, imports/exports and print-font preparation. Trimmed exact old sender placeholders [Your name] and [Namamu] migrate to the new default; other custom names and writing remain.
+
+Verification: independent sender-binding review, config/app JavaScript syntax checks and diff whitespace checks. This small name/default migration adds no automated tests and does not rerun browser motion suites. Only config.js, the exact sender-placeholder normalization and their cache references change; 136/139 distribution files remain byte-identical. Styling, story, assets, fonts, audio, recipient name Tasya, halo/reader/book motion and hosting configuration are unchanged. Earlier phone rendering evidence remains historical.
+
+Evidence: qa/v68/final-scope-summary.json and source-preservation.json. No new browser or physical-device performance claim is made.
+
+### V68 Antislop delivery gate
+
+- R-01 PASS: existing functional emphasis unchanged.
+- R-02 PASS: no product punctuation added.
+- R-03 PASS: short sender uses existing byline/signature layouts; sizing source unchanged.
+- R-04 PASS: icons unchanged.
+- R-05 PASS: composition unchanged.
+- R-06 PASS: fonts and sender font preparation retained.
+- R-07 PASS: materials unchanged.
+- R-08 PASS: navigation unchanged.
+- R-09 PASS: no badges or labels added.
+- R-10 PASS: no glass added.
+- R-11 PASS: corners/contours unchanged.
+- R-12 PASS: physical shadows unchanged.
+- R-13 PASS: existing object emphasis unchanged.
+- R-14 PASS: no panels/grids added.
+- R-15 PASS: action labels unchanged.
+- R-16 PASS: supplied proper name replaces the placeholder.
+- R-17 PASS: Ave comes from the owner's instruction.
+- R-18 PASS: no invented identity or testimonial.
+- R-19 PASS: all animation source unchanged.
+- R-20 PASS: actual sender personalises the existing bylines/signatures.
+- R-21 PASS: theme unchanged.
+- R-22 PASS: all images unchanged.
+- R-23 PASS: supplied sender name used directly.
+- R-24 PASS: destinations unchanged.
+- R-25 PASS: colors, type and focus styles unchanged.
+- R-26 PASS: controls unchanged; sender bindings independently reviewed.
+- R-27 PASS: existing empty/error/native paths retained.
+- R-28 PASS: no filler added.
+- R-29 PASS: palette unchanged.
+- R-30 PASS: original scrapbook retained.
+- R-31 PASS: sender and exact-placeholder migration documented in DESIGN.md.
+- R-32 PASS: semantic structure and keyboard/dialog controls unchanged.
+- R-33 PASS: tracked changes use apply_patch.
+- R-34 PASS: no theme or mode added.
+- R-35 PASS: config/app syntax and diff checks pass; unchanged runtime paths retain historical verification.
+- R-36 PASS: no new performance claims.
+- R-37 PASS: Antislop during3/3/3 and Taste8/9/5 retained.
+- R-38 PASS: sender matches the user's supplied fact.
+- Liveliness PASS: existing keepsakes, whitespace and visual identity unchanged.
+- C-1 PASS: supplied sender replaces the generic placeholder.
+- C-2 PASS: unchanged controls retain sender data bindings.
+- C-3 PASS: personalisation uses the same sender data.
+- C-4 PASS: exact old placeholders migrate; other personal fields remain.
+- C-5 PASS: source review/checks and their limits are explicit.
+- Taste preflight PASS: short name, sender bindings and retained visual system reviewed.
+
+# Historical validation: recipient nickname Tasya, V67
 
 28 October 2026. Status: PASS. The shared recipient nickname is now Tasya. Existing c.name/defaults.name bindings cover the cover print and accessible title, birthday addressee, note/card salutations, page bylines and personalisation editor. Both exact legacy nickname placeholders, after trimming whitespace, migrate to the new default; real custom names and other writing stay intact.
 

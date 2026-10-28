@@ -49,7 +49,7 @@
     for(const k of Object.keys(oldExamples))if(out[k]===oldExamples[k])out[k]=defaults[k];
     for(const k of Object.keys(recentExamples))if(out[k]===recentExamples[k])out[k]=defaults[k];
     for(const a of artists)if(out.artistNotes[a]===oldArtistExamples[a])out.artistNotes[a]=defaults.artistNotes[a];
-    if(['[Panggilan dia]','[Her nickname]'].includes(out.name.trim()))out.name=defaults.name;if(out.sender==='[Namamu]')out.sender=defaults.sender;
+    if(['[Panggilan dia]','[Her nickname]'].includes(out.name.trim()))out.name=defaults.name;if(['[Namamu]','[Your name]'].includes(out.sender.trim()))out.sender=defaults.sender;
     out.name=out.name.trim()||defaults.name;out.sender=out.sender.trim()||defaults.sender;return out;
   }
   function database(){return new Promise(resolve=>{let r;try{r=indexedDB.open('little-world-birthday',1)}catch{return resolve(null)}r.onupgradeneeded=()=>r.result.createObjectStore('settings');r.onsuccess=()=>resolve(r.result);r.onerror=r.onblocked=()=>resolve(null)});}
