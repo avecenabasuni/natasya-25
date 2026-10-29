@@ -53,6 +53,7 @@
     viewportSize,
     create({app, chapters, setActive, isGiftUnlocked=()=>true}) {
       let disposed = false, current = -2, currentSide = null, cachedTurn = -1, timeline, phaseCursor = 0,turningPage=-1,scrollTween=null,navigationLabel=null,modalTime=null;
+      let paperPhase=null,paperTime=null,paperSilenced=false;
       let userSettle=false,touchHeld=false,releaseDelay=null,navigationIntent=null,resumeIntent=null;
       const screen = viewportSize(), mobile = screen.width < 960;
       if(screen.height<500)return null;
@@ -287,6 +288,11 @@
         while(phaseCursor<phases.length-1 && time>=phases[phaseCursor].end)phaseCursor++;
         while(phaseCursor>0 && time<phases[phaseCursor].start)phaseCursor--;
         const phase=phases[phaseCursor],p=clamp((time-phase.start)/(phase.end-phase.start));
+        if(paperPhase!==phase&&paperTime!==null&&Math.abs(time-paperTime)>.01&&!paperSilenced&&modalTime===null&&!ScrollTrigger.isRefreshing){
+          const physical=['opening','turn'].includes(phase.kind)?phase:phases.find(item=>['opening','turn'].includes(item.kind)&&Math.min(time,paperTime)<=item.start&&Math.max(time,paperTime)>=item.end);
+          if(physical)document.dispatchEvent(new CustomEvent('scrapbook-paper',{detail:{kind:physical.kind==='opening'?'cover':'page'}}));
+        }
+        paperPhase=phase;paperTime=time;
         const giftOpen=phase.kind==='read'&&pages[phase.index]?.print.querySelector('.pocket-gift')?smooth(clamp((p-.5)/.35)):0;
         film.style.setProperty('--gift-shift',-12*giftOpen+'px');
         const cakeOpen=phase.kind==='read'&&pages[phase.index]?.print.querySelector('.birthday-cake')?smooth(clamp((p-.03)/.29))*(1-smooth(clamp((p-.72)/.28))):0;
@@ -427,7 +433,11 @@
         }};
         const seek=position=>{window.scrollTo({top:position,behavior:'instant'});ScrollTrigger.update();timeline.scrollTrigger.getTween()?.progress(1);};
         const displayedTop=timeline.scrollTrigger.start+playhead.time/distance*(timeline.scrollTrigger.end-timeline.scrollTrigger.start);
-        if(!animate||Math.abs(top-displayedTop)<2){seek(top);timeline.time(time,false);focusPage();complete?.();return;}
+        if(!animate||Math.abs(top-displayedTop)<2){
+          const quiet=paperSilenced;paperSilenced=true;
+          try{seek(top);timeline.time(time,false);}finally{paperSilenced=quiet;}
+          focusPage();complete?.();return;
+        }
         const position={top:displayedTop};navigationLabel=label;film.dataset.navigation='moving';
         const coverJourney=label==='divider-0'&&playhead.time<opening||label==='dedication'&&playhead.time<opening;
         const travel=Math.abs(top-displayedTop),duration=durationOverride??(label==='gift-open'?clamp(travel/500,.65,1):replay?Math.max(1.8,travel/850):coverJourney?2.2:Math.min(2.3,Math.max(1.25,travel/750)));
@@ -493,7 +503,8 @@
           const phase=phases.find(p=>p.kind===position.kind&&(['cover','opening'].includes(p.kind)||p.index===pageIndex))||phases.find(p=>p.kind==='read'&&p.index===pageIndex);
           if(!phase)return;
           const time=phase.start+clamp(position.progress)*Math.max(0,phase.end-phase.start-.001);
-          window.scrollTo({top:timeline.scrollTrigger.start+time,behavior:'instant'});ScrollTrigger.update();timeline.scrollTrigger.getTween()?.progress(1);timeline.time(time,false);
+          paperSilenced=true;
+          try{window.scrollTo({top:timeline.scrollTrigger.start+time,behavior:'instant'});ScrollTrigger.update();timeline.scrollTrigger.getTween()?.progress(1);timeline.time(time,false);}finally{paperSilenced=false;}
           userSettle=!!position.settle;touchHeld=!!position.touchHeld;
           const intent=position.navigation;resumeIntent=intent||null;
           if(intent)film.dataset.navigation='preparing';

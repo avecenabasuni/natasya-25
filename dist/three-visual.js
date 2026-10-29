@@ -145,6 +145,12 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       else ctx.drawImage(img,dx,dy,iw,ih);
       ctx.restore();
     }));
+    for(const label of node.querySelectorAll('.cover-name-ink')){
+      if(label.closest('[data-scene-skip]'))continue;
+      const r=label.getBoundingClientRect(),s=getComputedStyle(label),x=r.left-origin.left,y=r.top-origin.top;
+      ctx.save();ctx.fillStyle=s.backgroundColor;ctx.fillRect(x,y,r.width,r.height);
+      ctx.strokeStyle=s.borderTopColor;ctx.lineWidth=parseFloat(s.borderTopWidth);ctx.strokeRect(x+.5,y+.5,r.width-1,r.height-1);ctx.restore();
+    }
     const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);let n;
     while(n=walker.nextNode()){
       if(!n.textContent.trim())continue;

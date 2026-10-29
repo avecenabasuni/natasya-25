@@ -40,7 +40,7 @@
   window.ScrapbookStory=({getConfig,toast,openDialog:presentDialog,onSceneChange=()=>{}})=>{
     const app=document.getElementById('app');
     let motion=null,film=null,observer=null,active=0,activePosition=null,refreshToken=0,candleLit=true,candleBlown=false,candleSmokeTimer=0;
-    let objectSource=null,objectPointer=false;
+    let objectSource=null,objectPointer=false,nativePaperIndex=null;
     const withObject=(source,fn,pointer=false)=>{const previous=objectSource,previousPointer=objectPointer;objectSource=source;objectPointer=pointer;try{return fn();}finally{objectSource=previous;objectPointer=previousPointer;}};
     const openDialog=html=>{
       const key=objectSource?.dataset.bookObject,source=objectSource?.isConnected?objectSource:key?app.querySelector(`[data-book-object="${CSS.escape(key)}"]`):null;
@@ -135,7 +135,7 @@
       syncGiftGate();fitNativeOrnaments();setActive(active,activePosition);
     }
     function render(){
-      discovery?.reset();feedback?.reset();clearTimeout(candleSmokeTimer);refreshToken++;observer?.disconnect();motion?.revert();motion=null;observer=null;
+      discovery?.reset();feedback?.reset();clearTimeout(candleSmokeTimer);refreshToken++;observer?.disconnect();motion?.revert();motion=null;observer=null;nativePaperIndex=null;
       const c=getConfig(),tight=document.documentElement.clientWidth<400,photos=gallery(c),personal=c.littleThings.concat(c.wishes).some(t=>t.trim());
       const detail=c.littleThings.find(t=>t.trim())||'',tripPhotos=trip.featuredDayOrder.map(i=>({src:c.germanyPhotos[i],caption:c.germanyCaptions[i]||'[The story behind this October photo]',day:trip.days[i]})).filter(p=>p.src),photo=tripPhotos[0]||photos[0];
       const opening=excerpt(c.intro.trim()||trip.personalIntro,tight?110:150),context=excerpt(c.dedication,tight?60:80),observation=excerpt(detail,tight?65:85),distance=excerpt(c.distanceNote,tight?70:90);
@@ -193,8 +193,13 @@
       window.scrollTo({top:sheet.getBoundingClientRect().top+scrollY-82,behavior:focus||reduced()?'instant':'smooth'});setActive(index,nativePosition(index,'right'));
       if(focus)sheet.querySelector('h2')?.focus({preventScroll:true});
     }
-    function setActive(index,position){
-      if(index<0)return;active=index;activePosition=position||null;
+    function setActive(index,position,silent=false){
+      if(index<0)return;
+      if(!film){
+        if(!silent&&nativePaperIndex!==null&&index!==nativePaperIndex)document.dispatchEvent(new CustomEvent('scrapbook-paper',{detail:{kind:index===0||nativePaperIndex===0?'cover':'page'}}));
+        nativePaperIndex=index;
+      }
+      active=index;activePosition=position||null;
       const cover=index===0,navigation=document.querySelector('.book-navigation'),home=document.querySelector('.site-header .brand');
       document.body.dataset.bookChapter=chapters[index][0];
       navigation.inert=cover;navigation.setAttribute('aria-hidden',String(cover));
@@ -228,7 +233,7 @@
           if(!film)observeNative();else if(returnTo!=='cover')film.go(returnTo,true);
         }else{
           film?.destroy();film=null;syncGiftGate();observeNative();
-          requestAnimationFrame(()=>{if(token===refreshToken&&!film&&!window.ScrapbookModalLock.isLocked){fitNativeOrnaments();go(returnTo,true);}});
+          requestAnimationFrame(()=>{if(token===refreshToken&&!film&&!window.ScrapbookModalLock.isLocked){fitNativeOrnaments();go(returnTo,true,true);}});
         }
       }
       function released(event){if(!event.detail.locked&&pending)apply();}
@@ -236,10 +241,10 @@
       motion={revert(){query.removeEventListener('change',apply);window.removeEventListener('book-modal-lock',released);film?.destroy();film=null;}};
       apply();
     }
-    function go(id,focus=false){
+    function go(id,focus=false,silent=false){
       id=aliases[id]||id;if(id==='gift'&&!candleBlown){id='birthday';toast('Blow out the candle to open the last note.');}
       const target=document.getElementById(id);if(!target)return;if(film){film.go(id,focus);return;}
-      window.scrollTo({top:id==='cover'?0:target.getBoundingClientRect().top+scrollY-82,behavior:focus||reduced()?'instant':'smooth'});const index=chapters.findIndex(c=>c[0]===id);setActive(index,index?nativePosition(index,'left'):null);
+      window.scrollTo({top:id==='cover'?0:target.getBoundingClientRect().top+scrollY-82,behavior:focus||reduced()?'instant':'smooth'});const index=chapters.findIndex(c=>c[0]===id);setActive(index,index?nativePosition(index,'left'):null,silent);
       if(focus)target.querySelector('h1,.divider-title,h2')?.focus({preventScroll:true});
     }
     let reflowFrame=null,clearReflowWait=()=>{};
@@ -248,7 +253,7 @@
       const frame=position?film?.freeze():null;clearReflowWait();
       if(frame||!position){reflowFrame?.remove();reflowFrame=frame;}
       if(frame)document.body.append(frame);
-      render();if(position&&film?.resume)film.resume(position);else go(id,true);
+      render();if(position&&film?.resume)film.resume(position);else go(id,true,true);
       if(!reflowFrame)return;
       const host=app.querySelector('.book-film'),inputs=['wheel','touchstart','pointerdown','keydown'];
       const release=()=>{clearReflowWait();reflowFrame?.remove();reflowFrame=null;};

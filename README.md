@@ -6,7 +6,9 @@ The seven chapters follow the cover, Trier and Luxembourg, four days, photograph
 
 ## Image-first cover
 
-The front uses a generated birthday collage inspired by the owner's supplied reference. Each cutout letter has a different magazine type style; birthday kittens, bows, strawberries, flowers and cake surround a Polaroid containing the owner's supplied Tasya portrait-bouquet photo. The full photograph fits inside the tilted print. The editable “For Tasya” name sits on its brown wrapping paper, while the birthday date stays on the Polaroid border. The same composition appears in native reading and on the real hinged 3D cover, including animated opening and reverse replay.
+The front uses a generated birthday collage inspired by the owner's supplied reference. Each cutout letter has a different magazine type style; birthday kittens, bows, strawberries, flowers and cake surround a Polaroid containing the owner's supplied Tasya portrait-bouquet photo. The full photograph fits inside the tilted print. The larger editable “For Tasya” dedication sits on a cream paper label over the lower wrapping paper, while the birthday date stays on the Polaroid border. The same composition appears in native reading and on the real hinged 3D cover, including animated opening and reverse replay.
+
+Opening the cover and turning a leaf play a short local paper rustle after a trusted browser interaction. Left-to-right camera pans stay silent. The sound button mutes both music and paper; background music remains initially off. A single replaceable effect avoids overlapping rustles during rapid navigation, and hidden/disposed readers cancel sound. Happy Birthday still follows the birthday leaf and stops when the candle is blown out.
 
 The cover kittens are decorative characters. The five named cats inside retain their distinct existing artwork. The eight former front ornaments are replaced by the collage; the current interior retains 13 named portrait/crest instances alongside the paper decoration. All 53 original source entries remain available. [Cover provenance](dist/assets/illustrations/birthday-collage-cover.md) records source and delivery details.
 

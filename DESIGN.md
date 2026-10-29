@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V71: a readable cover dedication and the sound of paper
+
+Design Read: the photograph should stay intact, while “For Tasya” reads immediately on a phone. Put the larger, black dedication on a small opaque cream paper label over the lower bouquet wrapping. Keep the label inside the existing tilted photo print, below all faces. Print its background after the photograph and before its type in Three so the native and hinged covers agree. Keep the local serif/sans pairing, date, opening action and original imagery.
+
+Add a quiet physical rustle when the cover opens/closes or a leaf actually turns, including reverse replay. Panning between the left divider and right page stays silent. Use cached local Web Audio noise shaped with filters and an irregular envelope; the cover gets a longer, softer movement than a single paper leaf. One active effect retires before its replacement, rather than stacking during rapid navigation. Start only after a trusted browser gesture and keep effects independent from background music. The existing sound control becomes the global mute for paper and music; ambient music remains initially off. Preserve Happy Birthday entry and candle-stop behavior. Hidden/disposed states cancel effects, while reflows/restoration and static scene repainting produce no rustle. Native reading cues physical chapter changes rather than repeated observer callbacks. Retain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V70: Tasya's portrait bouquet inside the cover print
 
 Design Read: use the owner's supplied pink portrait-bouquet photograph in the existing cover Polaroid. Keep the complete portrait image visible with contain sizing and a pink mount, rather than cropping away faces. Align the mount to the artwork's inner opening at its 7.5-degree tilt. Place the live editable “For Tasya” type on the lower brown wrapping paper, clear of the faces; keep the birthday date on the Polaroid border. Use black print ink for the name so it remains readable across the darker paper fold, and honor that same computed color in the Three texture.

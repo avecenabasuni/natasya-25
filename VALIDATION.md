@@ -1,4 +1,64 @@
-# Validation: supplied portrait bouquet on the cover, V70
+# Validation: readable dedication and physical paper sound, V71
+
+29 October 2026. Status: PASS, 55 accepted checks: eight final guarded-engine probes, 13 retained main-flow checks, seven short-scene checks, seven reduced/native checks, 14 audio lifecycle checks, two focused birthday checks and four stable-state probes. One historical birthday timing assertion is superseded by the focused report that verifies scheduled notes and waits for a live voice. Final results are recorded in qa/v71/independent-summary.json and final-scope-summary.json. Root reviewed the actual 375×667 scene cover and 375×520 reduced/native cover. “For Tasya” uses larger local type on an opaque cream paper label inside the existing photo print; all faces, the complete photo and the dated paper border remain visible. The Three raster paints the label after the image and before its text. Black on cream has fixed 19.3349:1 contrast independent of the photo's lower paper fold.
+
+Physical opening/closing and actual paper-turn phases dispatch one rustle cue; a whole physical phase crossed by a fast seek emits one cue too. Left/right pans remain silent. Native chapter changes produce equivalent cover/page cues while repeated same-chapter observations do not. Resume, static repaint, modal-held scenes and ScrollTrigger refresh do not create new physical paper movements. Cached filtered noise uses different cover/page envelopes. Replacement stops the old effect before the new one starts; global mute, hidden tabs, disposal and stale pending resumes suppress effects.
+
+The sound control reflects the global enabled/muted setting from initial load. Paper is enabled by default, with no audio context or effect before a trusted gesture; ambient music remains initially off. Unmuting preserves ambient opt-in behavior. Birthday entry replaces ambient music with the existing Happy Birthday arrangement, and blowing the candle stops that melody and unlocks the last note. The physical paper effect is independent of music voices. No network audio, recording permission or new media dependency is introduced.
+
+Evidence: browser input/event/source traces in cover-paper-qa.py and its reports, focused AudioContext lifecycle checks in audio-lifecycle-checks.json, and a real software Chromium master-output capture in paper-sounds.wav with paper-capture.json. The capture proves non-silent, unclipped output; it is not an audible review or a physical-iPhone speaker/latency measurement. Software browser evidence does not certify iPhone hardware FPS or VoiceOver. Historical harness assumptions are preserved separately, including a birthday-frequency check that sampled a later melody note and a mock that incorrectly reopened a closed context. These required no application change.
+
+Scope: cover typography/label, its scene paint order, physical transition cues, sound lifecycle and cache references. Interior content/config, original image bytes, maps, fonts, paper geometry, motion timings, object readers/halos, candle gate and hosting identity remain. The current source and packaged bytes are checked against reviewed hashes. Earlier broad content and hardware claims are not repeated.
+
+### V71 Antislop delivery gate
+
+- R-01 PASS: opaque cream is the existing paper color and provides a readable text surface.
+- R-02 PASS: short English dedication and sound-control labels contain no new em dash.
+- R-03 PASS: scene and short native phone cover bounds are reviewed.
+- R-04 PASS: the existing speaker icons communicate the global sound setting.
+- R-05 PASS: one dedication label stays inside the existing physical photo composition.
+- R-06 PASS: the established local serif/sans pairing remains; type is larger for phone reading.
+- R-07 PASS: original paper/linen materials remain.
+- R-08 PASS: existing opening and navigation controls retain their functions.
+- R-09 PASS: the label is a physical recipient dedication, not a UI badge.
+- R-10 PASS: no glass is added.
+- R-11 PASS: label edges follow the scrapbook's paper shapes.
+- R-12 PASS: no new floating shadow is added.
+- R-13 PASS: functional object halos remain unchanged.
+- R-14 PASS: no feature cards or grid are added.
+- R-15 PASS: opening, page controls and global sound have concrete behavior.
+- R-16 PASS: no marketing copy is added.
+- R-17 PASS: check counts and audio measurements come from saved reports.
+- R-18 PASS: no identity or testimonial is invented.
+- R-19 PASS: sound follows physical opening/turning and omits camera pans.
+- R-20 PASS: the supplied portrait and physical scrapbook identity remain.
+- R-21 PASS: the selected light/pink theme remains.
+- R-22 PASS: original supplied/generated image bytes are retained.
+- R-23 PASS: no personal content is invented.
+- R-24 PASS: real opening, navigation, reverse replay and candle destination are checked.
+- R-25 PASS: the larger black dedication has an opaque cream background in native and Three print.
+- R-26 PASS: the sound button mutes music and paper; physical events produce real audio sources.
+- R-27 PASS: no gesture, mute, native reading, hidden and disposed states are handled.
+- R-28 PASS: no filler section is added.
+- R-29 PASS: the selected pink/cream/ink palette remains.
+- R-30 PASS: the original physical book structure remains.
+- R-31 PASS: readable print, motivated sound and single-effect ownership are documented in DESIGN.md.
+- R-32 PASS: semantic birthday title and existing focusable controls remain; keyboard gestures can unlock audio.
+- R-33 PASS: final application source edits use apply_patch.
+- R-34 PASS: no new theme or display mode is introduced.
+- R-35 PASS: focused browser/lifecycle checks, JavaScript syntax and diff checks are reviewed before packaging.
+- R-36 PASS: software capture, browser and verification limits are explicit.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain.
+- R-38 PASS: supplied imagery remains real and unknown interior content retains honest placeholders.
+- Liveliness PASS: personal portrait, readable dedication and physical page feedback support the existing book motif.
+- C-1 PASS: both changes address the owner's specific readability and paper-sound requests.
+- C-2 PASS: visible sound/opening/page controls have tested behavior.
+- C-3 PASS: no extra explanatory product copy or section is added.
+- C-4 PASS: touch, short native, rapid input, mute and audio lifecycle states are checked.
+- C-5 PASS: source, event traces, audio measurements and limitations are recorded.
+- Taste preflight PASS: preserve the established palette, local type, paper composition, mobile reading and reduced-motion behavior.
+
+# Historical validation: supplied portrait bouquet on the cover, V70
 
 29 October 2026. Status: PASS. The final black-ink composition passes 13/13 focused WebKit checks at 375×667 in the scene and 375×520 in reduced/native reading. Earlier placement flow coverage passes 39/39 across software touch WebKit at both heights, Chromium at 375×667, CSS fallback at 375×667 and exact-photo failure. Historical intermediate reports are separated from the final source. The complete 960×1280 supplied JPEG fits inside the rotated Polaroid; the live recipient name remains separate from the photograph. The custom Three overlay pass paints the portrait once, avoiding an unrotated duplicate beneath it. Final source-space glyph-box background contrast is at least 7.866 for For and 4.575 for Tasya; this sampling is distinct from certifying physical display output.
 
