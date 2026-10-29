@@ -1,5 +1,15 @@
 # A little world, physical scrapbook
 
+## V75: a complete owner personalisation desk
+
+Design Read: let Ave finish the actual words and photographs in the same order Tasya will read them. The editor is a practical cream-paper workspace using the existing Fraunces headings, Source Sans 3 fields and rose actions. Its fixed header and two clear footer actions stay reachable while the eight sections scroll inside the dialog at 375×667 and 375×520. Retain Antislop during 3/3/3 and Taste 8/9/5; no recipient-facing redesign is part of this revision.
+
+Audit each visible reading destination against its editor field. Include the cover photograph, four dated photographs, six optional memory photographs, a selectable main photograph, map writing and three meal memories, the folded letter, five distinct cat messages, the birthday card, optional Little notes, the final heated-blanket note and the shared song. Keep the birthday-card wish out of Little notes so it is first read beside the cake. Birthday/date, trip dates, geography and existing image-based divider artwork are fixed known facts rather than misleading editable controls. Retired artist metadata survives JSON without returning to the book.
+
+Separate the working draft from the applied browser configuration. Snapshot form values before photo/import/remove actions; serialize autosaves, guard concurrent actions, keep drafts when closed and offer Undo after reset. Download the current form without requiring Preview. Embed resized, uncropped JPEG photographs in schema-v2 JSON, validate imports before replacing any draft, preserve old schema-v1 content and supply new fields from shared defaults. Empty photo slots are honestly empty. Main-photo choices include only filled slots.
+
+Preview applies the latest form on this device. Decode the new photographs first, then reconstruct the current book behind the same opaque strict-readiness introduction before revealing its cover. Do not wait on a scene blocked by the editor's modal lock. Download JSON is the handoff for incorporation into shared source; local editing does not publish or change recipient access.
+
 ## V74: strict readiness before showing the book
 
 Design Read: the introduction must never stand in for unfinished preparation. Keep its existing appearance, but remove Continue and the native-reading bypass. Missing, corrupt or stalled assets leave the book hidden and inert with Retry only. A warm visit still performs every readiness check.

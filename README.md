@@ -40,7 +40,11 @@ python3 -m http.server 4173 --directory dist
 
 Open <http://localhost:4173>. Use <http://localhost:4173/?edit=1> for the personalisation editor.
 
-Edit shared defaults in [dist/config.js](dist/config.js), or use the editor to save changes in the current browser and import/export its JSON. Browser-local edits do not automatically reach other visitors. The editor query controls the interface; it is not authentication. Configuration shipped in `dist/` is visible to visitors.
+Open the editor with `?edit=1`. Its eight sections follow book order: Names & cover, Trier & Luxembourg, Photographs, Notes, Birthday card, Little notes, One last note and Our song. Edit the cover photo, four dated photos, six optional memory photos and their captions; choose the main photograph from filled slots. Map meals, all five cat messages, the folded letter, birthday card and final heated-blanket note have separate fields.
+
+The working draft saves on the current device and survives closing or reloading. **Preview book** applies the latest form locally and rebuilds the cover behind the loading introduction. **Download JSON** exports the current form, including uploaded photographs, as `birthday-personalization.json`; Preview is not required first. Send that file back to incorporate it into shared defaults. **Import JSON** restores a downloaded file, and reset has an Undo action. Legacy JSON fills newly added fields from shared defaults while preserving old content.
+
+Uploads accept JPEG, PNG and WebP up to 20 MB each, preserving the whole picture and resizing the long edge to at most 1100 pixels. JSON embeds the processed photographs and accepts files up to 32 MB. The birthday, age, trip dates and printed divider/map artwork remain fixed to the confirmed brief. Browser-local edits do not automatically reach other visitors. The editor query controls the interface; it is not authentication. Configuration shipped in [dist/config.js](dist/config.js) is visible to visitors.
 
 ## Interaction and rendering
 

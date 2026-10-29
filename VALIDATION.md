@@ -1,4 +1,61 @@
-# Validation: strict asset preparation, V74
+# Validation: complete personalisation editor, V75
+
+29 October 2026. Status: PASS with no unresolved finding: 55 integrated end-to-end assertions, 15 editor component checks and 11 targeted final validation/contrast checks. The current scope is the owner editor and its bindings into the real book. Evidence is in `qa/v75`; recipient readiness and earlier broad motion suites below are historical, not claimed as rerun in full. WebKit tests use touch-enabled 375×667 and reduced/native 375×520 contexts. Root visually reviewed the editor captures at both sizes.
+
+The editor follows eight book sections and exposes every active configurable writing/photo field, including all eleven image slots: one cover, four dated trip photographs and six optional memory photographs. Integrated tests enter distinct text into every field, upload aspect-distinct photographs, remove/restore a selected main photograph, download the unsaved form and import/re-export the actual downloaded file. All writing, selection and embedded images survive that round trip. Uploads preserve aspect and cap the long edge at 1100 pixels; source fixture images and exported QA JSON remain ignored local evidence.
+
+Draft persistence is separate from applied configuration. Tests cover close/reopen, Escape, reload persistence, reset/Undo, strict rejection of malformed scalar/array/image/link/schema values and oversized files without replacing the draft, and migration from old JSON with new default fields. A narrow final check rejects a non-string main-photo selector and proves failed imports/uploads can retry the same file while preserving text. Busy guards prevent concurrent mutations. The editor reports storage failures with a download-backup instruction.
+
+Preview is tested through the actual strict introduction and rebuilt 3D cover. Later actual readers are checked for map writing/meals, dated captions, selected photograph/caption, the photograph-page note, the folded letter/sender, five individual cat messages, shared song, birthday card and final heated-blanket note. The birthday wish is separate from the optional Little notes. Filled Little notes can occupy a Four days continuation leaf; actual Next navigation to it is tested, including the absence of birthday-card text. New photographs decode before application; the rebuilt book remains behind the opaque loading gate until current-scene readiness is complete.
+
+### V75 Antislop delivery gate
+
+- R-01 PASS: no new decorative gradient; the editor uses established paper, ink and rose tokens.
+- R-02 PASS: active source strings contain no em dash.
+- R-03 PASS: editor bounds, independent scrolling and primary 44-pixel-plus actions are measured at both phone sizes.
+- R-04 PASS: existing Phosphor icons identify close and download actions.
+- R-05 PASS: the editor follows actual reading order through distinct content sections.
+- R-06 PASS: established Fraunces headings and Source Sans 3 fields retain their book/utility purposes.
+- R-07 PASS: material backgrounds remain in the book; no decorative editor grid is added.
+- R-08 PASS: no ornamental arrows; existing page navigation remains.
+- R-09 PASS: slot identifiers identify real cover/date/memory destinations; no marketing badges.
+- R-10 PASS: the editor is opaque cream paper, with no glass surface.
+- R-11 PASS: restrained rectangular input/button corners match the existing controls.
+- R-12 PASS: no new floating-card shadow system.
+- R-13 PASS: no new glow; recipient object halos retain their functional role.
+- R-14 PASS: photo controls have actual image, caption and upload jobs; no filler cards.
+- R-15 PASS: Preview book, Download JSON and Import JSON describe their exact actions.
+- R-16 PASS: practical English labels, hints and error messages; no marketing superlatives.
+- R-17 PASS: dates, age, names, cats, meals and gift use the owner's supplied facts.
+- R-18 PASS: no invented testimonial or identity.
+- R-19 PASS: Preview's loading transition hides genuine scene reconstruction; no decorative editor motion.
+- R-20 PASS: the map, five cats, shared song and heated blanket retain this scrapbook's identity.
+- R-21 PASS: the approved pink/paper direction is retained.
+- R-22 PASS: supplied cover image and existing cat/map artwork remain; empty optional photo slots are explicit.
+- R-23 PASS: user-authorized editor fixes; no invented relationship memory is added.
+- R-24 PASS: existing book destinations remain; editor sections name their actual destinations.
+- R-25 PASS: enabled editor text minimum 5.96:1; action labels 6.70:1; input boundaries at least 3.47:1 against their adjacent surface.
+- R-26 PASS: actual upload, remove, preview, export/import, close, reset and Undo controls are exercised.
+- R-27 PASS: empty image slots, busy status, storage fallback, processing timeout and validation errors are explicit.
+- R-28 PASS: no unnecessary FAQ.
+- R-29 PASS: established one-theme color tokens; no extra palette.
+- R-30 PASS: the editor is a functional content workspace, not a marketing template.
+- R-31 PASS: design reasons are recorded in DESIGN.md; media provenance remains in existing asset credits.
+- R-32 PASS: semantic fields/labels, native sections, visible focus, Escape, validation focus and live status; recipient modal lock remains integrated.
+- R-33 PASS: application, document and CSS changes use apply_patch; Python scripts are QA and packaging helpers.
+- R-34 PASS: one light theme.
+- R-35 PASS: component and real WebKit export/import/reader checks, syntax checks, visual captures and diff checks; final evidence summary records accepted results.
+- R-36 PASS: no physical-iPhone performance or universal storage guarantee is claimed.
+- R-37 PASS: design read and established Antislop during 3/3/3, Taste 8/9/5 are recorded before delivery.
+- R-38 PASS: unknown photos and memories remain explicit; fixed brief facts are labelled honestly instead of offering ineffective date/artwork edits.
+
+L-1–L-7 PASS: the established dials and paper identity remain; eight named sections follow real reading jobs, primary actions remain visible, the form has ample spacing, and rose consistently identifies actions. There is no added idle motion.
+
+C-1–C-5 PASS: typography/layout/state changes have written reasons; real control and data round trips are tested; fields map to their actual story readers; both phone heights, old-data import and failure states are covered; confirmed facts, optional writing and QA-only fixtures stay separate. Taste's relevant utility-form checks pass for one theme, consistent shapes/accent, no label wrapping, readable fields, responsive internal scrolling, honest empty/error states and purposeful loading. Landing-page-only hero, logo-wall, marquee and marketing-layout checks do not apply to this owner dialog.
+
+Software WebKit with touch emulation is not physical iPhone Safari, VoiceOver or hardware-FPS certification. Browser drafts are local and can be cleared by browser storage policies. Downloaded JSON is the portable handoff; it includes photographs and does not publish automatically. Recipient access is unchanged. Packaging verifies exact source/archive bytes, GitHub source synchronization and owner-only access preservation.
+
+## Historical validation: strict asset preparation, V74
 
 29 October 2026. Status: PASS, 39 accepted checks: 13 audio preparation/lifecycle checks, 10 disconnected recipient-flow checks, three held-hidden-asset checks, seven audio-decode/deadline/resize checks, two native short-phone checks and four final decode/dependency failure-boundary checks. Current evidence is in qa/v74. This revision makes readiness mandatory: no Continue control, native-reading bypass or timeout-driven reveal. Failed, corrupt or stalled preparation retains the opaque introduction, hidden/inert book and Retry action. Warm sessions still perform the complete gate.
 

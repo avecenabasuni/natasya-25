@@ -14,7 +14,7 @@
     'assets/cutouts/birthday-25-ephemera.webp','assets/cutouts/romance-keepsakes.webp',...iconNames.map(name=>'assets/icons/'+name+'.svg')
   ];
   const navigationKeys=['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '],decodedImages=new Map(),originalSources=new Map();
-  let stage,status,actions,progress,retry,initialized=false,revealed=false,leaving=false,run=0,names,graphicsReady;
+  let stage,status,actions,progress,retry,initialized=false,revealed=false,leaving=false,run=0,names,graphicsReady,introMarkup;
   let warm=false;try{warm=sessionStorage.getItem('little-world:intro-ready')==='1';}catch{}
   html.dataset.introWarm=String(warm);
   const timeoutError=()=>Object.assign(new Error('Preparation timed out'),{name:'TimeoutError'});
@@ -41,6 +41,7 @@
   }
   function initialize(){
     if(initialized)return true;stage=document.getElementById('book-intro');if(!stage)return false;
+    if(!introMarkup)introMarkup=stage.outerHTML;
     initialized=true;status=document.getElementById('intro-status');actions=document.getElementById('intro-actions');progress=document.getElementById('intro-progress');retry=document.getElementById('intro-retry');
     retry?.addEventListener('click',()=>location.reload());setState('preparing');if(names)setNames(names);return true;
   }
@@ -51,6 +52,14 @@
     if(progress)progress.hidden=true;if(actions)actions.hidden=false;if(retry)retry.disabled=false;
   }
   function fail(error){++run;showBlocked(error);}
+  function reopen(){
+    if(!revealed)throw new Error('The current book is still preparing');
+    const template=document.createElement('template');template.innerHTML=introMarkup;document.body.prepend(template.content);
+    revealed=false;leaving=false;initialized=false;warm=true;html.dataset.introWarm='true';html.classList.add('book-is-preparing');
+    document.querySelectorAll('.site-header,#app,.site-footer,.skip-link').forEach(node=>node.setAttribute('inert',''));
+    window.addEventListener('wheel',blockInput,{capture:true,passive:false});window.addEventListener('touchmove',blockInput,{capture:true,passive:false});window.addEventListener('keydown',blockInput,{capture:true});
+    initialize();watchdog=setTimeout(()=>fail(timeoutError()),15000);
+  }
   function imageReady(src){
     const key=sourceKey(src);if(decodedImages.has(key))return Promise.resolve(true);
     return fetch(key).then(response=>{if(!response.ok)throw new Error('Image unavailable');return response.blob();}).then(async blob=>{
@@ -116,7 +125,7 @@
     tasks.push(fontsReady(),Promise.resolve(audioReady).then(value=>value===true,()=>false));
     tasks.push(Promise.resolve().then(async()=>{await (typeof ready==='function'?ready():ready);return true;}).catch(()=>false));
     tasks.push([...document.querySelectorAll('link[rel="stylesheet"]')].every(link=>!!link.sheet));
-    tasks.push(['ScrapbookObjectReader','ScrapbookAudio','ScrapbookStickers','ScrapbookDividers','ScrapbookPhotoFinish','ScrapbookPaperFinish','ScrapbookDiscovery','ScrapbookObjectFeedback','ScrapbookModalLock','BookExperience','createThreeBookVisual','gsap','ScrollTrigger'].every(name=>!!window[name]));
+    tasks.push(['ScrapbookObjectReader','ScrapbookAudio','ScrapbookStickers','ScrapbookDividers','ScrapbookPhotoFinish','ScrapbookPaperFinish','ScrapbookDiscovery','ScrapbookObjectFeedback','ScrapbookModalLock','ScrapbookPersonalization','BookExperience','createThreeBookVisual','gsap','ScrollTrigger'].every(name=>!!window[name]));
     let settled=0;stage.dataset.introAssetsTotal=String(tasks.length);stage.dataset.introAssetsSettled='0';
     const all=Promise.all(tasks.map(task=>Promise.resolve(task).catch(()=>false).then(ok=>{settled++;stage.dataset.introAssetsSettled=String(settled);return ok;})));
     try{
@@ -127,8 +136,8 @@
       await reveal(token);
     }catch(error){if(token===run&&!revealed)showBlocked(error,Math.max(1,tasks.length-settled));}
   }
-  const watchdog=setTimeout(()=>fail(timeoutError()),15000);
-  window.ScrapbookIntro={setNames,bounded,fail,prepare,decodeImages,imageURL,get state(){return html.dataset.introState;}};
+  let watchdog=setTimeout(()=>fail(timeoutError()),15000);
+  window.ScrapbookIntro={setNames,bounded,fail,prepare,reopen,decodeImages,imageURL,get state(){return html.dataset.introState;}};
   window.addEventListener('wheel',blockInput,{capture:true,passive:false});window.addEventListener('touchmove',blockInput,{capture:true,passive:false});window.addEventListener('keydown',blockInput,{capture:true});
   if(!initialize())document.addEventListener('DOMContentLoaded',initialize,{once:true});
 })();
