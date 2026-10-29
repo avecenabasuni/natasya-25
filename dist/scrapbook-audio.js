@@ -8,9 +8,11 @@
     [67,.75],[67,.25],[79,1],[76,1],[72,1],[71,1],[69,1],
     [77,.75],[77,.25],[76,1],[72,1],[74,1],[72,2]
   ];
+  const paperFiles={cover:'assets/audio/paper-cover.mp3',page:'assets/audio/paper-page.mp3'};
   window.ScrapbookAudio={create({button,icon,toast}){
     let context=null,master=null,playing=null,pending=null,generation=0,timer=null,blockedTimer=null,frame=null;
-    let paperBuffer=null,paperVoice=null,paperGeneration=0;
+    let paperVoice=null,paperGeneration=0;
+    const paperBytes=new Map(),paperBuffers=new Map(),paperDecodes=new Map(),paperFetch=new AbortController();
     let scene={chapter:'cover',candleBlown:false},lastChapter='cover',ambientEnabled=false,muted=false,disposed=false,warmed=false,noteIndex=0;
     const voices=new Set(),gestures=['pointerdown','touchend','keydown','click'];
     const wanted=()=>disposed||document.hidden||muted?null:scene.chapter==='birthday'&&!scene.candleBlown?'birthday':ambientEnabled?'ambient':null;
@@ -27,47 +29,54 @@
       }
       return context;
     }
-    function paperNoise(){
-      if(paperBuffer)return paperBuffer;
-      paperBuffer=context.createBuffer(1,Math.ceil(context.sampleRate*1.3),context.sampleRate);
-      const samples=paperBuffer.getChannelData(0);let brown=0,grain=.5,target=.5;
-      for(let i=0;i<samples.length;i++){
-        const white=Math.random()*2-1;
-        if(i%80===0)target=.25+Math.random()*.75;
-        grain+=(target-grain)*.03;brown=(brown+white*.03)/1.03;
-        samples[i]=(white*.62+brown*2.2)*grain;
+    function fetchPaper(kind){
+      if(disposed)return Promise.resolve(null);
+      if(!paperBytes.has(kind)){
+        const request=fetch(paperFiles[kind],{signal:paperFetch.signal}).then(response=>{
+          if(!response.ok)throw new Error('Paper recording unavailable');
+          return response.arrayBuffer();
+        }).catch(()=>{paperBytes.delete(kind);return null;});
+        paperBytes.set(kind,request);
       }
-      return paperBuffer;
+      return paperBytes.get(kind);
+    }
+    function preparePaper(ctx,kind){
+      if(disposed)return Promise.resolve(null);
+      if(paperBuffers.has(kind))return Promise.resolve(paperBuffers.get(kind));
+      if(!paperDecodes.has(kind)){
+        const request=fetchPaper(kind).then(bytes=>bytes&&!disposed?ctx.decodeAudioData(bytes.slice(0)):null).then(buffer=>{
+          if(buffer&&!disposed)paperBuffers.set(kind,buffer);
+          return disposed?null:buffer;
+        }).catch(()=>null).finally(()=>paperDecodes.delete(kind));
+        paperDecodes.set(kind,request);
+      }
+      return paperDecodes.get(kind);
     }
     function stopPaper(immediate=false){
       ++paperGeneration;
       const voice=paperVoice;paperVoice=null;if(!voice||!context)return;
       const now=context.currentTime;
       try{
-        voice.gain.gain.cancelScheduledValues(now);
-        if(immediate){voice.gain.gain.setValueAtTime(0,now);voice.source.stop(now);voice.cleanup();}
-        else{voice.gain.gain.setTargetAtTime(0,now,.004);voice.source.stop(now+.018);}
+        const level=voice.gain.gain.value;voice.gain.gain.cancelScheduledValues(now);
+        if(immediate||voice.startAt>now){voice.gain.gain.setValueAtTime(0,now);voice.source.stop(now);voice.cleanup();}
+        else{voice.gain.gain.setValueAtTime(level,now);voice.gain.gain.linearRampToValueAtTime(0,now+.05);voice.source.stop(now+.055);}
       }catch{voice.cleanup();}
     }
     function playPaper(kind){
       stopPaper();
       const token=paperGeneration,requested=performance.now(),ctx=audioContext();
-      const start=()=>{
-        if(disposed||document.hidden||muted||!warmed||token!==paperGeneration||ctx.state!=='running'||performance.now()-requested>250)return;
-        const source=ctx.createBufferSource(),high=ctx.createBiquadFilter(),low=ctx.createBiquadFilter(),gain=ctx.createGain();
-        const duration=kind==='cover'?.81:.51,now=ctx.currentTime+.024;
-        source.buffer=paperNoise();source.playbackRate.value=.96+Math.random()*.08;
-        high.type='highpass';high.frequency.value=kind==='cover'?280:420;high.Q.value=.35;
-        low.type='lowpass';low.Q.value=.3;low.frequency.setValueAtTime(kind==='cover'?3100:4600,now);low.frequency.linearRampToValueAtTime(1800,now+duration);
-        const envelope=kind==='cover'?[[0,0],[.025,.17],[.13,.29],[.22,.12],[.32,.38],[.45,.14],[.56,.26],[.66,.09],[.81,0]]:[[0,0],[.012,.18],[.055,.16],[.1,.34],[.19,.12],[.25,.29],[.34,.08],[.45,.17],[.51,0]];
-        gain.gain.setValueAtTime(0,now);
-        for(const [offset,amount]of envelope)gain.gain.linearRampToValueAtTime(amount,now+offset);
-        source.connect(high);high.connect(low);low.connect(gain);gain.connect(master);
-        let cleaned=false;const voice={source,gain,cleanup(){if(cleaned)return;cleaned=true;if(paperVoice===voice)paperVoice=null;source.disconnect();high.disconnect();low.disconnect();gain.disconnect();}};
-        source.onended=voice.cleanup;paperVoice=voice;source.start(now,Math.random()*.15);source.stop(now+duration+.015);
+      const start=buffer=>{
+        if(!buffer||disposed||document.hidden||muted||!warmed||token!==paperGeneration||ctx.state!=='running'||performance.now()-requested>250)return;
+        const source=ctx.createBufferSource(),gain=ctx.createGain();
+        const duration=buffer.duration,now=ctx.currentTime+.06,level=kind==='cover'?.68:.62;
+        source.buffer=buffer;source.playbackRate.value=1;
+        gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(level,now+.02);
+        gain.gain.setValueAtTime(level,now+Math.max(.02,duration-.1));gain.gain.linearRampToValueAtTime(0,now+duration);
+        source.connect(gain);gain.connect(master);
+        let cleaned=false;const voice={source,gain,startAt:now,cleanup(){if(cleaned)return;cleaned=true;if(paperVoice===voice)paperVoice=null;source.disconnect();gain.disconnect();}};
+        source.onended=voice.cleanup;paperVoice=voice;source.start(now);source.stop(now+duration+.01);
       };
-      if(ctx.state==='running')start();
-      else Promise.resolve(ctx.resume()).then(start).catch(()=>{});
+      Promise.all([preparePaper(ctx,kind),ctx.state==='running'?null:ctx.resume()]).then(([buffer])=>start(buffer)).catch(()=>{});
     }
     function paper(event){
       const kind=event.detail?.kind;
@@ -152,6 +161,7 @@
       if(disposed||document.hidden||event&&!event.isTrusted)return;
       try{
         const ctx=audioContext(),resumed=ctx.resume();
+        Object.keys(paperFiles).forEach(kind=>{void preparePaper(ctx,kind);});
         if(!warmed){
           const silence=ctx.createBufferSource();silence.buffer=ctx.createBuffer(1,1,22050);
           silence.connect(ctx.destination);silence.onended=()=>silence.disconnect();silence.start();warmed=true;
@@ -169,8 +179,9 @@
       if(document.hidden){++generation;stopPaper(true);stopVoices();updateButton();context?.suspend().catch(()=>{});}
       else settleScene();
     }
+    Object.keys(paperFiles).forEach(kind=>{void fetchPaper(kind);});
     gestures.forEach(type=>document.addEventListener(type,unlock,{capture:true,passive:true}));
     document.addEventListener('visibilitychange',visibility);document.addEventListener('scrapbook-paper',paper);button.onclick=toggle;updateButton();
-    return {setScene,destroy(){disposed=true;++generation;cancelAnimationFrame(frame);stopPaper(true);stopVoices();gestures.forEach(type=>document.removeEventListener(type,unlock,true));document.removeEventListener('visibilitychange',visibility);document.removeEventListener('scrapbook-paper',paper);if(button.onclick===toggle)button.onclick=null;paperBuffer=null;context?.close().catch(()=>{});}};
+    return {setScene,destroy(){disposed=true;++generation;cancelAnimationFrame(frame);stopPaper(true);stopVoices();paperFetch.abort();paperBytes.clear();paperBuffers.clear();paperDecodes.clear();gestures.forEach(type=>document.removeEventListener(type,unlock,true));document.removeEventListener('visibilitychange',visibility);document.removeEventListener('scrapbook-paper',paper);if(button.onclick===toggle)button.onclick=null;context?.close().catch(()=>{});}};
   }};
 })();

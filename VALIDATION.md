@@ -1,4 +1,62 @@
-# Validation: readable dedication and physical paper sound, V71
+# Validation: recorded book-paper audio, V72
+
+29 October 2026. Status: PASS, 28 accepted checks: 14 software WebKit recording-flow checks and 14 final lifecycle checks. The final pre-onset cancellation guard has explicit lifecycle coverage; earlier browser evidence is retained for unaffected playback paths with its tested source hash recorded. Replace procedural noise with two real book-page recordings by StarNinjas, published as CC0 on the primary OpenGameArt page. Source HTML, archive, original hashes and measured candidates are retained under qa/v72/sources; public provenance is in dist/assets/audio/README.md. Page uses book_flip.4.ogg and the longer cover gesture uses book_flip.5.ogg. The latter remains a page-movement recording, not a claimed recording of a cover hinge.
+
+Both complete events retain original pitch and are delivered as self-hosted mono MP3: 9,917 bytes for the page and 13,209 bytes for the cover. Peak attenuation, 90 Hz highpass, 8 kHz lowpass, 15 ms entry fade and 100 ms exit fade soften the recordings without adding synthetic noise. Decoded output peaks are approximately 0.408 and 0.428, with no clipping. Browser decoding may expose MP3 padding; playback uses the complete decoded duration and does not seek to random offsets.
+
+Fetch bytes while the cover prepares, without an AudioContext or autoplay. Decode on a trusted audio gesture, cache each decoded clip and reuse it for later physical cues. Runtime rate stays 1, with a 20 ms gain attack and 100 ms release. An already-playing replaced voice fades over 50 ms and stops at 55 ms; its replacement starts at 60 ms. A replaced voice that has not begun is cancelled immediately to prevent a short unwanted snippet. Pending media/context work is guarded by generation, mute, hidden/disposed state and a 250 ms stale limit. Missing media stays silent while the book remains usable. Disposal aborts fetches, clears caches and closes audio resources.
+
+Focused software WebKit and lifecycle probes verify actual decoded-recording identity, different cover/page buffers, physical opening/page cues, quiet pans, original pitch/fades, global mute, Happy Birthday and candle stopping, failed files, delayed-file recovery and pending-decode cancellation. Reports and exact final hashes are in qa/v72/independent-summary.json and final-scope-summary.json. This is software-browser and audio-data evidence; no audible listening review, physical-iPhone speaker quality or hardware latency certification is claimed. Earlier broad visual and motion tests remain historical because those files do not change.
+
+### V72 Antislop delivery gate
+
+- R-01 PASS: visual palette and functional emphasis remain unchanged.
+- R-02 PASS: existing English visitor copy remains.
+- R-03 PASS: phone layout is unchanged; software touch audio flow runs at 375×667.
+- R-04 PASS: the existing speaker control remains.
+- R-05 PASS: no layout block is added.
+- R-06 PASS: local type remains unchanged.
+- R-07 PASS: physical paper/linen materials remain unchanged.
+- R-08 PASS: navigation controls remain unchanged.
+- R-09 PASS: no badge or product label is added.
+- R-10 PASS: no glass is added.
+- R-11 PASS: geometry and paper edges remain unchanged.
+- R-12 PASS: no shadow is added.
+- R-13 PASS: object halos remain unchanged.
+- R-14 PASS: no card or grid is added.
+- R-15 PASS: the existing sound control retains global mute behavior.
+- R-16 PASS: no marketing copy is added.
+- R-17 PASS: source identity, file sizes, peaks and test counts are recorded.
+- R-18 PASS: no identity or endorsement is invented.
+- R-19 PASS: the recorded sound follows existing physical opening/turn cues; pans stay silent.
+- R-20 PASS: the personal physical scrapbook identity remains.
+- R-21 PASS: the selected light/pink theme remains.
+- R-22 PASS: visual assets remain unchanged; new sound assets have primary-source provenance.
+- R-23 PASS: sound replacement is explicitly requested and uses verified CC0 recordings.
+- R-24 PASS: book opening/page navigation remain usable when sound files fail.
+- R-25 PASS: the opaque dedication label and verified contrast remain unchanged.
+- R-26 PASS: physical cues play decoded recordings and mute suppresses them.
+- R-27 PASS: no-gesture, missing/delayed media, mute, hidden and disposed states are checked.
+- R-28 PASS: no filler section is added.
+- R-29 PASS: no palette color is added.
+- R-30 PASS: the original book structure remains.
+- R-31 PASS: recorded texture, complete playback, fades and local caching are documented in DESIGN.md.
+- R-32 PASS: existing focusable controls and trusted keyboard audio unlock remain.
+- R-33 PASS: final application edits use apply_patch; audio conversion produces media files directly.
+- R-34 PASS: no new visual theme or mode is added.
+- R-35 PASS: focused browser/lifecycle, source/media, JavaScript syntax and diff checks pass before packaging.
+- R-36 PASS: software and source-data verification limits are explicit.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain.
+- R-38 PASS: the primary author describes the recorded event; no invented personal content is added.
+- Liveliness PASS: recorded paper movement supports the established physical-book motif.
+- C-1 PASS: recorded texture and fades address the user's specific sound feedback.
+- C-2 PASS: existing controls produce real decoded audio and global mute.
+- C-3 PASS: no extra visitor prose or section is added.
+- C-4 PASS: media failure, delayed decode, mute, hidden and disposal states are checked.
+- C-5 PASS: primary license, source/derived hashes and verification limits are recorded.
+- Taste preflight PASS: keep the established visual identity; sound is motivated by physical page movement.
+
+# Historical validation: readable dedication and physical paper sound, V71
 
 29 October 2026. Status: PASS, 55 accepted checks: eight final guarded-engine probes, 13 retained main-flow checks, seven short-scene checks, seven reduced/native checks, 14 audio lifecycle checks, two focused birthday checks and four stable-state probes. One historical birthday timing assertion is superseded by the focused report that verifies scheduled notes and waits for a live voice. Final results are recorded in qa/v71/independent-summary.json and final-scope-summary.json. Root reviewed the actual 375×667 scene cover and 375×520 reduced/native cover. “For Tasya” uses larger local type on an opaque cream paper label inside the existing photo print; all faces, the complete photo and the dated paper border remain visible. The Three raster paints the label after the image and before its text. Black on cream has fixed 19.3349:1 contrast independent of the photo's lower paper fold.
 

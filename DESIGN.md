@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V72: use recorded paper movement
+
+Design Read: replace the synthetic rustle with actual recorded book-page movement from StarNinjas' CC0 collection on OpenGameArt. Use two different recordings for the page and the longer cover gesture. Keep original pitch and the full short event, with restrained peak level and soft entry/exit fades. The recording provides the paper texture; avoid synthesized grain, random offsets, pitch variation or a repeated artificial envelope.
+
+Self-host two small Safari-compatible MP3 files. Fetch their bytes while the cover loads, then decode on the first trusted audio gesture so the interaction does not wait on a third-party audio host. Preserve one-effect ownership, global mute, hidden/disposed/stale guards, existing physical-only book cues and birthday/candle music. Replace the retiring effect with a 50 ms fade and start the next after it has stopped. Failed media stays silent without delaying the book. No visual, content, motion-clock or access change. Retain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V71: a readable cover dedication and the sound of paper
 
 Design Read: the photograph should stay intact, while “For Tasya” reads immediately on a phone. Put the larger, black dedication on a small opaque cream paper label over the lower bouquet wrapping. Keep the label inside the existing tilted photo print, below all faces. Print its background after the photograph and before its type in Three so the native and hinged covers agree. Keep the local serif/sans pairing, date, opening action and original imagery.
