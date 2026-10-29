@@ -41,6 +41,7 @@ Edit shared defaults in [dist/config.js](dist/config.js), or use the editor to s
 - Buildless HTML/CSS/JavaScript with local Three.js, GSAP, Fraunces and Source Sans 3.
 - Pink + Sage paper materials, designed around 375 × 667, with shorter-screen, reduced-motion and graphics fallbacks.
 - Every spread opens on an image-based left divider; scroll or Next crosses to the right-hand keepsakes before turning the next sheet. Previous retraces both sides; replay reverses the pans and page turns before closing the cover.
+- Dividers introduce the spreads; right-hand paper omits repeated chapter labels and printed name/page-number footers. The photograph leaf leads with its mount and writing, with its heading retained for accessibility.
 - Every tappable keepsake has a soft rose/mauve halo before touch. Glints appear on the first ready reading frame, then continuously circle the current objects on a shared 3.6-second clock with staggered positions and no pause between laps. Decorative stickers/dividers stay unmarked, movement or a reader suspends the loop, and reduced motion keeps the static colored halo.
 - “Open the book” and “Read from the cover” share one button style and stage-bottom position. The final action sits outside the printed gift page, with Previous page reachable beside it; native reading places it beneath the gift sheet.
 - Tap keepsakes to open them from their paper source; drag down, use Escape or the close button to dismiss.

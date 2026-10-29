@@ -113,9 +113,7 @@
         let print, body,firstPrint=true;
         const startPage = () => {
           print = el('article','sheet book-print');body = el('div','page-content');
-          const running = el('span','running-title');running.textContent = chapters[chapter+1][1];running.setAttribute('aria-hidden','true');
-          const foot = master.querySelector('.page-foot').cloneNode(true);
-          print.append(running,body,foot);
+          print.append(body);
           const stickers=master.querySelector(':scope > .fandom-layer');
           if(stickers){
             const layer=copy(stickers);
@@ -179,7 +177,6 @@
       const total = pages.length+1;
       pages.forEach((page,i)=>{
         const siblings=pages.filter(p=>p.chapter===page.chapter);page.part=siblings.indexOf(page)+1;page.parts=siblings.length;
-        page.print.querySelector('.page-foot>span:last-child').textContent = `${i+2} / ${total}`;
         window.ScrapbookStickers?.fit(page.print);
         page.print.inert=true;page.print.style.visibility='hidden';page.print.style.display='none';page.print.setAttribute('aria-hidden','true');
         page.section.inert=true;page.section.setAttribute('aria-hidden','true');

@@ -1,4 +1,66 @@
-# Validation: sender name Ave, V68
+# Validation: cleaner paper without repeated headings or footers, V69
+
+29 October 2026. Status: PASS, no unresolved finding. 59/59 focused checks: WebKit375×667 (13), WebKit375×520 (10), Chromium375×667 (10), CSS fallback667 (10), reduced/native520 (8), two focused geometry rechecks, and six filled-pagination checks.
+
+Right-hand paper no longer includes repeated running chapter labels or printed name/page-number footers. The photograph's “One photograph” heading remains a clipped1px semantic h2 with zero flow margins and data-scene-skip, preserving section naming and keyboard navigation while excluding it from visible/native and Three print. The illustrated divider introduces the spread. Other content headings, image captions and external Contents/page navigation retain their functions.
+
+Actual input checks cover the illustrated-left-to-right sequence, all default interiors, photo reader/book scroll lock/clean return, candle prerequisite, final note and full animated cover replay. Default pagination remains seven pages. A controlled filled-photo/long-writing fixture produces11 pages with five photo parts, retaining all1419 fixture characters and a1070-character full note. Continuation navigation opens its real visible note action. No footer-node assumptions, JavaScript errors or viewport overflow remain.
+
+Root visually reviewed the scene photograph page, native short-height photograph page and isolated filled-photo page. Paper dimensions, padding, type, colors, object spacing and motion geometry remain. The photo mount moves up naturally after its old title leaves document flow. Footers and running labels are absent from live/copy/raster sources rather than painted over.
+
+Evidence: qa/v69/independent-summary.json, clean-pages.py, seven final report paths in final-scope-summary.json, focused-probe-rechecks.json, pagination fixture reports/screenshots and source-preservation.json. 135/139 distribution files remain byte-identical. Only story markup, engine label/footer assembly, the photo-heading margin reset and cache references change. All media, fonts, audio, maps, shared content/config, Three renderer/masks, reader/halo code, paper dimensions and hosting config remain unchanged.
+
+Initial harness reports are preserved. A transformed1px heading measured1.0012px, so focused rechecks use its actual1px CSS dimensions, zero clip and scene exclusion. Native ornament overhang remains inside375px paper/viewport bounds. The filled fixture legitimately moves its note button to a continuation leaf; final input navigates there first and reads the canonical body instead of an inert fold-ink copy. These harness corrections required no application change. Software WebKit/Chromium evidence does not certify physical iPhone Safari, hardware FPS or VoiceOver. The existing postcard used for the filled fixture and all QA-only writing stay isolated in browser responses and are not published.
+
+### V69 Antislop delivery gate
+
+- R-01 PASS: existing functional halos unchanged.
+- R-02 PASS: no new product prose or em dash added.
+- R-03 PASS: paper/content bounds, both phone heights, native fallback and filled pagination pass.
+- R-04 PASS: existing functional icons retained.
+- R-05 PASS: photo mount leads its existing physical composition after redundant text is removed.
+- R-06 PASS: existing local type retained; only the photo h2 becomes visually hidden.
+- R-07 PASS: paper/linen materials unchanged.
+- R-08 PASS: external functional page arrows and replay retained.
+- R-09 PASS: repeated running labels removed, no badges added.
+- R-10 PASS: no glass added.
+- R-11 PASS: paper/subject shapes unchanged.
+- R-12 PASS: existing physical contact shadows unchanged.
+- R-13 PASS: object emphasis remains functional and unchanged.
+- R-14 PASS: no replacement cards or grids added.
+- R-15 PASS: photo/note actions retain their concrete behavior.
+- R-16 PASS: no marketing text added.
+- R-17 PASS: page/check/text counts come from final reports.
+- R-18 PASS: no identity or testimonial added.
+- R-19 PASS: left divider, turn, reader extraction and full replay pass.
+- R-20 PASS: supplied personal keepsakes remain while repeated UI labels disappear.
+- R-21 PASS: selected light/pink scrapbook retained.
+- R-22 PASS: all image bytes retained; no new artwork added.
+- R-23 PASS: no new visual or personal content invented.
+- R-24 PASS: Contents, photograph, candle and final-note destinations pass.
+- R-25 PASS: color/focus styles unchanged; remaining text uses existing ink/paper pairs.
+- R-26 PASS: actual navigation, readers, candle gate and replay pass.
+- R-27 PASS: native/reduced/fallback and filled pagination remain usable.
+- R-28 PASS: no filler section added.
+- R-29 PASS: palette unchanged.
+- R-30 PASS: original scrapbook structure retained.
+- R-31 PASS: divider-led hierarchy and true footer removal documented in DESIGN.md.
+- R-32 PASS: photo section retains aria-labelledby and semantic/focusable h2; Contents retains its destination.
+- R-33 PASS: tracked application changes use apply_patch.
+- R-34 PASS: no new theme or mode added.
+- R-35 PASS: 59 focused checks, two JavaScript syntax checks and diff whitespace checks pass.
+- R-36 PASS: software-browser and isolated fixture limits are explicit.
+- R-37 PASS: Antislop during3/3/3 and Taste8/9/5 retained.
+- R-38 PASS: isolated QA image/prose do not enter published source.
+- Liveliness PASS: original focal photograph, whitespace, materials and attached-keepsake motif retained with clearer hierarchy.
+- C-1 PASS: repeated labels and footer chrome are removed because dividers already orient the reader.
+- C-2 PASS: retained controls work through actual input.
+- C-3 PASS: photograph and personal writing lead the photo leaf.
+- C-4 PASS: default, short, native/reduced, continuation and modal states pass.
+- C-5 PASS: measured geometry, text preservation and verification limits are recorded.
+- Taste preflight PASS: root reviewed default/native/filled photograph pages and retained layout/motion identity.
+
+# Historical validation: sender name Ave, V68
 
 28 October 2026. Status: PASS. The shared sender name is now Ave. Existing c.sender/defaults.sender bindings supply “Ave & Tasya” page bylines, letter/card signatures, other From labels, the editor, imports/exports and print-font preparation. Trimmed exact old sender placeholders [Your name] and [Namamu] migrate to the new default; other custom names and writing remain.
 

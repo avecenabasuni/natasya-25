@@ -54,8 +54,7 @@
     const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
     const safeLink=link=>{try{const u=new URL(link);return u.protocol==='https:'?u.href:'';}catch{return '';}};
     const sheet=(id,title,content,cls='')=>{
-      const c=getConfig(),byline=[c.sender,c.name].filter(name=>name&&!/^\[.*\]$/.test(name.trim())).join(' & ');
-      return `<section class="album-chapter ${cls}" id="${id}" aria-labelledby="${id}-title"><div class="page-seat"><article class="sheet"><span class="binding" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><div class="page-content"><h2 id="${id}-title" tabindex="-1">${title}</h2>${content}</div>${stickers(id)}<div class="page-foot"><span>${esc(byline)}</span><span>${chapters.findIndex(c=>c[0]===id)+1} / ${chapters.length}</span></div></article></div></section>`;
+      return `<section class="album-chapter ${cls}" id="${id}" aria-labelledby="${id}-title"><div class="page-seat"><article class="sheet"><span class="binding" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><div class="page-content"><h2 id="${id}-title"${id==='october'?' class="visually-hidden" data-scene-skip="true"':''} tabindex="-1">${title}</h2>${content}</div>${stickers(id)}</article></div></section>`;
     };
     const art=(kind,alt,extra='')=>`<figure class="story-art ${kind}-art"><img src="assets/illustrations/${kind}.webp" alt="${alt}" width="1536" height="1024" decoding="async">${extra}</figure>`;
     const action=(id,label,glyph='book',key='')=>`<button class="story-button" id="${id}"${key?` data-book-object="${key}" aria-haspopup="dialog"`:''}>${label}${icon(glyph)}</button>`;

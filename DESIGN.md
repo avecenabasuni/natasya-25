@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V69: let the divider introduce the photograph
+
+Design Read: the illustrated left divider already identifies each spread. Remove repeated running chapter labels from right-hand paper and printed name/page-number footers throughout the book. On the photograph leaf, remove the visible “One photograph” heading too, so the mount and personal writing lead. Keep its semantic h2 and aria-labelledby connection with a visually hidden, scene-skipped heading. Preserve meaningful content headings on the other leaves and the external page-navigation controls.
+
+Keep current paper dimensions, padding, materials, type and object geometry. Remove the actual footer nodes and both engine assumptions that clone/update them, while retaining the engine's page totals for external navigation. The photo heading's existing flow space disappears; avoid adding a new layout system or shrinking object gaps. Apply the same result to scene print, CSS fallback and native/reduced reading. Antislop during 3/3/3 and Taste 8/9/5 remain.
+
 ## V68: Ave as the sender
 
 Use Ave as the shared sender name requested by the owner. Existing sender bindings supply “Ave & Tasya” bylines, letter/card signatures, other From labels and the personalisation editor. Normalize only the exact old sender placeholders, including surrounding whitespace, to the current default so saved drafts do not keep the placeholder. Preserve other real custom names and personal writing. No visual or motion change; retain Antislop during 3/3/3 and Taste 8/9/5.

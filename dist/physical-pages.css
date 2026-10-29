@@ -78,6 +78,7 @@ em{font-style:normal}
 
 /* A proper photo mount lets the photograph carry a whole page. */
 .edited-story .together-chapter h2,.edited-story .together-chapter .book-print h2{font:500 15px/1.4 var(--display);letter-spacing:0;margin:0 0 17px}
+.edited-story .together-chapter .page-content>h2.visually-hidden{margin:0!important;padding:0!important;border:0!important}
 .edited-story .real-memory,.edited-story .book-print .real-memory{height:270px;width:96%;margin:0 auto 24px;padding:8px 8px 12px;background:var(--paper);border:1px solid var(--paper-edge);box-shadow:1px 2px 4px #301e2a24;transform:rotate(-1.8deg)}
 .real-memory>button{display:block;width:100%;height:calc(100% - 26px);min-height:60px;padding:0;border:0;background:transparent}
 .real-memory figcaption{height:26px;padding-top:8px;font:400 13px/1.3 var(--display);color:var(--ink)}
