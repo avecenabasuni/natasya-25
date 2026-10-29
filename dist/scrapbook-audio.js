@@ -11,7 +11,7 @@
   const paperFiles={cover:'assets/audio/paper-cover.mp3',page:'assets/audio/paper-page.mp3'};
   window.ScrapbookAudio={create({button,icon,toast}){
     let context=null,master=null,playing=null,pending=null,generation=0,timer=null,blockedTimer=null,frame=null;
-    let paperVoice=null,paperGeneration=0;
+    let paperVoice=null,paperGeneration=0,paperPreparation=null;
     const paperBytes=new Map(),paperBuffers=new Map(),paperDecodes=new Map(),paperFetch=new AbortController();
     let scene={chapter:'cover',candleBlown:false},lastChapter='cover',ambientEnabled=false,muted=false,disposed=false,warmed=false,noteIndex=0;
     const voices=new Set(),gestures=['pointerdown','touchend','keydown','click'];
@@ -45,12 +45,24 @@
       if(paperBuffers.has(kind))return Promise.resolve(paperBuffers.get(kind));
       if(!paperDecodes.has(kind)){
         const request=fetchPaper(kind).then(bytes=>bytes&&!disposed?ctx.decodeAudioData(bytes.slice(0)):null).then(buffer=>{
-          if(buffer&&!disposed)paperBuffers.set(kind,buffer);
-          return disposed?null:buffer;
+          const valid=buffer&&buffer.length>1&&buffer.numberOfChannels>0&&Number.isFinite(buffer.duration)&&buffer.duration>0&&buffer.sampleRate>0;
+          if(valid&&!disposed)paperBuffers.set(kind,buffer);
+          return disposed||!valid?null:buffer;
         }).catch(()=>null).finally(()=>paperDecodes.delete(kind));
         paperDecodes.set(kind,request);
       }
       return paperDecodes.get(kind);
+    }
+    function prepareAllPaper(){
+      if(disposed)return Promise.resolve(false);
+      try{
+        if(!paperPreparation){
+          const Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+          if(!Offline)return Promise.resolve(false);
+          paperPreparation=new Offline(1,1,44100);
+        }
+        return Promise.all(Object.keys(paperFiles).map(kind=>preparePaper(paperPreparation,kind))).then(buffers=>!disposed&&buffers.every(Boolean));
+      }catch{return Promise.resolve(false);}
     }
     function stopPaper(immediate=false){
       ++paperGeneration;
@@ -182,6 +194,6 @@
     Object.keys(paperFiles).forEach(kind=>{void fetchPaper(kind);});
     gestures.forEach(type=>document.addEventListener(type,unlock,{capture:true,passive:true}));
     document.addEventListener('visibilitychange',visibility);document.addEventListener('scrapbook-paper',paper);button.onclick=toggle;updateButton();
-    return {setScene,ready:()=>Promise.all(Object.keys(paperFiles).map(fetchPaper)).then(bytes=>bytes.every(Boolean)),destroy(){disposed=true;++generation;cancelAnimationFrame(frame);stopPaper(true);stopVoices();paperFetch.abort();paperBytes.clear();paperBuffers.clear();paperDecodes.clear();gestures.forEach(type=>document.removeEventListener(type,unlock,true));document.removeEventListener('visibilitychange',visibility);document.removeEventListener('scrapbook-paper',paper);if(button.onclick===toggle)button.onclick=null;context?.close().catch(()=>{});}};
+    return {setScene,ready:prepareAllPaper,destroy(){disposed=true;++generation;cancelAnimationFrame(frame);stopPaper(true);stopVoices();paperFetch.abort();paperBytes.clear();paperBuffers.clear();paperDecodes.clear();paperPreparation=null;gestures.forEach(type=>document.removeEventListener(type,unlock,true));document.removeEventListener('visibilitychange',visibility);document.removeEventListener('scrapbook-paper',paper);if(button.onclick===toggle)button.onclick=null;context?.close().catch(()=>{});}};
   }};
 })();

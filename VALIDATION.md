@@ -1,4 +1,68 @@
-# Validation: asset preparation introduction, V73
+# Validation: strict asset preparation, V74
+
+29 October 2026. Status: PASS, 39 accepted checks: 13 audio preparation/lifecycle checks, 10 disconnected recipient-flow checks, three held-hidden-asset checks, seven audio-decode/deadline/resize checks, two native short-phone checks and four final decode/dependency failure-boundary checks. Current evidence is in qa/v74. This revision makes readiness mandatory: no Continue control, native-reading bypass or timeout-driven reveal. Failed, corrupt or stalled preparation retains the opaque introduction, hidden/inert book and Retry action. Warm sessions still perform the complete gate.
+
+A read-only source audit identified 57 static recipient assets: 51 images, four font files and two recorded paper clips, plus configured photo URLs. All 20 icons are included even when first used by a later sound/navigation control. Both Latin and Latin-ext FontFaces are loaded explicitly. Decoded image objects remain strongly referenced, and current live page images are individually decoded before release. Reader images use eager loading and synchronous decoding hints. Image/MP3/font bytes are retained unchanged.
+
+The first disconnected-network run exposed incomplete image bindings in later reader nodes despite URL preloading. Final code retains image bytes as local Blob URLs, rewrites an inert reader template before insertion and awaits actual reader-image decode before showing it. Later icons and CSS material backgrounds resolve from prepared bytes, and all left-divider nodes are constructed and decoded before entry. The corrected disconnected run completes route/city maps, supplied-photo gallery fixture, cat portraits, hidden Latin-ext letter, final note, sound toggles and full reverse cover replay with no new URL, failed resource request or live audio decode.
+
+Final boundary checks also confirm that a failed actual reader decode does not show partial content or leave the book locked, and that retrying the object after recovery works. Missing recipient JavaScript dependencies cannot pass the intro; Retry reloads and completes preparation. Reader-only images are tested at their first reading state, including reduced/native 375×520. Source identity is retained alongside Blob URLs so photo-gallery selection still matches the original supplied URL. Isolated fixture photos and writing remain browser-only and are not published.
+
+Audio readiness now validates both full decoded recordings using a silent OfflineAudioContext. No rendering, live-output context or sound is needed for this preparation. Later trusted live playback reuses the prepared AudioBuffers without fetching or decoding again. Corrupt, empty, unsupported or disposed preparation reports failure. Existing original-pitch playback, fades, mute, lifecycle and birthday behavior remain.
+
+The gate verifies actual DOM image completion, loaded font faces and the current film's texture/shader readiness both before and after the intro exit fade. A film replaced during preparation is awaited again; a change during leaving restarts the check. The main book remains opacity zero throughout this process, preserving its dimensions and offscreen raster work without exposing partially prepared frames. Release of the overlay and inert/input guards occurs only after the final current-scene verification.
+
+Focused verification covers delayed hidden assets and offline audio decoding, retry-only failures, current-film changes during exit, real decoded recording reuse, and recipient navigation/readers after disconnecting the network once preparation completes. Source and browser limits are recorded in the final reports. Offline continuation is a controlled test of prepared resources, not a claim that Safari can never evict data under memory pressure or that future server updates need no network. Hardware/iPhone GPU/FPS/VoiceOver certification is not claimed. Previous broad suites remain historical.
+
+### V74 Antislop delivery gate
+
+- R-01 PASS: the established palette and functional loading emphasis remain.
+- R-02 PASS: concise English retry copy contains no em dash.
+- R-03 PASS: measurable phone geometry is retained beneath the hidden parent.
+- R-04 PASS: all existing icon assets are prepared; no new icon style is added.
+- R-05 PASS: the existing introduction and physical book structure remain.
+- R-06 PASS: all four existing local font faces are explicitly loaded.
+- R-07 PASS: existing paper/linen materials remain.
+- R-08 PASS: existing navigation remains; no decorative arrows are added.
+- R-09 PASS: no badge or invented progress metric is added.
+- R-10 PASS: the intro remains opaque paper/linen.
+- R-11 PASS: geometry and edge treatments remain.
+- R-12 PASS: no new shadow is added.
+- R-13 PASS: existing functional halos remain.
+- R-14 PASS: no card grid is added.
+- R-15 PASS: Retry is the single truthful recovery action before readiness.
+- R-16 PASS: no marketing text is added.
+- R-17 PASS: manifest counts come from the source audit and final reports.
+- R-18 PASS: no identity or endorsement is invented.
+- R-19 PASS: exit motion follows verified readiness and preserves reduced motion.
+- R-20 PASS: the supplied scrapbook identity and personal content remain.
+- R-21 PASS: the light/pink theme remains.
+- R-22 PASS: original image and audio files remain unchanged.
+- R-23 PASS: the strict gate implements the user's explicit requirement.
+- R-24 PASS: prepared pages/readers are exercised after entry.
+- R-25 PASS: existing tested ink/paper contrast pairs remain.
+- R-26 PASS: loading guards cannot be bypassed through a Continue action.
+- R-27 PASS: delayed, corrupt, failed, disposed and stale states retain honest failure handling.
+- R-28 PASS: no filler section is added.
+- R-29 PASS: no palette color is added.
+- R-30 PASS: the original scrapbook structure remains.
+- R-31 PASS: the complete manifest, retained decode caches and post-fade verification are documented in DESIGN.md.
+- R-32 PASS: live status, inert book and keyboard-focusable Retry remain.
+- R-33 PASS: final source edits use apply_patch.
+- R-34 PASS: cached and reduced-motion paths still require readiness.
+- R-35 PASS: focused readiness, offline traversal, audio lifecycle, syntax and source checks are reviewed before packaging.
+- R-36 PASS: software/browser/cache limits are explicit.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain.
+- R-38 PASS: no fake percentage, empty success or skipped-readiness claim is introduced.
+- Liveliness PASS: the established personal paper introduction remains while preparation becomes stricter.
+- C-1 PASS: every new check addresses an audited late-loading gap.
+- C-2 PASS: final verification controls real entry and Retry recovery.
+- C-3 PASS: no new story content or decorative section is added.
+- C-4 PASS: held assets, failures, cached paths and late scene changes are verified.
+- C-5 PASS: audited assets, decoded buffers, exact hashes and limits are recorded.
+- Taste preflight PASS: preserve the existing phone composition and motivate all readiness behavior.
+
+# Historical validation: asset preparation introduction, V73
 
 29 October 2026. Status: PASS, 21/21 focused preparation and recovery checks. Results are recorded in qa/v73/independent-summary.json and intro-checks.json. The introduction waits for actual readiness while the underlying book retains measurable layout and pinned scene preparation. It does not use the object-reader modal lock. A pink linen background, cream dedication, existing cat mark and live loading status introduce Tasya's scrapbook without another required entry action. No percentage or fake asset count is shown.
 

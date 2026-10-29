@@ -40,7 +40,7 @@
   window.ScrapbookStory=({getConfig,toast,openDialog:presentDialog,onSceneChange=()=>{}})=>{
     const app=document.getElementById('app');
     let motion=null,film=null,observer=null,active=0,activePosition=null,refreshToken=0,candleLit=true,candleBlown=false,candleSmokeTimer=0;
-    let objectSource=null,objectPointer=false,nativePaperIndex=null,simpleReading=false;
+    let objectSource=null,objectPointer=false,nativePaperIndex=null;
     const withObject=(source,fn,pointer=false)=>{const previous=objectSource,previousPointer=objectPointer;objectSource=source;objectPointer=pointer;try{return fn();}finally{objectSource=previous;objectPointer=previousPointer;}};
     const openDialog=html=>{
       const key=objectSource?.dataset.bookObject,source=objectSource?.isConnected?objectSource:key?app.querySelector(`[data-book-object="${CSS.escape(key)}"]`):null;
@@ -49,7 +49,7 @@
     };
     const feedback=window.ScrapbookObjectFeedback?.create({app,onChange:detail=>film?.highlightObject?.(detail)});
     const discovery=window.ScrapbookDiscovery?.create({app,getPosition:()=>film?.getPosition?.()||{kind:activePosition?.side==='left'?'divider':'read',chapter:chapters[active][0]},onLift:detail=>film?.discoverObject?.(detail)});
-    const icon=name=>`<img class="ui-icon" src="assets/icons/${glyphs[name]||'arrow-right'}.svg" alt="" width="20" height="20">`;
+    const icon=name=>{const src=`assets/icons/${glyphs[name]||'arrow-right'}.svg`;return `<img class="ui-icon" src="${window.ScrapbookIntro?.imageURL(src)||src}" alt="" width="20" height="20">`;};
     const stickers=(page,scope)=>window.ScrapbookStickers?.layer(page,scope)||'';
     const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
     const safeLink=link=>{try{const u=new URL(link);return u.protocol==='https:'?u.href:'';}catch{return '';}};
@@ -74,7 +74,8 @@
     }
     function showPhotos(c){
       const photos=gallery(c);
-      const selected=objectSource?.querySelector('img')?.getAttribute('src'),index=photos.findIndex(photo=>photo.src===selected);
+      const sourceImage=objectSource?.querySelector('img'),selected=sourceImage?.dataset.preparedSrc||sourceImage?.getAttribute('src');
+      const index=selected?photos.findIndex(photo=>new URL(photo.src,location.href).href===new URL(selected,location.href).href):-1;
       if(index>0)photos.unshift(...photos.splice(index,1));
       const sourceCaption=objectSource?.closest('figure')?.querySelector('figcaption')?.textContent;
       const placeholder=`<figure class="reader-photo" data-reader-placeholder="true"><span class="reader-photo-placeholder" data-placeholder="true">[Our photograph in Luxembourg]</span>${sourceCaption?`<figcaption>${esc(sourceCaption)}</figcaption>`:''}</figure>`;
@@ -216,7 +217,7 @@
       discovery?.refresh();
     }
     function animate(){
-      if(simpleReading||!window.gsap||!window.ScrollTrigger||!window.BookExperience)return;
+      if(!window.gsap||!window.ScrollTrigger||!window.BookExperience)return;
       gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
       const query=matchMedia('(prefers-reduced-motion: no-preference) and (min-height: 500px)'),token=refreshToken;
       let enabled=false,pending=false;
@@ -277,11 +278,11 @@
       clearTimeout(restoreTimer);
       if(film||document.querySelector('dialog[open]')||reduced()||!window.gsap||!window.ScrollTrigger)return;
       restoreTimer=setTimeout(()=>{
-        if(!simpleReading&&!film&&!document.querySelector('dialog[open]')&&window.BookExperience?.viewportSize().height>=500&&matchMedia('(min-height:500px)').matches)refresh();
+        if(!film&&!document.querySelector('dialog[open]')&&window.BookExperience?.viewportSize().height>=500&&matchMedia('(min-height:500px)').matches)refresh();
       },220);
     }
     window.visualViewport?.addEventListener('resize',restoreVisibleBook,{passive:true});
     document.addEventListener('close',restoreVisibleBook,true);
-    app.addEventListener('book-reflow',refresh);return {render,refresh,go,icon,ready:()=>film?.ready||Promise.resolve(),useSimplePages(){simpleReading=true;render();go('cover',true,true);},replay:()=>film?.replay?film.replay(false):go('cover')};
+    app.addEventListener('book-reflow',refresh);return {render,refresh,go,icon,ready:()=>film?.ready||Promise.resolve(),replay:()=>film?.replay?film.replay(false):go('cover')};
   };
 })();

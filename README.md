@@ -2,7 +2,9 @@
 
 A personal birthday scrapbook from Ave to Tasya, made for a phone: a pink birthday-collage cover, hinged 3D board, paper pages, photographs, folded notes, five cats and racing/music/football keepsakes.
 
-A short pink-linen introduction prepares the actual page images, fonts, materials, reader maps, styles, scene textures and recorded-audio bytes before revealing the cover. It uses real completion rather than a fixed loading sequence or invented percentage. The book stays measurable behind the introduction and cannot be turned early. Failed or prolonged preparation offers Retry, with an explicit native-reading continuation once the page structure exists. Warm/reduced reading exits quickly; sounds retain trusted-gesture playback.
+A short pink-linen introduction fully prepares the recipient asset manifest and personal photographs before revealing the cover: decoded images, all four font faces, materials, reader maps, styles, current scene textures/shaders and both decoded paper recordings. The book stays measurable but invisible and inert until a final check after the exit fade. Failed, corrupt or prolonged preparation offers Retry only; no skip or Continue bypass remains. Warm/reduced reading still completes every check. Audio buffers are prepared offline without playback, then reused after a trusted gesture.
+
+Prepared image bytes and decoded images stay in a document cache. Later readers, icons and material backgrounds use local Blob URLs; reader images decode before their opening animation. Left-divider image nodes are also prepared before entry. This keeps later object opening independent of a new image download in the tested reading flow.
 
 The seven chapters follow the cover, Trier and Luxembourg, four days, photographs, a letter, the birthday celebration and one last note. The trip is 22–25 October 2026; the birthday is 2 November 2026. The shared song is The One I Choose by Devin Velez. The final envelope names the heated blanket as his gift and connects it to a hug from him, with no delivery or pickup details. Other personal names, photographs and memories remain explicit placeholders until supplied.
 

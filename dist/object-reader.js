@@ -3,8 +3,8 @@
   const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
   const rectOf=node=>{const r=node.getBoundingClientRect();return {left:r.left,top:r.top,width:r.width,height:r.height};};
   const usable=r=>r&&Number.isFinite(r.left)&&r.width>3&&r.height>3&&r.left+r.width>0&&r.top+r.height>0&&r.left<innerWidth&&r.top<innerHeight;
-  window.ScrapbookObjectReader={create({dialog,closeIcon}){
-    let current=null,ignoreClickUntil=0,multiTouch=false,multiPointer=false;
+  window.ScrapbookObjectReader={create({dialog,closeIcon,onError=()=>{}}){
+    let current=null,ignoreClickUntil=0,multiTouch=false,multiPointer=false,openingGeneration=0;
     const activePointers=new Set();
     function phase(state,value){dialog.dataset.readerState=value;if(state)state.phase=value;}
     function stop(state,freeze=false){
@@ -131,7 +131,7 @@
       if(!cancelled&&(g.distance>=threshold||quick)){prepareGestureClose(state);close();}else returnGesture(state);
     }
     function release(state){if(!state)return;discardGesture(state);stop(state);state.snapshot?.restore?.();state.flight?.remove();state.paper?.remove();}
-    function clean(){const state=current;current=null;release(state);dialog.classList.remove('object-reader','reader-animated','reader-running','reader-settled','reader-closing','reader-pointer-open','reader-rebasing','reader-dragging');dialog.removeAttribute('aria-busy');['readerKind','readerMaterial','readerObject','readerGesture'].forEach(key=>delete dialog.dataset[key]);dialog.style.removeProperty('--reader-dim-start');dialog.style.removeProperty('--reader-dim-open-start');dialog.style.removeProperty('--reader-duration');dialog.style.removeProperty('--reader-drag-dim');phase(null,'closed');}
+    function clean(){++openingGeneration;const state=current;current=null;release(state);dialog.classList.remove('object-reader','reader-animated','reader-running','reader-settled','reader-closing','reader-pointer-open','reader-rebasing','reader-dragging');dialog.removeAttribute('aria-busy');['readerKind','readerMaterial','readerObject','readerGesture'].forEach(key=>delete dialog.dataset[key]);dialog.style.removeProperty('--reader-dim-start');dialog.style.removeProperty('--reader-dim-open-start');dialog.style.removeProperty('--reader-duration');dialog.style.removeProperty('--reader-drag-dim');phase(null,'closed');}
     function settle(state){
       if(current!==state||state.phase==='closing')return;
       stop(state);state.paper.style.transform=state.body.style.transform='none';state.upper.style.transform=state.kind==='letter'?'rotateX(0deg)':'none';state.paper.style.clipPath='none';state.paper.style.opacity=state.body.style.opacity='1';state.paper.classList.add('reader-ink-hidden');
@@ -284,14 +284,20 @@
       const jobs=[animate(state,state.body,[{opacity:getComputedStyle(state.body).opacity,offset:0},{opacity:0,offset:.16},{opacity:0,offset:1}],duration),animate(state,state.paper,[{opacity:getComputedStyle(state.paper).opacity,offset:0},{opacity:0,offset:.16},{opacity:0,offset:1}],duration),animate(state,state.flight,[{transform:getComputedStyle(state.flight).transform,opacity:frontOpacity,clipPath:getComputedStyle(state.flight).clipPath,offset:0},{opacity:1,offset:.16},{transform:finish,opacity:1,clipPath:state.snapshot.clip?.closed||'none',offset:1}],duration)];
       run(state,jobs,finishClose);
     }
-    function open(html,{source=null,objectKey='',kind='map',targetSelector=null,pointer=false,capture}={}){
-      clean();dialog.scrollTop=0;
+    async function open(html,{source=null,objectKey='',kind='map',targetSelector=null,pointer=false,capture}={}){
+      clean();dialog.scrollTop=0;const generation=openingGeneration;
       const anchored=!!source?.isConnected;
-      let snapshot=null;if(anchored&&!reduced())try{snapshot=kind==='disclosure'?{rect:rectOf(source),getRect:()=>rectOf(source)}:capture?.()||fallback(source);}catch{}
-      const animated=!!snapshot&&usable(snapshot.rect)&&typeof dialog.animate==='function'&&!reduced();
-      dialog.innerHTML=`<button class="dialog-close icon-button" id="close-note-dialog" aria-label="Close dialog">${closeIcon()}</button>${anchored?'<div class="object-reader-body">'+html+'</div>':html}`;
+      const content=document.createElement('template');
+      content.innerHTML=`<button class="dialog-close icon-button" id="close-note-dialog" aria-label="Close dialog">${closeIcon()}</button>${anchored?'<div class="object-reader-body">'+html+'</div>':html}`;
+      content.content.querySelectorAll('img').forEach(image=>{const src=image.getAttribute('src');image.src=window.ScrapbookIntro?.imageURL(src)||src;image.loading='eager';image.decoding='sync';});
+      dialog.replaceChildren(content.content);
       const title=dialog.querySelector('h2');if(title){title.id='object-reader-title';dialog.setAttribute('aria-labelledby',title.id);}
       dialog.querySelector('#close-note-dialog').onclick=close;
+      const prepared=window.ScrapbookIntro?.decodeImages?await window.ScrapbookIntro.decodeImages(dialog):true;
+      if(generation!==openingGeneration)return;
+      if(!prepared){window.ScrapbookModalLock.close(dialog);onError();return;}
+      let snapshot=null;if(anchored&&!reduced())try{snapshot=kind==='disclosure'?{rect:rectOf(source),getRect:()=>rectOf(source)}:capture?.()||fallback(source);}catch{}
+      const animated=!!snapshot&&usable(snapshot.rect)&&typeof dialog.animate==='function'&&!reduced();
       if(!anchored){if(!dialog.open)dialog.showModal();dialog.querySelector('#close-note-dialog').focus({preventScroll:true});phase(null,'reading');return;}
       dialog.classList.add('object-reader');dialog.dataset.readerKind=kind;dialog.dataset.readerMaterial=kind;dialog.dataset.readerObject=objectKey;
       gestureState('idle');

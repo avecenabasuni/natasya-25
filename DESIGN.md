@@ -1,5 +1,15 @@
 # A little world, physical scrapbook
 
+## V74: strict readiness before showing the book
+
+Design Read: the introduction must never stand in for unfinished preparation. Keep its existing appearance, but remove Continue and the native-reading bypass. Missing, corrupt or stalled assets leave the book hidden and inert with Retry only. A warm visit still performs every readiness check.
+
+Audit the complete recipient manifest: 51 images including all 20 icons, all four local font faces, both recorded paper clips and every configured personal photograph. Retain decoded image objects for later readers. Decode actual page-image nodes, load even the Latin-ext font faces, and prepare validated audio buffers in a silent OfflineAudioContext before entry. Live sound still waits for a trusted gesture and reuses those buffers. New reader images load eagerly and request synchronous decoding from the prepared cache.
+
+Keep each prepared image's bytes in a document-owned Blob URL as well as its decoded image. Bind reader images to those URLs in an inert template before inserting them, and finish their actual DOM decode before the reader is shown. Resolve later icons and CSS paper/linen/atlas textures from the same prepared data. Prebuild and decode every left divider node before entry. These changes prevent a fresh resource binding from depending on the network when a later object is opened.
+
+Keep measurable book geometry under the introduction while its parent opacity stays zero. Validate the current film, its texture/shader preparation, image nodes and fonts before leaving and again after the exit fade. If the film changes during that fade, repeat preparation for the new instance. Remove the overlay and inert/input guards only in the task that confirms the final current scene. No timing rule, optional control, late completion or cached-visit flag can override asset readiness. Preserve Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V73: a quiet introduction while the book prepares
 
 Design Read: introduce the scrapbook with a small cream paper dedication, “For Tasya.” and “From Ave, with love.” against the existing pink linen. Use the established local type, cat stamp and one indeterminate loading line. This is an actual preparation state, not another chapter or an extra compulsory button. Keep the composition centered and comfortable at 375×667 and shorter phone heights.

@@ -59,7 +59,7 @@
   function openDialog(html,options={}){
     modalLock.acquire();
     const d=$('#map-dialog');
-    if(window.ScrapbookObjectReader){objectReader??=window.ScrapbookObjectReader.create({dialog:d,closeIcon:()=>icon('close')});objectReader.open(html,options);return;}
+    if(window.ScrapbookObjectReader){objectReader??=window.ScrapbookObjectReader.create({dialog:d,closeIcon:()=>icon('close'),onError:()=>toast('This piece could not open. Please try again.')});objectReader.open(html,options);return;}
     d.innerHTML=`<button class="dialog-close icon-button" id="close-note-dialog" aria-label="Close dialog">${icon('close')}</button>${html}`;if(!d.open)d.showModal();$('#close-note-dialog').onclick=()=>modalLock.close(d);
   }
   function snapshot(){const f=$('#settings-form');if(!f)return;const data=new FormData(f);for(const k of ['name','sender','intro','dedication','distanceNote','letter'])draft[k]=String(data.get(k)||'');draft.memorableSong={title:String(data.get('memorable-song-title')||''),artist:String(data.get('memorable-song-artist')||''),url:String(data.get('memorable-song-url')||'')};for(let i=0;i<6;i++){draft.captions[i]=String(data.get('caption-'+i)||'');draft.littleThings[i]=String(data.get('detail-'+i)||'');}for(let i=0;i<4;i++)draft.germanyCaptions[i]=String(data.get('germanyCaption-'+i)||'');for(let i=0;i<3;i++)draft.wishes[i]=String(data.get('wish-'+i)||'');}
@@ -113,7 +113,7 @@
     await bounded(preparePrintFonts(config),10000);
     await bounded(window.bookRendererReady,10000);
     story.render();
-    await intro?.prepare({config,ready:()=>story.ready(),audioReady:music?.ready?.()||Promise.resolve(true),continueReading:()=>story.useSimplePages()});
+    await intro?.prepare({config,ready:()=>story.ready(),audioReady:music?.ready?.()||Promise.resolve(false)});
     }catch(error){
       if(intro)intro.fail(error);
       else $('#app').innerHTML='<p class="loading-message">Your book could not load. Please refresh to try again.</p>';

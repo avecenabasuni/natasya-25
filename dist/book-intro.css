@@ -1,4 +1,8 @@
 html.book-is-preparing,html.book-is-preparing body{overflow:hidden;overscroll-behavior:none}
+html.book-is-preparing #app,html.book-is-preparing .site-header,html.book-is-preparing .site-footer{opacity:0!important}
+html[data-assets-prepared="true"] body:before,html[data-assets-prepared="true"] :is(.dedication-insert,.detail-note,.pink-paper,.record-jacket,.distance-envelope,.envelope-front):before{background-image:var(--prepared-atlas)!important}
+html[data-assets-prepared="true"] :is(.reader-paper-panel,.sheet,.cover-paper,.memento-page,.birthday-keepsake):before{background-image:var(--prepared-paper)!important}
+html[data-assets-prepared="true"] :is(.book-front,.book-viewport,.site-header,.book-board):before,html[data-assets-prepared="true"] #book-intro::before,html[data-assets-prepared="true"] .inside-lining{background-image:var(--prepared-linen)!important}
 #book-intro{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px max(20px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom));background:#f6dfe5;color:#342c2e;opacity:1;transition:opacity .5s ease;isolation:isolate;touch-action:none}
 #book-intro::before{content:'';position:absolute;inset:0;z-index:-1;background:url('assets/materials/linen.webp') center/350px 350px;opacity:.12;pointer-events:none}
 #book-intro .intro-paper{position:relative;width:min(100%,316px);padding:39px 24px 32px;background:#fff4e6;border:1px solid #d6bdad;box-shadow:2px 3px 0 #d9c7c7,5px 9px 17px #6a3c5115;transform:rotate(-2deg);text-align:center}
@@ -10,7 +14,7 @@ html.book-is-preparing,html.book-is-preparing body{overflow:hidden;overscroll-be
 #intro-progress{position:relative;width:112px;height:2px;margin:12px auto 0;overflow:hidden;background:#ceb9c066}
 #intro-progress::after{content:'';position:absolute;inset:0;width:40%;background:#8e3a55;transform:translateX(-110%);animation:intro-paper-progress 1.25s ease-in-out infinite}
 #intro-actions{position:relative;display:flex;flex-direction:column;gap:9px;margin-top:19px}
-#intro-actions[hidden],#intro-progress[hidden],#intro-continue[hidden]{display:none!important}
+#intro-actions[hidden],#intro-progress[hidden]{display:none!important}
 #intro-actions button{width:100%;min-height:46px;padding:10px 12px;border:1px solid #8e3a55;border-radius:3px;font:400 14px/1.4 var(--display,Arial,sans-serif);background:#8e3a55;color:#fff4e6;cursor:pointer}
 #intro-actions #intro-retry{background:transparent;color:#8e3a55}
 #intro-actions button:disabled{opacity:.55;cursor:wait}

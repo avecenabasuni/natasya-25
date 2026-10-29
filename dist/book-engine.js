@@ -195,6 +195,10 @@
         if(!panel.childElementCount){const title=el('h3','');title.textContent=chapter[1];title.tabIndex=-1;panel.append(title);}
         mementos.set(index,panel);return panel;
       }
+      const dividerReady=Promise.all(pages.map((_,index)=>Promise.all([...memento(index).querySelectorAll('img')].map(async image=>{
+        image.loading='eager';image.decoding='sync';if(image.decode)await image.decode();if(!image.complete||!image.naturalWidth)throw new Error('Divider is not ready');
+      }))));
+      const bookReady=Promise.all([visual?.assets||Promise.resolve(),dividerReady]);bookReady.catch(()=>{});
       let leftIndex = -2;
       function setLeft(index) {
         if(index<0){left.style.opacity='0';return;}
@@ -482,7 +486,7 @@
       window.visualViewport?.addEventListener('resize',resized,{passive:true});
       document.addEventListener('close',closedDialog,true);
       return {
-        ready:visual?.assets||Promise.resolve(),
+        ready:bookReady,
         go:(id,focus)=>goLabel(id,focus),
         open:focus=>goLabel('divider-0',focus,true),
         replay:focus=>goLabel('cover',focus,true,true),
