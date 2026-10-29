@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="book-is-preparing">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -29,27 +29,42 @@
   <link rel="stylesheet" href="reader-controls.css?v=57">
   <link rel="stylesheet" href="object-reader.css?v=65">
   <link rel="stylesheet" href="chapter-dividers.css?v=58">
+  <link rel="stylesheet" href="book-intro.css?v=73">
   <script src="trip.js?v=55" defer></script>
   <script src="config.js?v=68" defer></script>
   <script src="assets/vendor/gsap.min.js" defer></script>
   <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
   <script src="modal-lock.js?v=45" defer></script>
   <script src="chapter-dividers.js?v=65" defer></script>
-  <script src="book-engine.js?v=71" defer></script>
+  <script src="book-engine.js?v=73" defer></script>
   <script src="photo-finish.js?v=43" defer></script>
   <script src="paper-finish.js?v=49" defer></script>
   <script src="three-loader.js?v=71" defer></script>
   <script src="book-feedback.js?v=25" defer></script>
   <script src="object-discovery.js?v=64" defer></script>
   <script src="fandom-stickers.js?v=51" defer></script>
-  <script src="story.js?v=71" defer></script>
+  <script src="story.js?v=73" defer></script>
   <script src="object-reader.js?v=45" defer></script>
-  <script src="scrapbook-audio.js?v=72" defer></script>
-  <script src="app.js?v=68" defer></script>
+  <script src="scrapbook-audio.js?v=73" defer></script>
+  <script src="app.js?v=73" defer></script>
 </head>
 <body data-book-chapter="cover">
-  <a class="skip-link" href="#letter">Skip to the letter</a>
-  <header class="site-header">
+  <section id="book-intro" aria-labelledby="intro-title" data-intro-state="preparing">
+    <div class="intro-paper">
+      <img class="intro-stamp" src="assets/cat.svg" alt="" width="40" height="40">
+      <h2 id="intro-title">For Tasya.</h2>
+      <p id="intro-from">From Ave, with love.</p>
+    </div>
+    <div id="intro-progress" aria-hidden="true"><span></span></div>
+    <p id="intro-status" role="status" aria-live="polite">Preparing your pages…</p>
+    <div id="intro-actions" hidden>
+      <button id="intro-retry" type="button">Try again</button>
+      <button id="intro-continue" type="button" hidden>Continue to the book</button>
+    </div>
+  </section>
+  <script src="book-intro.js?v=73" onerror="document.getElementById('intro-status').textContent='Your book could not load. Please try again.';document.getElementById('intro-actions').hidden=false;document.getElementById('intro-retry').onclick=()=>location.reload();"></script>
+  <a class="skip-link" href="#letter" inert>Skip to the letter</a>
+  <header class="site-header" inert>
     <a class="brand" href="#" aria-label="Back to the cover"><img src="assets/cat.svg" alt="" width="32" height="32"><span>a little world<span class="brand-dot">.</span></span></a>
     <span class="date-caption">2 November 2026</span>
     <div class="header-actions">
@@ -57,9 +72,9 @@
       <button id="personalize-button" class="icon-button" aria-label="Personalise the scrapbook" title="Personalise the scrapbook" hidden></button>
     </div>
   </header>
-  <main id="app"><p class="loading-message" role="status">Preparing your pages…</p></main>
-  <noscript><p class="loading-message">A birthday scrapbook for you, 2 November 2026. Enable JavaScript to open the photographs, letter and scroll-driven story.</p></noscript>
-  <footer class="site-footer"><span>Little things worth keeping.</span><span>With love, for you.</span></footer>
+  <main id="app" inert><p class="loading-message" role="status">Preparing your pages…</p></main>
+  <noscript><style>#book-intro{display:none!important}.book-is-preparing{overflow:auto!important}.book-is-preparing body{overflow:auto!important}#app,.site-header,.site-footer{visibility:visible!important}</style><p class="loading-message">A birthday scrapbook for you, 2 November 2026. Enable JavaScript to open the photographs, letter and scroll-driven story.</p></noscript>
+  <footer class="site-footer" inert><span>Little things worth keeping.</span><span>With love, for you.</span></footer>
   <dialog id="personalize-dialog" class="settings-dialog" aria-labelledby="settings-title"></dialog>
   <dialog id="map-dialog" class="map-dialog" aria-label="Notes and gifts"></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>

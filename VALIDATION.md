@@ -1,4 +1,62 @@
-# Validation: recorded book-paper audio, V72
+# Validation: asset preparation introduction, V73
+
+29 October 2026. Status: PASS, 21/21 focused preparation and recovery checks. Results are recorded in qa/v73/independent-summary.json and intro-checks.json. The introduction waits for actual readiness while the underlying book retains measurable layout and pinned scene preparation. It does not use the object-reader modal lock. A pink linen background, cream dedication, existing cat mark and live loading status introduce Tasya's scrapbook without another required entry action. No percentage or fake asset count is shown.
+
+Bootstrap bounds IndexedDB open/read and font/module waits. The preparation gate gathers unique live image URLs, all supplied trip/memory photos, material maps, reader-only city maps, font readiness, stylesheet success, current-film texture/shader readiness and prerecorded-paper bytes. If a resize replaces the film during preparation, readiness follows the current instance. Recorded audio fetches before entry without an AudioContext and retains trusted-gesture decoding/playback.
+
+The ready introduction fades out automatically and removes its scroll guards and parent inert states. A cold start has at most a 450 ms minimum presentation plus the 500 ms exit; warm/reduced reading skips the minimum and uses an 80 ms exit. Reduced motion has a static preparation line. Initial preparation has a 15 s independent bootstrap watchdog, while the asset stage has a 12 s deadline. Failed or stalled assets show Retry and, once page structure exists, Continue to the book. Continue explicitly rebuilds native reading before revealing it; fatal bootstrap offers Retry only. If the intro script itself fails to download, its HTML resource-error fallback exposes a working Retry action. No-JavaScript visitors get the existing explanatory message without a permanent intro overlay.
+
+Evidence: readiness-audit.json, focused browser reports/screenshots, source-preservation.json and exact distribution hashes in qa/v73. Root visually reviewed cold, reduced/native short-height, failed-asset recovery and revealed-cover screenshots. Held portrait and MP3 requests prevent early entry; completion releases the real cover and one recorded opening sound. Warm exit, native continuation, real 12-second timeout, retry after a failed app script and no-JavaScript fallback pass. Historical harness assumptions about unavailable mobile wheel automation and coalesced ready/leaving observations were corrected without application changes. Source checks verify that the cover, book geometry/motion clocks, object readers/halos, original imagery, local fonts, personal config and recorded MP3 bytes are retained. The audio change only exposes its existing byte-fetch readiness; the film/story expose readiness and an explicit recovery mode. Software touch WebKit evidence is not a physical-iPhone GPU, hardware latency or VoiceOver certification. Older broad content/motion/audio suites remain historical.
+
+### V73 Antislop delivery gate
+
+- R-01 PASS: the established pink, cream and ink roles communicate preparation.
+- R-02 PASS: concise English loading and recovery copy contains no em dash.
+- R-03 PASS: the intro fits phone layouts and keeps the book measurable.
+- R-04 PASS: the existing cat mark supports the established scrapbook identity.
+- R-05 PASS: one centered dedication introduces the book without another content chapter.
+- R-06 PASS: established local serif/sans fonts remain.
+- R-07 PASS: existing linen and paper materials support the physical book motif.
+- R-08 PASS: no decorative navigation arrow is added.
+- R-09 PASS: no status pill or promotional badge is added.
+- R-10 PASS: the intro is opaque paper/linen, not glass.
+- R-11 PASS: paper edges and existing control radius are retained.
+- R-12 PASS: small contact shadows belong to the physical dedication paper.
+- R-13 PASS: no new glow is added.
+- R-14 PASS: no feature grid or generic card collection is added.
+- R-15 PASS: Retry and Continue have distinct real recovery actions.
+- R-16 PASS: no marketing prose is added.
+- R-17 PASS: loading has no invented percentages; deadlines and readiness are recorded.
+- R-18 PASS: recipient/sender come from supplied personalisation.
+- R-19 PASS: the loading cue indicates active work; exit follows readiness and respects reduced motion.
+- R-20 PASS: the introduction uses the scrapbook's existing materials, names and cat mark.
+- R-21 PASS: the selected light/pink theme remains.
+- R-22 PASS: original visual assets are reused without new generated imagery.
+- R-23 PASS: no personal memory or photograph is invented.
+- R-24 PASS: the real cover is revealed after preparation; recovery has working destinations.
+- R-25 PASS: existing ink/paper and rose/cream contrast pairs are retained.
+- R-26 PASS: input stays gated during loading and is released on entry or explicit continuation.
+- R-27 PASS: loading, ready, slow, missing-media, fatal and no-JavaScript states are provided.
+- R-28 PASS: no filler section is added.
+- R-29 PASS: no new palette color family is added.
+- R-30 PASS: the physical scrapbook structure remains.
+- R-31 PASS: actual readiness, quiet introduction and honest recovery are documented in DESIGN.md.
+- R-32 PASS: live status, inert underlying content and visible keyboard-focusable recovery controls are retained.
+- R-33 PASS: final application source edits use apply_patch.
+- R-34 PASS: warm and reduced-motion entry have explicit handling without changing the page theme.
+- R-35 PASS: focused browser, readiness/failure, JavaScript syntax and diff checks are reviewed before publication.
+- R-36 PASS: source/browser verification limits are explicit.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain.
+- R-38 PASS: names and artwork are supplied; loading copy reflects actual work and recovery.
+- Liveliness PASS: the existing cat, paper, linen and personal dedication introduce the book with one functional motion cue.
+- C-1 PASS: the intro addresses the user's request to finish loading before book interaction.
+- C-2 PASS: real readiness and working recovery replace an arbitrary timer.
+- C-3 PASS: no extra story content or forced entry button is added.
+- C-4 PASS: initial, ready, reduced, slow, failed and fatal paths are handled.
+- C-5 PASS: actual completion and verification limits are recorded without performance guarantees.
+- Taste preflight PASS: root reviews the actual phone composition and preserves the established book identity.
+
+# Historical validation: recorded book-paper audio, V72
 
 29 October 2026. Status: PASS, 28 accepted checks: 14 software WebKit recording-flow checks and 14 final lifecycle checks. The final pre-onset cancellation guard has explicit lifecycle coverage; earlier browser evidence is retained for unaffected playback paths with its tested source hash recorded. Replace procedural noise with two real book-page recordings by StarNinjas, published as CC0 on the primary OpenGameArt page. Source HTML, archive, original hashes and measured candidates are retained under qa/v72/sources; public provenance is in dist/assets/audio/README.md. Page uses book_flip.4.ogg and the longer cover gesture uses book_flip.5.ogg. The latter remains a page-movement recording, not a claimed recording of a cover hinge.
 

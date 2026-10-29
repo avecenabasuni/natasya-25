@@ -482,6 +482,7 @@
       window.visualViewport?.addEventListener('resize',resized,{passive:true});
       document.addEventListener('close',closedDialog,true);
       return {
+        ready:visual?.assets||Promise.resolve(),
         go:(id,focus)=>goLabel(id,focus),
         open:focus=>goLabel('divider-0',focus,true),
         replay:focus=>goLabel('cover',focus,true,true),

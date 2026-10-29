@@ -40,7 +40,7 @@
   window.ScrapbookStory=({getConfig,toast,openDialog:presentDialog,onSceneChange=()=>{}})=>{
     const app=document.getElementById('app');
     let motion=null,film=null,observer=null,active=0,activePosition=null,refreshToken=0,candleLit=true,candleBlown=false,candleSmokeTimer=0;
-    let objectSource=null,objectPointer=false,nativePaperIndex=null;
+    let objectSource=null,objectPointer=false,nativePaperIndex=null,simpleReading=false;
     const withObject=(source,fn,pointer=false)=>{const previous=objectSource,previousPointer=objectPointer;objectSource=source;objectPointer=pointer;try{return fn();}finally{objectSource=previous;objectPointer=previousPointer;}};
     const openDialog=html=>{
       const key=objectSource?.dataset.bookObject,source=objectSource?.isConnected?objectSource:key?app.querySelector(`[data-book-object="${CSS.escape(key)}"]`):null;
@@ -216,7 +216,7 @@
       discovery?.refresh();
     }
     function animate(){
-      if(!window.gsap||!window.ScrollTrigger||!window.BookExperience)return;
+      if(simpleReading||!window.gsap||!window.ScrollTrigger||!window.BookExperience)return;
       gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
       const query=matchMedia('(prefers-reduced-motion: no-preference) and (min-height: 500px)'),token=refreshToken;
       let enabled=false,pending=false;
@@ -277,11 +277,11 @@
       clearTimeout(restoreTimer);
       if(film||document.querySelector('dialog[open]')||reduced()||!window.gsap||!window.ScrollTrigger)return;
       restoreTimer=setTimeout(()=>{
-        if(!film&&!document.querySelector('dialog[open]')&&window.BookExperience?.viewportSize().height>=500&&matchMedia('(min-height:500px)').matches)refresh();
+        if(!simpleReading&&!film&&!document.querySelector('dialog[open]')&&window.BookExperience?.viewportSize().height>=500&&matchMedia('(min-height:500px)').matches)refresh();
       },220);
     }
     window.visualViewport?.addEventListener('resize',restoreVisibleBook,{passive:true});
     document.addEventListener('close',restoreVisibleBook,true);
-    app.addEventListener('book-reflow',refresh);return {render,refresh,go,icon,replay:()=>film?.replay?film.replay(false):go('cover')};
+    app.addEventListener('book-reflow',refresh);return {render,refresh,go,icon,ready:()=>film?.ready||Promise.resolve(),useSimplePages(){simpleReading=true;render();go('cover',true,true);},replay:()=>film?.replay?film.replay(false):go('cover')};
   };
 })();

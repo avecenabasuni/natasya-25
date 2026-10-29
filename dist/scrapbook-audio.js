@@ -182,6 +182,6 @@
     Object.keys(paperFiles).forEach(kind=>{void fetchPaper(kind);});
     gestures.forEach(type=>document.addEventListener(type,unlock,{capture:true,passive:true}));
     document.addEventListener('visibilitychange',visibility);document.addEventListener('scrapbook-paper',paper);button.onclick=toggle;updateButton();
-    return {setScene,destroy(){disposed=true;++generation;cancelAnimationFrame(frame);stopPaper(true);stopVoices();paperFetch.abort();paperBytes.clear();paperBuffers.clear();paperDecodes.clear();gestures.forEach(type=>document.removeEventListener(type,unlock,true));document.removeEventListener('visibilitychange',visibility);document.removeEventListener('scrapbook-paper',paper);if(button.onclick===toggle)button.onclick=null;context?.close().catch(()=>{});}};
+    return {setScene,ready:()=>Promise.all(Object.keys(paperFiles).map(fetchPaper)).then(bytes=>bytes.every(Boolean)),destroy(){disposed=true;++generation;cancelAnimationFrame(frame);stopPaper(true);stopVoices();paperFetch.abort();paperBytes.clear();paperBuffers.clear();paperDecodes.clear();gestures.forEach(type=>document.removeEventListener(type,unlock,true));document.removeEventListener('visibilitychange',visibility);document.removeEventListener('scrapbook-paper',paper);if(button.onclick===toggle)button.onclick=null;context?.close().catch(()=>{});}};
   }};
 })();

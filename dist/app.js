@@ -98,7 +98,10 @@
   }
   $$('dialog').forEach(d=>d.addEventListener('click',e=>{const r=d.getBoundingClientRect();if(e.target===d&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)){if(d.id==='map-dialog'&&objectReader)objectReader.close();else modalLock.close(d);}}));
   (async()=>{
-    db=await database();const local=await read();if(local)config=normalize(local);
+    const intro=window.ScrapbookIntro,bounded=(promise,ms)=>intro?intro.bounded(promise,ms):promise;
+    try{
+    db=await bounded(database(),4000);const local=await bounded(read(),4000);if(local)config=normalize(local);
+    intro?.setNames(config);
     let music=null;
     story=window.ScrapbookStory({getConfig:()=>config,toast,openDialog,onSceneChange:state=>music?.setScene(state)});
     music=window.ScrapbookAudio?.create({button:$('#sound-button'),icon,toast});
@@ -107,8 +110,13 @@
     $('.skip-link').onclick=e=>{e.preventDefault();story.go('letter',true);};
     $('#personalize-button').innerHTML=icon('settings');$('#personalize-button').hidden=!ownerView;
     $('#personalize-button').onclick=()=>{draft=structuredClone(config);renderSettings();modalLock.acquire();$('#personalize-dialog').showModal();};
-    await preparePrintFonts(config);
-    await window.bookRendererReady;
+    await bounded(preparePrintFonts(config),10000);
+    await bounded(window.bookRendererReady,10000);
     story.render();
+    await intro?.prepare({config,ready:()=>story.ready(),audioReady:music?.ready?.()||Promise.resolve(true),continueReading:()=>story.useSimplePages()});
+    }catch(error){
+      if(intro)intro.fail(error);
+      else $('#app').innerHTML='<p class="loading-message">Your book could not load. Please refresh to try again.</p>';
+    }
   })();
 })();

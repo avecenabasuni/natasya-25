@@ -1,5 +1,13 @@
 # A little world, physical scrapbook
 
+## V73: a quiet introduction while the book prepares
+
+Design Read: introduce the scrapbook with a small cream paper dedication, “For Tasya.” and “From Ave, with love.” against the existing pink linen. Use the established local type, cat stamp and one indeterminate loading line. This is an actual preparation state, not another chapter or an extra compulsory button. Keep the composition centered and comfortable at 375×667 and shorter phone heights.
+
+Prepare the book at its real dimensions behind the opaque introduction. Gate input with inert and an intro-owned scroll guard, never display:none or the object-reader modal lock. Wait for selected personalisation, fonts, module loading, unique page and personal photographs, paper materials, reader maps, stylesheet completion, current scene texture/shader preparation and recorded-audio bytes. Audio still decodes only after a trusted gesture. Recheck the current film if it is rebuilt during preparation. Do not show invented percentages.
+
+Reveal automatically after real readiness, with a 500 ms fade and only a 450 ms minimum cold introduction. Warm or reduced-motion reading uses no minimum dwell and an 80 ms exit; reduced motion has no moving loading line. Bound bootstrap and preparation waits. Failed or prolonged preparation shows an honest retry state; after the page structure exists, an explicit Continue option rebuilds stable native reading. Fatal bootstrap has Retry only. Keep the live book, recorded audio, content and access unchanged after entry. Retain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V72: use recorded paper movement
 
 Design Read: replace the synthetic rustle with actual recorded book-page movement from StarNinjas' CC0 collection on OpenGameArt. Use two different recordings for the page and the longer cover gesture. Keep original pitch and the full short event, with restrained peak level and soft entry/exit fades. The recording provides the paper texture; avoid synthesized grain, random offsets, pitch variation or a repeated artificial envelope.
