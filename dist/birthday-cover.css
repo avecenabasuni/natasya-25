@@ -4,9 +4,11 @@
 .picture-cover .cover-model{aspect-ratio:5/7}
 .picture-cover .cover-collage-art{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;object-fit:contain}
 .picture-cover #cover-title{position:absolute;inset:auto;left:0;top:0;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap}
-.picture-cover .cover-personalisation{position:absolute;left:14%;top:35%;width:44%;height:24%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;transform:rotate(-7deg);text-align:center;color:var(--ink)}
-.picture-cover .cover-for{display:block;font:400 min(4.2cqw,3cqh)/1.3 var(--display);color:var(--ink)}
-.picture-cover .cover-personalisation strong{display:block;width:100%;font:500 min(7.4cqw,5.3cqh)/1.1 var(--serif);letter-spacing:-.025em;overflow-wrap:anywhere;color:var(--ink)}
+.picture-cover .cover-personalisation{position:absolute;left:12.5%;top:31.25%;width:47%;height:29.65%;transform:rotate(-7.5deg);overflow:hidden;background:#ffacd4;text-align:center;color:var(--ink)}
+.picture-cover .cover-portrait{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;object-fit:contain}
+.picture-cover .cover-name-ink{position:absolute;left:4%;bottom:7%;width:92%;display:flex;flex-direction:column;align-items:center;gap:min(.5cqw,.36cqh)}
+.picture-cover .cover-for{display:block;font:400 min(4.2cqw,3cqh)/1.3 var(--display);color:#000}
+.picture-cover .cover-personalisation strong{display:block;width:100%;font:500 min(7.4cqw,5.3cqh)/1.1 var(--serif);letter-spacing:-.025em;overflow-wrap:anywhere;color:#000}
 .picture-cover .cover-personalisation[data-name-size="medium"] strong{font-size:min(6.2cqw,4.4cqh)}
 .picture-cover .cover-personalisation[data-name-size="long"] strong{font-size:min(4.8cqw,3.4cqh);line-height:1.15;letter-spacing:0}
 .picture-cover .cover-personalisation[data-name-size="extended"] strong{font-size:min(3.5cqw,2.5cqh);line-height:1.18;letter-spacing:0}

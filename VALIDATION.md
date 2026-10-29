@@ -1,4 +1,62 @@
-# Validation: cleaner paper without repeated headings or footers, V69
+# Validation: supplied portrait bouquet on the cover, V70
+
+29 October 2026. Status: PASS. The final black-ink composition passes 13/13 focused WebKit checks at 375×667 in the scene and 375×520 in reduced/native reading. Earlier placement flow coverage passes 39/39 across software touch WebKit at both heights, Chromium at 375×667, CSS fallback at 375×667 and exact-photo failure. Historical intermediate reports are separated from the final source. The complete 960×1280 supplied JPEG fits inside the rotated Polaroid; the live recipient name remains separate from the photograph. The custom Three overlay pass paints the portrait once, avoiding an unrotated duplicate beneath it. Final source-space glyph-box background contrast is at least 7.866 for For and 4.575 for Tasya; this sampling is distinct from certifying physical display output.
+
+Actual opening reaches the illustrated left divider. Reading and turning reach the next divider, and repeated Previous actions pan back and close the real cover with its portrait retained. Scene opening actions fit the viewport; the native short-height action remains reachable by scrolling. Default page counts, semantic birthday title and existing paper navigation remain. Exact-photo request failure still leaves a working cover, opening action and scene readiness without JavaScript exceptions. No horizontal viewport overflow is observed.
+
+Evidence: cover-qa.py, independent-summary.json, cover-for-legibility.json, final scene/native reports, historical flow and photo-failure reports, corresponding screenshots, historical-harness-assumptions.json and source-preservation.json. Initial harness assumptions about an API call's default instant navigation and a native below-fold action were corrected to test real UI reversal and scroll reachability. These did not require application changes. A measured hood-edge overlap was corrected by moving the name group down four percent of the print height; black name ink improves contrast on the lower paper fold. Root reviewed scene and native screenshots. This is software-browser evidence, not a physical-iPhone GPU, FPS or VoiceOver certification. Previous broad interior, audio, reader and pagination suites remain historical.
+
+Scope: 133/139 previous distribution files remain byte-identical. One original JPEG is added; six existing distribution files change: cover markup/styles, image preload/cache references, Three loader, scene-skipped overlay raster handling and cover provenance. Shared config, interiors, motion clock, physical geometry, readers, halos, maps, audio, fonts, all prior image bytes and hosting identity remain. The photo is a static personal cover keepsake and introduces no new interaction or form field.
+
+### V70 Antislop delivery gate
+
+- R-01 PASS: the pink mount supports the supplied pink image and existing scrapbook palette.
+- R-02 PASS: existing short English cover copy is retained.
+- R-03 PASS: both phone heights, native reading and CSS fallback are checked.
+- R-04 PASS: existing functional icons are retained.
+- R-05 PASS: the photograph fills the existing print rather than adding another layout block.
+- R-06 PASS: local type and editable recipient-name sizing remain.
+- R-07 PASS: original paper and linen materials remain.
+- R-08 PASS: navigation and opening actions retain their functions.
+- R-09 PASS: no badge is added.
+- R-10 PASS: no glass is added.
+- R-11 PASS: the print retains its straight paper edges and existing tilt.
+- R-12 PASS: no extra floating shadow is added.
+- R-13 PASS: existing functional object halos remain unchanged.
+- R-14 PASS: no card grid or replacement section is added.
+- R-15 PASS: Open the book opens the existing physical book.
+- R-16 PASS: no marketing prose is added.
+- R-17 PASS: image dimensions, byte counts and checks come from source and QA reports.
+- R-18 PASS: the portrait is supplied by the owner; no testimonial or new identity is invented.
+- R-19 PASS: actual opening, turning and reverse closure are checked.
+- R-20 PASS: the supplied personal image replaces the empty cover print.
+- R-21 PASS: the selected light/pink scrapbook theme remains.
+- R-22 PASS: supplied original imagery is used directly without generated likenesses.
+- R-23 PASS: no additional personal content is invented.
+- R-24 PASS: opening and existing page navigation work through real input.
+- R-25 PASS: the For label clears the dark hood edge; black name ink separates from the lower paper fold in both native and Three print. Source-space glyph-box sampling and visual review are recorded.
+- R-26 PASS: no false interactive affordance is added to the static photograph.
+- R-27 PASS: failed-photo, CSS fallback and reduced/native reading states remain usable.
+- R-28 PASS: no filler content is added.
+- R-29 PASS: the selected palette remains with pink sampled by visual match to the photo.
+- R-30 PASS: the original physical scrapbook structure remains.
+- R-31 PASS: full-photo fitting, name placement and once-only local raster painting are documented in DESIGN.md.
+- R-32 PASS: semantic birthday title and existing focusable opening action remain.
+- R-33 PASS: final application source changes are applied directly with apply_patch.
+- R-34 PASS: no new theme or mode is added.
+- R-35 PASS: focused rendering/input reports, JavaScript syntax and diff whitespace checks are reviewed before packaging.
+- R-36 PASS: software-browser verification limits are explicit.
+- R-37 PASS: Antislop during 3/3/3 and Taste 8/9/5 remain.
+- R-38 PASS: the user-supplied image is real; remaining unknown personal content retains its placeholders.
+- Liveliness PASS: the supplied portrait bouquet becomes the focal personal keepsake within the existing collage.
+- C-1 PASS: the frame and lower-paper text placement follow the owner's specific request.
+- C-2 PASS: the existing physical opening/reverse actions are exercised.
+- C-3 PASS: supplied imagery leads without extra explanatory copy.
+- C-4 PASS: scene, fallback, short native and image-error states are checked.
+- C-5 PASS: source preservation, rendering traces and verification limits are recorded.
+- Taste preflight PASS: preserve the established scrapbook identity, local serif justification, mobile layout and motion behavior; review the actual image composition.
+
+# Historical validation: cleaner paper without repeated headings or footers, V69
 
 29 October 2026. Status: PASS, no unresolved finding. 59/59 focused checks: WebKit375×667 (13), WebKit375×520 (10), Chromium375×667 (10), CSS fallback667 (10), reduced/native520 (8), two focused geometry rechecks, and six filled-pagination checks.
 

@@ -14,7 +14,7 @@ The three cover kittens are unlabelled decorative characters. Winnie, Bonnie, Co
 
 ## Presentation
 
-The artwork supplies the paper, cut letters, ornaments and Polaroid frame. The editable recipient name and fixed birthday date, 2 November 2026, print separately in the blank frame at its seven-degree tilt. Fraunces and Source Sans 3 remain local font assets. The exact same full image supplies the native front and actual hinged Three cover texture; the 3D board and spine retain their physical depth.
+The artwork supplies the paper, cut letters, ornaments and Polaroid frame. In V70, the owner supplied the personal portrait bouquet shown inside that frame. `cover-tasya-bouquet.jpg` is the original 960 × 1280 JPEG, 139,713 bytes, copied without image generation, retouching, recoloring, cropping or recompression. Contain sizing retains the complete photograph on a pink mount aligned to the frame at a 7.5-degree tilt. The editable recipient name sits over its brown wrapping paper; the fixed birthday date, 2 November 2026, remains on the paper border. Fraunces and Source Sans 3 remain local font assets. This full composition supplies both the native front and actual hinged Three cover texture; the 3D board and spine retain their physical depth.
 
 The former cloth plaque, sewn/embossed cover details, sage ribbon and eight individual front ornaments are omitted for this cover. All 45 interior decoration placements and the full 53-item source collection remain. An accessible semantic title accompanies the decorative image. If the required image fails, a visible text greeting and working opening action remain in the CSS fallback.
 

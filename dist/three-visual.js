@@ -106,10 +106,10 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   };
 
   async function drawDOM(node,ctx,origin,relief=null,skipFandom=false){
-    const boxSelector='button,a.open-book,.cover-stitch,.cover-dedication,.cover-dedication-stitch,.page-foot,.placeholder-copy,.postcard-date,.fragment-image,.photo-blank,.coupon-card,.gift-pocket-front,.letter-crease,.note-fold-edge,.trier-map,.photo-fragments,.keepsake-slip,.pet-sticker,.folded-letter,.soundtrack-slip,.photo-portrait .fandom-portrait';
+    const boxSelector='.cover-personalisation,button,a.open-book,.cover-stitch,.cover-dedication,.cover-dedication-stitch,.page-foot,.placeholder-copy,.postcard-date,.fragment-image,.photo-blank,.coupon-card,.gift-pocket-front,.letter-crease,.note-fold-edge,.trier-map,.photo-fragments,.keepsake-slip,.pet-sticker,.folded-letter,.soundtrack-slip,.photo-portrait .fandom-portrait';
     const boxes=[...(node.matches(boxSelector)?[node]:[]),...node.querySelectorAll(boxSelector)];
     boxes.forEach(e=>{
-      if(skipFandom&&e.closest('.fandom-layer'))return;
+      if(e.closest('[data-scene-skip]')||skipFandom&&e.closest('.fandom-layer'))return;
       const r=e.getBoundingClientRect(),s=getComputedStyle(e),x=r.left-origin.left,y=r.top-origin.top;ctx.save();ctx.globalAlpha=Number(s.opacity);
       if(e.matches('.voucher-coupon:not(.pocket-gift)')||s.backgroundColor!=='rgba(0, 0, 0, 0)'){ctx.fillStyle=e.matches('.voucher-coupon:not(.pocket-gift)')?palette.blush:s.backgroundColor;ctx.fillRect(x,y,r.width,r.height);}
       if(e.matches('.cover-dedication')&&linenMap){ctx.save();ctx.globalAlpha=.12;const weave=ctx.createPattern(linenMap,'repeat');weave.setTransform(new DOMMatrix().scale(220/linenMap.width));ctx.fillStyle=weave;ctx.fillRect(x,y,r.width,r.height);ctx.restore();}
@@ -120,7 +120,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       ctx.restore();
     });
     await Promise.all([...node.querySelectorAll('img')].map(async e=>{
-      if(skipFandom&&e.closest('.fandom-layer'))return;
+      if(e.closest('[data-scene-skip]')||skipFandom&&e.closest('.fandom-layer'))return;
       const img=await loadImage(e.src);if(!img){
         if(e.closest('.real-memory,.fragment-image')){e.hidden=true;if(!e.parentElement.querySelector('.image-error')){const error=document.createElement('span');error.className='image-error';error.textContent='This photo could not be loaded.';e.parentElement.append(error);}}
         return;
@@ -153,7 +153,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
         const style=getComputedStyle(ancestor);if(!['hidden','clip'].includes(style.overflowX)&&!['hidden','clip'].includes(style.overflowY))continue;
         const r=ancestor.getBoundingClientRect();ctx.beginPath();ctx.rect(r.left-origin.left,r.top-origin.top,r.width,r.height);ctx.clip();
       }
-      ctx.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;ctx.letterSpacing=s.letterSpacing==='normal'?'0px':s.letterSpacing;ctx.fillStyle=e.closest('.photo-fragment')&&!e.closest('.fragment-image')?palette.paper:palette['scene-ink'];ctx.textBaseline='alphabetic';
+      ctx.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;ctx.letterSpacing=s.letterSpacing==='normal'?'0px':s.letterSpacing;ctx.fillStyle=e.closest('.cover-name-ink')?s.color:e.closest('.photo-fragment')&&!e.closest('.fragment-image')?palette.paper:palette['scene-ink'];ctx.textBaseline='alphabetic';
       const metrics=ctx.measureText('Mg'),ascent=metrics.actualBoundingBoxAscent,descent=metrics.actualBoundingBoxDescent,range=document.createRange();let line=null;
       const drawLine=()=>{if(!line)return;const x=line.left-origin.left,y=line.top-origin.top+(line.height-ascent-descent)/2+ascent;ctx.fillText(line.text,x,y);if(relief&&e.closest('.cover-month,.cover-kicker')){relief.save();relief.font=ctx.font;relief.letterSpacing=ctx.letterSpacing;relief.fillStyle='#747474';relief.fillText(line.text,x,y);relief.restore();}};
       for(let i=0;i<n.length;){

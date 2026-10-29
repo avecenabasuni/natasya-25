@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V70: Tasya's portrait bouquet inside the cover print
+
+Design Read: use the owner's supplied pink portrait-bouquet photograph in the existing cover Polaroid. Keep the complete portrait image visible with contain sizing and a pink mount, rather than cropping away faces. Align the mount to the artwork's inner opening at its 7.5-degree tilt. Place the live editable “For Tasya” type on the lower brown wrapping paper, clear of the faces; keep the birthday date on the Polaroid border. Use black print ink for the name so it remains readable across the darker paper fold, and honor that same computed color in the Three texture.
+
+Render photo, mount and name as one rotated print in native CSS and in the Three cover texture. Scene-skipped overlays must skip images and boxes as well as text during the first pass, then paint once in their rotated local coordinates. The photo is a static cover keepsake, not a new tap target. Preserve the illustrated collage, birthday heading, accessible title, opening action, hinged board, reverse return and all interiors. Preload the small original JPEG; no new library or generated likeness is needed. Retain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V69: let the divider introduce the photograph
 
 Design Read: the illustrated left divider already identifies each spread. Remove repeated running chapter labels from right-hand paper and printed name/page-number footers throughout the book. On the photograph leaf, remove the visible “One photograph” heading too, so the mount and personal writing lead. Keep its semantic h2 and aria-labelledby connection with a visually hidden, scene-skipped heading. Preserve meaningful content headings on the other leaves and the external page-navigation controls.
