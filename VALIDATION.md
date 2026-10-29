@@ -1,4 +1,59 @@
-# Validation: recorded object-opening sounds, V76
+# Validation: distinct material recordings for objects, V77
+
+29 October 2026. Status: PASS, 23 audio-service checks and 42 accepted browser assertions, plus five delivered-media and five source-license verifications. Current evidence is in `qa/v77`. The change replaces the reused page clips with five independent CC0 sources, mapped to sticky-note peel, paper/photo slide, unfolding, map opening and envelope/letter handling. Both existing book MP3s remain byte-for-byte unchanged. The new files total 53,609 bytes. Earlier broad suites remain historical.
+
+Audio-service checks cover all seven startup recordings, silent offline decoding, corrupt object media, trusted gestures, all eight reader-material mappings and gains, original pitch, cached buffer reuse, rapid replacement/fades, mute, hidden state and disposal. Real touch WebKit at 375×667 traces fetched bytes through offline AudioBuffer identity into actual playback: map, photo, cat sticker, song paper, folded letter, birthday card and final envelope select the appropriate new file rather than either book clip. These checks run with the context disconnected after entry. Reduced/native 375×520 reading is also checked. A corrupt sticker MP3 blocks the introduction; restoring it and reloading prepares all seven recordings before entry.
+
+Media checks decode every delivered file, verify non-empty signal and non-clipping peak levels, distinct SHA256 identities, and unchanged book effects. Four Freesound source pages and the OpenGameArt map page explicitly grant CC0. Source snapshots, downloads and processing evidence are ignored QA artifacts; source links, excerpts, processing and delivery hashes are published in `dist/assets/audio/OBJECT-SOURCES.md`.
+
+### V77 Antislop delivery gate
+
+- R-01 PASS: no gradient or material-color change.
+- R-02 PASS: no new visible product copy or em dash.
+- R-03 PASS: existing phone controls/geometry retained; actual touch reader paths tested at both heights.
+- R-04 PASS: existing icon family retained.
+- R-05 PASS: existing chapter/content rhythm retained.
+- R-06 PASS: existing local typography retained.
+- R-07 PASS: existing paper/cloth materials retained; audio adds corresponding physical recordings.
+- R-08 PASS: no arrow added.
+- R-09 PASS: no badge added.
+- R-10 PASS: no glass surface added.
+- R-11 PASS: existing edge/corner system retained.
+- R-12 PASS: no shadow added.
+- R-13 PASS: existing functional object halos retained.
+- R-14 PASS: no card layout added.
+- R-15 PASS: existing sound toggle controls all new cues.
+- R-16 PASS: no promotional copy added.
+- R-17 PASS: source dates, measured bytes and source gains are recorded; no invented statistic.
+- R-18 PASS: no testimonial or fictional person added.
+- R-19 PASS: each new sound corresponds to a real object material and successful reveal; no idle audio loop.
+- R-20 PASS: existing personal keepsakes/content retained.
+- R-21 PASS: approved direction retained.
+- R-22 PASS: image assets retained; physical audio sources are credited rather than represented as original recordings.
+- R-23 PASS: the user explicitly requested different object sounds sourced from the internet.
+- R-24 PASS: navigation retained; menus stay silent.
+- R-25 PASS: no rendered color, text or control-style change; earlier contrast evidence remains historical.
+- R-26 PASS: actual object opening, mute, resize/close, failure/recovery and native reader behavior checked.
+- R-27 PASS: corrupt required object media blocks entry; failed reader preparation stays silent, audio never blocks an already-ready reader.
+- R-28 PASS: no FAQ added.
+- R-29 PASS: palette retained.
+- R-30 PASS: no template/page structure added.
+- R-31 PASS: source pages, CC0 licenses, exact excerpts, processing and hashes are documented.
+- R-32 PASS: sound is supplemental; semantic readers, mute and reduced-motion paths remain.
+- R-33 PASS: runtime, HTML and documentation edits use apply_patch; FFmpeg creates media; Python creates QA evidence only.
+- R-34 PASS: one light theme retained.
+- R-35 PASS: audio-service checks, actual WebKit file/buffer playback traces, media/source checks, syntax and diff checks; final scope report records accepted results and harness limits.
+- R-36 PASS: no claim of physical-iPhone listening, speaker quality or GPU/FPS certification.
+- R-37 PASS: V77 design read recorded; established Antislop during 3/3/3 and Taste 8/9/5 retained.
+- R-38 PASS: personal content facts unchanged; no invented memory or claim of authoring the recordings.
+
+L-1–L-7 PASS: established dials, paper identity, layout rhythm and focal objects remain; each recorded cue reinforces a corresponding physical action. C-1–C-5 PASS: source-to-material decisions have written reasons, actual controls and buffer identities are exercised, timing/mute remain consistent, native/reduced and failed-asset states are checked, and source versus measured evidence is explicit. Relevant Taste utility checks retain the existing single-theme visual system and test the changed interaction. Marketing hero/logo/marquee checks do not apply.
+
+Listening limit: this environment does not support audio input for subjective audition. Selection follows the checked physical-recording descriptions and excerpt/signal inspection; decoded playback identity and levels are verified in software WebKit. This is not a physical iPhone listening or Safari hardware certification. Recipient access remains unchanged.
+
+Harness limit: one initial long offline/resize run timed out opening the song reader. The remaining sequence and three explicit repeated cat-to-song pairs pass offline with correct buffer identity and no JavaScript errors. The initial result is retained alongside the consolidated accepted report; no reader or motion code is changed in this revision.
+
+## Historical validation: recorded object-opening sounds, V76
 
 29 October 2026. Status: PASS, 22 audio-service checks and 27 accepted browser assertions, no unresolved finding. Current evidence is in `qa/v76`. Scope: one successful object-reader opening cue, softer playback of the existing two prepared recordings, and service listener cleanup. No visual composition, configuration, image, font, recording bytes or recipient access changes. Earlier broad suites remain historical.
 

@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V77: material-specific recordings from real sources
+
+Design Read: a lifted sticker must not sound like turning a whole page. Replace reused book clips for objects with independently recorded sticky-note peel, paper/photo slide, note unfolding, actual map opening and letter/envelope handling. Use checked CC0 sources from Freesound and OpenGameArt. Keep their physical texture and original pitch; select short relevant excerpts with gentle edges instead of synthetic chimes or a repitched page flip. Existing book effects remain byte-for-byte unchanged.
+
+Keep a clear sound-to-material mapping and restrained gains. All five new files join the existing two in mandatory offline decoding before entry; do not add a network wait to a tap. Preserve the successful-reader cue, trusted-gesture requirement, mute, one-voice replacement and lifecycle guards. No visible UI change. Retain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V76: recorded paper when a keepsake opens
 
 Design Read: give each actual keepsake lift a quiet tactile sound, using the real paper recordings already decoded by the introduction. Emit one cue only after reader-image readiness and when its dialog opens. Folded letters and the final envelope use the longer recording at gain .44; maps, photographs, stickers and song papers use the shorter recording at .38. Both are softer than the existing cover/page gains of .68/.62. Preserve full recordings, original pitch, soft edges and single-voice replacement. Do not add a new download, sound on resize/reflow, or sound to menus/settings. Global mute, trusted-gesture requirements and hidden/disposed guards apply to both book and object sounds. Native and reduced-motion readers keep the same sound cue. No visual change; retain Antislop during 3/3/3 and Taste 8/9/5.

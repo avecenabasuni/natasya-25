@@ -39,3 +39,7 @@ Source Sans3 is by Paul D. Hunt, Adobe. Source: https://github.com/google/fonts/
 Both fonts use the SIL Open Font License. Their license files are included in assets/fonts. The Fraunces print subset fixes optical size36, softness35 and wonk0; weight remains variable400-600. Source Sans3 print subsets retain weights400-600. Latin and Latin-ext are served separately.
 
 The existing five-cat artwork illustrates the supplied descriptions. Minnie is based on the supplied reference photograph. It does not represent real trip photography. The same source image is displayed through five individual cropped sticker mounts; no coat descriptions have been changed.
+
+## Recorded object sounds
+
+The five CC0 material recordings come from Keegan_Miner, Atrius1, dalexgray and Aurelon on Freesound, and Spring Spring / Julie Damsgaard on OpenGameArt. They are separate from StarNinjas' existing book-page recordings. [Object audio sources](audio/OBJECT-SOURCES.md) records the source pages, exact excerpts, processing, byte sizes and delivery hashes.

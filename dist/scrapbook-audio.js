@@ -8,7 +8,8 @@
     [67,.75],[67,.25],[79,1],[76,1],[72,1],[71,1],[69,1],
     [77,.75],[77,.25],[76,1],[72,1],[74,1],[72,2]
   ];
-  const paperFiles={cover:'assets/audio/paper-cover.mp3',page:'assets/audio/paper-page.mp3'};
+  const paperFiles={cover:'assets/audio/paper-cover.mp3',page:'assets/audio/paper-page.mp3',peel:'assets/audio/object-peel.mp3',photo:'assets/audio/object-photo.mp3',unfold:'assets/audio/object-unfold.mp3',map:'assets/audio/object-map.mp3',envelope:'assets/audio/object-envelope.mp3'};
+  const objectSounds={map:['map',.38],photo:['photo',.48],sticker:['peel',.46],soundtrack:['photo',.42],letter:['unfold',.42],coupon:['envelope',.44],disclosure:['unfold',.36],paper:['photo',.4]};
   window.ScrapbookAudio={create({button,icon,toast}){
     let context=null,master=null,playing=null,pending=null,generation=0,timer=null,blockedTimer=null,frame=null;
     let paperVoice=null,paperGeneration=0,paperPreparation=null;
@@ -97,9 +98,9 @@
     }
     function objectOpen(event){
       const {kind,objectKey}=event.detail||{};
-      if(disposed||document.hidden||muted||!warmed||!objectKey||!['map','photo','sticker','soundtrack','letter','coupon','disclosure','paper'].includes(kind))return;
-      const folded=kind==='letter'||kind==='coupon';
-      try{playPaper(folded?'cover':'page',folded?.44:.38);}catch{}
+      const sound=Object.hasOwn(objectSounds,kind)?objectSounds[kind]:null;
+      if(disposed||document.hidden||muted||!warmed||!objectKey||!sound)return;
+      try{playPaper(...sound);}catch{}
     }
     function stopVoices(){
       clearTimeout(timer);clearTimeout(blockedTimer);timer=blockedTimer=null;
