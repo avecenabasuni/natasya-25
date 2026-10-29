@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V76: recorded paper when a keepsake opens
+
+Design Read: give each actual keepsake lift a quiet tactile sound, using the real paper recordings already decoded by the introduction. Emit one cue only after reader-image readiness and when its dialog opens. Folded letters and the final envelope use the longer recording at gain .44; maps, photographs, stickers and song papers use the shorter recording at .38. Both are softer than the existing cover/page gains of .68/.62. Preserve full recordings, original pitch, soft edges and single-voice replacement. Do not add a new download, sound on resize/reflow, or sound to menus/settings. Global mute, trusted-gesture requirements and hidden/disposed guards apply to both book and object sounds. Native and reduced-motion readers keep the same sound cue. No visual change; retain Antislop during 3/3/3 and Taste 8/9/5.
+
 ## V75: a complete owner personalisation desk
 
 Design Read: let Ave finish the actual words and photographs in the same order Tasya will read them. The editor is a practical cream-paper workspace using the existing Fraunces headings, Source Sans 3 fields and rose actions. Its fixed header and two clear footer actions stay reachable while the eight sections scroll inside the dialog at 375×667 and 375×520. Retain Antislop during 3/3/3 and Taste 8/9/5; no recipient-facing redesign is part of this revision.

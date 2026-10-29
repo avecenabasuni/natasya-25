@@ -74,13 +74,13 @@
         else{voice.gain.gain.setValueAtTime(level,now);voice.gain.gain.linearRampToValueAtTime(0,now+.05);voice.source.stop(now+.055);}
       }catch{voice.cleanup();}
     }
-    function playPaper(kind){
+    function playPaper(kind,level=kind==='cover'?.68:.62){
       stopPaper();
       const token=paperGeneration,requested=performance.now(),ctx=audioContext();
       const start=buffer=>{
         if(!buffer||disposed||document.hidden||muted||!warmed||token!==paperGeneration||ctx.state!=='running'||performance.now()-requested>250)return;
         const source=ctx.createBufferSource(),gain=ctx.createGain();
-        const duration=buffer.duration,now=ctx.currentTime+.06,level=kind==='cover'?.68:.62;
+        const duration=buffer.duration,now=ctx.currentTime+.06;
         source.buffer=buffer;source.playbackRate.value=1;
         gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(level,now+.02);
         gain.gain.setValueAtTime(level,now+Math.max(.02,duration-.1));gain.gain.linearRampToValueAtTime(0,now+duration);
@@ -94,6 +94,12 @@
       const kind=event.detail?.kind;
       if(disposed||document.hidden||muted||!warmed||!['cover','page'].includes(kind))return;
       try{playPaper(kind);}catch{}
+    }
+    function objectOpen(event){
+      const {kind,objectKey}=event.detail||{};
+      if(disposed||document.hidden||muted||!warmed||!objectKey||!['map','photo','sticker','soundtrack','letter','coupon','disclosure','paper'].includes(kind))return;
+      const folded=kind==='letter'||kind==='coupon';
+      try{playPaper(folded?'cover':'page',folded?.44:.38);}catch{}
     }
     function stopVoices(){
       clearTimeout(timer);clearTimeout(blockedTimer);timer=blockedTimer=null;
@@ -193,7 +199,7 @@
     }
     Object.keys(paperFiles).forEach(kind=>{void fetchPaper(kind);});
     gestures.forEach(type=>document.addEventListener(type,unlock,{capture:true,passive:true}));
-    document.addEventListener('visibilitychange',visibility);document.addEventListener('scrapbook-paper',paper);button.onclick=toggle;updateButton();
-    return {setScene,ready:prepareAllPaper,destroy(){disposed=true;++generation;cancelAnimationFrame(frame);stopPaper(true);stopVoices();paperFetch.abort();paperBytes.clear();paperBuffers.clear();paperDecodes.clear();paperPreparation=null;gestures.forEach(type=>document.removeEventListener(type,unlock,true));document.removeEventListener('visibilitychange',visibility);document.removeEventListener('scrapbook-paper',paper);if(button.onclick===toggle)button.onclick=null;context?.close().catch(()=>{});}};
+    document.addEventListener('visibilitychange',visibility);document.addEventListener('scrapbook-paper',paper);document.addEventListener('scrapbook-object-open',objectOpen);button.onclick=toggle;updateButton();
+    return {setScene,ready:prepareAllPaper,destroy(){disposed=true;++generation;cancelAnimationFrame(frame);stopPaper(true);stopVoices();paperFetch.abort();paperBytes.clear();paperBuffers.clear();paperDecodes.clear();paperPreparation=null;gestures.forEach(type=>document.removeEventListener(type,unlock,true));document.removeEventListener('visibilitychange',visibility);document.removeEventListener('scrapbook-paper',paper);document.removeEventListener('scrapbook-object-open',objectOpen);if(button.onclick===toggle)button.onclick=null;context?.close().catch(()=>{});}};
   }};
 })();

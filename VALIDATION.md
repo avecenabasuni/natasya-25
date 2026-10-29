@@ -1,4 +1,55 @@
-# Validation: complete personalisation editor, V75
+# Validation: recorded object-opening sounds, V76
+
+29 October 2026. Status: PASS, 22 audio-service checks and 27 accepted browser assertions, no unresolved finding. Current evidence is in `qa/v76`. Scope: one successful object-reader opening cue, softer playback of the existing two prepared recordings, and service listener cleanup. No visual composition, configuration, image, font, recording bytes or recipient access changes. Earlier broad suites remain historical.
+
+Audio-service checks cover startup/offline readiness, trusted gesture, all eight object material kinds, original pitch and complete-buffer selection, lower gain, buffer reuse, rapid stale-request replacement, the previous voice's fade before a new start, mute, hidden-document guards and disposal. Real touch-enabled WebKit checks exercise animated readers at 375×667 and reduced/native reading at 375×520. They verify one cue and one actual AudioBufferSource per successful object open, prepared-buffer identity, resize/close silence, mute and failed image-readiness silence. Recorded paper is quieter than existing book turns; no new media request or live decode is needed.
+
+### V76 Antislop delivery gate
+
+- R-01 PASS: no gradient or material-color change.
+- R-02 PASS: no new visible product copy or em dash.
+- R-03 PASS: existing phone geometry and touch controls retained; real touch-reader paths exercised.
+- R-04 PASS: existing icon family unchanged.
+- R-05 PASS: existing chapter/content rhythm retained.
+- R-06 PASS: existing local typography retained.
+- R-07 PASS: existing scrapbook paper/cloth materials retained.
+- R-08 PASS: no arrow added.
+- R-09 PASS: no badge added.
+- R-10 PASS: no glass surface added.
+- R-11 PASS: existing edge/corner system retained.
+- R-12 PASS: no shadow added.
+- R-13 PASS: existing functional object halos retained.
+- R-14 PASS: no card layout added.
+- R-15 PASS: existing control labels retained; sound toggle controls the new cues too.
+- R-16 PASS: no promotional copy added.
+- R-17 PASS: no number or relationship fact invented; documented gains are source values.
+- R-18 PASS: no testimonial or person added.
+- R-19 PASS: one sound follows the actual keepsake reveal; no extra visual animation or idle loop.
+- R-20 PASS: existing personal keepsakes and content retained.
+- R-21 PASS: approved direction retained.
+- R-22 PASS: image assets unchanged.
+- R-23 PASS: the user explicitly requested sound when opening objects.
+- R-24 PASS: existing navigation unchanged; Contents does not acquire a keepsake cue.
+- R-25 PASS: no rendered color/text/control-style change; V75 contrast evidence remains historical.
+- R-26 PASS: real object, mute, close, resize and failure/recovery interactions checked.
+- R-27 PASS: failed decode emits no sound; unavailable/muted/hidden/disposed audio cannot block reading.
+- R-28 PASS: no FAQ added.
+- R-29 PASS: existing palette retained.
+- R-30 PASS: no template or page structure introduced.
+- R-31 PASS: recorded-source license and runtime behavior documented in the audio provenance file.
+- R-32 PASS: existing semantic readers and keyboard paths retained; sound is supplemental and reduced-motion reading is tested.
+- R-33 PASS: runtime, HTML and documentation edits use apply_patch; ignored QA scripts only create evidence.
+- R-34 PASS: one light theme retained.
+- R-35 PASS: service checks, actual WebKit playback/reader checks, syntax and diff checks; accepted final results recorded in the scope summary.
+- R-36 PASS: no physical-iPhone loudness, speaker-quality or GPU/FPS guarantee.
+- R-37 PASS: V76 design read recorded; established Antislop during 3/3/3 and Taste 8/9/5 retained.
+- R-38 PASS: content facts and artwork retained; no invented memory.
+
+L-1–L-7 PASS: established dials, paper identity, composition, focus and rhythm remain. The new tactile cue follows a real interaction and uses the existing sound control. C-1–C-5 PASS: the audible-state change has a written reason, actual reader controls and prerecorded buffers are exercised, sound matches material duration, native/reduced and failure states are covered, and source/measurement limits are explicit. Relevant Taste utility checks pass by retaining the established single-theme visual system and testing the added interaction. Marketing hero/logo/marquee checks do not apply to this change.
+
+Software WebKit is not a physical iPhone listening or Safari hardware certification. Actual device volume/silent-mode policies still apply. No recipient access change is included.
+
+## Historical validation: complete personalisation editor, V75
 
 29 October 2026. Status: PASS with no unresolved finding: 55 integrated end-to-end assertions, 15 editor component checks and 11 targeted final validation/contrast checks. The current scope is the owner editor and its bindings into the real book. Evidence is in `qa/v75`; recipient readiness and earlier broad motion suites below are historical, not claimed as rerun in full. WebKit tests use touch-enabled 375×667 and reduced/native 375×520 contexts. Root visually reviewed the editor captures at both sizes.
 

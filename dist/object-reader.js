@@ -306,6 +306,7 @@
       const state={source,kind,objectKey,targetSelector,snapshot,animated,animations:[],motionId:0,body:dialog.querySelector('.object-reader-body'),resized:false};current=state;
       if(animated)snapshot.conceal?.();
       if(!dialog.open)dialog.showModal();placeClose();dialog.querySelector('#close-note-dialog').focus({preventScroll:true});
+      if(objectKey)document.dispatchEvent(new CustomEvent('scrapbook-object-open',{detail:{kind,objectKey}}));
       if(!animated){dialog.classList.add('reader-settled');phase(state,'reading');return;}
       if(kind==='sticker'&&targetSelector){
         const portrait=source.querySelector('.pet-portrait')||source.closest('.pet-portrait'),target=state.body.querySelector(targetSelector);
