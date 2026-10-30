@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V85:25 October farewell memory
+
+Fill only the25 October Four days pocket with the original supplied bus-window farewell photo and all fourteen paragraphs verbatim. Preserve spelling, case, emoticons and paragraph breaks. Retain the restored original font system, all earlier writing/photos and the separate main photograph. No new itinerary or weather metadata is inferred beyond the owner's writing. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V84: restore original description fonts
 
 Restore the pre-handwriting typography requested by the owner. Remove the handwriting stylesheet, asset/preload and explicit fifth-font preparation; use the unchanged underlying scrapbook rules for day stories, gallery captions and the main annotation. All photographs, exact personal writing and4000-character caption support remain. Retain existing Antislop during3/3/3 and Taste8/9/5.

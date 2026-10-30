@@ -1,3 +1,13 @@
+# Validation:25 October farewell memory, V85
+
+30 October2026. Add the supplied original720×1280 bus-window photograph and exact fourteen-paragraph1829-character farewell story to T25. Config comparison permits only germanyPhotos[3] and germanyCaptions[3] changes; all earlier photos, writing and main selection remain unchanged. Original photo bytes/hash verified. Font styles remain the restored original system. Config syntax and diff checks pass.
+
+Focused touch WebKit375×667 and reduced/native375×520 check the correct T25 source/date/Trier label, every original paragraph, full-image contain rendering, independent main photo/date/story, distinct editor fields and no JavaScript errors. Reader/main captures are visually reviewed. Evidence: `qa/v85`; previous broader motion/readiness suites remain historical. Software WebKit is not physical iPhone certification.
+
+Antislop during3/3/3 and Taste8/9/5 remain active. All38 rules in the existing V82 delivery gate below were reviewed for this content-only addition. R-17/R-22/R-23/R-38: exact owner-supplied writing, date and unmodified photograph; R-25/R-26/R-35: actual phone paragraph/image/editor checks; R-31: personal-photo provenance. No layout, type, motion, controls, audio or palette change. L-1–L-7, C-1–C-5 and applicable Taste checks retain the established scrapbook identity, real content and functional readers.
+
+## Historical V84 validation
+
 # Validation: original typography restored, V84
 
 30 October2026. Restore the pre-handwriting font rules by removing the handwriting override, font asset/license and preload, and restoring the original four-face print preparation. All user content remains byte-identical in config.js;4000-character captions remain supported. Focused WebKit checks at375×667 and reduced/native375×520 cover four loaded fonts before entry, original day-story and printed annotation rules, complete return-bus writing, no horizontal overflow and no JavaScript errors. Actual reader and main-page captures are reviewed. Syntax/diff/source/archive checks pass. Evidence: `qa/v84`. Previous broad checks remain historical; this is not physical iPhone certification.
