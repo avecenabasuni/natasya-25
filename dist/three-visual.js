@@ -199,6 +199,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     anchors.petPortraits=[...node.querySelectorAll('.pet-portrait')].map(bounds);
     parts.catMasks=await Promise.all([...node.querySelectorAll('.pet-portrait')].map(async e=>{const r=e.getBoundingClientRect(),part=canvas2d(r.width,r.height);await drawDOM(e,part.ctx,r);return texture(part.c);}));
     anchors.photoImages=[...node.querySelectorAll('.photo-fragment')].map(bounds);
+    anchors.photoKeys=[...node.querySelectorAll('.photo-fragment')].map(photo=>photo.dataset.bookObject);
     anchors.actions=[...node.querySelectorAll('.story-button[data-book-object]')].map(e=>({key:e.dataset.bookObject,...bounds(e)}));
     const fandom=[...node.querySelectorAll('.fandom-sticker')].filter(node=>!node.hidden);
     anchors.fandom=fandom.map(e=>({key:e.dataset.fandomSticker,angle:parseFloat(e.dataset.stickerAngle)||0,onAttachment:e.dataset.stickerOnAttachment==='true',...bounds(e)}));
@@ -386,7 +387,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       const contact=printedPaper(index,b,g,1.2,-.6,map,'photo');
       a.photoImages.forEach((p,i)=>{
         const photo=printedPaper(index,p,contact,1.05,0,null,'photo');photo.position.x-=cx;photo.position.y-=cy;
-        registerFeedback('day-'+i,index,photo,p.w,p.h);
+        registerFeedback(a.photoKeys[i]||'day-'+i,index,photo,p.w,p.h);
       });clearUnderlay(index,b);
       sets.set(index,{type:'contact',contact,cards:a.fragments});
     }else if(pages[index].print.querySelector('.real-memory')){

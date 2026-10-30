@@ -78,3 +78,7 @@ Publish `dist/` with a static host. This repository contains application source 
 ## Reversible Polaroid photographs
 
 Book photographs and opened readers share portrait Polaroid frames with the original image ratio, thin top/sides and a deep date foot. Whole stored images are displayed without cropping. Tap the photograph or Read the back to reveal the original story through a550ms turn; Back to photo restores the front. The main photograph opens only its selected image and story, with no gallery controls. Each Four days photograph opens independently. The surrounding reader is transparent, and the whole frame lifts from the book. Zoom has been removed. Long backs scroll independently while the book stays locked. Existing editor import processing is unchanged.
+
+## Four days, two pages
+
+22–23 October share the first Four days page;24–25 October share the second. Each contains two larger portrait Polaroids. Both date pairs appear in contents and native/3D navigation, using the existing Four days divider art. Every photograph retains its original image and story; the main photograph remains separate.

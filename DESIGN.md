@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V90: Four days across two chronological pages
+
+Give22–23 October and24–25 October their own book/native page, each with two larger portrait Polaroids in a single row. Keep both under the Four days visual theme and reuse its divider art. Use independent section IDs so native navigation, contents and page sound follow the same two-page sequence as3D. Move existing camera/car/kiss ornaments to the return page for breathing room without adding assets. Register3D photograph keys from each actual day object, preserving day-2/day-3 capture and halos on the second page. Keep all original images, writing, ratios and readers; the main photo stays standalone. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V89: a single main photograph, with a finished Polaroid surface
 
 The main photograph opens only its current selected image and corresponding writing. Capture the exact rendered featured-photo object in its click binding, rather than selecting from the combined gallery; preserve memory/trip/auto selection semantics and duplicate-source captions. There are no gallery arrows, count or adjacent-photo controls in this reader. Give only the main Polaroid a quieter centered date, a fine warm edge, photo-window contact line and restrained paper shadow. Carry edge finishing into the3D source using the existing paper finisher. Match the main reverse and44px flip control to this material. Keep the full original image, aspect-ratio readiness,550ms flip, scrolling back, original fonts, palette, all content and independent Four days readers. Retain Antislop during3/3/3 and Taste8/9/5.

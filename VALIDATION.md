@@ -1,3 +1,15 @@
+# Validation: two Four days photo pages, V90
+
+30 October2026. Split the four dates into two explicit book/native sections:22–23 October at the retained your-world anchor,24–25 October at your-world-return. Each yields one reading page containing exactly two106px portrait Polaroids. Both share the existing Four days divider art and appear as chronological date pairs in contents/navigation. Existing camera/car/kiss ornaments move to the return page without adding assets. Source IDs, original images, exact stories and personalization arrays/schema are unchanged. The3D renderer registers each photo from its actual day key so the return-page pair retains day-2/day-3 capture and feedback instead of restarting at day-0.
+
+Current evidence: `qa/v90`. Touch WebKit375×667 and reduced/native375×520 verify exactly two pages, chronological pairs, larger frames within page bounds, correct date-pair navigation, all four original story readers and source keys, standalone main photograph, both contents entries and no JavaScript errors. Actual3D captureObject(day-N) snapshots are verified on both pairs at375×667. Both pages are visually reviewed at scene and native sizes. Config byte equality, syntax/diff and source/archive checks pass. Earlier broad audio/candle/motion suites remain historical; software WebKit is not physical iPhone certification.
+
+Initial QA measured offsetWidth while the3D pages were hidden behind the cover. Final QA uses computed width for the pre-navigation inventory and verifies actual rendered widths/bounds again on each active page. No app fix was needed for that harness assumption.
+
+Antislop during3/3/3 and Taste8/9/5 retained. All38 rules from the established V82 gate below reviewed for this bounded layout change. R-03/R-05/R-07/R-23: explicit owner-requested two-page rhythm, larger existing physical photographs and reused divider art. R-19/R-26/R-35: actual page navigation, source extraction and independent readers checked; no new motion. R-17/R-22/R-31/R-38: real supplied writing/images remain byte-identical; no new visual asset or invented itinerary. R-27: existing readiness/cleanup paths retained. L-1–L-7 and C-1–C-5 retain the scrapbook identity, intentional page pairing, breathing room, functional bindings and real evidence. Applicable Taste checks cover responsive geometry, readable type, original images and reduced-motion/native behavior. Other layouts/fonts/palette/audio and main-photo behavior remain.
+
+## Historical V89 validation
+
 # Validation: standalone main photograph and Polaroid finish, V89
 
 30 October2026. Main photograph opens a single-card reader from the exact rendered featured-photo object. There are no next/previous controls, gallery count or hidden adjacent photographs. Existing main-selection memory/trip/auto behavior remains; no JSON/schema or personal content changes. The main Polaroid alone receives a quieter centered date, warm fine edge, restrained contact shadow, photo-window line and matching reverse/control finish. Existing paper-edge detailing is also applied to its3D printed source. Four days readers remain independent.

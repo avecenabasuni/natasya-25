@@ -9,6 +9,7 @@
     birthday:{frame:[444,590,444,590],title:['Twenty-five.'],alt:'A pink birthday cake with a candle and silver balloons spelling 25.'},
     gift:{frame:[888,590,445,590],title:['One last','note.'],alt:'A sealed pink envelope with a ribbon, a heart stamp and a little brass key.'}
   };
+  entries['your-world-return']=entries['your-world'];
   function create(id){
     const entry=entries[id]||entries.dedication,[x,y,w,h]=entry.frame;
     const figure=document.createElement('figure');figure.className='chapter-divider';figure.dataset.divider=id;

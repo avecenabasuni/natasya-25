@@ -110,8 +110,8 @@
   const birthdayOrnaments=[
     birthdayPiece('cover-twenty-five','foil25','cover',3,44,64,{right:'4px',top:'8px'}),
     birthdayPiece('trip-love-postage','heartStamp','dedication',7,17,24,{right:'5px',top:'66%'}),
-    birthdayPiece('days-digital-camera','camera','your-world',6,52,44,{left:'207px',bottom:'32px'}),
-    birthdayPiece('days-car-couple','cars','your-world',-4,62,30,{left:'196px',top:'10px'}),
+    birthdayPiece('days-digital-camera','camera','your-world-return',6,52,44,{left:'207px',bottom:'32px'}),
+    birthdayPiece('days-car-couple','cars','your-world-return',-4,62,30,{left:'196px',top:'10px'}),
     birthdayPiece('photo-disco','disco','october',7,36,36,{left:'236px',bottom:'36px'}),
     birthdayPiece('photo-favorite-person','favoritePerson','october',-5,54,36,{left:'230px',top:'309px'},true),
     birthdayPiece('notes-foil-stars','foilStars','letter',-8,27,24,{right:'69px',top:'4px'}),
@@ -131,7 +131,7 @@
   const romanceOrnaments=[
     romancePiece('trip-penguin-pair','penguins','dedication',-4,76,50,{left:'38px',bottom:'32px'}),
     romancePiece('trip-love-balloons','balloons','dedication',-6,20,34,{left:'4px',top:'39%'}),
-    romancePiece('days-red-kiss','redKiss','your-world',-8,28,23,{left:'114px',bottom:'36px'}),
+    romancePiece('days-red-kiss','redKiss','your-world-return',-8,28,23,{left:'114px',bottom:'36px'}),
     romancePiece('photo-blue-kiss','blueKiss','october',-12,19,17,{left:'5px',top:'30%'}),
     romancePiece('notes-foil-heart','foilHeart','letter',10,23,22,{right:'25px',top:'3px'}),
     romancePiece('birthday-kiss-heart','kissHeart','birthday',7,35,34,{left:'236px',bottom:'35px'}),
