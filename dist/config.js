@@ -15,7 +15,7 @@ window.BIRTHDAY_CONFIG = {
     "I may be little, but playing with you is a big deal to me. Your tiny playmate had to be here, too."
   ],
   mealNotes: window.SCRAPBOOK_TRIP.mealMemories.map(meal=>meal.text),
-  giftNote: "I got you a heated blanket for the cold evenings at your WG in Trier.\n\nI wish I could be there to wrap you up myself. Until then, I hope it feels a little like a hug from me.\n\nHappy 25th, love.",
+  giftNote: "akhirnya aku beliin kamu heated blanket buat winter nanti pastinya kedinginan di wg\n\nharapan aku kamu bisa pake biar kamu bisa belajar apalagi dingin banget dan gaada aku ehehe\n\nwalaupun aku gabisa wrap it up myself, tapi semoga ini bisa berguna buat kamu yaa, semoga rasanya kaya kamu megang tangan aku, kaya dipeluk akuuu pas tidurrr\n\nselamat berumur 25 tahun sayang",
   dedication: "",
   littleThings: ["", "", "", "", "", ""],
   distanceNote: "every time i look at this photo, i remember all those little moments from that day",

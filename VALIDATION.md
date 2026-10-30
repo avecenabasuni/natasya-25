@@ -1,3 +1,11 @@
+# Validation: personal heated-blanket closing note, V86
+
+30 October2026. Change only giftNote to the owner's exact four-paragraph message. Source comparison confirms every other personalisation value unchanged. Actual touch WebKit375×667 opens the birthday chapter, blows the candle, opens the final envelope and verifies all four paragraphs against the supplied text; the owner editor matches the same message. Screenshot reviewed. No JavaScript errors. Config syntax and diff checks pass. Evidence: `qa/v86`. Previous broad suites remain historical.
+
+Antislop during3/3/3 and Taste8/9/5 retained. Existing38-rule gate was reviewed for this text-only change; R-17/R-23/R-38 preserve the owner's actual words, R-26/R-35 cover the actual final-note/editor binding. L-1–L-7, C-1–C-5 and applicable Taste checks retain the approved scrapbook design and functionality. No font, layout, image, palette, control, motion or audio change.
+
+## Historical V85 validation
+
 # Validation:25 October farewell memory, V85
 
 30 October2026. Add the supplied original720×1280 bus-window photograph and exact fourteen-paragraph1829-character farewell story to T25. Config comparison permits only germanyPhotos[3] and germanyCaptions[3] changes; all earlier photos, writing and main selection remain unchanged. Original photo bytes/hash verified. Font styles remain the restored original system. Config syntax and diff checks pass.

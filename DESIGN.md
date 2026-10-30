@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V86: original personal closing note
+
+Replace only giftNote with the owner's exact four-paragraph heated-blanket message for the final envelope. Preserve all spelling, casing, language and paragraph breaks. No other content or design changes. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V85:25 October farewell memory
 
 Fill only the25 October Four days pocket with the original supplied bus-window farewell photo and all fourteen paragraphs verbatim. Preserve spelling, case, emoticons and paragraph breaks. Retain the restored original font system, all earlier writing/photos and the separate main photograph. No new itinerary or weather metadata is inferred beyond the owner's writing. Retain Antislop during3/3/3 and Taste8/9/5.
