@@ -24,7 +24,7 @@ The further romantic reference is adapted for his girlfriend with a plush pengui
 
 ## Personal details and keepsakes
 
-The main photograph is the owner's supplied riverside selfie in Luxembourg, selected explicitly as memory M01. Opening it shows the English account of their cold, rainy and windy last sightseeing stop, food-and-home decision, ducks, wrong bus-stop position and flat hair. The original image remains intact and its full six-paragraph memory remains editable in the personalisation editor. Other unsupplied photos and writing remain optional placeholders.
+The main photograph is the owner's supplied riverside selfie in Luxembourg, dated 23 October 2026 and selected explicitly as trip slot T23. Opening it shows Ave's original six-paragraph writing verbatim, including his Indonesian/Malay slang, spelling and closing English sentence. The same image belongs to the 23 October day pocket, with no duplicate gallery entry. The original image remains intact and its full memory remains editable in the personalisation editor. Other unsupplied photos and writing remain optional placeholders.
 
 The journey map shows the owner-confirmed RE11 train toward Luxembourg and L31 bus return toward Trier as a geographically anchored memory schematic. Personal English writing sits above it, without a caption below it. [Map sources](dist/assets/illustrations/trier-luxembourg-route.md) document the verified anchors and simplified connections.
 

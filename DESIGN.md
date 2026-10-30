@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V79: preserve Ave's actual words and confirmed date
+
+Replace the translated memory and invented English annotation with the exact wording Ave supplied, preserving all six paragraphs, lowercase, slang and spellings. The page annotation uses his own closing sentence verbatim; allow90 characters on phones so this sentence fits without an extra continuation leaf containing only a Read the note action. He confirms the photo was taken on23 October2026: store it once in trip slot T23 and select trip:1 as the main photograph so the book and reader show the confirmed date. No image, style or animation change. His explicit request to preserve wording overrides the earlier general English-content preference. Retain the established Antislop during3/3/3 and Taste8/9/5.
+
 ## V78: the supplied last-stop photograph
 
 Use Ave's supplied Luxembourg river photograph as memory slot M01 and explicitly select it as the main photograph. Copy its original JPEG bytes without cropping or visual alteration. Keep the physical mount and full-image reader. Translate his supplied memory into conversational English, preserving the cold/rain/wind, tiredness/hunger, abandoned itinerary, food-and-home decision, surroundings and ducks, wrong bus-stop position, flat hair and final reflection. Put the complete six-paragraph story with the photo; retain a short annotation on the physical page. Preserve paragraph breaks in gallery captions. No date or exact landmark is inferred. Retain Antislop during 3/3/3 and Taste 8/9/5, existing layout/type/palette/motion and owner-private access.

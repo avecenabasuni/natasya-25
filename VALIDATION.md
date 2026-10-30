@@ -1,4 +1,10 @@
-# Validation: owner-supplied main photograph, V78
+# Validation: verbatim photograph memory and date, V79
+
+30 October 2026. Current evidence is in `qa/v79`. Restore the owner's exact six-paragraph writing, removing the translation and invented page annotation. The page annotation is now his own closing sentence. His confirmed 23 October2026 date is carried by trip slot T23, selected as the main photograph without duplicating the image in the gallery. Touch WebKit375×667 and reduced/native375×520 verify the hero date, original source, exact rendered caption equality, paragraphs, full-image reader and editable T23 selection/writing. Image bytes, stylesheet, motion and audio are unchanged. Source/archive/GitHub byte checks precede publication.
+
+All38 rules of the V78 Antislop delivery gate below were rechecked for this correction: the visual/interaction system is retained, actual owner text/date satisfy R-17/R-23/R-38, R-02 contains no em dash, R-26/R-35 use current browser results, and R-33 uses apply_patch. The supplied nonstandard spelling is intentional, following the owner's explicit instruction, not an editing error. L-1–L-7, C-1–C-5 and relevant Taste checks retain their prior content-only purposes. Established Antislop during3/3/3 and Taste8/9/5 remain. Earlier broad suites are historical; physical iPhone hardware testing is not claimed.
+
+## Historical validation: owner-supplied main photograph, V78
 
 30 October 2026. Current evidence is in `qa/v78`. Scope: original supplied JPEG, explicit M01 main-photo selection, complete English memory, brief page annotation and preserved gallery paragraph breaks. Real touch WebKit375×667 and reduced/native375×520 check the default hero, full-photo reader, complete story, paragraph formatting and editable selection/caption. Source checks compare the deployed JPEG with the attachment byte-for-byte. No image transformation or new date/location claim is made. Earlier broad suites remain historical.
 
