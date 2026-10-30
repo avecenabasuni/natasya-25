@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V93: filled photograph-divider mounts
+
+Fill the two printed Polaroid apertures on Moments to keep. with the currently selected main photograph and a distinct existing trip photograph, preferring the RE11 selfie. Use the same source selection and aperture geometry in native HTML and the3D printed back. Preserve the original collage, cream frames, front-mount overlap, ribbon and daisy; no new image asset or motion. Refresh the selection with personalization and require both images before scene readiness. Keep this native divider short enough for its heading to clear phone navigation. Other photographs remain full originals in their readers. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V92: Tasya's original25th birthday wish
 
 Fill only wishes[2], the folded birthday card on the cake page, with the owner's exact five-paragraph message. Keep all wording, capitals, emoticons and paragraph breaks, including the literal <3 and >:( as safely escaped text. The long love letter and final heated-blanket note remain separate. No design or schema changes. Retain Antislop during3/3/3 and Taste8/9/5.

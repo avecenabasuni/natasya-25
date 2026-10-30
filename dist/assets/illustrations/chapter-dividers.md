@@ -22,3 +22,5 @@ The atlas has three equal visual columns and two equal rows. Render each frame w
 | Your gift | `[888, 590, 445, 590]` | Closed pink envelope, heart wax seal, blank heart postage, ribbon and a small brass key. |
 
 The original result's tile ratio is about 0.753, slightly wider than the scrapbook's 5:7 paper. A runtime uniformly scaled crop or contain fit can accommodate this. No person, celebrity likeness, personal pet photograph, travel fact, gift code or new brand artwork is generated.
+
+V93 fills the Photographs tile's two apertures at runtime using the owner's original configured photographs. The rear mount uses the selected main photograph; the front prefers a distinct RE11 journey photograph, falling back to another configured photo. Matching clipped HTML images and canvas printing preserve the original frame overlap and ornaments. These small decorative previews use centered cover crops; the photo readers retain the full originals. The original generated atlas bytes remain unchanged.

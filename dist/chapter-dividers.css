@@ -3,6 +3,8 @@
 .divider-art{position:absolute;inset:calc(100cqw * 8 / 335);container-type:size}
 .divider-window{position:absolute;left:50%;top:50%;width:min(100cqw,calc(100cqh * var(--divider-ratio)));aspect-ratio:var(--divider-ratio);transform:translate(-50%,-50%);overflow:hidden}
 .chapter-divider .divider-window img{position:absolute;max-width:none;object-fit:fill;display:block}
+.divider-photos,.divider-photo-slot{position:absolute;inset:0;pointer-events:none}
+.chapter-divider .divider-photos img{object-fit:cover;transform-origin:0 0}
 .divider-caption{position:absolute;left:9%;right:7%;bottom:7.5%;padding:0;text-align:left}
 .chapter-divider .divider-title{margin:0;padding:0;font:500 10cqw/1.06 var(--serif);letter-spacing:0;color:var(--ink);font-optical-sizing:none;outline-offset:6px}
 .divider-title:focus-visible{outline:3px solid var(--rose)}
@@ -21,5 +23,5 @@
 .three-book .left-leaf .divider-date{color:transparent}
 .edited-story:not(.has-book-film) .album-chapter>.page-seat{display:flex;flex-direction:column;gap:28px}
 .edited-story:not(.has-book-film) .page-seat>.chapter-divider{aspect-ratio:5/7;height:auto;flex:none;box-shadow:0 2px 4px #301e2a18}
-.edited-story:not(.has-book-film) .page-seat>.journey-divider{height:clamp(340px,calc(100dvh - var(--site-header-h) - 80px),520px);aspect-ratio:auto}
+.edited-story:not(.has-book-film) .page-seat>.journey-divider,.edited-story:not(.has-book-film) .page-seat>.chapter-divider[data-divider="october"]{height:clamp(340px,calc(100dvh - var(--site-header-h) - 80px),520px);aspect-ratio:auto}
 @media(min-width:960px){.edited-story:not(.has-book-film) .album-chapter>.page-seat{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:24px}.edited-story:not(.has-book-film) .page-seat>.replay-link{grid-column:2;justify-self:center}}

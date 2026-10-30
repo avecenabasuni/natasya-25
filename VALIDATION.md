@@ -1,3 +1,13 @@
+# Validation: filled Moments to keep divider, V93
+
+30 October2026. The original generated collage intentionally contained two blank photo apertures. Fill them at runtime using the selected main photo and a distinct configured trip photo, preferring the RE11 selfie. Shared source selection, clipping polygons and affine placement match native HTML to the3D canvas back. The rear photo stops at the front cream mount; ribbon/daisy/frame artwork and the original atlas remain intact. No new asset, font, wording, schema, motion or audio. Existing readers keep uncut original images.
+
+Focused touch WebKit375×667 and reduced/native375×520 checks pass: both images decoded before intro release, correct native and actual3D inputs, visible filled apertures, native heading clearance above phone navigation, return navigation and editor-selected main-photo refresh. No JavaScript errors; screenshots reviewed in both renderers. Evidence: qa/v93/checks.json and divider captures. Syntax/diff checks and original config/atlas byte equality pass. Earlier broad motion/audio/loading suites remain historical; this is software WebKit verification, not a physical-iPhone performance claim.
+
+Antislop during3/3/3 and Taste8/9/5 retained. The established38-rule gate is reviewed for this bounded correction: R-03/R-26/R-27/R-35 cover mobile, actual render paths, readiness and personalization; R-17/R-22/R-23/R-38 preserve the owner's real photos and truthful content; R-07/R-12/R-19 preserve physical paper, frames and motion. L-1–L-7 and C-1–C-5 retain the approved scrapbook identity, meaningful image composition, functional navigation and source provenance. No empty interactive control or decorative loading delay is added.
+
+## Historical V92 validation
+
 # Validation: owner's personal birthday wish, V92
 
 30 October2026. Fill only wishes[2], the birthday card on the cake page, with the exact five-paragraph539-character owner message. Literal <3 and >:( remain text through existing HTML escaping; spelling, capitals and paragraph breaks are preserved. Source comparison permits only wishes[2]; other writing/images, the blank love letter and final blanket note remain unchanged. No style, asset, schema, motion or audio changes.

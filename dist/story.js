@@ -177,6 +177,7 @@ openDialog(`<p class="dialog-label">${trip.dates}</p><h2>Trier & Luxembourg.</h2
       app.querySelector('.open-book').classList.add('book-endpoint-action');
       replayAction.classList.add('book-endpoint-action');replayAction.querySelector('.ui-icon')?.remove();
       replayAction.closest('.page-seat').append(replayAction);
+      window.ScrapbookDividers.setPhotos(photo?.src,[c.germanyPhotos[1],...c.germanyPhotos,...c.photos]);
       chapters.slice(1).forEach(([id])=>{const seat=document.querySelector(`#${id}>.page-seat`);seat.prepend(window.ScrapbookDividers.create(id));});
       app.querySelectorAll('.real-memory img,.fragment-image img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;if(!img.parentElement.querySelector('.image-error'))img.parentElement.insertAdjacentHTML('beforeend','<span class="image-error">This photo could not be loaded.</span>');},{once:true}));
       app.querySelectorAll('.cake-art').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;img.parentElement.querySelector('.cake-art-error').hidden=false;},{once:true}));
