@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V81: the22 October Trier photograph
+
+Fill only T22 with the supplied photograph and exact five-paragraph writing about Hauptmarkt, the church and Woolworth. Preserve lowercase, spellings, capitals and :3 expressions. Keep the original JPEG intact, with a full-image reader. The main riverside photograph and23 October RE11 image/stories remain unchanged. Do not infer the church name. No layout, type, palette, motion or audio changes. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V80: separate the RE11 journey from the main photograph
 
 Use the supplied train selfie and exact eight-paragraph writing in Four days23 October, Trier to Luxembourg. Preserve all spelling, case, punctuation and :3 expressions. Return the river photograph and its unchanged six-paragraph memory to M01, explicitly selected as the main photograph. Keep its confirmed23 October label in the known-fact trip metadata keyed to that specific supplied source, so replacing the M01 photo never falsely dates another image. The train photograph is a separate original file, not a replacement main photograph. Keep both writing fields editable, full-image readers and paragraph spacing, with original image bytes. Retain the established layout, type, palette, motion, audio and Antislop during3/3/3, Taste8/9/5.

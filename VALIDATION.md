@@ -1,4 +1,10 @@
-# Validation: separate23 October train memory, V80
+# Validation:22 October Trier memory, V81
+
+30 October2026. Current evidence is in `qa/v81`. Scope: original church photograph and exact five-paragraph owner story in T22. Touch WebKit375×667 and reduced/native375×520 verify the22 October source/date/city, exact complete rendered writing, paragraph count, full image, independent main photograph/story and separate editor fields. Source checks preserve the original JPEG bytes and every earlier content field except the formerly empty T22 photo/caption. Earlier broad suites are historical.
+
+All38 Antislop rules in the V78 gate below were rechecked for this bounded content addition. Real supplied writing/image/date satisfy R-17/R-22/R-23/R-38; R-02 has no em dash; current phone checks cover R-26/R-35; provenance covers R-31; application/docs edits use apply_patch and the image is copied intact for R-33. No styles, controls, layout, navigation, motion or audio are changed. L-1–L-7, C-1–C-5 and applicable Taste utility checks retain the established purposes and visual system, with Antislop during3/3/3 and Taste8/9/5. No exact church identity or physical-iPhone certification is claimed.
+
+## Historical validation: separate23 October train memory, V80
 
 30 October2026. Current evidence is in `qa/v80`. Scope: the supplied RE11 train photograph and verbatim eight-paragraph story in the23 October Four days pocket; separate unchanged river photograph/story as explicitly selected main memory M01. The river's confirmed date is source-specific known-fact metadata, independent of the trip-slot photograph. Full-image readers preserve both original files. Real touch WebKit375×667 and reduced/native375×520 check the day source/route/date, all train paragraphs, full image, main source/date, unchanged river story, separate editor selection/captions and absence of JavaScript errors. The train story stays within the existing1200-character caption limit. Source/archive/GitHub byte checks verify original media and current source.
 
