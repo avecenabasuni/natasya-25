@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V91: distinct outward and homeward dividers
+
+Replace the duplicated Four days camera collage with two newly generated illustrations matching the existing pink/sage paper aesthetic.22–23 October uses church, regional train and rail-ticket imagery under The way there.;24–25 October uses rain-speckled bus window, umbrella, ribbon and heart imagery under The way back. Dates/headings stay live text. Share a two-panel atlas, reserve the lower30percent for readable labels, and fit the two native dividers above phone navigation. Generalize divider sources so native DOM and3D backs select the same correct illustration; add the new asset to mandatory loading. Other divider art and all personal text/images remain unchanged. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V90: Four days across two chronological pages
 
 Give22–23 October and24–25 October their own book/native page, each with two larger portrait Polaroids in a single row. Keep both under the Four days visual theme and reuse its divider art. Use independent section IDs so native navigation, contents and page sound follow the same two-page sequence as3D. Move existing camera/car/kiss ornaments to the return page for breathing room without adding assets. Register3D photograph keys from each actual day object, preserving day-2/day-3 capture and halos on the second page. Keep all original images, writing, ratios and readers; the main photo stays standalone. Retain Antislop during3/3/3 and Taste8/9/5.

@@ -4,7 +4,7 @@
   const iconNames=['airplane-tilt','arrow-counter-clockwise','arrow-left','arrow-right','book-open','cat','check','copy','download-simple','gift','lightbulb','lock','map-trifold','music-notes','pencil-simple','speaker-high','speaker-slash','ticket','vinyl-record','x'];
   const extraImages=[
     'assets/cat.svg','assets/materials/atlas.webp','assets/materials/paper.webp','assets/materials/linen.webp',
-    'assets/illustrations/birthday-collage-cover.webp','assets/illustrations/cover-tasya-bouquet.jpg','assets/illustrations/chapter-dividers.png',
+    'assets/illustrations/birthday-collage-cover.webp','assets/illustrations/cover-tasya-bouquet.jpg','assets/illustrations/chapter-dividers.png','assets/illustrations/four-days-dividers.webp',
     'assets/illustrations/trier-luxembourg-route.webp','assets/illustrations/luxembourg-keepsake-map.webp','assets/illustrations/trier-keepsake-map.webp',
     'assets/cutouts/five-cats.webp','assets/cutouts/bonnie.webp','assets/cutouts/connie.webp','assets/cutouts/wonnie.webp','assets/cutouts/birthday-cake.webp',
     'assets/cutouts/favorites-stickers.png','assets/cutouts/scrapbook-ephemera.png','assets/cutouts/alex-albon-portrait.webp','assets/cutouts/lewis-hamilton-portrait.webp',

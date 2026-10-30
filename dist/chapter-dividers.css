@@ -6,6 +6,8 @@
 .divider-caption{position:absolute;left:9%;right:7%;bottom:7.5%;padding:0;text-align:left}
 .chapter-divider .divider-title{margin:0;padding:0;font:500 10cqw/1.06 var(--serif);letter-spacing:0;color:var(--ink);font-optical-sizing:none;outline-offset:6px}
 .divider-title:focus-visible{outline:3px solid var(--rose)}
+.divider-date{margin:0 0 2.7cqw;font:400 3.8cqw/1.35 var(--display);letter-spacing:.025em;color:#6e5e65}
+.journey-divider .divider-art{bottom:30%}
 .divider-art-missing .divider-art{display:none}
 .has-book-film .page-seat>.chapter-divider{display:none}
 .cover-back:has(>.chapter-divider){padding:0;border-width:3px;gap:0}
@@ -16,6 +18,8 @@
 .three-book .left-leaf .chapter-divider{background:transparent}
 .three-book .left-leaf .divider-art{opacity:0}
 .three-book .left-leaf .divider-title{color:transparent}
+.three-book .left-leaf .divider-date{color:transparent}
 .edited-story:not(.has-book-film) .album-chapter>.page-seat{display:flex;flex-direction:column;gap:28px}
 .edited-story:not(.has-book-film) .page-seat>.chapter-divider{aspect-ratio:5/7;height:auto;flex:none;box-shadow:0 2px 4px #301e2a18}
+.edited-story:not(.has-book-film) .page-seat>.journey-divider{height:clamp(340px,calc(100dvh - var(--site-header-h) - 80px),520px);aspect-ratio:auto}
 @media(min-width:960px){.edited-story:not(.has-book-film) .album-chapter>.page-seat{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:24px}.edited-story:not(.has-book-film) .page-seat>.replay-link{grid-column:2;justify-self:center}}

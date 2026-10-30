@@ -44,3 +44,5 @@ The existing five-cat artwork illustrates the supplied descriptions. Minnie is b
 ## Recorded object sounds
 
 The five CC0 material recordings come from Keegan_Miner, Atrius1, dalexgray and Aurelon on Freesound, and Spring Spring / Julie Damsgaard on OpenGameArt. They are separate from StarNinjas' existing book-page recordings. [Object audio sources](audio/OBJECT-SOURCES.md) records the source pages, exact excerpts, processing, byte sizes and delivery hashes.
+
+The two Four days divider compositions are original generated illustrative collages, requested by the owner on30 October2026. [Illustration provenance](illustrations/PROVENANCE.md) records the source and delivery encoding. They do not represent actual trip photographs.

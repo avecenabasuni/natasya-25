@@ -81,4 +81,6 @@ Book photographs and opened readers share portrait Polaroid frames with the orig
 
 ## Four days, two pages
 
-22–23 October share the first Four days page;24–25 October share the second. Each contains two larger portrait Polaroids. Both date pairs appear in contents and native/3D navigation, using the existing Four days divider art. Every photograph retains its original image and story; the main photograph remains separate.
+22–23 October share the first Four days page;24–25 October share the second. Each contains two larger portrait Polaroids. Both date pairs appear in contents and native/3D navigation, with distinct outward/homeward collage dividers. Every photograph retains its original image and story; the main photograph remains separate.
+
+Four days divider artwork now differs by date pair: The way there.(22–23 October), church/rail collage; The way back.(24–25 October), rain-speckled bus-window collage. The new atlas is prepared by the loading screen and used consistently by native pages and3D page backs. Other divider illustrations remain unchanged.

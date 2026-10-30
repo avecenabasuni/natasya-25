@@ -1,3 +1,11 @@
+# Four days divider illustrations, V91
+
+Generated30 October2026 for the owner-requested revision of both Four days dividers. `four-days-dividers.webp` is a1536×1024 original two-panel collage atlas: warm church/rail imagery for22–23 October and rain-speckled bus-window/umbrella imagery for24–25 October. Pink/sage paper, pressed autumn leaves and romantic ephemera match the existing divider atlas used as a style reference. These are illustrative keepsakes, not photographs of the actual trip, exact architecture or actual vehicle. No person or shared couple photograph was generated.
+
+Original PNG retained at `/workspace/generated_images/exec-5047c637-adb7-4bac-9721-e81a5cd3048a.png`. Delivery WebP is a quality92 format encoding with unchanged dimensions/content. CSS/canvas crop the empty lower paper using frames[0,0,768,840] and[768,0,768,840]; subjects remain intact. Live dates and headings are HTML/canvas text, never baked into the illustration. `qa/v91/asset-check.json` records hashes and delivery bytes. The original six-panel divider atlas remains unchanged for other chapters.
+
+## Historical illustration provenance
+
 # Original paper illustrations
 
 Current V24 reader: the geographic overview is `trier-luxembourg-map.webp`, with its editable SVG and complete source/credit record in [trier-luxembourg-map.md](trier-luxembourg-map.md). The confirmed trip is 22–25 October 2026, with Luxembourg as the main exploration and Trier at the beginning and end. Earlier artwork and its original production briefs below are retained as history.
