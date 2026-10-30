@@ -38,7 +38,6 @@ Source Sans3 is by Paul D. Hunt, Adobe. Source: https://github.com/google/fonts/
 
 Both fonts use the SIL Open Font License. Their license files are included in assets/fonts. The Fraunces print subset fixes optical size36, softness35 and wonk0; weight remains variable400-600. Source Sans3 print subsets retain weights400-600. Latin and Latin-ext are served separately.
 
-Photo descriptions use Kalam, Regular400, by Indian Type Foundry, copyright2014, sourced through Google Fonts. Its SIL Open Font License1.1 is included. [Handwriting font provenance](fonts/HANDWRITING.md) records the source, lossless WOFF conversion and reader use.
 
 The existing five-cat artwork illustrates the supplied descriptions. Minnie is based on the supplied reference photograph. It does not represent real trip photography. The same source image is displayed through five individual cropped sticker mounts; no coat descriptions have been changed.
 

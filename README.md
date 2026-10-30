@@ -24,7 +24,7 @@ The further romantic reference is adapted for his girlfriend with a plush pengui
 
 ## Personal details and keepsakes
 
-Photo descriptions now use the self-hosted Google Fonts family Kalam Regular. Its gently sloped pen-style letterforms apply to day stories, gallery captions and the brief main-photo annotation, while dates/headings/controls keep their existing fonts. The new FontFace is prepared before the cover appears. [Font source and license](dist/assets/fonts/HANDWRITING.md) records provenance. Photo captions now allow4000 characters through editing, normalization and JSON round trips.
+Photo descriptions use the original scrapbook typography again. Photo captions retain the4000-character limit through editing, normalization and JSON round trips.
 
 The24 October pocket contains the return-bus photograph and all eleven supplied paragraphs verbatim: the replacement bus, information desk, O'Tacos, passport check and reflection on travelling together. Its1247 characters are retained in full. Earlier photographs and stories remain unchanged.
 

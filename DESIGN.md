@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V84: restore original description fonts
+
+Restore the pre-handwriting typography requested by the owner. Remove the handwriting stylesheet, asset/preload and explicit fifth-font preparation; use the unchanged underlying scrapbook rules for day stories, gallery captions and the main annotation. All photographs, exact personal writing and4000-character caption support remain. Retain existing Antislop during3/3/3 and Taste8/9/5.
+
 ## V83: replace the rejected handwriting
 
 Replace Edu NSW ACT Hand Pre with Kalam Regular after comparing Kalam, Patrick Hand and Shantell Sans using the actual story at375px. The owner rejected the school-handwriting look; choose a gently sloped pen voice,22px/1.55 in photo readers and18px/1.5 on the printed annotation. Keep the original words and photos unchanged. Self-host the licensed font, replace the preload and explicit preparation/retry references, and preserve the strict readiness gate. Retain established Antislop during3/3/3 and Taste8/9/5.

@@ -1,3 +1,11 @@
+# Validation: original typography restored, V84
+
+30 October2026. Restore the pre-handwriting font rules by removing the handwriting override, font asset/license and preload, and restoring the original four-face print preparation. All user content remains byte-identical in config.js;4000-character captions remain supported. Focused WebKit checks at375×667 and reduced/native375×520 cover four loaded fonts before entry, original day-story and printed annotation rules, complete return-bus writing, no horizontal overflow and no JavaScript errors. Actual reader and main-page captures are reviewed. Syntax/diff/source/archive checks pass. Evidence: `qa/v84`. Previous broad checks remain historical; this is not physical iPhone certification.
+
+Antislop during3/3/3 and Taste8/9/5 remain active. All38 rules from the existing V82 delivery gate below remain satisfied for this bounded reversal. R-06/R-07/R-23: return to the owner's original approved typography; R-25/R-26/R-35: phone wrapping and complete story checks; R-27: strict readiness retained with the original four faces. No copy, photos, controls, motion, ornaments or palette change. L-1–L-7, C-1–C-5 and applicable Taste utility checks retain the established design purpose and real-image identity.
+
+## Historical V83 validation
+
 # Validation: handwritten typography refinement, V83
 
 30 October2026. The rejected Edu NSW ACT Hand Pre is replaced with Kalam Regular. Three Google Fonts candidates were rendered side by side using the actual return-bus story at375px. Kalam provides gently sloped pen strokes; descriptions use22px/1.55 and the short printed annotation remains18px/1.5. Original text, images, controls and headings are unchanged. License and lossless font-container conversion are verified.
