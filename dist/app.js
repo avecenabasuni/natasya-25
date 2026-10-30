@@ -71,6 +71,7 @@
     const intro=window.ScrapbookIntro;
     const imagesReady=await intro.bounded(intro.decodeImages(preload),20000);
     if(!imagesReady)throw new Error('One of your photos could not be prepared. Please choose that photo again.');
+    await intro.bounded(window.ScrapbookPhotoCards.load(next),20000);
     await intro.bounded(preparePrintFonts(next),10000);
     const saved=await persist(next);config=next;
     intro.reopen();modalLock.close($('#personalize-dialog'));
@@ -93,6 +94,7 @@
     $('#personalize-button').innerHTML=icon('settings');$('#personalize-button').hidden=!ownerView;
     personalizer=window.ScrapbookPersonalization.create({dialog:$('#personalize-dialog'),icon,getConfig:()=>config,normalize,loadDraft:()=>bounded(read('personalization-draft-v2'),4000).catch(()=>null),saveDraft:value=>persist(value,'personalization-draft-v2'),apply:applyPersonalisation,onClose:()=>modalLock.close($('#personalize-dialog')),toast});
     $('#personalize-button').onclick=()=>{if(personalizer.busy)return;modalLock.acquire();void personalizer.open();};
+    await bounded(window.ScrapbookPhotoCards.load(config),20000);
     await bounded(preparePrintFonts(config),10000);
     await bounded(window.bookRendererReady,10000);
     story.render();

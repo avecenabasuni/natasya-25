@@ -144,7 +144,7 @@
     }
     function fallback(source){
       const portrait=source.dataset.bookObject?.startsWith('cat-')?source.querySelector('.pet-portrait'):null;
-      const target=portrait||source.querySelector('.coupon-card,.fragment-image')||source.closest('.real-memory,.trier-map')||source;
+      const target=portrait||source.querySelector('.coupon-card')||source.closest('.photo-fragment')||source.closest('.real-memory,.trier-map')||source;
       const rect=rectOf(target),copy=target.cloneNode(true),nodes=[copy,...copy.querySelectorAll('*')],originals=[target,...target.querySelectorAll('*')];
       nodes.forEach((node,i)=>{
         const css=getComputedStyle(originals[i]);for(const property of css)node.style.setProperty(property,css.getPropertyValue(property));
@@ -170,6 +170,7 @@
     function frontPose(state){
       if(state.kind==='card'){const b=rectOf(state.body),r=state.snapshot.rect;return{x:b.left-r.left,y:b.top-r.top,scale:b.width/r.width,angle:0};}
       const d=state.destination,hero=state.targetSelector?state.body.querySelector(state.targetSelector):null,candidate=hero?rectOf(hero):null;
+      if(state.kind==='photo'&&usable(candidate)){const r=state.snapshot.rect;return{x:candidate.left-r.left,y:candidate.top-r.top,scale:candidate.width/r.width,angle:0};}
       const fallback={left:d.left+24,top:d.top+50,width:d.width-48,height:d.height-90};
       const left=candidate?Math.max(candidate.left,fallback.left):0,top=candidate?Math.max(candidate.top,fallback.top):0;
       const visible=candidate?{left,top,width:Math.min(candidate.left+candidate.width,d.left+d.width-24)-left,height:Math.min(candidate.top+candidate.height,d.top+d.height-24)-top}:null;
@@ -296,7 +297,7 @@
       const prepared=window.ScrapbookIntro?.decodeImages?await window.ScrapbookIntro.decodeImages(dialog):true;
       if(generation!==openingGeneration)return;
       if(!prepared){window.ScrapbookModalLock.close(dialog);onError();return;}
-      dialog.__photoDispose=window.ScrapbookPhotoCards?.mount(dialog);
+      dialog.__photoDispose=window.ScrapbookPhotoCards?.mount(dialog,source);
       let snapshot=null;if(anchored&&!reduced())try{snapshot=kind==='disclosure'?{rect:rectOf(source),getRect:()=>rectOf(source)}:capture?.()||fallback(source);}catch{}
       const animated=!!snapshot&&usable(snapshot.rect)&&typeof dialog.animate==='function'&&!reduced();
       if(!anchored){if(!dialog.open)dialog.showModal();dialog.querySelector('#close-note-dialog').focus({preventScroll:true});phase(null,'reading');return;}

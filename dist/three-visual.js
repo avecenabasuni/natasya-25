@@ -159,7 +159,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
         const style=getComputedStyle(ancestor);if(!['hidden','clip'].includes(style.overflowX)&&!['hidden','clip'].includes(style.overflowY))continue;
         const r=ancestor.getBoundingClientRect();ctx.beginPath();ctx.rect(r.left-origin.left,r.top-origin.top,r.width,r.height);ctx.clip();
       }
-      ctx.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;ctx.letterSpacing=s.letterSpacing==='normal'?'0px':s.letterSpacing;ctx.fillStyle=e.closest('.cover-name-ink')?s.color:e.closest('.photo-fragment')&&!e.closest('.fragment-image')?palette.paper:palette['scene-ink'];ctx.textBaseline='alphabetic';
+      ctx.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;ctx.letterSpacing=s.letterSpacing==='normal'?'0px':s.letterSpacing;ctx.fillStyle=e.closest('.cover-name-ink')?s.color:e.closest('.photo-fragment')&&!e.closest('.fragment-image,.polaroid-caption')?palette.paper:palette['scene-ink'];ctx.textBaseline='alphabetic';
       const metrics=ctx.measureText('Mg'),ascent=metrics.actualBoundingBoxAscent,descent=metrics.actualBoundingBoxDescent,range=document.createRange();let line=null;
       const drawLine=()=>{if(!line)return;const x=line.left-origin.left,y=line.top-origin.top+(line.height-ascent-descent)/2+ascent;ctx.fillText(line.text,x,y);if(relief&&e.closest('.cover-month,.cover-kicker')){relief.save();relief.font=ctx.font;relief.letterSpacing=ctx.letterSpacing;relief.fillStyle='#747474';relief.fillText(line.text,x,y);relief.restore();}};
       for(let i=0;i<n.length;){
@@ -198,7 +198,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     anchors.stickers=[...node.querySelectorAll('.pet-sticker')].map(bounds);
     anchors.petPortraits=[...node.querySelectorAll('.pet-portrait')].map(bounds);
     parts.catMasks=await Promise.all([...node.querySelectorAll('.pet-portrait')].map(async e=>{const r=e.getBoundingClientRect(),part=canvas2d(r.width,r.height);await drawDOM(e,part.ctx,r);return texture(part.c);}));
-    anchors.photoImages=[...node.querySelectorAll('.fragment-image')].map(bounds);
+    anchors.photoImages=[...node.querySelectorAll('.photo-fragment')].map(bounds);
     anchors.actions=[...node.querySelectorAll('.story-button[data-book-object]')].map(e=>({key:e.dataset.bookObject,...bounds(e)}));
     const fandom=[...node.querySelectorAll('.fandom-sticker')].filter(node=>!node.hidden);
     anchors.fandom=fandom.map(e=>({key:e.dataset.fandomSticker,angle:parseFloat(e.dataset.stickerAngle)||0,onAttachment:e.dataset.stickerOnAttachment==='true',...bounds(e)}));

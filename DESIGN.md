@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V88: the same portrait Polaroid in book and reader
+
+Remove zoom entirely. Share one Polaroid frame across book objects and readers, sized from original image aspect ratio with thin top/sides and a deeper caption foot. Render whole original images using contain. Four days remains2x2 with existing pagination. Lift the entire frame in3D, match the exact reader target bounds, and remove the large background paper panel. Keep550ms front/back rotation and independent story scrolling, with reduced-motion immediate swap. Decode photo dimensions before pagination so book clones and opened frames start with identical proportions. All existing content/fonts/audio/schema stay unchanged. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V87: lift, turn over, and enlarge photographs
 
 All memory photographs open front-first as framed, uncut original images. A separate Read the back control turns the card around its vertical axis over550ms; long exact stories scroll inside the reverse, with Back to photo available. Only one face is visible and interactive at a time. Galleries show one card with previous/next controls and reset each selection to its front. Enlarge photo opens a separate full-screen native dialog, preserving the parent reader and book lock; pinch1–3×, bounded panning, double-tap/reset and Back to photo operate there. Reduced motion swaps faces without rotation. Existing object extraction/audio, original fonts, all user writing and data schema remain. No generated image detail is claimed; image resolution is the original stored source. Retain Antislop during3/3/3 and Taste8/9/5.
