@@ -1,3 +1,13 @@
+# Validation: owner's personal birthday wish, V92
+
+30 October2026. Fill only wishes[2], the birthday card on the cake page, with the exact five-paragraph539-character owner message. Literal <3 and >:( remain text through existing HTML escaping; spelling, capitals and paragraph breaks are preserved. Source comparison permits only wishes[2]; other writing/images, the blank love letter and final blanket note remain unchanged. No style, asset, schema, motion or audio changes.
+
+Focused touch WebKit375×667 opens the actual birthday card, verifies all five paragraphs and both emoticons, captures its view and confirms the owner editor's wish-2 field matches the source exactly. The DOM check targets the direct reading surface and excludes inert ink copies used by the fold animation. No JavaScript errors. Config syntax, diff and source/archive checks pass. Evidence: `qa/v92`; earlier broader layout/loading suites remain historical.
+
+Antislop during3/3/3 and Taste8/9/5 retained. Existing38-rule gate reviewed for this text-only change. R-17/R-23/R-38 preserve the owner's words and hopes; R-26/R-35 verify the actual cake-card/editor binding. L-1–L-7, C-1–C-5 and applicable Taste checks retain the approved scrapbook identity, functionality and original typography. No new asset or invented achievement is introduced.
+
+## Historical V91 validation
+
 # Validation: two distinct illustrated journey dividers, V91
 
 30 October2026. Replace the repeated Four days camera art with two newly generated pink/sage collage compositions: church/rail/tickets for22–23 October, The way there.; rain-speckled bus window/umbrella/ribbon for24–25 October, The way back. One1536×1024 atlas,600364-byte WebP, source PNG retained. Live dates/headings remain HTML/canvas text. Display frames[0,0,768,840] and[768,0,768,840] trim only lower empty paper; the upper70percent of each divider is reserved for art, with readable labels below. The two native divider heights fit phone navigation. Other illustrations and all personal content remain unchanged.

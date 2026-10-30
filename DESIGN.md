@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V92: Tasya's original25th birthday wish
+
+Fill only wishes[2], the folded birthday card on the cake page, with the owner's exact five-paragraph message. Keep all wording, capitals, emoticons and paragraph breaks, including the literal <3 and >:( as safely escaped text. The long love letter and final heated-blanket note remain separate. No design or schema changes. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V91: distinct outward and homeward dividers
 
 Replace the duplicated Four days camera collage with two newly generated illustrations matching the existing pink/sage paper aesthetic.22–23 October uses church, regional train and rail-ticket imagery under The way there.;24–25 October uses rain-speckled bus window, umbrella, ribbon and heart imagery under The way back. Dates/headings stay live text. Share a two-panel atlas, reserve the lower30percent for readable labels, and fit the two native dividers above phone navigation. Generalize divider sources so native DOM and3D backs select the same correct illustration; add the new asset to mandatory loading. Other divider art and all personal text/images remain unchanged. Retain Antislop during3/3/3 and Taste8/9/5.

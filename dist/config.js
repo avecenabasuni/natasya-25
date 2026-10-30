@@ -19,7 +19,7 @@ window.BIRTHDAY_CONFIG = {
   dedication: "",
   littleThings: ["", "", "", "", "", ""],
   distanceNote: "every time i look at this photo, i remember all those little moments from that day",
-  wishes: ["", "", ""],
+  wishes: ["", "", "selamat ulang tahun ke 25 tasya sayang udah nyusul aku nih dah tuaaa <3\n\nsemoga kuliah dan semua yang lagi kamu usahakan dilancarkan semuanya. semoga jadi jagoan ngoding di dunia, bahkan lebih jago dari chatgpt. semoga kamu selalu bersenang senang disana, dan tetep punya waktu buat istirahatt. minim stres happy life hihiw. \n\nSEMOGA IMPIAN KAMU MENJADI DATA ENGINEER F1 TERCAPAIIII!!!!\n\nSEMOGA MATKUL SEMUANYA LANCAR! JANGAN SAMPE ADA APAPUN YANG TERLUPA YAAA >:(\n\nsekali lagi, selamat ulang tahun calon data scientist tercantik di dunia!"],
   letter: "",
   photos: ["assets/photos/luxembourg-last-stop.jpg", "", "", "", "", ""],
   captions: ["pas kita foto, kondisi udah kedinginan, keujanan, anginnya kenceng banget, capek, laper dll\n\nkeknya masih ada banyak itinerarynya, tapi akhirnya kita sepakat ini tempat terakhir, lepas tu kita makan je la terus pulang xixi\n\ntapi ga salah sih kita kesini, suasananya, bangunannya, sungainya, all of them were so goodddd, terus ada bebek lagiiiih, best decision\n\nterus kita sempet salah berdiri di halte pas mau pulang\n\ntapi menurut aku ini foto yang paling proper lucu bagus wlopun rambut lepek benerrr\n\nevery time i look at this photo, i remember all those little moments from that day", "", "", "", "", ""],
