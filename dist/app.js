@@ -28,7 +28,15 @@
   const safeSongLink=v=>{try{const url=new URL(v);return url.protocol==='https:'?url.href:'';}catch{return '';}};
   async function preparePrintFonts(value){
     const sample=[value.name,value.sender,'Trier Luxembourg October November Heated blanket'].join(' ');
-    await Promise.allSettled(['500 32px Fraunces','400 16px "Source Sans 3"'].map(font=>document.fonts.load(font,sample)));
+    await Promise.allSettled(['500 32px Fraunces','400 16px "Source Sans 3"','400 23px "Edu NSW ACT Hand Pre"'].map(font=>document.fonts.load(font,sample)));
+    if([...document.fonts].some(face=>face.family.includes('Edu NSW ACT Hand Pre')&&face.status==='error')){
+      const retryFont=new URL('assets/fonts/edu-nsw-act-hand-pre-regular.woff',location.href);retryFont.searchParams.set('retry',String(Date.now()));
+      for(const sheet of document.styleSheets){
+        if(!sheet.href?.includes('handwritten-notes.css'))continue;
+        for(const rule of sheet.cssRules)if(rule.type===CSSRule.FONT_FACE_RULE&&rule.style.getPropertyValue('font-family').includes('Edu NSW ACT Hand Pre'))rule.style.setProperty('src',`url("${retryFont.href}") format("woff")`);
+      }
+      await Promise.allSettled([document.fonts.load('400 23px "Edu NSW ACT Hand Pre"',sample)]);
+    }
     await document.fonts.ready;
   }
   function normalize(c){
@@ -39,7 +47,7 @@
     for(const [key,size]of [['catNotes',2000],['mealNotes',4000]])if(Array.isArray(c?.[key]))out[key]=defaults[key].map((text,i)=>typeof c[key][i]==='string'?c[key][i].slice(0,size):text);
     if(typeof c?.featuredPhoto==='string'&&/^(auto|trip:[0-3]|memory:[0-5])$/.test(c.featuredPhoto))out.featuredPhoto=c.featuredPhoto;
     for(const k of ['photos','germanyPhotos'])if(Array.isArray(c?.[k]))out[k]=defaults[k].map((_,i)=>safeImage(c[k][i]));
-    for(const k of ['captions','germanyCaptions','littleThings','wishes'])if(Array.isArray(c?.[k]))out[k]=defaults[k].map((_,i)=>typeof c[k][i]==='string'?c[k][i].slice(0,1200):defaults[k][i]);
+    for(const k of ['captions','germanyCaptions','littleThings','wishes'])if(Array.isArray(c?.[k]))out[k]=defaults[k].map((_,i)=>typeof c[k][i]==='string'?c[k][i].slice(0,['captions','germanyCaptions'].includes(k)?4000:1200):defaults[k][i]);
     for(const a of artists)if(typeof c?.artistNotes?.[a]==='string')out.artistNotes[a]=c.artistNotes[a].slice(0,2000);
     for(const k of ['songTitles','songLinks'])for(const a of artists)if(typeof c?.[k]?.[a]==='string')out[k][a]=k==='songLinks'?safeSongLink(c[k][a].slice(0,1000)):c[k][a].slice(0,180);
     for(const key of ['title','artist','url'])if(typeof c?.memorableSong?.[key]==='string')out.memorableSong[key]=key==='url'?safeSongLink(c.memorableSong[key].slice(0,1000)):c.memorableSong[key].slice(0,180).trim();

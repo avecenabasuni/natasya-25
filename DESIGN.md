@@ -1,5 +1,11 @@
 # A little world, physical scrapbook
 
+## V82:24 October and real handwriting typography
+
+Fill T24 with the supplied return-bus photograph and exact eleven-paragraph writing. Preserve original image bytes, all spelling/case/emoticons and the full1247 characters. Expand only photo-caption limits to4000 in the editor, validation and normalization so export/import/Preview never truncates this story. Other content limits remain.
+
+Research Google Fonts families, verify Edu NSW ACT Hand Pre's original font metadata and SIL Open Font License, then self-host it. The NSW school-handwriting forms bring a handwritten journal voice without using Caveat or changing headings, dates or controls. Use23px/1.65 for reader descriptions and18px/1.5 for the physical-page annotation, with high-contrast existing ink. Explicitly load it before rasterization and include it in mandatory intro readiness. Retry a failed new font once with a fresh source URL to recover WebKit's failed-font cache; persistent errors keep the gate blocked. Keep the original main leaf on one page. Retain Antislop during3/3/3 and Taste8/9/5; this scoped handwritten style follows the user's explicit direction.
+
 ## V81: the22 October Trier photograph
 
 Fill only T22 with the supplied photograph and exact five-paragraph writing about Hauptmarkt, the church and Woolworth. Preserve lowercase, spellings, capitals and :3 expressions. Keep the original JPEG intact, with a full-image reader. The main riverside photograph and23 October RE11 image/stories remain unchanged. Do not infer the church name. No layout, type, palette, motion or audio changes. Retain Antislop during3/3/3 and Taste8/9/5.

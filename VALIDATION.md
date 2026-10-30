@@ -1,4 +1,57 @@
-# Validation:22 October Trier memory, V81
+# Validation:24 October memory and handwritten descriptions, V82
+
+30 October2026. Status: PASS,26 current browser/content/editor assertions plus3 font-readiness/import-boundary checks. Current evidence is in `qa/v82`. Scope: original return-bus photo and verbatim eleven-paragraph1247-character story in T24, self-hosted Edu NSW ACT Hand Pre for photo descriptions, and4000-character photo-caption limits throughout normalization/editor/import. Earlier photos and writing stay unchanged. The new font is preloaded and explicitly prepared before rasterization, as well as included in strict intro readiness.
+
+Current touch WebKit checks at375×667 and reduced/native375×520 exercise correct date/route/source, complete paragraph equality, full photograph, loaded handwriting family,23px reader type with no horizontal overflow, separate main photograph, editable fields, actual JSON download, import and Preview without truncation. The printed annotation uses18px to retain its complete sentence on the main leaf. Root visually reviewed main-page and reader captures at both sizes.
+
+Focused boundaries verify that a missing WOFF blocks entry rather than displaying fallback print, that recovery loads all five faces before entry, and that4001-character imports reject without replacing the existing story. Original-image byte comparison, font metadata/glyph equivalence and included OFL license are checked. Research snapshots include Google Fonts metadata for Kalam/Gaegu, the selected Google Fonts CSS/TTF, and source-project license.
+
+### V82 Antislop delivery gate
+
+- R-01 PASS: existing materials/color treatment retained; no new gradient.
+- R-02 PASS: supplied verbatim copy and new labels have no em dash.
+- R-03 PASS: actual phone readers/editor checked at both heights; no new control geometry.
+- R-04 PASS: existing icon family retained.
+- R-05 PASS: established scrapbook rhythm and main single-leaf composition retained.
+- R-06 PASS: handwriting family has a specific owner-requested journal purpose; headings and utility type retain Fraunces/Source Sans3.
+- R-07 PASS: paper/cloth materials retained; typography supports handwritten photo memories.
+- R-08 PASS: no decorative arrow added.
+- R-09 PASS: no badge added.
+- R-10 PASS: no glass surface added.
+- R-11 PASS: existing edges/corners retained.
+- R-12 PASS: no shadow added.
+- R-13 PASS: existing functional halos retained.
+- R-14 PASS: no filler card/layout added.
+- R-15 PASS: existing concrete control labels retained.
+- R-16 PASS: no promotional copy; personal text remains the owner's actual words.
+- R-17 PASS: date/route/writing come from the owner;1247-character length is measured.
+- R-18 PASS: no fictional person/testimonial.
+- R-19 PASS: existing purposeful opening/turn/reader motion retained; no handwriting animation or idle flourish.
+- R-20 PASS: the owner's journey and real photograph carry the identity.
+- R-21 PASS: approved pink/paper direction retained.
+- R-22 PASS: original supplied image preserved; no fabricated travel photograph.
+- R-23 PASS: user explicitly requested this photo/story and handwriting typography, with earlier Caveat rejection respected.
+- R-24 PASS: existing navigation retained; T24 and main photograph independently checked.
+- R-25 PASS: existing high-contrast ink/paper colors retained;23px descriptions and1.65 line height checked for readable wrapping. No claim of rendered-glyph contrast certification is added.
+- R-26 PASS: actual opening, closing, editor, download/import and Preview flows checked.
+- R-27 PASS: required-font failure blocks entry with Retry; long-story import boundaries preserve drafts.
+- R-28 PASS: no FAQ added.
+- R-29 PASS: existing palette retained.
+- R-30 PASS: no template/page structure added.
+- R-31 PASS: Google Fonts/source-project/OFL provenance recorded, with original-photo credit.
+- R-32 PASS: semantic readers, keyboard controls and native/reduced-motion paths retained; controls keep their practical font.
+- R-33 PASS: application/CSS/docs use apply_patch; original photograph copied intact; font container converted with FontTools.
+- R-34 PASS: one light theme retained.
+- R-35 PASS: current WebKit content/font/JSON checks, visual review, font failure/boundary checks and syntax/diff/source/archive verification.
+- R-36 PASS: no physical-iPhone speaker/GPU/FPS/VoiceOver certification claim.
+- R-37 PASS: V82 design read and established Antislop during3/3/3, Taste8/9/5 recorded.
+- R-38 PASS: exact supplied text, original photo and licensed font distinguished from generated content; no new itinerary inference.
+
+L-1–L-7 PASS: existing dials, identity, chapter variety, focal photograph and rose accents retained; handwriting adds a personal-note voice without decoration or motion. C-1–C-5 PASS: font/caption choices have written reasons, actual controls and long-copy round trips are checked, photo stories retain their own jobs, two phone heights and font/import failure boundaries are exercised, and source/verification limits are explicit. Relevant Taste utility checks pass for the retained theme, purposeful third font, legible wrapping, responsive independent scrolling, real imagery and honest loading/errors. Marketing hero/logo/marquee checks do not apply.
+
+Raw initial QA includes two blanket all-FontFace sampling failures. A dedicated before/after font probe confirms all five faces loaded; the final current suite checks the actual handwriting face and passes. The failed-font recovery probe exposed WebKit retaining an errored font across reloads. Preparation now rebinds that source once with a fresh local URL; the final boundary test confirms persistent missing-font blocking and actual Retry recovery with all five faces loaded. Earlier broad motion suites remain historical. Software WebKit is not physical iPhone hardware certification. Recipient access is unchanged.
+
+## Historical validation:22 October Trier memory, V81
 
 30 October2026. Current evidence is in `qa/v81`. Scope: original church photograph and exact five-paragraph owner story in T22. Touch WebKit375×667 and reduced/native375×520 verify the22 October source/date/city, exact complete rendered writing, paragraph count, full image, independent main photograph/story and separate editor fields. Source checks preserve the original JPEG bytes and every earlier content field except the formerly empty T22 photo/caption. Earlier broad suites are historical.
 
