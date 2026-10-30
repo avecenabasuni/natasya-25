@@ -28,14 +28,14 @@
   const safeSongLink=v=>{try{const url=new URL(v);return url.protocol==='https:'?url.href:'';}catch{return '';}};
   async function preparePrintFonts(value){
     const sample=[value.name,value.sender,'Trier Luxembourg October November Heated blanket'].join(' ');
-    await Promise.allSettled(['500 32px Fraunces','400 16px "Source Sans 3"','400 23px "Edu NSW ACT Hand Pre"'].map(font=>document.fonts.load(font,sample)));
-    if([...document.fonts].some(face=>face.family.includes('Edu NSW ACT Hand Pre')&&face.status==='error')){
-      const retryFont=new URL('assets/fonts/edu-nsw-act-hand-pre-regular.woff',location.href);retryFont.searchParams.set('retry',String(Date.now()));
+    await Promise.allSettled(['500 32px Fraunces','400 16px "Source Sans 3"','400 22px "Kalam"'].map(font=>document.fonts.load(font,sample)));
+    if([...document.fonts].some(face=>face.family.includes('Kalam')&&face.status==='error')){
+      const retryFont=new URL('assets/fonts/kalam-regular.woff',location.href);retryFont.searchParams.set('retry',String(Date.now()));
       for(const sheet of document.styleSheets){
         if(!sheet.href?.includes('handwritten-notes.css'))continue;
-        for(const rule of sheet.cssRules)if(rule.type===CSSRule.FONT_FACE_RULE&&rule.style.getPropertyValue('font-family').includes('Edu NSW ACT Hand Pre'))rule.style.setProperty('src',`url("${retryFont.href}") format("woff")`);
+        for(const rule of sheet.cssRules)if(rule.type===CSSRule.FONT_FACE_RULE&&rule.style.getPropertyValue('font-family').includes('Kalam'))rule.style.setProperty('src',`url("${retryFont.href}") format("woff")`);
       }
-      await Promise.allSettled([document.fonts.load('400 23px "Edu NSW ACT Hand Pre"',sample)]);
+      await Promise.allSettled([document.fonts.load('400 22px "Kalam"',sample)]);
     }
     await document.fonts.ready;
   }

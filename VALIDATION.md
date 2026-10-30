@@ -1,3 +1,13 @@
+# Validation: handwritten typography refinement, V83
+
+30 October2026. The rejected Edu NSW ACT Hand Pre is replaced with Kalam Regular. Three Google Fonts candidates were rendered side by side using the actual return-bus story at375px. Kalam provides gently sloped pen strokes; descriptions use22px/1.55 and the short printed annotation remains18px/1.5. Original text, images, controls and headings are unchanged. License and lossless font-container conversion are verified.
+
+Current evidence: `qa/v83`.26 WebKit content/font/editor assertions at375×667 and reduced/native375×520 verify loaded Kalam, full original paragraphs, no horizontal overflow, full photographs, correct dates and independent main photograph, plus export/import/Preview. Three boundary checks cover missing-font blocking, Retry recovery with all five faces loaded, and over-limit imports preserving drafts. Main-photo and reader screenshots are visually reviewed. Node syntax and git diff checks pass. Browser dependencies use the previously retained local shared libraries with host prevalidation skipped; no browser installation was performed. Software WebKit is not physical iPhone certification.
+
+Antislop during3/3/3 and Taste8/9/5 remain active. All38 rules from the V82 delivery gate below were reviewed for this bounded font replacement. R-06/R-07: owner-requested pen-style journal typography with a stated reading purpose. R-23: explicit user rejection authorizes replacement. R-25/R-26/R-35: real story wrapping, reader/editor flows and visual captures at both phone heights. R-27: strict font readiness and recovery retained. R-31: Google Fonts source and complete OFL. No new copy, ornament, palette, controls or motion. L-1–L-7 and C-1–C-5 retain the existing scrapbook identity and functionality; applicable Taste checks cover legibility, responsive scrolling, real images and honest loading. No new marketing patterns apply.
+
+## Historical V82 validation
+
 # Validation:24 October memory and handwritten descriptions, V82
 
 30 October2026. Status: PASS,26 current browser/content/editor assertions plus3 font-readiness/import-boundary checks. Current evidence is in `qa/v82`. Scope: original return-bus photo and verbatim eleven-paragraph1247-character story in T24, self-hosted Edu NSW ACT Hand Pre for photo descriptions, and4000-character photo-caption limits throughout normalization/editor/import. Earlier photos and writing stay unchanged. The new font is preloaded and explicitly prepared before rasterization, as well as included in strict intro readiness.

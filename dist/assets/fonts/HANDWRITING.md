@@ -1,9 +1,9 @@
-# Photo-description handwriting, V82
+# Photo-description handwriting, V83
 
-Family: [Edu NSW ACT Hand Pre](https://fonts.google.com/specimen/Edu+NSW+ACT+Hand+Pre), Regular400, served by Google Fonts. Source project: [NSW ACT School Hand Australia](https://github.com/SorkinType/NSWACTSchoolHandAustralia). Copyright2023 The NSW ACT School Hand Australia Project Authors.
+Family: [Kalam](https://fonts.google.com/specimen/Kalam), Regular400, by Indian Type Foundry. The complete SIL Open Font License is included in `kalam-OFL.txt`.
 
-The original TTF was retrieved through the Google Fonts CSS API for this family. Internal family/copyright/license metadata identifies the family and source project. The self-hosted WOFF is a lossless container conversion with FontTools; glyph design and naming are unchanged. The complete SIL Open Font License1.1 is included in `edu-nsw-act-hand-pre-OFL.txt`.
+The original TTF was retrieved through the Google Fonts CSS API: https://fonts.gstatic.com/s/kalam/v18/YA9dr0Wd4kDdMuhW.ttf . The self-hosted WOFF is a lossless container conversion with FontTools; glyph design and naming are unchanged. License source: https://raw.githubusercontent.com/google/fonts/main/ofl/kalam/OFL.txt .
 
-Google Fonts metadata for Kalam and Gaegu was also reviewed. Edu NSW ACT Hand Pre was selected for its school-handwriting letterforms and checked in the actual phone reader. Caveat is not used. Photo stories use23px type with1.65 line height; the physical-page annotation uses18px/1.5 to keep its complete sentence on the same leaf. Headings, dates, controls and editor inputs retain the existing fonts.
+V83 replaces the rejected Edu school-handwriting face. Kalam, Patrick Hand and Shantell Sans were rendered with the owner's actual return-bus writing in375px columns. Kalam's gently sloped pen strokes and less regimented forms suit a personal journal; the other two look more like upright display lettering. Photo stories use22px type with1.55 line height; the physical-page annotation uses18px/1.5. Headings, dates, controls and editor inputs retain the existing fonts. Neither Caveat nor the rejected font is loaded.
 
 The font is self-hosted, preloaded and explicitly loaded before book raster preparation. Mandatory intro readiness includes this fifth FontFace. A failed font load gets one fresh-source retry before printing, addressing WebKit's retained failed-font cache; persistent failure still blocks entry with Retry. No live Google Fonts request is needed by readers.

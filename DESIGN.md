@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V83: replace the rejected handwriting
+
+Replace Edu NSW ACT Hand Pre with Kalam Regular after comparing Kalam, Patrick Hand and Shantell Sans using the actual story at375px. The owner rejected the school-handwriting look; choose a gently sloped pen voice,22px/1.55 in photo readers and18px/1.5 on the printed annotation. Keep the original words and photos unchanged. Self-host the licensed font, replace the preload and explicit preparation/retry references, and preserve the strict readiness gate. Retain established Antislop during3/3/3 and Taste8/9/5.
+
 ## V82:24 October and real handwriting typography
 
 Fill T24 with the supplied return-bus photograph and exact eleven-paragraph writing. Preserve original image bytes, all spelling/case/emoticons and the full1247 characters. Expand only photo-caption limits to4000 in the editor, validation and normalization so export/import/Preview never truncates this story. Other content limits remain.
