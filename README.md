@@ -74,3 +74,7 @@ Offscreen page printing uses fixed coordinates while images load, so turning the
 Publish `dist/` with a static host. This repository contains application source and supporting documentation; local QA captures, deployment archives, credentials and the original Sites hosting binding are excluded from the GitHub export.
 
 [DESIGN.md](DESIGN.md) records the direction. [VALIDATION.md](VALIDATION.md) records current checks and historical limits. [Asset credits](dist/assets/ASSET-CREDITS.md) cover artwork, geographic data, fonts and media licenses.
+
+## Reversible photo cards
+
+Memory and Four days photographs open as framed fronts. Read the back reveals the original story through a550ms turn; Back to photo restores the front. Gallery navigation selects one photograph at a time. Enlarge photo opens the stored original with pinch1–3×, bounded drag, double-tap, Zoom in and Reset zoom. The book stays locked until both photo views close. Original image resolution is preserved by the viewer; existing editor imports retain their existing1100px processing policy.

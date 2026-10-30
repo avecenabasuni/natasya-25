@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V87: lift, turn over, and enlarge photographs
+
+All memory photographs open front-first as framed, uncut original images. A separate Read the back control turns the card around its vertical axis over550ms; long exact stories scroll inside the reverse, with Back to photo available. Only one face is visible and interactive at a time. Galleries show one card with previous/next controls and reset each selection to its front. Enlarge photo opens a separate full-screen native dialog, preserving the parent reader and book lock; pinch1–3×, bounded panning, double-tap/reset and Back to photo operate there. Reduced motion swaps faces without rotation. Existing object extraction/audio, original fonts, all user writing and data schema remain. No generated image detail is claimed; image resolution is the original stored source. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V86: original personal closing note
 
 Replace only giftNote with the owner's exact four-paragraph heated-blanket message for the final envelope. Preserve all spelling, casing, language and paragraph breaks. No other content or design changes. Retain Antislop during3/3/3 and Taste8/9/5.

@@ -73,7 +73,7 @@
   document.addEventListener('touchmove',contain,{capture:true,passive:false});
   document.addEventListener('keydown',event=>{
     if(!held||event.key!==' '||event.altKey||event.ctrlKey||event.metaKey)return;
-    const dialog=topDialog();if(!dialog||event.target.closest('input,textarea,select,button,summary,a[href],[contenteditable="true"],audio,video'))return;
+    const dialog=topDialog();if(!dialog||event.target.closest('input,textarea,select,button,summary,a[href],[contenteditable="true"],audio,video,.photo-writing'))return;
     event.preventDefault();
     if(!['opening','closing'].includes(dialog.dataset.readerState))dialog.scrollTop+=dialog.clientHeight*.85*(event.shiftKey?-1:1);
   },true);

@@ -39,7 +39,7 @@
     const controls='a,button,input,textarea,select,summary,[contenteditable="true"],[role="button"],audio,video';
     function gestureEligible(target){
       const state=current,r=dialog.getBoundingClientRect();
-      return state&&state.phase==='reading'&&!state.gesture&&!state.dragPrepared&&!multiTouch&&!multiPointer&&dialog.scrollTop<=1&&!selectedText()&&target instanceof Element&&!target.closest(controls)&&r.height>0;
+      return state&&state.phase==='reading'&&!state.gesture&&!state.dragPrepared&&!multiTouch&&!multiPointer&&dialog.scrollTop<=1&&!selectedText()&&target instanceof Element&&!target.closest(controls)&&!target.closest('.photo-deck')&&r.height>0;
     }
     function gestureState(value){dialog.dataset.readerGesture=value;}
     function globalPose(matrix,d,origin){
@@ -131,7 +131,7 @@
       if(!cancelled&&(g.distance>=threshold||quick)){prepareGestureClose(state);close();}else returnGesture(state);
     }
     function release(state){if(!state)return;discardGesture(state);stop(state);state.snapshot?.restore?.();state.flight?.remove();state.paper?.remove();}
-    function clean(){++openingGeneration;const state=current;current=null;release(state);dialog.classList.remove('object-reader','reader-animated','reader-running','reader-settled','reader-closing','reader-pointer-open','reader-rebasing','reader-dragging');dialog.removeAttribute('aria-busy');['readerKind','readerMaterial','readerObject','readerGesture'].forEach(key=>delete dialog.dataset[key]);dialog.style.removeProperty('--reader-dim-start');dialog.style.removeProperty('--reader-dim-open-start');dialog.style.removeProperty('--reader-duration');dialog.style.removeProperty('--reader-drag-dim');phase(null,'closed');}
+    function clean(){dialog.__photoDispose?.();dialog.__photoDispose=null;++openingGeneration;const state=current;current=null;release(state);dialog.classList.remove('object-reader','reader-animated','reader-running','reader-settled','reader-closing','reader-pointer-open','reader-rebasing','reader-dragging');dialog.removeAttribute('aria-busy');['readerKind','readerMaterial','readerObject','readerGesture'].forEach(key=>delete dialog.dataset[key]);dialog.style.removeProperty('--reader-dim-start');dialog.style.removeProperty('--reader-dim-open-start');dialog.style.removeProperty('--reader-duration');dialog.style.removeProperty('--reader-drag-dim');phase(null,'closed');}
     function settle(state){
       if(current!==state||state.phase==='closing')return;
       stop(state);state.paper.style.transform=state.body.style.transform='none';state.upper.style.transform=state.kind==='letter'?'rotateX(0deg)':'none';state.paper.style.clipPath='none';state.paper.style.opacity=state.body.style.opacity='1';state.paper.classList.add('reader-ink-hidden');
@@ -240,7 +240,7 @@
       clean();if(dialog.open)window.ScrapbookModalLock.close(dialog);if(focus?.isConnected)focus.focus({preventScroll:true});
     }
     function close(){
-      const state=current;if(!dialog.open)return;if(!state){window.ScrapbookModalLock.close(dialog);return;}if(state.phase==='closing')return;
+      const state=current;if(!dialog.open)return;dialog.__photoDispose?.();dialog.__photoDispose=null;if(!state){window.ScrapbookModalLock.close(dialog);return;}if(state.phase==='closing')return;
       if(state.gesture)prepareGestureClose(state);
       const progress=state.phase==='reading'?1:Math.max(state.openingProgress||0,state.paper?.getAnimations()[0]?.effect.getComputedTiming().progress||0);
       const duration=Math.max(100,(state.kind==='letter'?560:440)*Math.sqrt(progress));
@@ -296,6 +296,7 @@
       const prepared=window.ScrapbookIntro?.decodeImages?await window.ScrapbookIntro.decodeImages(dialog):true;
       if(generation!==openingGeneration)return;
       if(!prepared){window.ScrapbookModalLock.close(dialog);onError();return;}
+      dialog.__photoDispose=window.ScrapbookPhotoCards?.mount(dialog);
       let snapshot=null;if(anchored&&!reduced())try{snapshot=kind==='disclosure'?{rect:rectOf(source),getRect:()=>rectOf(source)}:capture?.()||fallback(source);}catch{}
       const animated=!!snapshot&&usable(snapshot.rect)&&typeof dialog.animate==='function'&&!reduced();
       if(!anchored){if(!dialog.open)dialog.showModal();dialog.querySelector('#close-note-dialog').focus({preventScroll:true});phase(null,'reading');return;}
@@ -379,7 +380,7 @@
     dialog.addEventListener('keydown',event=>{
       dialog.classList.remove('reader-pointer-open');
       if(current?.gesture&&event.key!=='Escape')discardGesture(current);
-      if(!dialog.open||!['ArrowUp','ArrowDown','PageUp','PageDown','Home','End'].includes(event.key)||event.target.closest('input,textarea,select,[contenteditable="true"]'))return;
+      if(!dialog.open||!['ArrowUp','ArrowDown','PageUp','PageDown','Home','End'].includes(event.key)||event.target.closest('input,textarea,select,[contenteditable="true"],.photo-writing'))return;
       event.preventDefault();if(current&&current.phase!=='reading')return;
       const max=Math.max(0,dialog.scrollHeight-dialog.clientHeight),page=dialog.clientHeight*.85;
       const top=event.key==='Home'||event.metaKey&&event.key==='ArrowUp'?0:event.key==='End'||event.metaKey&&event.key==='ArrowDown'?max:dialog.scrollTop+({ArrowUp:-44,ArrowDown:44,PageUp:-page,PageDown:page}[event.key]||0);

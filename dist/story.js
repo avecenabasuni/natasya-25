@@ -60,7 +60,7 @@
     const action=(id,label,glyph='book',key='')=>`<button class="story-button" id="${id}"${key?` data-book-object="${key}" aria-haspopup="dialog"`:''}>${label}${icon(glyph)}</button>`;
     const copy=(text,prompt,cls='')=>`<p class="story-copy ${cls}${text?'':' placeholder-copy'}"${text?'':' data-placeholder="true"'}>${esc(text||prompt)}</p>`;
     function gallery(c){
-      return c.photos.map((src,i)=>({src,caption:c.captions[i]||'[The story behind this photo]'})).concat(c.germanyPhotos.map((src,i)=>({src,caption:c.germanyCaptions[i]||'[The story behind this October photo]'}))).filter(p=>p.src);
+      return c.photos.map((src,i)=>({src,caption:c.captions[i]||'[The story behind this photo]',date:trip.photoLabels?.[src]||'October 2026'})).concat(c.germanyPhotos.map((src,i)=>({src,caption:c.germanyCaptions[i]||'[The story behind this October photo]',date:trip.days[i].date+' 2026 · '+trip.days[i].place}))).filter(p=>p.src);
     }
     function showLong(label,title,text){
       const key=objectSource?.dataset.bookObject,c=getConfig();
@@ -77,11 +77,10 @@
       const sourceImage=objectSource?.querySelector('img'),selected=sourceImage?.dataset.preparedSrc||sourceImage?.getAttribute('src');
       const index=selected?photos.findIndex(photo=>new URL(photo.src,location.href).href===new URL(selected,location.href).href):-1;
       if(index>0)photos.unshift(...photos.splice(index,1));
-      const sourceCaption=objectSource?.closest('figure')?.querySelector('figcaption')?.textContent;
-      const placeholder=`<figure class="reader-photo" data-reader-placeholder="true"><span class="reader-photo-placeholder" data-placeholder="true">[Our photograph in Luxembourg]</span>${sourceCaption?`<figcaption>${esc(sourceCaption)}</figcaption>`:''}</figure>`;
-      openDialog(`<p class="dialog-label">Moments to keep</p><h2>Our photographs.</h2>${photos.length?'':placeholder+'<p class="placeholder-copy" data-placeholder="true">[Our photographs from Trier and Luxembourg will go here.]</p>'}<div class="dialog-gallery">${photos.map((p,i)=>`<figure class="dialog-gallery-entry"><div class="reader-photo" data-reader-src="${esc(p.src)}"><img src="${esc(p.src)}" alt="${esc(p.caption)}" width="600" height="700" loading="${i?'lazy':'eager'}" decoding="async">${i===0&&sourceCaption?`<span class="reader-photo-date">${esc(sourceCaption)}</span>`:''}</div>${i===0&&sourceCaption===p.caption?'':`<figcaption>${esc(p.caption)}</figcaption>`}</figure>`).join('')}</div>`);
-      document.querySelectorAll('.dialog-gallery img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;img.insertAdjacentHTML('afterend','<p class="image-error">This photo could not be loaded.</p>');},{once:true}));
+      if(photos.length){openDialog(window.ScrapbookPhotoCards.markup(photos));return;}
+      openDialog('<h2>Our photographs.</h2><p>No photographs have been added yet.</p>');
     }
+
     function soundtrackContent(c){
       const memory=c.memorableSong;
       return `<span><span class="soundtrack-label">Our song${memory?.artist?`<span class="soundtrack-artist"> · ${esc(memory.artist)}</span>`:''}</span><span class="soundtrack-song"${memory?.title?'':' data-placeholder="true"'}>${esc(memory?.title||'[Our song]')}</span></span>${icon('music')}`;
@@ -99,10 +98,10 @@
     }
     function showDay(c,index){
       const src=c.germanyPhotos[index],day=trip.days[index],caption=c.germanyCaptions[index].trim();
-      const writing=caption?`<div class="prose full-owner-copy day-memory">${paragraphs(caption)}</div>`:`<p class="placeholder-copy" data-placeholder="true">${day.prompt}</p>`;
-      openDialog(`<p class="dialog-label">${day.location} · 2026</p><h2>${day.date}.</h2>${writing}<figure class="dialog-day-photo"><div class="reader-photo reader-photo-visual"${src?` data-reader-src="${esc(src)}"`:' data-reader-placeholder="true"'}>${src?`<img src="${esc(src)}" alt="${esc(c.germanyCaptions[index].trim()||'Our photograph from '+day.date)}" width="600" height="700">`:`<span class="reader-photo-placeholder" data-placeholder="true">[Photo ${index+1}]</span>`}</div></figure>`);
-      document.querySelector('.dialog-day-photo img')?.addEventListener('error',event=>{event.target.hidden=true;event.target.insertAdjacentHTML('afterend','<p class="image-error">This photo could not be loaded.</p>');},{once:true});
+      if(src){openDialog(window.ScrapbookPhotoCards.markup([{src,caption:caption||day.prompt,date:day.date+' 2026 · '+day.place}]));return;}
+      openDialog(`<h2>${day.date}.</h2><p class="placeholder-copy">${esc(day.prompt)}</p>`);
     }
+
     function showTrip(c){
       const notes=[c.intro.trim()||trip.personalIntro,c.dedication.trim()].filter(Boolean).join('\n\n');
       const meals=trip.mealMemories.map((meal,i)=>({...meal,text:c.mealNotes?.[i]??meal.text})).filter(meal=>meal.text.trim()).map(meal=>`<article><h3>${meal.date} · ${meal.place}</h3>${paragraphs(meal.text)}</article>`).join('');
