@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V78: the supplied last-stop photograph
+
+Use Ave's supplied Luxembourg river photograph as memory slot M01 and explicitly select it as the main photograph. Copy its original JPEG bytes without cropping or visual alteration. Keep the physical mount and full-image reader. Translate his supplied memory into conversational English, preserving the cold/rain/wind, tiredness/hunger, abandoned itinerary, food-and-home decision, surroundings and ducks, wrong bus-stop position, flat hair and final reflection. Put the complete six-paragraph story with the photo; retain a short annotation on the physical page. Preserve paragraph breaks in gallery captions. No date or exact landmark is inferred. Retain Antislop during 3/3/3 and Taste 8/9/5, existing layout/type/palette/motion and owner-private access.
+
 ## V77: material-specific recordings from real sources
 
 Design Read: a lifted sticker must not sound like turning a whole page. Replace reused book clips for objects with independently recorded sticky-note peel, paper/photo slide, note unfolding, actual map opening and letter/envelope handling. Use checked CC0 sources from Freesound and OpenGameArt. Keep their physical texture and original pitch; select short relevant excerpts with gentle edges instead of synthetic chimes or a repitched page flip. Existing book effects remain byte-for-byte unchanged.

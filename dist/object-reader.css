@@ -45,6 +45,7 @@
 .reader-photo{margin:20px 0;padding:8px 8px 12px;background:var(--paper);border:1px solid var(--paper-edge);box-shadow:1px 2px 4px #301e2a24}
 .reader-photo img,.object-reader .dialog-gallery .reader-photo img{display:block;width:100%;height:min(44dvh,310px);object-fit:contain}
 .reader-photo figcaption{padding-top:8px;font:400 13px/1.3 var(--display)}
+.object-reader .dialog-gallery-entry>figcaption{white-space:pre-line}
 .reader-photo-placeholder{display:flex;align-items:center;justify-content:center;min-height:180px;background:var(--blush);padding:30px;text-align:center;font:400 16px/1.5 var(--display)}
 .reader-cat-portrait.pet-portrait{width:118px;height:190px;margin:18px auto}
 .reader-cat-family{display:flex;gap:5px;align-items:start;margin:20px 0}

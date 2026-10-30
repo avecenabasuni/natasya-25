@@ -1,4 +1,26 @@
-# Validation: distinct material recordings for objects, V77
+# Validation: owner-supplied main photograph, V78
+
+30 October 2026. Current evidence is in `qa/v78`. Scope: original supplied JPEG, explicit M01 main-photo selection, complete English memory, brief page annotation and preserved gallery paragraph breaks. Real touch WebKit375×667 and reduced/native375×520 check the default hero, full-photo reader, complete story, paragraph formatting and editable selection/caption. Source checks compare the deployed JPEG with the attachment byte-for-byte. No image transformation or new date/location claim is made. Earlier broad suites remain historical.
+
+V78 Antislop delivery gate, checked against this content-only scope:
+
+| Rules | Result and evidence |
+| --- | --- |
+| R-01, R-07, R-10, R-12, R-13 | PASS: existing paper/materials, shadows and functional halos retained. |
+| R-02, R-15, R-16 | PASS: English copy reread, no em dash, existing concrete action labels retained. |
+| R-03, R-26, R-27, R-35 | PASS: actual phone reader/editor paths, full-image loading and content checks; syntax/diff and archive/source checks before publication. |
+| R-04, R-08, R-09 | PASS: icons/navigation retained, no decorative arrow or badge added. |
+| R-05, R-14, R-20, R-30 | PASS: existing scrapbook composition; one real main photograph replaces its empty mount. |
+| R-06, R-11, R-21, R-25, R-29, R-34 | PASS: typography, corners, palette, theme and colors retained; only caption white-space changes. Earlier contrast measurements remain historical. |
+| R-17, R-18, R-22, R-23, R-38 | PASS: actual supplied photograph and memory, no fictional person, landmark or sightseeing date; owner explicitly requested use. |
+| R-19, R-24, R-32 | PASS: existing reader animation, navigation, modal lock, semantic controls and reduced-motion support retained. |
+| R-28 | PASS: no FAQ added. |
+| R-31, R-33 | PASS: design/content provenance recorded; text/CSS/HTML use apply_patch, original image copied intact. |
+| R-36, R-37 | PASS: no hardware/performance claim; established design read and Antislop during3/3/3, Taste8/9/5 retained. |
+
+L-1–L-7 PASS: established dials, identity, varied compositions, focal photograph, spacing and accent retained. C-1–C-5 PASS: photo/content changes have written reasons; actual reader/editor bindings are checked at both phone heights; supplied facts and absent metadata stay separate. Relevant Taste checks retain the single theme, type, responsive structure and purposeful motion. Marketing hero/logo/marquee checks do not apply. Software WebKit is not physical iPhone hardware or VoiceOver certification. Browser-local customisation can override shared defaults by design; the editor's Reset to shared version retrieves this content without publishing local drafts.
+
+## Historical validation: distinct material recordings for objects, V77
 
 29 October 2026. Status: PASS, 23 audio-service checks and 42 accepted browser assertions, plus five delivered-media and five source-license verifications. Current evidence is in `qa/v77`. The change replaces the reused page clips with five independent CC0 sources, mapped to sticky-note peel, paper/photo slide, unfolding, map opening and envelope/letter handling. Both existing book MP3s remain byte-for-byte unchanged. The new files total 53,609 bytes. Earlier broad suites remain historical.
 

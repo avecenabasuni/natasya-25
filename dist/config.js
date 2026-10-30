@@ -6,7 +6,7 @@ window.BIRTHDAY_CONFIG = {
   birthday: "2026-11-02",
   intro: "Hauptmarkt in Trier. Luxembourg with you. RE11 there, L31 back, and meals along the way.",
   coverPhoto: "assets/illustrations/cover-tasya-bouquet.jpg",
-  featuredPhoto: "auto",
+  featuredPhoto: "memory:0",
   catNotes: [
     "Your chubby, lazy, food-loving second favourite. I’m here for your 25th, preferably lying down and close to something to eat.",
     "I love having other cats to play with. Today, though, you’re the one we’re all celebrating.",
@@ -18,11 +18,11 @@ window.BIRTHDAY_CONFIG = {
   giftNote: "I got you a heated blanket for the cold evenings at your WG in Trier.\n\nI wish I could be there to wrap you up myself. Until then, I hope it feels a little like a hug from me.\n\nHappy 25th, love.",
   dedication: "",
   littleThings: ["", "", "", "", "", ""],
-  distanceNote: "",
+  distanceNote: "Freezing, soaked, hungry. Still our cutest photo.",
   wishes: ["", "", ""],
   letter: "",
-  photos: ["", "", "", "", "", ""],
-  captions: ["", "", "", "", "", ""],
+  photos: ["assets/photos/luxembourg-last-stop.jpg", "", "", "", "", ""],
+  captions: ["By the time we took this photo, we were freezing, soaked from the rain, getting blown around by the wind, tired, hungry... all of it.\n\nWe still had so many places left on our itinerary, but we agreed this would be our last stop. After this, let's just eat and go home. xixi\n\nBut coming here was such a good decision. The atmosphere, the buildings, the river... all of them were so goodddd. And there were ducks toooo!\n\nThen we somehow ended up standing in the wrong place at the bus stop on the way home.\n\nI still think this is our cutest, most proper photo together, even though our hair was so flat from the rain.\n\nEvery time I look at this photo, I remember all those little moments from that day.", "", "", "", "", ""],
   germanyPhotos: ["", "", "", ""],
   germanyCaptions: ["", "", "", ""],
   memorableSong: {
