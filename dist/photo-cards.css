@@ -3,6 +3,7 @@
 .polaroid-frame .polaroid-image img{display:block;width:100%!important;height:100%!important;object-fit:contain!important}
 .polaroid-frame .polaroid-caption{position:absolute;left:5%;right:5%;bottom:0;height:var(--polaroid-bottom);display:flex;align-items:center;font:400 13px/1.25 var(--display);margin:0;padding:0;color:var(--ink)}
 .edited-story .real-memory.polaroid-frame,.edited-story .book-print .real-memory.polaroid-frame{height:auto;width:62%;max-width:210px;margin:12px auto 20px;transform:rotate(-1.8deg)}
+.edited-story .sheet:not(.book-print) .real-memory.polaroid-frame{height:auto}
 .real-memory.polaroid-frame>button{position:absolute;inset:0;width:100%;height:100%;min-height:0}
 .polaroid-frame .photo-tape{display:none}
 .edited-story .photo-fragment.polaroid-frame,.book-print .photo-fragment.polaroid-frame{height:auto;width:76px;max-width:100%;min-height:0;justify-self:center;transform:rotate(-2deg)}
@@ -26,4 +27,13 @@
 .photo-navigation{margin-top:2px;gap:0}.photo-count{background:var(--paper);padding:13px 12px;height:44px;box-sizing:border-box}
 .photo-navigation button{min-width:44px;font-size:22px;border:0}
 .photo-deck[aria-busy="true"] .photo-tools{opacity:.6}
+.main-polaroid{border-color:#d9c6bc!important;box-shadow:0 1px 2px #49303a22,3px 9px 18px #49303a26,inset 0 0 0 1px #fffdf8!important}
+.main-polaroid .polaroid-image{box-shadow:0 0 0 1px #62465320,inset 0 0 2px #49303a25}
+.main-polaroid .polaroid-caption{justify-content:center;text-align:center;font-size:12px;line-height:1.45;letter-spacing:.01em;padding:0 4px;box-sizing:border-box}
+.main-photo-deck .photo-back{border-color:#d9c6bc;box-shadow:0 1px 2px #49303a22,3px 9px 18px #49303a26,inset 0 0 0 1px #fffdf8;padding:22px}
+.main-photo-deck .photo-back-date{padding-bottom:12px;border-bottom:1px solid #d9c6bc80;margin-bottom:20px}
+.main-photo-deck .photo-tools{margin-top:18px}
+.main-photo-deck .photo-tools button{min-width:140px;box-shadow:0 2px 3px #49303a12;letter-spacing:.01em}
+.main-photo-deck .photo-tools button:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
+.main-photo-deck .photo-tools button:active{background:var(--blush)}
 @media(prefers-reduced-motion:reduce){.photo-fragment.polaroid-frame,.real-memory.polaroid-frame{transform:none!important}}

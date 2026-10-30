@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const mountSelector='.photo-portrait .fandom-portrait';
+  const mountSelector='.photo-portrait .fandom-portrait,.main-polaroid';
   const selectors=mountSelector+',.cover-dedication,.book-front';
   const empty=()=>({photos:0,labels:0,covers:0});
   const elements=(root,selector)=>[...(root.matches?.(selector)?[root]:[]),...root.querySelectorAll(selector)];

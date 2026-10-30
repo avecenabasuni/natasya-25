@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V89: a single main photograph, with a finished Polaroid surface
+
+The main photograph opens only its current selected image and corresponding writing. Capture the exact rendered featured-photo object in its click binding, rather than selecting from the combined gallery; preserve memory/trip/auto selection semantics and duplicate-source captions. There are no gallery arrows, count or adjacent-photo controls in this reader. Give only the main Polaroid a quieter centered date, a fine warm edge, photo-window contact line and restrained paper shadow. Carry edge finishing into the3D source using the existing paper finisher. Match the main reverse and44px flip control to this material. Keep the full original image, aspect-ratio readiness,550ms flip, scrolling back, original fonts, palette, all content and independent Four days readers. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V88: the same portrait Polaroid in book and reader
 
 Remove zoom entirely. Share one Polaroid frame across book objects and readers, sized from original image aspect ratio with thin top/sides and a deeper caption foot. Render whole original images using contain. Four days remains2x2 with existing pagination. Lift the entire frame in3D, match the exact reader target bounds, and remove the large background paper panel. Keep550ms front/back rotation and independent story scrolling, with reduced-motion immediate swap. Decode photo dimensions before pagination so book clones and opened frames start with identical proportions. All existing content/fonts/audio/schema stay unchanged. Retain Antislop during3/3/3 and Taste8/9/5.

@@ -72,6 +72,11 @@
       }
       openDialog(`<p class="dialog-label">${label}</p><h2>${title}</h2><div class="note-dialog-copy full-owner-copy">${paragraphs(text)}</div><p class="settings-hint">From ${esc(getConfig().sender)}.</p>`);
     }
+    function showMainPhoto(photo){
+      if(!photo){openDialog('<h2>Our photograph.</h2><p>No photograph has been added yet.</p>');return;}
+      const date=photo.day?photo.day.place+' · '+photo.day.date+' 2026':photo.date||trip.photoLabels?.[photo.src]||'October 2026';
+      openDialog(window.ScrapbookPhotoCards.markup([{...photo,date}],{main:true}));
+    }
     function showPhotos(c){
       const photos=gallery(c);
       const sourceImage=objectSource?.querySelector('img'),selected=sourceImage?.dataset.preparedSrc||sourceImage?.getAttribute('src');
@@ -143,7 +148,7 @@ openDialog(`<p class="dialog-label">${trip.dates}</p><h2>Trier & Luxembourg.</h2
       const photo=featured&&featured[1]==='trip'&&c.germanyPhotos[featuredIndex]?{src:c.germanyPhotos[featuredIndex],caption:c.germanyCaptions[featuredIndex]||'[The story behind this October photo]',day:trip.days[featuredIndex]}:featured&&featured[1]==='memory'&&c.photos[featuredIndex]?{src:c.photos[featuredIndex],caption:c.captions[featuredIndex]||'[The story behind this photo]'}:tripPhotos[0]||photos[0];
       const opening=excerpt(c.intro.trim()||trip.personalIntro,tight?110:150),context=excerpt(c.dedication,tight?60:80),observation=excerpt(detail,tight?65:85),distance=excerpt(c.distanceNote,tight?90:110);
       const map=`<figure class="story-art trier-map"><button id="open-trier" data-book-object="map" aria-label="Open the Trier and Luxembourg map and notes"><img src="${trip.map}" alt="${trip.mapAlt}" width="1000" height="650"></button></figure>`;
-      const hero=`<figure class="story-art real-memory polaroid-frame${photo?'':' photo-placeholder'}"><button id="open-photo-hero" data-book-object="photograph" aria-label="Open our photographs">${photo?`<span class="polaroid-image"><img src="${esc(photo.src)}" alt="${esc(photo.caption)}" width="600" height="700"></span>`:'<span class="photo-blank" data-placeholder="true">[Our photograph in Luxembourg]</span>'}</button><figcaption class="polaroid-caption">${esc(photo?.day?photo.day.place+' · '+photo.day.date+' 2026':photo?trip.photoLabels?.[photo.src]||'October 2026':'Luxembourg · October 2026')}</figcaption><span class="photo-tape" aria-hidden="true"></span></figure>`;
+      const hero=`<figure class="story-art real-memory polaroid-frame main-polaroid${photo?'':' photo-placeholder'}"><button id="open-photo-hero" data-book-object="photograph" aria-label="Open our main photograph">${photo?`<span class="polaroid-image"><img src="${esc(photo.src)}" alt="${esc(photo.caption)}" width="600" height="700"></span>`:'<span class="photo-blank" data-placeholder="true">[Our photograph in Luxembourg]</span>'}</button><figcaption class="polaroid-caption">${esc(photo?.day?photo.day.place+' · '+photo.day.date+' 2026':photo?trip.photoLabels?.[photo.src]||'October 2026':'Luxembourg · October 2026')}</figcaption><span class="photo-tape" aria-hidden="true"></span></figure>`;
       const catFamily=`<figure class="recap-pets"><button class="cat-family-open" id="open-cats" data-book-object="cats" aria-label="Meet Winnie, Bonnie, Connie, Wonnie and Minnie">${cats.map((cat,i)=>`<span class="pet-sticker" data-book-object="cat-${i}" style="--pet:${i}">${catPortrait(i)}<span class="pet-name">${cat.name}</span></span>`).join('')}</button></figure>`;
       const days=`<div class="recap-days photo-fragments">${trip.days.map((day,i)=>`<button class="recap-day photo-fragment polaroid-frame" id="open-day-${i}" data-book-object="day-${i}" aria-label="Open ${day.date}: ${day.place}"><span class="fragment-image polaroid-image">${c.germanyPhotos[i]?`<img src="${esc(c.germanyPhotos[i])}" alt="Photo from ${day.date}" width="240" height="160">`:`<span class="fragment-placeholder" data-placeholder="true">[Photo ${i+1}]</span>`}</span><span class="fragment-caption polaroid-caption"><strong>${day.shortDate}</strong><span class="recap-day-copy">${esc(day.recapPlace||day.place)}</span></span></button>`).join('')}</div>`;
       const soundtrack=`<button class="soundtrack-slip" id="open-playlist" data-book-object="song" aria-haspopup="dialog" aria-controls="map-dialog">${soundtrackContent(c)}</button>`;
@@ -160,7 +165,7 @@ openDialog(`<p class="dialog-label">${trip.dates}</p><h2>Trier & Luxembourg.</h2
       const bind=(id,fn)=>{const b=document.getElementById(id);if(b)b.onclick=event=>withObject(event.target.closest('[data-book-object]')||event.currentTarget,()=>fn(event),event.detail>0);};
       app.querySelector('.cover-collage-art')?.addEventListener('error',event=>{event.target.hidden=true;const front=event.target.closest('.book-front');front.classList.add('cover-art-unavailable');front.querySelector('.cover-art-fallback').hidden=false;},{once:true});
       bind('open-dedication',()=>showLong('A note from me','For you.',c.intro+(c.dedication.trim()?'\n\n'+c.dedication:'')));
-      bind('open-playlist',()=>showMusic(c));bind('open-personal',()=>showPersonal(c));bind('open-gallery',()=>showPhotos(c));bind('open-photo-hero',()=>showPhotos(c));
+      bind('open-playlist',()=>showMusic(c));bind('open-personal',()=>showPersonal(c));bind('open-gallery',()=>showPhotos(c));bind('open-photo-hero',()=>showMainPhoto(photo));
       bind('open-cats',showCats);
       bind('open-trier',()=>showTrip(c));dayPrompts.forEach((_,i)=>bind('open-day-'+i,()=>showDay(c,i)));
       bind('birthday-candle',toggleCandle);
