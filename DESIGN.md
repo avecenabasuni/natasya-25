@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V80: separate the RE11 journey from the main photograph
+
+Use the supplied train selfie and exact eight-paragraph writing in Four days23 October, Trier to Luxembourg. Preserve all spelling, case, punctuation and :3 expressions. Return the river photograph and its unchanged six-paragraph memory to M01, explicitly selected as the main photograph. Keep its confirmed23 October label in the known-fact trip metadata keyed to that specific supplied source, so replacing the M01 photo never falsely dates another image. The train photograph is a separate original file, not a replacement main photograph. Keep both writing fields editable, full-image readers and paragraph spacing, with original image bytes. Retain the established layout, type, palette, motion, audio and Antislop during3/3/3, Taste8/9/5.
+
 ## V79: preserve Ave's actual words and confirmed date
 
 Replace the translated memory and invented English annotation with the exact wording Ave supplied, preserving all six paragraphs, lowercase, slang and spellings. The page annotation uses his own closing sentence verbatim; allow90 characters on phones so this sentence fits without an extra continuation leaf containing only a Read the note action. He confirms the photo was taken on23 October2026: store it once in trip slot T23 and select trip:1 as the main photograph so the book and reader show the confirmed date. No image, style or animation change. His explicit request to preserve wording overrides the earlier general English-content preference. Retain the established Antislop during3/3/3 and Taste8/9/5.

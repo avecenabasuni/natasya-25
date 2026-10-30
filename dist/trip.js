@@ -15,6 +15,7 @@ window.SCRAPBOOK_TRIP = Object.freeze({
     Object.freeze({date:'24 October',place:'Luxembourg → Trier',text:'We skipped breakfast, then had O’Tacos for lunch. So good.\n\nLater, back in Trier, we picked up frozen food from Aldi for dinner.'})
   ]),
   featuredDayOrder: Object.freeze([1, 2, 0, 3]),
+  photoLabels: Object.freeze({'assets/photos/luxembourg-last-stop.jpg':'Luxembourg · 23 October 2026'}),
   days: Object.freeze([
     Object.freeze({date:'22 October',shortDate:'22 Oct',place:'Trier',location:'Trier · Germany',prompt:'[A moment from our day in Trier.]'}),
     Object.freeze({date:'23 October',shortDate:'23 Oct',place:'Trier → Luxembourg',recapPlace:'Luxembourg',location:'Trier → Luxembourg',prompt:'[A little discovery in Luxembourg.]'}),

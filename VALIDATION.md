@@ -1,4 +1,10 @@
-# Validation: verbatim photograph memory and date, V79
+# Validation: separate23 October train memory, V80
+
+30 October2026. Current evidence is in `qa/v80`. Scope: the supplied RE11 train photograph and verbatim eight-paragraph story in the23 October Four days pocket; separate unchanged river photograph/story as explicitly selected main memory M01. The river's confirmed date is source-specific known-fact metadata, independent of the trip-slot photograph. Full-image readers preserve both original files. Real touch WebKit375×667 and reduced/native375×520 check the day source/route/date, all train paragraphs, full image, main source/date, unchanged river story, separate editor selection/captions and absence of JavaScript errors. The train story stays within the existing1200-character caption limit. Source/archive/GitHub byte checks verify original media and current source.
+
+All38 rules of the V78 Antislop delivery gate below are rechecked for this content scope: no style or animation change, real supplied media/facts and verbatim wording satisfy R-17/R-22/R-23/R-38; R-02 has no em dash; R-26/R-35 use current phone checks; R-31 records provenance; R-33 uses apply_patch and original-file copy. The confirmed source label avoids falsely applying the river date to unrelated uploaded photos. Established Antislop during3/3/3 and Taste8/9/5 remain; L-1–L-7, C-1–C-5 and applicable Taste utility checks preserve the same visual system and semantic readers. Earlier broad suites remain historical; physical iPhone testing is not claimed.
+
+## Historical validation: verbatim photograph memory and date, V79
 
 30 October 2026. Current evidence is in `qa/v79`. Restore the owner's exact six-paragraph writing, removing the translation and invented page annotation. The page annotation is now his own closing sentence. His confirmed 23 October2026 date is carried by trip slot T23, selected as the main photograph without duplicating the image in the gallery. Touch WebKit375×667 and reduced/native375×520 verify the hero date, original source, exact rendered caption equality, paragraphs, full-image reader and editable T23 selection/writing. Image bytes, stylesheet, motion and audio are unchanged. Source/archive/GitHub byte checks precede publication.
 
