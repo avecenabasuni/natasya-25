@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V96: a cohesive letter-divider collage
+
+Replace the dense floral frame/empty upper band with a single tilted cream envelope resting on blush/sage paper, ribbon and asymmetric flower accents. Preserve the exact five cat cutouts but arrange them as a staggered group: Wonnie central, Winnie larger, Bonnie forward, Connie to the side and Minnie visibly kitten-sized. Shared normalized positions, slight rotations and explicit stacking order keep native and3D composition aligned. Add only restrained paper contact shadows. The3D back uses reusable masked cutout canvases capped at512px on their longest edge; original reader assets stay untouched. Keep full portrait frames, live heading clearance, strict image readiness and the photo-free other dividers. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V95: the same five cats on the letter divider
 
 Replace the generic cats baked into For you, folded in. with the exact existing Winnie, Bonnie, Connie, Wonnie and Minnie illustrations used on the page and in readers. Extract source/frame/separating-polygon descriptors from the existing portrait markup, so the divider cannot drift into a second set of cat designs. Generate only a cat-free envelope/floral background, then place the canonical five cutouts in HTML and the3D canvas using matching normalized positions and complete frames. No new cat drawing or personal photograph. Keep the live heading, original cat-reader content, native phone clearance and strict readiness/recovery. Retain Antislop during3/3/3 and Taste8/9/5.

@@ -1,5 +1,7 @@
 # Scrapbook asset sources
 
+V96 refines the letter divider's background into one envelope/paper/ribbon collage with asymmetric floral accents. The five established cat cutouts remain unchanged, with staggered positions, Wonnie central and Minnie smaller. Only the cat-free background is newly generated; [illustration provenance](illustrations/PROVENANCE.md) records source/delivery hashes and retained earlier versions.
+
 V95 replaces the letter divider's generic cat drawings with the exact five existing cat cutouts used in the story/readers. Only the cat-free envelope/floral background is newly generated. Shared portrait descriptors preserve each source, full frame and separating polygon in native and3D rendering. [Illustration provenance](illustrations/PROVENANCE.md) records background hashes; existing cat provenance is retained.
 
 V94 replaces the Moments to keep. Polaroid divider with an original generated ornament-only collage: pink ribbon, pressed daisies, lace, paper heart and blush/sage paper. It contains no photos or photo frames. The complete portrait is shared by native and3D rendering; all runtime divider photo compositing is removed. [Illustration provenance](illustrations/PROVENANCE.md) records original and delivery hashes.

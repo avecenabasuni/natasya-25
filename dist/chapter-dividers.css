@@ -4,8 +4,7 @@
 .divider-window{position:absolute;left:50%;top:50%;width:min(100cqw,calc(100cqh * var(--divider-ratio)));aspect-ratio:var(--divider-ratio);transform:translate(-50%,-50%);overflow:hidden}
 .chapter-divider .divider-window img{position:absolute;max-width:none;object-fit:fill;display:block}
 .divider-cats{position:absolute;inset:0;pointer-events:none}
-.chapter-divider .divider-cats .divider-cat{position:absolute;top:17%;width:17.6%;height:30%}
-.divider-cat:nth-child(1){left:6%}.divider-cat:nth-child(2){left:23.6%}.divider-cat:nth-child(3){left:41.2%}.divider-cat:nth-child(4){left:58.8%}.divider-cat:nth-child(5){left:76.4%}
+.chapter-divider .divider-cats .divider-cat{position:absolute;left:var(--divider-cat-x);top:var(--divider-cat-foot);width:var(--divider-cat-w);height:var(--divider-cat-h);transform:translate(-50%,-100%) rotate(var(--divider-cat-angle));transform-origin:50% 100%;z-index:var(--divider-cat-z);filter:drop-shadow(0 1px 1px #4129222e)}
 .chapter-divider .divider-cats .pet-frame{top:auto;bottom:0;transform:translateX(-50%)}
 .divider-caption{position:absolute;left:9%;right:7%;bottom:7.5%;padding:0;text-align:left}
 .chapter-divider .divider-title{margin:0;padding:0;font:500 10cqw/1.06 var(--serif);letter-spacing:0;color:var(--ink);font-optical-sizing:none;outline-offset:6px}

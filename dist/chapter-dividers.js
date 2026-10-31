@@ -3,7 +3,7 @@
   const src='assets/illustrations/chapter-dividers.png',atlas=[1333,1180];
   const journeySrc='assets/illustrations/four-days-dividers.webp',journeyAtlas=[1536,1024];
   const momentsSrc='assets/illustrations/moments-divider.webp';
-  const letterSrc='assets/illustrations/letter-divider.webp';
+  const letterSrc='assets/illustrations/letter-divider-v96.webp';
   const entries={
     dedication:{frame:[0,0,444,590],title:['Trier &','Luxembourg.'],alt:'A paper souvenir of Luxembourg, with a stone bridge, a little rail ticket and pressed autumn leaves.'},
     'your-world':{src:journeySrc,atlas:journeyAtlas,frame:[0,0,768,840],date:'22–23 October',title:['The way','there.'],alt:'An illustrated paper collage of a warm stone church, a regional train and rail tickets, with pink and sage papers and pressed autumn leaves.'},
@@ -16,17 +16,31 @@
   const sourceFor=id=>entries[id]?.src||src;
   const sources=[...new Set([src,...Object.values(entries).map(entry=>entry.src||src)])];
   const catPrints=()=>window.ScrapbookCatPortraits.prints;
+  const catPlacement=[
+    {x:.15,foot:.62,w:.23,h:.34,angle:-3,z:1},
+    {x:.34,foot:.68,w:.17,h:.26,angle:2,z:4},
+    {x:.72,foot:.62,w:.22,h:.33,angle:3,z:2},
+    {x:.52,foot:.65,w:.24,h:.36,angle:-1,z:3},
+    {x:.88,foot:.70,w:.15,h:.215,angle:-3,z:5}
+  ];
+  const catInk=new WeakMap();
+  function cutout(image,cat){
+    let cached=catInk.get(image);if(!cached){cached=new Map();catInk.set(image,cached);}if(cached.has(cat.name))return cached.get(cat.name);
+    const [x,y,w,h]=cat.frame,scale=Math.min(1,512/Math.max(w,h)),canvas=document.createElement('canvas');canvas.width=Math.ceil(w*scale);canvas.height=Math.ceil(h*scale);canvas.dataset.catName=cat.name;canvas.dataset.catSource=cat.src;
+    const ink=canvas.getContext('2d');ink.beginPath();cat.polygon.forEach(([px,py],i)=>i?ink.lineTo(px/100*canvas.width,py/100*canvas.height):ink.moveTo(px/100*canvas.width,py/100*canvas.height));ink.closePath();ink.clip();ink.drawImage(image,x,y,w,h,0,0,canvas.width,canvas.height);cached.set(cat.name,canvas);return canvas;
+  }
   function createCats(){
     const row=document.createElement('div');row.className='divider-cats';row.setAttribute('aria-label','Winnie, Bonnie, Connie, Wonnie and Minnie');
-    row.innerHTML=catPrints().map((cat,i)=>window.ScrapbookCatPortraits.markup(i,'divider-cat',`data-divider-cat="${cat.name}"`)).join('');return row;
+    row.innerHTML=catPrints().map((cat,i)=>window.ScrapbookCatPortraits.markup(i,'divider-cat',`data-divider-cat="${cat.name}"`)).join('');
+    [...row.children].forEach((node,i)=>{const p=catPlacement[i];Object.entries({x:p.x*100+'%',foot:p.foot*100+'%',w:p.w*100+'%',h:p.h*100+'%',angle:p.angle+'deg',z:p.z}).forEach(([k,v])=>node.style.setProperty('--divider-cat-'+k,v));});return row;
   }
   function paintCats(ctx,images,w,h){
-    catPrints().forEach((cat,i)=>{
+    [...catPrints().keys()].sort((a,b)=>catPlacement[a].z-catPlacement[b].z).forEach(i=>{
+      const cat=catPrints()[i];
       const image=images[i];if(!image)return;
-      const [sx,sy,sw,sh]=cat.frame,cellW=w*.176,cellH=h*.30,scale=Math.min(cellW/sw,cellH/sh),dw=sw*scale,dh=sh*scale,dx=w*(.06+i*.176)+(cellW-dw)/2,dy=h*.47-dh;
-      ctx.save();ctx.beginPath();ctx.rect(dx,dy,dw,dh);ctx.clip();ctx.beginPath();
-      cat.polygon.forEach(([px,py],j)=>j?ctx.lineTo(dx+px/100*dw,dy+py/100*dh):ctx.moveTo(dx+px/100*dw,dy+py/100*dh));ctx.closePath();ctx.clip();
-      ctx.drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh);ctx.restore();
+      const p=catPlacement[i],[,,sw,sh]=cat.frame,scale=Math.min(w*p.w/sw,h*p.h/sh),dw=sw*scale,dh=sh*scale;
+      ctx.save();ctx.translate(w*p.x,h*p.foot);ctx.rotate(p.angle*Math.PI/180);ctx.shadowColor='rgba(65,41,34,.18)';ctx.shadowBlur=2.2;ctx.shadowOffsetY=1.8;
+      ctx.drawImage(cutout(image,cat),-dw/2,-dh,dw,dh);ctx.restore();
     });
   }
   function create(id){

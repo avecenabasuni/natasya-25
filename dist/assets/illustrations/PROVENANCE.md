@@ -1,3 +1,11 @@
+# Refined letter-divider background, V96
+
+Generated31 October2026 with OpenAI image generation, using the V95 letter background and Moments divider as material/color references. One tilted cream envelope, blush/sage paper, satin ribbon and asymmetric floral accents replace the earlier dense frame/empty band. No cats, people, personal photographs or wording are generated. The same existing five cat cutouts are layered by code with their original frames/masks and revised staggered positions; original cat images are unchanged.
+
+Original PNG: `/workspace/generated_images/exec-1f3d28d6-a708-42ce-8197-95ab5dc31aaa.png`, SHA-256 `2f5582a2a8bd744f91e83c3b9b67c884e3d994d996cfb75ea22179b834567858`. Delivery `letter-divider-v96.webp` is1086×1448,419492bytes, quality92 format conversion with complete original dimensions/composition, SHA-256 `faa84a0988331a7551bcc273f37ac140c159e9c2b160dc041595b0f1b1c43cf9`. The revision-specific filename prevents reuse of earlier cached background bytes. Earlier generated sources/delivery files remain retained for provenance; only this version is used on the letter divider.
+
+## Historical V95 illustration provenance
+
 # Letter divider background and canonical cats, V95
 
 Generated31 October2026 with OpenAI image generation, using the old divider atlas's envelope/floral tile as a material/color reference. The new background contains only cream envelope, flowers, blush/sage paper, ribbon, lace and paper hearts; no cats, people, photographs or baked-in words. Existing Winnie/Bonnie/Connie/Wonnie/Minnie cutouts are rendered separately on top, using the exact same sources, frames and separating masks as the page/readers. No cat was redrawn.
