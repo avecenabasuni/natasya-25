@@ -7,6 +7,7 @@ window.BIRTHDAY_CONFIG = {
   intro: "Hauptmarkt in Trier. Luxembourg with you. RE11 there, L31 back, and meals along the way.",
   coverPhoto: "assets/illustrations/cover-tasya-bouquet.jpg",
   featuredPhoto: "memory:0",
+  catGreeting: "Happy 25th, Tasya!\nWe love you!",
   catNotes: [
     "Your chubby, lazy, food-loving second favourite. I’m here for your 25th, preferably lying down and close to something to eat.",
     "I love having other cats to play with. Today, though, you’re the one we’re all celebrating.",

@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V97: one visible birthday greeting from all five cats
+
+Make the Notes right-page cats decorative, with one always-visible cream speech bubble reading Happy25th, Tasya! / We love you! Keep the canonical five portraits, names and physical cards; remove their controls, halos, lift feedback, click cues and readers. Keep the letter and shared song interactive. One shared SVG/Path2D shape supplies the soft rectangle and tail, with live16px Source Sans3 text. Hide the native SVG only over the active3D canvas to avoid covering its printed text. Keep bubble/cards atomic for pagination, reduce Notes-only note/margins, and fit the native short view without hiding functional content. Preserve footer fan stickers outside the writing. Replace five editor greetings with one optional schema2 catGreeting, max60characters/two visual lines; keep legacy catNotes intact in JSON. Other writing, dividers, photos, type, audio and motion remain. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V96: a cohesive letter-divider collage
 
 Replace the dense floral frame/empty upper band with a single tilted cream envelope resting on blush/sage paper, ribbon and asymmetric flower accents. Preserve the exact five cat cutouts but arrange them as a staggered group: Wonnie central, Winnie larger, Bonnie forward, Connie to the side and Minnie visibly kitten-sized. Shared normalized positions, slight rotations and explicit stacking order keep native and3D composition aligned. Add only restrained paper contact shadows. The3D back uses reusable masked cutout canvases capped at512px on their longest edge; original reader assets stay untouched. Keep full portrait frames, live heading clearance, strict image readiness and the photo-free other dividers. Retain Antislop during3/3/3 and Taste8/9/5.

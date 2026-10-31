@@ -100,13 +100,6 @@
       const memorableLink=c.memorableSong?.title?safeLink(c.memorableSong.url):'';
       openDialog(`<h2 class="visually-hidden">Our song.</h2><div class="reader-soundtrack soundtrack-slip">${soundtrackContent(c)}</div>${memorableLink?`<a class="song-link memorable-song-link" href="${esc(memorableLink)}" target="_blank" rel="noopener noreferrer">Listen to our song ${icon('arrow')}</a>`:''}`);
     }
-    function showCats(){
-      const key=objectSource?.dataset.bookObject,index=/^cat-[0-4]$/.test(key||'')?Number(key.slice(4)):-1,selected=cats[index];
-      const portrait=selected?catPortrait(index,'reader-cat-portrait',`data-reader-cat="${index}"`):'';
-      const family=`<figure class="reader-cat-family" aria-label="Winnie, Bonnie, Connie, Wonnie and Minnie">${cats.map((cat,i)=>`<span class="pet-sticker" style="--pet:${i}">${catPortrait(i)}<span class="pet-name">${cat.name}</span></span>`).join('')}</figure>`;
-      const message=selected?(getConfig().catNotes?.[index]??selected.birthdayNote):'All five, here for your 25th.';
-      openDialog(`${portrait}<h2>${selected?selected.name:'Your birthday committee.'}</h2>${selected?'':family}${message.trim()?`<p class="cat-birthday-greeting">${esc(message)}</p>`:''}`);
-    }
     function showDay(c,index){
       const src=c.germanyPhotos[index],day=trip.days[index],caption=c.germanyCaptions[index].trim();
       if(src){openDialog(window.ScrapbookPhotoCards.markup([{src,caption:caption||day.prompt,date:day.date+' 2026 · '+day.place}]));return;}
@@ -155,7 +148,7 @@ openDialog(`<p class="dialog-label">${trip.dates}</p><h2>Trier & Luxembourg.</h2
       const opening=excerpt(c.intro.trim()||trip.personalIntro,tight?110:150),context=excerpt(c.dedication,tight?60:80),observation=excerpt(detail,tight?65:85),distance=excerpt(c.distanceNote,tight?90:110);
       const map=`<figure class="story-art trier-map"><button id="open-trier" data-book-object="map" aria-label="Open the Trier and Luxembourg map and notes"><img src="${trip.map}" alt="${trip.mapAlt}" width="1000" height="650"></button></figure>`;
       const hero=`<figure class="story-art real-memory polaroid-frame main-polaroid${photo?'':' photo-placeholder'}"><button id="open-photo-hero" data-book-object="photograph" aria-label="Open our main photograph">${photo?`<span class="polaroid-image"><img src="${esc(photo.src)}" alt="${esc(photo.caption)}" width="600" height="700"></span>`:'<span class="photo-blank" data-placeholder="true">[Our photograph in Luxembourg]</span>'}</button><figcaption class="polaroid-caption">${esc(photo?.day?photo.day.place+' · '+photo.day.date+' 2026':photo?trip.photoLabels?.[photo.src]||'October 2026':'Luxembourg · October 2026')}</figcaption><span class="photo-tape" aria-hidden="true"></span></figure>`;
-      const catFamily=`<figure class="recap-pets"><button class="cat-family-open" id="open-cats" data-book-object="cats" aria-label="Meet Winnie, Bonnie, Connie, Wonnie and Minnie">${cats.map((cat,i)=>`<span class="pet-sticker" data-book-object="cat-${i}" style="--pet:${i}">${catPortrait(i)}<span class="pet-name">${cat.name}</span></span>`).join('')}</button></figure>`;
+      const catFamily=`<figure class="recap-pets cat-birthday-group" id="birthday-cats" aria-label="A birthday greeting from Winnie, Bonnie, Connie, Wonnie and Minnie"><div class="cat-greeting"><svg viewBox="0 0 235 52" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="${window.ScrapbookCatGreeting.path()}"/></svg><span class="cat-greeting-text">${esc(window.ScrapbookCatGreeting.resolve(c.catGreeting))}</span></div><div class="cat-family">${cats.map((cat,i)=>`<span class="pet-sticker" style="--pet:${i}">${catPortrait(i)}<span class="pet-name">${cat.name}</span></span>`).join('')}</div></figure>`;
       const dayCards=trip.days.map((day,i)=>`<button class="recap-day photo-fragment polaroid-frame" id="open-day-${i}" data-book-object="day-${i}" aria-label="Open ${day.date}: ${day.place}"><span class="fragment-image polaroid-image">${c.germanyPhotos[i]?`<img src="${esc(c.germanyPhotos[i])}" alt="Photo from ${day.date}" width="240" height="160">`:`<span class="fragment-placeholder" data-placeholder="true">[Photo ${i+1}]</span>`}</span><span class="fragment-caption polaroid-caption"><strong>${day.shortDate}</strong><span class="recap-day-copy">${esc(day.recapPlace||day.place)}</span></span></button>`);
       const days=start=>`<div class="recap-days photo-fragments day-pair">${dayCards.slice(start,start+2).join('')}</div>`;
       const soundtrack=`<button class="soundtrack-slip" id="open-playlist" data-book-object="song" aria-haspopup="dialog" aria-controls="map-dialog">${soundtrackContent(c)}</button>`;
@@ -174,7 +167,6 @@ openDialog(`<p class="dialog-label">${trip.dates}</p><h2>Trier & Luxembourg.</h2
       app.querySelector('.cover-collage-art')?.addEventListener('error',event=>{event.target.hidden=true;const front=event.target.closest('.book-front');front.classList.add('cover-art-unavailable');front.querySelector('.cover-art-fallback').hidden=false;},{once:true});
       bind('open-dedication',()=>showLong('A note from me','For you.',c.intro+(c.dedication.trim()?'\n\n'+c.dedication:'')));
       bind('open-playlist',()=>showMusic(c));bind('open-personal',()=>showPersonal(c));bind('open-gallery',()=>showPhotos(c));bind('open-photo-hero',()=>showMainPhoto(photo));
-      bind('open-cats',showCats);
       bind('open-trier',()=>showTrip(c));dayPrompts.forEach((_,i)=>bind('open-day-'+i,()=>showDay(c,i)));
       bind('birthday-candle',toggleCandle);
       bind('open-distance',()=>showLong('From here, for you','From afar.',c.distanceNote));bind('open-letter',()=>showLong('Your birthday letter','For '+esc(c.name)+'.',c.letter||prompts.letter));bind('open-birthday-note',()=>showLong('2 November','Happy birthday.',c.wishes[2]||prompts.wish));bind('open-gift',()=>{if(!candleBlown){go('gift',true);return;}showGift();});

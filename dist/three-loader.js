@@ -1,2 +1,2 @@
 // One dependency promise keeps the first render and every later reflow identical.
-window.bookRendererReady = import('./three-visual.js?v=95').catch(() => null);
+window.bookRendererReady = import('./three-visual.js?v=97').catch(() => null);
