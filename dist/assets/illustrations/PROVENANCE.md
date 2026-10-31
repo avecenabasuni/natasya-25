@@ -1,3 +1,11 @@
+# Unified five-cat birthday illustration, V98
+
+Generated31 October2026 with OpenAI image generation from four existing cat-illustration references: the original family atlas for Winnie/Minnie only, plus the corrected Bonnie, Connie and Wonnie cutouts. This is one newly drawn watercolor/colored-pencil group with exactly five cats, not a manual composition of separate cards. Winnie is orange/chunky, Bonnie predominantly white with tabby head/foreleg/tail markings, Wonnie grey-brown tabby with white bib/paws at center, Connie orange/dark/white calico with collar/bell, and Minnie a smaller tortoiseshell kitten. The large shared bubble includes the approved wording Happy25th, Tasya! / We love you! as part of the artwork. New poses/style are illustrative, not literal pet photographs or pixel-identical copies of the older cutouts.
+
+Original PNG: `/workspace/generated_images/exec-20c12e52-2d28-4324-99e9-335c0ef8dc97.png`, SHA-256 `1d04fb82e772a7518457321719878b55b1775622e153b9b0d91eb8902e7bb92c`. Delivery `five-cats-birthday-v98.webp` preserves full1536×1024 dimensions/composition and transparency, quality92 format conversion,605054bytes, SHA-256 `13b1b4176256091be46a89cb6292269cd1d1e80918cd7934ac1658b5bb5e1173`. Original alpha extrema0–254. The original PNG and all previous cat assets are retained. Native and3D render the complete image with contain; it is mandatory during intro loading. No additional hand compositing or baked crop is applied.
+
+## Historical V96 illustration provenance
+
 # Refined letter-divider background, V96
 
 Generated31 October2026 with OpenAI image generation, using the V95 letter background and Moments divider as material/color references. One tilted cream envelope, blush/sage paper, satin ribbon and asymmetric floral accents replace the earlier dense frame/empty band. No cats, people, personal photographs or wording are generated. The same existing five cat cutouts are layered by code with their original frames/masks and revised staggered positions; original cat images are unchanged.

@@ -106,9 +106,6 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   };
 
   async function drawDOM(node,ctx,origin,relief=null,skipFandom=false){
-    for(const bubble of [...(node.matches('.cat-greeting')?[node]:[]),...node.querySelectorAll('.cat-greeting')]){
-      const r=bubble.getBoundingClientRect();ctx.save();ctx.translate(r.left-origin.left,r.top-origin.top);const shape=new Path2D(window.ScrapbookCatGreeting.path(r.width,r.height));ctx.fillStyle=palette.paper;ctx.fill(shape);ctx.strokeStyle=palette.rose;ctx.lineWidth=1.25;ctx.stroke(shape);ctx.restore();
-    }
     const boxSelector='.cover-personalisation,.main-polaroid,button,a.open-book,.cover-stitch,.cover-dedication,.cover-dedication-stitch,.page-foot,.placeholder-copy,.postcard-date,.fragment-image,.photo-blank,.coupon-card,.gift-pocket-front,.letter-crease,.note-fold-edge,.trier-map,.photo-fragments,.keepsake-slip,.pet-sticker,.folded-letter,.soundtrack-slip,.photo-portrait .fandom-portrait';
     const boxes=[...(node.matches(boxSelector)?[node]:[]),...node.querySelectorAll(boxSelector)];
     boxes.forEach(e=>{
@@ -198,7 +195,6 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
       const e=node.querySelector(selector);if(e)anchors[selector]=bounds(e);
     }
     anchors.fragments=[...node.querySelectorAll('.photo-fragment')].map(bounds);
-    anchors.stickers=[...node.querySelectorAll('.pet-sticker')].map(bounds);
     anchors.photoImages=[...node.querySelectorAll('.photo-fragment')].map(bounds);
     anchors.photoKeys=[...node.querySelectorAll('.photo-fragment')].map(photo=>photo.dataset.bookObject);
     anchors.actions=[...node.querySelectorAll('.story-button[data-book-object]')].map(e=>({key:e.dataset.bookObject,...bounds(e)}));
@@ -369,9 +365,6 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     if(a['.birthday-wish-note']){
       const b=a['.birthday-wish-note'],note=printedPaper(index,b,g,.7);registerFeedback('wish',index,note,b.w,b.h,{z:.8});clearUnderlay(index,b);
     }
-    a.stickers.forEach((b,i)=>{
-      printedPaper(index,b,g,1.2+i*.06,[-3,2,-1,3,-2][i],null,'sticker');clearUnderlay(index,b);
-    });
     if(a['.keepsake-slip']){const b=a['.keepsake-slip'];printedPaper(index,b,g,.85,.7);clearUnderlay(index,b);}
     if(a['.soundtrack-slip']){const b=a['.soundtrack-slip'],song=printedPaper(index,b,g,.85);registerFeedback('song',index,song,b.w,b.h);clearUnderlay(index,b);}
     a.actions.forEach(({key,...b})=>{const action=printedPaper(index,b,g,.7);registerFeedback(key,index,action,b.w,b.h,{z:.8});clearUnderlay(index,b);});

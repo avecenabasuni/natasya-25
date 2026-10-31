@@ -16,7 +16,6 @@
 .three-book .book-viewport .book-print,.three-book .book-viewport .book-print *,
 .three-book .book-viewport .cover-chapter,.three-book .book-viewport .cover-chapter *{color:transparent!important;text-decoration-color:transparent!important;text-shadow:none!important;background:transparent!important;border-color:transparent!important;box-shadow:none!important}
 .three-book .book-viewport .book-print img,.three-book .book-viewport .cover-chapter img{visibility:inherit!important;opacity:0!important}
-.three-book .book-viewport .cat-greeting>svg{visibility:hidden}
 .three-book .book-viewport .book-print *:before,.three-book .book-viewport .book-print *:after,
 .three-book .book-viewport .cover-chapter *:before,.three-book .book-viewport .cover-chapter *:after{visibility:hidden!important}
 .three-book .book-print :focus-visible,.three-book .cover-chapter :focus-visible{outline:3px solid var(--rose);outline-offset:3px}
@@ -29,8 +28,6 @@
 .three-book .cover-ribbon{opacity:0!important}
 .three-book .cover-chapter{transform:translateZ(19px)}
 .three-book .book-print .favourites-art>img,.three-book .book-print .postcard-art>img{visibility:hidden}
-.three-book .cat-family-open>img{visibility:hidden}
-.three-book .recap-pets .cat-family-open>img{visibility:inherit}
 .three-book .trier-art>.trier-image{visibility:hidden}
 .three-book .book-print .birthday-keepsake{visibility:hidden}
 .three-book .book-print .voucher-coupon{visibility:inherit;background:transparent;box-shadow:none;border-color:transparent;transform:none}

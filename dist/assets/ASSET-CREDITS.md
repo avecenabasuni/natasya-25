@@ -1,5 +1,7 @@
 # Scrapbook asset sources
 
+V98 combines the Notes right-page cats and approved greeting into one original generated transparent illustration, based on the existing cat references. It replaces the separate cards and manual speech bubble. [Illustration provenance](illustrations/PROVENANCE.md) records the five identities, original/delivery hashes and complete-image rendering. The left divider and earlier canonical cutouts remain unchanged.
+
 V96 refines the letter divider's background into one envelope/paper/ribbon collage with asymmetric floral accents. The five established cat cutouts remain unchanged, with staggered positions, Wonnie central and Minnie smaller. Only the cat-free background is newly generated; [illustration provenance](illustrations/PROVENANCE.md) records source/delivery hashes and retained earlier versions.
 
 V95 replaces the letter divider's generic cat drawings with the exact five existing cat cutouts used in the story/readers. Only the cat-free envelope/floral background is newly generated. Shared portrait descriptors preserve each source, full frame and separating polygon in native and3D rendering. [Illustration provenance](illustrations/PROVENANCE.md) records background hashes; existing cat provenance is retained.

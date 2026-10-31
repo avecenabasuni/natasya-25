@@ -34,7 +34,7 @@
   function normalize(c){
     const out=structuredClone(defaults);
     for(const k of ['name','sender','intro','dedication','distanceNote','letter','giftNote'])if(typeof c?.[k]==='string')out[k]=c[k].slice(0,k==='letter'?15000:['intro','dedication','distanceNote','giftNote'].includes(k)?4000:60);
-    out.catGreeting=window.ScrapbookCatGreeting.resolve(c?.catGreeting??defaults.catGreeting);
+    out.catGreeting=typeof c?.catGreeting==='string'?c.catGreeting:defaults.catGreeting;
     out.schemaVersion=2;
     if(typeof c?.coverPhoto==='string')out.coverPhoto=safeImage(c.coverPhoto)||defaults.coverPhoto;
     for(const [key,size]of [['catNotes',2000],['mealNotes',4000]])if(Array.isArray(c?.[key]))out[key]=defaults[key].map((text,i)=>typeof c[key][i]==='string'?c[key][i].slice(0,size):text);
@@ -74,7 +74,6 @@
     if(!imagesReady)throw new Error('One of your photos could not be prepared. Please choose that photo again.');
     await intro.bounded(window.ScrapbookPhotoCards.load(next),20000);
     await intro.bounded(preparePrintFonts(next),10000);
-    next.catGreeting=window.ScrapbookCatGreeting.assert(next.catGreeting);
     const saved=await persist(next);config=next;
     intro.reopen();modalLock.close($('#personalize-dialog'));
     story.refresh();story.go('cover',true,true);
