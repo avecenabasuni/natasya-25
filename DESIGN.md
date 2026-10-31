@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V95: the same five cats on the letter divider
+
+Replace the generic cats baked into For you, folded in. with the exact existing Winnie, Bonnie, Connie, Wonnie and Minnie illustrations used on the page and in readers. Extract source/frame/separating-polygon descriptors from the existing portrait markup, so the divider cannot drift into a second set of cat designs. Generate only a cat-free envelope/floral background, then place the canonical five cutouts in HTML and the3D canvas using matching normalized positions and complete frames. No new cat drawing or personal photograph. Keep the live heading, original cat-reader content, native phone clearance and strict readiness/recovery. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V94: ornaments only on chapter dividers
 
 Remove personal photographs and their runtime compositing from all dividers. Replace the Moments to keep. Polaroid artwork with one original decorative ribbon, daisy, lace, paper-heart and blush/sage paper illustration containing no photographic image or photo frame. Keep the heading as live HTML/canvas text. Native and3D paths use the same artwork; preserve the short-screen heading clearance and mandatory image readiness. Photographs and personal stories remain on their actual reading pages. Retain Antislop during3/3/3 and Taste8/9/5.

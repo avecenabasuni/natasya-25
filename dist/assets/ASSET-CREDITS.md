@@ -1,5 +1,7 @@
 # Scrapbook asset sources
 
+V95 replaces the letter divider's generic cat drawings with the exact five existing cat cutouts used in the story/readers. Only the cat-free envelope/floral background is newly generated. Shared portrait descriptors preserve each source, full frame and separating polygon in native and3D rendering. [Illustration provenance](illustrations/PROVENANCE.md) records background hashes; existing cat provenance is retained.
+
 V94 replaces the Moments to keep. Polaroid divider with an original generated ornament-only collage: pink ribbon, pressed daisies, lace, paper heart and blush/sage paper. It contains no photos or photo frames. The complete portrait is shared by native and3D rendering; all runtime divider photo compositing is removed. [Illustration provenance](illustrations/PROVENANCE.md) records original and delivery hashes.
 
 V51 adds original reference-directed romantic cutouts for the owner's girlfriend: plush penguins, lipstick kisses, “my girl” paper, a foil heart and balloons. Seven carefully framed placements replace seven minor earlier motifs; all 68 earlier source entries remain. [Romantic keepsake provenance](cutouts/romance-keepsakes.md) records full-source transparency and separating masks. The owner's confirmed song, The One I Choose by Devin Velez, leads the soundtrack with a verified official listening link; [song provenance](memorable-song.md) records that source and the retained audio behavior.

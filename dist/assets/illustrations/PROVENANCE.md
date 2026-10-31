@@ -1,3 +1,11 @@
+# Letter divider background and canonical cats, V95
+
+Generated31 October2026 with OpenAI image generation, using the old divider atlas's envelope/floral tile as a material/color reference. The new background contains only cream envelope, flowers, blush/sage paper, ribbon, lace and paper hearts; no cats, people, photographs or baked-in words. Existing Winnie/Bonnie/Connie/Wonnie/Minnie cutouts are rendered separately on top, using the exact same sources, frames and separating masks as the page/readers. No cat was redrawn.
+
+Original PNG: `/workspace/generated_images/exec-47a19272-ed98-4c5b-a1fa-a7281f42fd87.png`, SHA-256 `6bf63c36478848f6e8d1a966f9d7e353ddb709ea068c04da1ab7d6a606f4a873`. Delivery `letter-divider.webp` is1086×1448,450464bytes, quality92 WebP format conversion with original dimensions/content, SHA-256 `21146b3c6540e086842da36c400936941263bc7868e135cae910f7b2b6a1d5c0`. Original PNG and all existing cat file bytes remain unchanged. The old generic-cat tile is no longer displayed. Both native HTML and3D canvas use the new background and the canonical cutouts; the strict intro requires them before entry.
+
+## Historical V94 illustration provenance
+
 # Moments divider illustration, V94
 
 Generated31 October2026 with OpenAI image generation using the original chapter-divider atlas as a material/color reference. One1086×1448 portrait collage of pink satin ribbon, pressed daisies and small flowers, cream lace, a paper heart and torn blush/sage papers. No people, photographs, photo frames, camera or baked-in wording. The empty lower paper holds a live heading. This decorative illustration replaces the old Polaroid tile on Moments to keep.; all personal photo compositing is removed from dividers.

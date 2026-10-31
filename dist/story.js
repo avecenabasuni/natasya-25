@@ -26,6 +26,12 @@
     const polygon=points.map(p=>p.join(',')).join(' '),clip=points.map(([px,py])=>px+'% '+py+'%').join(',');
     return `<span class="pet-portrait ${classes}" style="--pet:${index}" ${attrs}><span class="pet-frame" data-cat-frame="${x},${y},${w},${h}" data-cat-polygon="${polygon}" style="--cat-ratio:${w/h};--cat-width:${1919/w*100}%;--cat-height:${820/h*100}%;--cat-left:${-x/w*100}%;--cat-top:${-y/h*100}%;clip-path:polygon(${clip})"><img src="assets/cutouts/five-cats.webp" alt="${cat.name}, ${esc(cat.coat.toLowerCase())}" width="1919" height="820"></span></span>`;
   }
+  const catPrints=cats.map((cat,i)=>{
+    const template=document.createElement('template');template.innerHTML=catPortrait(i);
+    const frame=template.content.querySelector('.pet-frame'),image=frame.querySelector('img');
+    return {name:cat.name,src:image.getAttribute('src'),frame:frame.dataset.catFrame.split(',').map(Number),polygon:frame.dataset.catPolygon.split(' ').map(p=>p.split(',').map(Number))};
+  });
+  window.ScrapbookCatPortraits={markup:catPortrait,prints:catPrints};
   const detailPrompts=['Your little habits','Things you say','The way you laugh','What makes you happy','Things you do','What I want to remember'];
   const wishPrompts=['Places we want to visit','Things we want to try','My wishes for you'];
   const prompts={intro:'[One small detail from Luxembourg.]',dedication:'[The places, conversations and little finds from Trier and Luxembourg.]',detail:'[A little detail you want to keep.]',scene:'[What was happening just outside this photograph?]',letter:'[Something she did or said that you want to remember.]',wish:'[Your birthday wish, in your own words.]'};
