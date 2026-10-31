@@ -1,5 +1,9 @@
 # A little world, physical scrapbook
 
+## V94: ornaments only on chapter dividers
+
+Remove personal photographs and their runtime compositing from all dividers. Replace the Moments to keep. Polaroid artwork with one original decorative ribbon, daisy, lace, paper-heart and blush/sage paper illustration containing no photographic image or photo frame. Keep the heading as live HTML/canvas text. Native and3D paths use the same artwork; preserve the short-screen heading clearance and mandatory image readiness. Photographs and personal stories remain on their actual reading pages. Retain Antislop during3/3/3 and Taste8/9/5.
+
 ## V93: filled photograph-divider mounts
 
 Fill the two printed Polaroid apertures on Moments to keep. with the currently selected main photograph and a distinct existing trip photograph, preferring the RE11 selfie. Use the same source selection and aperture geometry in native HTML and the3D printed back. Preserve the original collage, cream frames, front-mount overlap, ribbon and daisy; no new image asset or motion. Refresh the selection with personalization and require both images before scene readiness. Keep this native divider short enough for its heading to clear phone navigation. Other photographs remain full originals in their readers. Retain Antislop during3/3/3 and Taste8/9/5.

@@ -1,3 +1,13 @@
+# Validation: ornament-only dividers, V94
+
+31 October2026. Remove all personal-photo selection, clipped layers and canvas compositing from dividers, including their story/3D asset dependencies. Moments to keep. now uses one original1086×1448 ornament-only illustration of pink ribbon, pressed flowers, lace, paper heart and blush/sage paper. No photographs or photo frames are present in the new image; the old Polaroid tile is no longer displayed. The complete image is shared by HTML and3D, with live heading and existing native height clearance. Add the602628-byte WebP to mandatory intro readiness. Original config, photographs, old atlas, writing, fonts, audio and reader behavior remain unchanged.
+
+Focused touch WebKit375×667 and reduced/native375×520 checks verify no divider contains personal-photo layers or photo sources, decoded decorative images before entry, the actual3D back using the new image, heading clearance, reverse navigation and the unchanged full-resolution main-photo reader. Missing new-art failure blocks entry; actual Retry prepares it before release. No JavaScript errors; both views visually reviewed. Source/image provenance, syntax/diff and original config/atlas byte equality pass. Evidence: qa/v94. Prior broad suites remain historical; this is software WebKit, not physical-iPhone hardware certification.
+
+Antislop during3/3/3 and Taste8/9/5 retained. The established38-rule gate is reviewed for this bounded change: R-07/R-12/R-23 justify physical ornament imagery without personal-photo duplication; R-03/R-26/R-27/R-35 cover actual mobile render paths, navigation and strict readiness/recovery; R-17/R-22/R-31/R-38 preserve real content and record the generated decorative source honestly. L-1–L-7 and C-1–C-5 retain the existing scrapbook identity, readable title, functional pages, resilient loading and documented provenance. No new motion, schema or interactive object.
+
+## Historical V93 validation
+
 # Validation: filled Moments to keep divider, V93
 
 30 October2026. The original generated collage intentionally contained two blank photo apertures. Fill them at runtime using the selected main photo and a distinct configured trip photo, preferring the RE11 selfie. Shared source selection, clipping polygons and affine placement match native HTML to the3D canvas back. The rear photo stops at the front cream mount; ribbon/daisy/frame artwork and the original atlas remain intact. No new asset, font, wording, schema, motion or audio. Existing readers keep uncut original images.

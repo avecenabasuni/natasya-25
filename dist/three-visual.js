@@ -559,10 +559,9 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
   document.addEventListener('visibilitychange',cakeVisibility);
   let gutter=null;
   const memMaterials=new Map();function materialCache(i){if(!memMaterials.has(i))memMaterials.set(i,material('#ffffff',{map:backs[i]||null}));const mat=memMaterials.get(i);if(mat.map!==backs[i]){mat.map=backs[i]||null;mat.needsUpdate=true;}return mat;}
-  const dividerPhotoSources=window.ScrapbookDividers.photoSources;
-  const assetSrc={paper:'assets/materials/paper.webp',linen:'assets/materials/linen.webp',family:'assets/cutouts/five-cats.webp',map:window.SCRAPBOOK_TRIP.map,...Object.fromEntries(window.ScrapbookDividers.sources.map((src,i)=>['divider'+i,src])),...Object.fromEntries(dividerPhotoSources.map((src,i)=>['dividerPhoto'+i,src])),cake:pages.find(page=>page.print.querySelector('.cake-art'))?.print.querySelector('.cake-art')?.src,...(imageCover?{cover:originals[0].querySelector('.cover-collage-art').src}:{})};
+  const assetSrc={paper:'assets/materials/paper.webp',linen:'assets/materials/linen.webp',family:'assets/cutouts/five-cats.webp',map:window.SCRAPBOOK_TRIP.map,...Object.fromEntries(window.ScrapbookDividers.sources.map((src,i)=>['divider'+i,src])),cake:pages.find(page=>page.print.querySelector('.cake-art'))?.print.querySelector('.cake-art')?.src,...(imageCover?{cover:originals[0].querySelector('.cover-collage-art').src}:{})};
   const assets=Promise.all(Object.entries(assetSrc).map(async([k,src])=>[k,await loadImage(src)])).then(async entries=>{
-    if(disposed||lost)return;const images=Object.fromEntries(entries);if(!images.family||!images.map||!images.cake||!window.ScrapbookDividers.sources.every((_,i)=>images['divider'+i])||!dividerPhotoSources.every((_,i)=>images['dividerPhoto'+i])||imageCover&&!images.cover)throw new Error('A scrapbook image is unavailable.');paperMap=images.paper;linenMap=images.linen;cakeImage=images.cake;
+    if(disposed||lost)return;const images=Object.fromEntries(entries);if(!images.family||!images.map||!images.cake||!window.ScrapbookDividers.sources.every((_,i)=>images['divider'+i])||imageCover&&!images.cover)throw new Error('A scrapbook image is unavailable.');paperMap=images.paper;linenMap=images.linen;cakeImage=images.cake;
     const {c,ctx}=canvas2d();paintPaper(ctx);pageBaseMap=texture(c);paper.map=pageBaseMap;paper.needsUpdate=true;
     if(images.paper){const bump=sourceTexture(images.paper);bump.wrapS=bump.wrapT=THREE.RepeatWrapping;bump.repeat.set(W/440,H/440);paper.bumpMap=bump;paper.bumpScale=.18;paper.needsUpdate=true;readingMaterial.bumpMap=curlFront.bumpMap=curlBack.bumpMap=bump;readingMaterial.bumpScale=curlFront.bumpScale=curlBack.bumpScale=.18;readingMaterial.needsUpdate=curlFront.needsUpdate=curlBack.needsUpdate=true;}
     for(const [mat,vertical] of [[foreEdge,true],[capEdge,false]]){
@@ -583,7 +582,7 @@ window.createThreeBookVisual=({film,viewport,width:W,height:H,screen,stageHeight
     const patch=coverRaster.anchors['.cover-dedication'];
     if(patch){const sewn=new THREE.Group();cover.add(sewn);sewn.position.set(patch.x+patch.w/2,H/2-patch.y-patch.h/2,5.2);box(patch.w,patch.h,1.4,material(palette['paper-edge']),sewn);const print=plane(patch.w,patch.h,material('#ffffff',{map:coverRaster.parts.dedication,roughness:1,bumpMap:paper.bumpMap,bumpScale:.16}),sewn);print.position.z=.76;print.castShadow=false;print.receiveShadow=false;}
     const dividerImages=Object.fromEntries(window.ScrapbookDividers.sources.map((src,i)=>[src,images['divider'+i]]));
-    pages.forEach((page,i)=>{const art=canvas2d(),id=chapters[page.chapter][0];window.ScrapbookDividers.paint(art.ctx,dividerImages[window.ScrapbookDividers.sourceFor(id)],id,W,H,dividerPhotoSources.map((_,i)=>images['dividerPhoto'+i]));backs[i]=texture(art.c);});
+    pages.forEach((page,i)=>{const art=canvas2d(),id=chapters[page.chapter][0];window.ScrapbookDividers.paint(art.ctx,dividerImages[window.ScrapbookDividers.sourceFor(id)],id,W,H);backs[i]=texture(art.c);});
     coverMaterials[5].map=backs[0];coverMaterials[5].needsUpdate=true;
     for(let i=0;i<pages.length;i++){
       if(disposed||lost)return;

@@ -1,3 +1,11 @@
+# Moments divider illustration, V94
+
+Generated31 October2026 with OpenAI image generation using the original chapter-divider atlas as a material/color reference. One1086×1448 portrait collage of pink satin ribbon, pressed daisies and small flowers, cream lace, a paper heart and torn blush/sage papers. No people, photographs, photo frames, camera or baked-in wording. The empty lower paper holds a live heading. This decorative illustration replaces the old Polaroid tile on Moments to keep.; all personal photo compositing is removed from dividers.
+
+Original PNG: `/workspace/generated_images/exec-4bca9b42-3350-4ffe-a650-df7d3e495e4e.png`, SHA-256 `c6048324b86ae1501e96e8a3c81828fed4b25631b7423084773fe9ec40867dd3`. Delivery `moments-divider.webp` keeps the original dimensions and complete composition with quality92 format encoding,602628bytes, SHA-256 `5e39e38d8c23cf25cdf7ce8dfa18ce018a8977a32e3361f196e6ed38e9c8f4f1`. Both the native image and3D back use the same source; the strict intro requires it before entry. No original photo or old atlas bytes are changed.
+
+## Historical V91 illustration provenance
+
 # Four days divider illustrations, V91
 
 Generated30 October2026 for the owner-requested revision of both Four days dividers. `four-days-dividers.webp` is a1536×1024 original two-panel collage atlas: warm church/rail imagery for22–23 October and rain-speckled bus-window/umbrella imagery for24–25 October. Pink/sage paper, pressed autumn leaves and romantic ephemera match the existing divider atlas used as a style reference. These are illustrative keepsakes, not photographs of the actual trip, exact architecture or actual vehicle. No person or shared couple photograph was generated.
